@@ -86,7 +86,6 @@ export class UserFormComponent implements OnInit {
           formPending || requestVerifyEmail || updatingAcount
       )
     );
-    this.pending$.subscribe(console.log);
   }
 
   private _initForm() {

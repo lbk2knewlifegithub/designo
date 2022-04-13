@@ -86,8 +86,6 @@ export class AuthFacade {
     combineLatest([this._getAccessToken(), this.pending$])
       .pipe(take(1))
       .subscribe(([accessToken, pending]) => {
-        console.log('accessToken', accessToken);
-
         if (skipWhenPending && pending) return;
         if (!accessToken) return;
 
