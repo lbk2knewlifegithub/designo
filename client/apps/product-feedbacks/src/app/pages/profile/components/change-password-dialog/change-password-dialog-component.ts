@@ -46,17 +46,17 @@ export class ChangePasswordDialogComponent
 
   private _initForm() {
     this.form = new FormGroup({
-      oldPassword: new FormControl('lebinhkhang', [
+      oldPassword: new FormControl('', [
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(50),
       ]),
-      newPassword: new FormControl('lemonbanana', [
+      newPassword: new FormControl('', [
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(50),
       ]),
-      confirmPassword: new FormControl('lemonbanana', [
+      confirmPassword: new FormControl('', [
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(50),

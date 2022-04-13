@@ -1,3 +1,4 @@
+import { AvatarInputComponent } from '@lbk/comps';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -5,6 +6,7 @@ import {
   Input,
   OnInit,
   Output,
+  ViewChild,
 } from '@angular/core';
 import {
   AbstractControl,
@@ -17,7 +19,6 @@ import { UpdateUserDTO } from '@lbk/dto';
 import { User } from '@lbk/models';
 import { UserService } from '@lbk/state/auth';
 import { DialogService } from '@ngneat/dialog';
-import { Actions } from '@ngrx/effects';
 import {
   combineLatest,
   debounceTime,
@@ -39,16 +40,29 @@ import { ProfileFacade } from '../../state';
 export class UserFormComponent implements OnInit {
   _user!: User;
   @Input() set user(newUser: User) {
-    if (newUser != this._user && this.form) {
-      this.form.reset({ ...newUser });
+    if (newUser !== this.user && !!this.form) {
+      this._reset(newUser);
     }
 
     this._user = newUser;
   }
 
-  get user() {
+  get user(): User {
     return this._user;
   }
+
+  _isOwned!: boolean;
+  @Input() set isOwned(isOwned: boolean) {
+    this._isOwned = isOwned;
+    this._updateForm();
+  }
+
+  get isOwned() {
+    return this._isOwned;
+  }
+
+  @ViewChild('avatarInput', { static: true })
+  avatarInput!: AvatarInputComponent;
 
   pending$!: Observable<boolean>;
 
@@ -66,8 +80,7 @@ export class UserFormComponent implements OnInit {
     private readonly _fb: FormBuilder,
     private readonly _dialogService: DialogService,
     private readonly _userService: UserService,
-    private readonly _profileFacade: ProfileFacade,
-    private readonly _actions$: Actions
+    private readonly _profileFacade: ProfileFacade
   ) {}
 
   ngOnInit(): void {
@@ -81,20 +94,22 @@ export class UserFormComponent implements OnInit {
       this._profileFacade.requestingVerifyEmail$,
       this._profileFacade.updatingAccount$,
     ]).pipe(
-      map(
-        ([formPending, requestVerifyEmail, updatingAcount]) =>
-          formPending || requestVerifyEmail || updatingAcount
-      )
+      map(([formPending, requestVerifyEmail, updatingAcount]) => {
+        console.log(formPending, requestVerifyEmail, updatingAcount);
+        return formPending || requestVerifyEmail || updatingAcount;
+      })
     );
+
+    this._updateForm();
   }
 
   private _initForm() {
     const {
       firstname,
       lastname,
+      username,
       // email
     } = this.user;
-
     this.form = this._fb.group({
       // First Name
       firstname: [
@@ -114,6 +129,14 @@ export class UserFormComponent implements OnInit {
           Validators.maxLength(40),
         ],
       ],
+
+      // Username
+      username: [
+        {
+          value: username,
+          disabled: true,
+        },
+      ],
       // Email
       // email: [
       //   email,
@@ -123,7 +146,8 @@ export class UserFormComponent implements OnInit {
     });
   }
 
-  onSubmit(avatar?: File) {
+  onSubmit() {
+    const avatar = this.avatarInput.file;
     if (
       !this.form.dirty &&
       !avatar
@@ -180,5 +204,20 @@ export class UserFormComponent implements OnInit {
 
   verifyButtonClick() {
     this.requestVerifyEmail.emit();
+  }
+
+  private _updateForm() {
+    if (!this.form) return;
+
+    if (this.isOwned && this.form.disabled) return this.form.enable();
+
+    if (!this.isOwned && this.form.enabled) return this.form.disable();
+  }
+
+  private _reset(newUser: User) {
+    this.form.reset({
+      ...newUser,
+    });
+    this.avatarInput.file = undefined;
   }
 }

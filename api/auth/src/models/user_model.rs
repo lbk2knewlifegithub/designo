@@ -17,10 +17,9 @@ pub struct User {
     #[serde(skip_serializing)]
     pub password: String,
 
-    #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(default)]
-    pub email: Option<String>,
-
+    // #[serde(skip_serializing_if = "Option::is_none")]
+    // #[serde(default)]
+    // pub email: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     #[serde(default)]
     pub avatar: Option<String>,
@@ -28,10 +27,9 @@ pub struct User {
     pub created_at: NaiveDateTime,
     pub updated_at: NaiveDateTime,
 
-    #[serde(skip_serializing_if = "Option::is_none")]
-    #[serde(default)]
-    pub verified: Option<bool>,
-
+    // #[serde(skip_serializing_if = "Option::is_none")]
+    // #[serde(default)]
+    // pub verified: Option<bool>,
     #[serde(skip_serializing)]
     pub blocked: bool,
 }

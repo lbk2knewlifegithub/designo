@@ -5,6 +5,7 @@ import { API_AUTH_URL } from '@lbk/tokens';
 import { BehaviorSubject, exhaustMap, forkJoin, Observable, of } from 'rxjs';
 import { catchError, map, shareReplay } from 'rxjs/operators';
 import { ImagesService } from './images.service';
+import { User } from '@lbk/models';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -107,5 +108,15 @@ export class UserService {
       catchError(() => of(false)),
       shareReplay(1)
     );
+  }
+
+  /**
+   *  - Get User By Username
+   * @param username
+   */
+  getUserByUsername(username: string): Observable<User> {
+    return this._http
+      .get<User>(`${this._authUrl}/users?username=${username}`)
+      .pipe(shareReplay(1));
   }
 }

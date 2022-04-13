@@ -14,19 +14,18 @@ import { DEFAULT_AVATAR } from '@lbk/tokens';
   selector: 'lbk-avatar-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div (click)="file.click()" class="relative group">
-      <img
-        #image
-        class="w-32 h-32 rounded-full object-cover object-center shadow-lg"
-        [src]="avatarSrc"
-        alt="Avatar"
-      />
+    <div
+      (click)="file.click()"
+      class="relative group  rounded-full object-cover object-center shadow-lg overflow-hidden"
+    >
+      <img #image class="w-32 h-32" [src]="avatarSrc" alt="Avatar" />
 
       <!-- Choose Avatar -->
       <button
         type="button"
         aria-label="Choose Avatar"
-        class="opacity-0 duration-300 absolute inset-0 bg-white/60 group-hover:opacity-100"
+        [ngClass]="{ 'group-hover:opacity-100': !disabled }"
+        class="opacity-0 duration-300  bg-white/60  absolute w-full h-full inset-0"
       >
         <div class="center">
           <i class="fa-solid fa-image text-3xl"></i>
@@ -52,6 +51,7 @@ export class AvatarInputComponent implements OnInit {
   file?: File;
 
   @Input() avatarSrc!: string;
+  @Input() disabled = false;
 
   constructor(
     private readonly _cd: ChangeDetectorRef,
@@ -68,6 +68,8 @@ export class AvatarInputComponent implements OnInit {
    * - On File Change
    */
   onFileChange = (e: Event) => {
+    if (this.disabled) return;
+
     const target = e.target as HTMLInputElement;
     if (!target || !target.files) return;
     const file = target.files[0];

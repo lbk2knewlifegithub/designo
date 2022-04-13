@@ -1,9 +1,10 @@
+import { ProfileFacade } from './../state/profile.facade';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UpdateUserDTO } from '@lbk/dto';
 import { User } from '@lbk/models';
 import { AuthFacade } from '@lbk/state/auth';
 import { DialogService } from '@ngneat/dialog';
-import { Observable } from 'rxjs';
+import { Observable, combineLatest, map } from 'rxjs';
 import { ChangePasswordDialogComponent } from './../components';
 
 @Component({
@@ -17,6 +18,7 @@ import { ChangePasswordDialogComponent } from './../components';
         </header>
 
         <lbk-user-form
+          [isOwned]="(isOwned$ | async)!"
           class="block mt-20 md:mt-24"
           [user]="(user$ | async)!"
           (changePassword)="changePassword()"
@@ -29,14 +31,24 @@ import { ChangePasswordDialogComponent } from './../components';
 })
 export class ProfilePageComponent implements OnInit {
   user$!: Observable<User>;
+  isOwned$!: Observable<boolean>;
 
   constructor(
     private readonly _dialogService: DialogService,
-    private readonly _authFacade: AuthFacade
+    private readonly _authFacade: AuthFacade,
+    private readonly _profileFacade: ProfileFacade
   ) {}
 
   ngOnInit(): void {
-    this.user$ = this._authFacade.user$ as Observable<User>;
+    this.user$ = this._profileFacade.user$ as Observable<User>;
+
+    this.isOwned$ = combineLatest([this._authFacade.user$, this.user$]).pipe(
+      map(([me, another]) => {
+        console.log('What the fuck');
+        console.log(me, another);
+        return me?.user_id === another?.user_id;
+      })
+    );
   }
 
   changePassword() {

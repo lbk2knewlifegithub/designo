@@ -56,29 +56,6 @@ pub async fn get_user_by_username(client: &Client, username: &str) -> Result<Opt
         .pop())
 }
 
-/// Get User By email Repo
-pub async fn get_user_by_email(client: &Client, email: &str) -> Result<Option<User>> {
-    let stmt = client
-        .prepare(&r#"SELECT * FROM users WHERE email = $1;"#)
-        .await
-        .expect("Auth Repo-> get_user_by_email -> Error preparing statement");
-
-    Ok(client
-        .query(&stmt, &[&email])
-        .await
-        .map_err(|e| {
-            debug!(
-                "Auth Repo-> get_user_by_email -> Failed to execute query: {}",
-                e
-            );
-            AppError::InvalidInput
-        })?
-        .iter()
-        .map(|row| User::from_row_ref(row).unwrap())
-        .collect::<Vec<User>>()
-        .pop())
-}
-
 /// Create New user Repo
 pub async fn create_user<'a>(client: &Client, new_user: &NewUser<'a>) -> Result<User> {
     let stmt = client
@@ -212,24 +189,47 @@ pub async fn change_password(client: &Client, user_id: &i32, new_password: &str)
     Err(AppError::RecordNotFound)
 }
 
-/// Verify Email
-pub async fn verify_email(client: &Client, user_id: &i32) -> Result<()> {
-    let stmt = client
-        .prepare(&r#"UPDATE users SET verified = true WHERE user_id= $1"#)
-        .await
-        .expect("Auth -> verify_email -> Error preparing statement");
+// /// Verify Email
+// pub async fn verify_email(client: &Client, user_id: &i32) -> Result<()> {
+//     let stmt = client
+//         .prepare(&r#"UPDATE users SET verified = true WHERE user_id= $1"#)
+//         .await
+//         .expect("Auth -> verify_email -> Error preparing statement");
 
-    let affected = client.execute(&stmt, &[user_id]).await.map_err(|e| {
-        debug!(
-            "Auth Repo -> verify_email -> Failed to execute query: {}",
-            e
-        );
-        AppError::InvalidInput
-    })?;
+//     let affected = client.execute(&stmt, &[user_id]).await.map_err(|e| {
+//         debug!(
+//             "Auth Repo -> verify_email -> Failed to execute query: {}",
+//             e
+//         );
+//         AppError::InvalidInput
+//     })?;
 
-    if affected == 1 {
-        return Ok(());
-    }
+//     if affected == 1 {
+//         return Ok(());
+//     }
 
-    Err(AppError::RecordNotFound)
-}
+//     Err(AppError::RecordNotFound)
+// }
+
+// /// Get User By email Repo
+// pub async fn get_user_by_email(client: &Client, email: &str) -> Result<Option<User>> {
+//     let stmt = client
+//         .prepare(&r#"SELECT * FROM users WHERE email = $1;"#)
+//         .await
+//         .expect("Auth Repo-> get_user_by_email -> Error preparing statement");
+
+//     Ok(client
+//         .query(&stmt, &[&email])
+//         .await
+//         .map_err(|e| {
+//             debug!(
+//                 "Auth Repo-> get_user_by_email -> Failed to execute query: {}",
+//                 e
+//             );
+//             AppError::InvalidInput
+//         })?
+//         .iter()
+//         .map(|row| User::from_row_ref(row).unwrap())
+//         .collect::<Vec<User>>()
+//         .pop())
+// }

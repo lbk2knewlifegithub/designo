@@ -22,11 +22,21 @@ pub async fn username_exists(state: &AuthState, username: &str) -> Result<()> {
 }
 
 /// email exists Service
-pub async fn email_exists(state: &AuthState, email: &str) -> Result<()> {
+// pub async fn email_exists(state: &AuthState, email: &str) -> Result<()> {
+//     let client = &state.db.read.get().await?;
+
+//     match user_repo::get_user_by_email(client, email).await? {
+//         Some(_) => Ok(()),
+//         None => Err(AppError::RecordNotFound),
+//     }
+// }
+
+/// Get User By Username
+pub async fn get_user_by_username(state: &AuthState, username: &str) -> Result<User> {
     let client = &state.db.read.get().await?;
 
-    match user_repo::get_user_by_email(client, email).await? {
-        Some(_) => Ok(()),
+    match user_repo::get_user_by_username(client, username).await? {
+        Some(u) => Ok(u),
         None => Err(AppError::RecordNotFound),
     }
 }

@@ -1,5 +1,7 @@
+import { User } from '@lbk/models';
 import { AuthActions, AuthApiActions } from '@lbk/state/auth';
 import { createFeature, createReducer, on } from '@ngrx/store';
+import { ProfileActions } from './actions';
 
 const profileFeatureKey = 'profile';
 
@@ -7,18 +9,29 @@ export interface State {
   error: string;
   requestingVerifyEmail: boolean;
   updatingAccount: boolean;
+  user: User | null;
 }
 
 export const initialState: State = {
   error: '',
   requestingVerifyEmail: false,
   updatingAccount: false,
+  user: null,
 };
 
 export const profileFeature = createFeature({
   name: profileFeatureKey,
   reducer: createReducer(
     initialState,
+    /**
+     * - Enter
+     */
+    on(ProfileActions.enter, (state, { user }) => {
+      return {
+        ...state,
+        user,
+      };
+    }),
     /**
      * - Request Verify Email
      */
@@ -55,12 +68,40 @@ export const profileFeature = createFeature({
     })),
 
     /**
-     * - Update Account Success
+     * - Update account success
      */
-    on(AuthApiActions.updateAccountSuccess, (state) => ({
-      ...state,
-      updatingAccount: false,
-    })),
+    on(
+      AuthApiActions.updateAccountSuccess,
+      (
+        state,
+        {
+          updateUserDTO: {
+            firstname,
+            lastname,
+            // email
+          },
+          avatar,
+        }
+      ) => {
+        console.log(firstname, lastname);
+
+        if (!state.user) return state;
+        const { user } = state;
+
+        return {
+          ...state,
+          updatingAccount: false,
+          user: {
+            ...user,
+            firstname,
+            lastname,
+            // verified: user.email === email,
+            // email,
+            avatar: avatar ? avatar : user.avatar,
+          },
+        };
+      }
+    ),
 
     /**
      * - Update Account Failure

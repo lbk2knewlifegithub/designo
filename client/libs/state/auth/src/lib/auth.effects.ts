@@ -77,6 +77,11 @@ export class AuthEffects {
           map((user) => AuthApiActions.loginSuccess({ user })),
 
           /**
+           * - Clear token when login failed
+           */
+          tap(null, () => this._tokenService.clear()),
+
+          /**
            * - Me Failure
            */
           catchError(({ error }) => of(AuthApiActions.loginFailure(error)))

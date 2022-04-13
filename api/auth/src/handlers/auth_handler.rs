@@ -1,6 +1,6 @@
 use crate::{
     dto::{
-        auth_dto::{Credentials, Token, VerifyEmailDTO},
+        auth_dto::{Credentials, Token},
         user_dto::{ChangePasswordDTO, CreateUserDTO, DeleteAccountDTO, UpdateAccountDTO},
     },
     models::user_model::{ChangePassword, DeleteAccount, UpdateAccount},
@@ -43,28 +43,28 @@ async fn me(state: web::Data<AuthState>, token: Json<Token>) -> Result<HttpRespo
 }
 
 /// Request Send Verify Email
-async fn request_send_verify_email(
-    state: web::Data<AuthState>,
-    req: HttpRequest,
-) -> Result<HttpResponse> {
-    let user_token = state.jwt.authorize(&req).await?;
+// async fn request_send_verify_email(
+//     state: web::Data<AuthState>,
+//     req: HttpRequest,
+// ) -> Result<HttpResponse> {
+//     let user_token = state.jwt.authorize(&req).await?;
 
-    auth_service::request_verify_email(&state, &user_token.user_id)
-        .await
-        .map(|_| HttpResponse::Created().finish())
-        .map_err(Into::into)
-}
+//     auth_service::request_verify_email(&state, &user_token.user_id)
+//         .await
+//         .map(|_| HttpResponse::Created().finish())
+//         .map_err(Into::into)
+// }
 
-/// Verify Email Route
-async fn verify_email(
-    state: web::Data<AuthState>,
-    verify_email: Json<VerifyEmailDTO>,
-) -> Result<HttpResponse> {
-    auth_service::verify_email(&state, &verify_email.into_inner().token.unwrap())
-        .await
-        .map(|_| HttpResponse::NoContent().finish())
-        .map_err(Into::into)
-}
+// /// Verify Email Route
+// async fn verify_email(
+//     state: web::Data<AuthState>,
+//     verify_email: Json<VerifyEmailDTO>,
+// ) -> Result<HttpResponse> {
+//     auth_service::verify_email(&state, &verify_email.into_inner().token.unwrap())
+//         .await
+//         .map(|_| HttpResponse::NoContent().finish())
+//         .map_err(Into::into)
+// }
 
 /// Delete Account
 async fn delete_account(
@@ -175,36 +175,36 @@ pub fn configure(cfg: &mut web::ServiceConfig) {
                         .route(web::put().to(update_account)),
                 ),
             )
-            // Request Verify Email
-            .service(
-                // Request Verify Email
-                web::scope("/request-verify-email")
-                    // Request Verify Email
-                    .service(
-                        // Request Verify Email
-                        web::resource("")
-                            // Request Verify Email
-                            .route(
-                                // Request Verify Email
-                                web::post().to(request_send_verify_email),
-                            ),
-                    ),
-            )
-            // Verify Email
-            .service(
-                // Verify Email
-                web::scope("/verify-email")
-                    // Verify Email
-                    .service(
-                        // Verify Email
-                        web::resource("")
-                            // Verify Email
-                            .route(
-                                // Verify Email
-                                web::post().to(verify_email),
-                            ),
-                    ),
-            )
+            // // Request Verify Email
+            // .service(
+            //     // Request Verify Email
+            //     web::scope("/request-verify-email")
+            //         // Request Verify Email
+            //         .service(
+            //             // Request Verify Email
+            //             web::resource("")
+            //                 // Request Verify Email
+            //                 .route(
+            //                     // Request Verify Email
+            //                     web::post().to(request_send_verify_email),
+            //                 ),
+            //         ),
+            // )
+            // // Verify Email
+            // .service(
+            //     // Verify Email
+            //     web::scope("/verify-email")
+            //         // Verify Email
+            //         .service(
+            //             // Verify Email
+            //             web::resource("")
+            //                 // Verify Email
+            //                 .route(
+            //                     // Verify Email
+            //                     web::post().to(verify_email),
+            //                 ),
+            //         ),
+            // )
             // Change password
             .service(
                 // Change password

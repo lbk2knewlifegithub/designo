@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ChangePasswordDTO, UpdateUserDTO } from '@lbk/dto';
 import { User } from '@lbk/models';
 import { TokenService } from '@lbk/services';
@@ -71,7 +71,10 @@ export class AuthFacade {
             this._store.dispatch(AuthApiActions.loginSuccess({ user }))
           ),
           map(() => true),
-          catchError(() => of(false))
+          catchError(() => {
+            this._tokenService.clear();
+            return of(false);
+          })
         );
       })
     );
@@ -127,5 +130,29 @@ export class AuthFacade {
    */
   verifyEmail(token: string) {
     this._store.dispatch(AuthActions.verifyEmail({ token }));
+  }
+
+  /**
+   *  - Has User In Store
+   * @param username
+   * @returns
+   */
+  getUserInStore(username: string): Observable<User | null> {
+    return this.user$.pipe(
+      map((user) => {
+        if (!user) return null;
+        return user.username === username ? user : null;
+      })
+    );
+  }
+
+  /**
+   * - Has User In Api
+   * @param username
+   */
+  getUserInApi(username: string): Observable<User | null> {
+    return this._userService
+      .getUserByUsername(username)
+      .pipe(catchError(() => of(null)));
   }
 }

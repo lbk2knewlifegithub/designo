@@ -28,6 +28,7 @@ export class CommentComponent implements OnInit {
   isOwnedByUser$!: Observable<boolean>;
   updatingComment$!: Observable<boolean>;
   user$!: Observable<User | UserComment>;
+  username$!: Observable<string>;
 
   shownReplyForm = false;
   shownEditForm = false;
@@ -60,6 +61,8 @@ export class CommentComponent implements OnInit {
           : of(this.comment.user);
       })
     );
+
+    this.username$ = this.user$.pipe(map((u) => u.username));
   }
 
   toggleReply(): void {

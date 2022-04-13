@@ -1,5 +1,8 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { User } from '@lbk/models';
 import { Store } from '@ngrx/store';
+import { ProfileActions } from './actions';
 import * as fromProfile from './profile.selectors';
 
 /**
@@ -7,6 +10,8 @@ import * as fromProfile from './profile.selectors';
  */
 @Injectable({ providedIn: 'root' })
 export class ProfileFacade {
+  user$: Observable<User | null> = this._store.select(fromProfile.selectUser);
+
   /**
    * - Changing Password
    */
@@ -20,4 +25,8 @@ export class ProfileFacade {
   );
 
   constructor(private readonly _store: Store) {}
+
+  enter(user: User) {
+    this._store.dispatch(ProfileActions.enter({ user }));
+  }
 }

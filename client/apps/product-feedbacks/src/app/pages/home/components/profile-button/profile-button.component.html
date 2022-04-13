@@ -29,7 +29,7 @@
     <!-- LoggedIn Menu -->
     <ul *ngIf="loggedIn$ | async; else defaultMenu" class="group">
       <li>
-        <a routerLink="/profile">
+        <a [routerLink]="['/profile', (user$ | async)!.username]">
           Profile
           <i class="fa-solid fa-user"></i>
         </a>

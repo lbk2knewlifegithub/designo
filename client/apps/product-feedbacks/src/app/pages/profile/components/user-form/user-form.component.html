@@ -1,11 +1,12 @@
 <form
   [formGroup]="form"
-  (ngSubmit)="onSubmit(avatar.file)"
+  (ngSubmit)="onSubmit()"
   class="relative bg-white rounded-xl p-6 pt-20 shadow-sm md:pt-12 md:w-[540px]"
 >
   <!-- Avatar -->
   <lbk-avatar-input
-    #avatar
+    [disabled]="!isOwned"
+    #avatarInput
     [avatarSrc]="user | avatar"
     class="shadown-lg absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"
   ></lbk-avatar-input>
@@ -51,6 +52,16 @@
       <!-- end end LastName -->
     </div>
 
+    <!-- Username -->
+    <lbk-input
+      [parent]="form"
+      controlName="username"
+      inputType="username"
+      label="Username"
+    >
+    </lbk-input>
+    <!-- end Username -->
+
     <!-- Email -->
     <!-- <lbk-input
       [parent]="form"
@@ -65,7 +76,7 @@
     <!-- end end Email -->
 
     <!-- Change Password -->
-    <div>
+    <div *ngIf="isOwned">
       <button
         (click)="changePassword.emit()"
         type="button"

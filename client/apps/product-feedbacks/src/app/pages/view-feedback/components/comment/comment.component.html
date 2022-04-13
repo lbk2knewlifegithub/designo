@@ -14,7 +14,7 @@
     <img
       class="avatar avatar-md"
       [src]="(user$ | async)! | avatar"
-      [alt]="(user$ | async)!.username"
+      [alt]="(username$ | async)!"
     />
   </div>
   <!--        end User Image-->
@@ -27,21 +27,24 @@
           <img
             class="avatar avatar-md"
             [src]="(user$ | async)! | avatar"
-            [alt]="(user$ | async)!.username"
+            [alt]="(username$ | async)!"
           />
         </div>
         <!--        end User Image-->
 
         <div class="text-xs md:text-sm-h">
-          <!--        User Name-->
-          <h4 class="capitalize text-neutral-300">
+          <!--        Fullname-->
+          <a
+            [routerLink]="['/profile', (username$ | async)!]"
+            class="block font-bold capitalize text-neutral-300 hover:underline"
+          >
             {{ (user$ | async)! | fullName }}
-          </h4>
-          <!--        end User Name-->
+          </a>
+          <!--        end Fullname-->
 
-          <!--        Email-->
-          <span class="text-neutral">@{{ (user$ | async)!.username }}</span>
-          <!--        end Email-->
+          <!--        username-->
+          <span class="text-neutral">@{{ (username$ | async)! }}</span>
+          <!--        end username-->
         </div>
       </div>
 

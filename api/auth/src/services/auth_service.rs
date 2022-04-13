@@ -7,16 +7,13 @@ use crate::{
     repos::user_repo,
     AuthState,
 };
-use actix_redis::Command;
 use prelude::{
     errors::{auth_error::AuthError, AppError},
     models::user_token::UserToken,
     Result,
 };
 
-use redis_async::{resp::FromResp, resp_array};
 use tracing::{debug, info};
-use uuid::Uuid;
 
 /// Login
 pub async fn login(state: &AuthState, credentital: &Credentials) -> Result<Token> {
@@ -149,108 +146,108 @@ pub async fn change_password(state: &AuthState, cp: &ChangePassword) -> Result<(
     Ok(user_repo::change_password(&client, &cp.user_id, &new_hashed_password).await?)
 }
 
-/// Request Verify Email Service
-pub async fn request_verify_email(state: &AuthState, user_id: &i32) -> Result<()> {
-    let client = &state.db.read.get().await?;
+// /// Request Verify Email Service
+// pub async fn request_verify_email(state: &AuthState, user_id: &i32) -> Result<()> {
+//     let client = &state.db.read.get().await?;
 
-    // Get User By Id
-    let user = match user_repo::get_user_by_id(&client, user_id).await? {
-        Some(u) => u,
-        None => {
-            debug!("AuthService -> request_verify_email -> Get User Id -> User not found");
-            return Err(AppError::InvalidInput);
-        }
-    };
+//     // Get User By Id
+//     let user = match user_repo::get_user_by_id(&client, user_id).await? {
+//         Some(u) => u,
+//         None => {
+//             debug!("AuthService -> request_verify_email -> Get User Id -> User not found");
+//             return Err(AppError::InvalidInput);
+//         }
+//     };
 
-    let email = match user.email {
-        Some(e) => e,
-        None => {
-            debug!("AuthService -> request_verify_email -> Email not found");
-            return Err(AppError::InvalidInput);
-        }
-    };
+//     let email = match user.email {
+//         Some(e) => e,
+//         None => {
+//             debug!("AuthService -> request_verify_email -> Email not found");
+//             return Err(AppError::InvalidInput);
+//         }
+//     };
 
-    // Creawte Token
-    let token = Uuid::new_v4().to_string();
-    debug!("Auth Service -> request_verify_email -> token: {}", token);
+//     // Creawte Token
+//     let token = Uuid::new_v4().to_string();
+//     debug!("Auth Service -> request_verify_email -> token: {}", token);
 
-    // Save token to redis
-    state
-        .redis
-        .read_write
-        .send(Command(resp_array![
-            "SET",
-            token.clone(),
-            user.user_id.to_string(),
-            "EX",
-            "180"
-        ]))
-        .await??;
-    debug!(
-        "Send verify -> Set token/user_id {}/{} saved to redis",
-        token, user.user_id
-    );
+//     // Save token to redis
+//     state
+//         .redis
+//         .read_write
+//         .send(Command(resp_array![
+//             "SET",
+//             token.clone(),
+//             user.user_id.to_string(),
+//             "EX",
+//             "180"
+//         ]))
+//         .await??;
+//     debug!(
+//         "Send verify -> Set token/user_id {}/{} saved to redis",
+//         token, user.user_id
+//     );
 
-    debug!(
-        "Send verify -> Set token/user_id {}/{} saved to redis",
-        token, user.user_id
-    );
+//     debug!(
+//         "Send verify -> Set token/user_id {}/{} saved to redis",
+//         token, user.user_id
+//     );
 
-    if let Err(e) = state.email.send_verify(&email, &token).await {
-        state
-            .redis
-            .read_write
-            .send(Command(resp_array!["DEL", token.clone(),]))
-            .await??;
-        panic!("Send verify email failed {}", e);
-    }
-    debug!("Send Email Success");
+//     if let Err(e) = state.email.send_verify(&email, &token).await {
+//         state
+//             .redis
+//             .read_write
+//             .send(Command(resp_array!["DEL", token.clone(),]))
+//             .await??;
+//         panic!("Send verify email failed {}", e);
+//     }
+//     debug!("Send Email Success");
 
-    Ok(())
-}
+//     Ok(())
+// }
 
-/// Verify Email Service
-pub async fn verify_email(state: &AuthState, token: &str) -> Result<()> {
-    let client = &state.db.read_write.get().await?;
+// /// Verify Email Service
+// pub async fn verify_email(state: &AuthState, token: &str) -> Result<()> {
+//     let client = &state.db.read_write.get().await?;
 
-    // Get token to redis
-    let resp = state
-        .redis
-        .read
-        .send(Command(resp_array!["GET", token]))
-        .await
-        .expect("Auth Service -> verify_email -> Get token -> Mailbox error")
-        .expect("Auth Service -> verify_email -> Get token -> Redis error");
+//     // Get token to redis
+//     let resp = state
+//         .redis
+//         .read
+//         .send(Command(resp_array!["GET", token]))
+//         .await
+//         .expect("Auth Service -> verify_email -> Get token -> Mailbox error")
+//         .expect("Auth Service -> verify_email -> Get token -> Redis error");
 
-    debug!("{resp:?}");
-    // Get user_id
-    let user_id: i32 = match String::from_resp_int(resp) {
-        Ok(u) => u.parse().expect(
-            format!(
-                "Auth Service -> verify_email -> Parse user_id failed -> {}",
-                u
-            )
-            .as_str(),
-        ),
-        Err(e) => {
-            debug!(
-                "AuthService ->  verify_email -> Get user_id by token {} ->  {}",
-                token, e
-            );
-            return Err(AppError::InvalidInput);
-        }
-    };
+//     debug!("{resp:?}");
+//     // Get user_id
+//     let user_id: i32 = match String::from_resp_int(resp) {
+//         Ok(u) => u.parse().expect(
+//             format!(
+//                 "Auth Service -> verify_email -> Parse user_id failed -> {}",
+//                 u
+//             )
+//             .as_str(),
+//         ),
+//         Err(e) => {
+//             debug!(
+//                 "AuthService ->  verify_email -> Get user_id by token {} ->  {}",
+//                 token, e
+//             );
+//             return Err(AppError::InvalidInput);
+//         }
+//     };
 
-    // Delete old token
-    state
-        .redis
-        .read_write
-        .send(Command(resp_array!["DEL", token]))
-        .await
-        .expect("Auth Service -> verify_email -> Delete token -> Mailbox error")
-        .expect("Auth Service -> verify_email -> Delete token -> Redis error");
+//     // Delete old token
+//     state
+//         .redis
+//         .read_write
+//         .send(Command(resp_array!["DEL", token]))
+//         .await
+//         .expect("Auth Service -> verify_email -> Delete token -> Mailbox error")
+//         .expect("Auth Service -> verify_email -> Delete token -> Redis error");
 
-    user_repo::verify_email(&client, &user_id).await?;
+//     user_repo::verify_email(&client, &user_id).await?;
 
-    Ok(())
-}
+//     Ok(())
+// }
