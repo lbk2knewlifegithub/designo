@@ -80,7 +80,8 @@ pub async fn me(state: &AuthState, token: &Token) -> Result<User> {
     // Decode Token
     let user_token = state
         .jwt
-        .decode::<UserToken>(&token.access_token.to_owned().unwrap())
+        .decode(&token.access_token.to_owned().unwrap())
+        .await
         .map_err(|e| {
             debug!("Decode token failed {}", e,);
             AuthError::Unauthorize
