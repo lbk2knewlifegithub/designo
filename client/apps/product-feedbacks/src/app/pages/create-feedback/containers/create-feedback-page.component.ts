@@ -4,7 +4,7 @@ import { CreateFeedbackDTO } from '@lbk/dto';
 import { FeedbackCategory } from '@lbk/models';
 import { FeedbacksFacade } from '@lbk/state/feedbacks';
 import { map, Observable, pluck } from 'rxjs';
-import { CreateFeedbackPageFacade } from './../state/create-feedback-page.facade';
+import { CreateFeedbackPageFacade } from '../state/create-feedback.facade';
 
 @Component({
   selector: 'lbk-create-feedback-page',

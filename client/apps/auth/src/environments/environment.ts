@@ -8,6 +8,7 @@ export const environment = {
   production: false,
   apiAuthUrl: envDev.apiAuthUrl,
   apiImagesUrl: envDev.apiImagesUrl,
+  clientProductFeedbacksUrl: envDev.clientProductFeedbacksUrl,
 };
 
 /*

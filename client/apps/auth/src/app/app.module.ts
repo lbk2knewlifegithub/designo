@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreHttpClientModule } from '@lbk/services';
-import { API_AUTH_URL, API_IMAGES_URL } from '@lbk/tokens';
+import {
+  API_AUTH_URL,
+  API_IMAGES_URL,
+  CLIENT_PRODUCT_FEEDBACK_URL,
+} from '@lbk/tokens';
 import { NxModule } from '@nrwl/angular';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +32,10 @@ import { StateModule } from './state';
     {
       provide: API_IMAGES_URL,
       useValue: environment.apiImagesUrl,
+    },
+    {
+      provide: CLIENT_PRODUCT_FEEDBACK_URL,
+      useValue: environment.clientProductFeedbacksUrl,
     },
   ],
   bootstrap: [AppComponent],

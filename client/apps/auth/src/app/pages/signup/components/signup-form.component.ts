@@ -1,9 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  Inject,
   Input,
   OnInit,
 } from '@angular/core';
+import { CLIENT_PRODUCT_FEEDBACK_URL } from '@lbk/tokens';
 import {
   AbstractControl,
   FormBuilder,
@@ -40,7 +42,9 @@ export class SignupFormComponent implements OnInit {
   constructor(
     private readonly _fb: FormBuilder,
     private readonly _facade: SignUpFacade,
-    private readonly _routeFacade: RouteFacade
+    private readonly _routeFacade: RouteFacade,
+    @Inject(CLIENT_PRODUCT_FEEDBACK_URL)
+    readonly clientProductFeedbacksUrl: string
   ) {}
 
   ngOnInit(): void {

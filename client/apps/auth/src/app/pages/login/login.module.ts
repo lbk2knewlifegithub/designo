@@ -1,5 +1,8 @@
-import { InputModule } from './../../../../../../libs/comps/src/lib/inputs/input/input.component';
-import { PasswordInputModule } from '@lbk/comps';
+import {
+  PasswordInputModule,
+  InputModule,
+  AttributionModule,
+} from '@lbk/comps';
 import { AuthLoadingModule } from './../../shared/loading.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -23,10 +26,11 @@ export const COMPONENTS = [LoginFormComponent];
     // Stores
     StoreModule.forFeature(fromLoginPage.loginFeature),
     EffectsModule.forFeature([LoginEffects]),
-    // Shared Components
+    // Shared Components from Libs
     AuthLoadingModule,
     PasswordInputModule,
     InputModule,
+    AttributionModule,
   ],
   declarations: [COMPONENTS, CONTAINERS],
 })

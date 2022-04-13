@@ -14,6 +14,11 @@ export const API_PRODUCT_FEEDBACKS_URL = new InjectionToken<string>(
 // CLIENT URL URL
 export const CLIENT_AUTH_URL = new InjectionToken<string>('CLIENT_AUTH_URL');
 
+// CLIENT PRODUCT FEEDBACKS URL
+export const CLIENT_PRODUCT_FEEDBACK_URL = new InjectionToken<string>(
+  'CLIENT_PRODUCT_FEEDBACK'
+);
+
 // DEFAULT AVATAR
 export const DEFAULT_AVATAR = new InjectionToken<string>('DEFAULT_AVATAR', {
   factory: () =>

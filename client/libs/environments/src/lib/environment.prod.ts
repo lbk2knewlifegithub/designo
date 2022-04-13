@@ -9,4 +9,5 @@ export const environment = {
   // Client
   clientAuthUrl:
     'https://client-auth-client-lbk2knewlifegithub.cloud.okteto.net',
+  clientProductFeedbacksUrl: 'https://lbk2knewlifegithub.github.io/lbk',
 };

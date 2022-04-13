@@ -3,7 +3,6 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
-  HostListener,
   Input,
 } from '@angular/core';
 import { fadeIn, fadeOut } from '@lbk/anims';
@@ -23,7 +22,7 @@ import { DropDownContentDirective } from './dropdown-content.directive';
       @fadeIn
       @fadeOut
       (click)="contentClick()"
-      class="absolute top-[calc(100%+20px)] left-1/2 -translate-x-1/2"
+      class="absolute top-[calc(100%+20px)] left-1/2 -translate-x-1/2 z-50"
     >
       <ng-template [ngTemplateOutlet]="content.templateRef"></ng-template>
     </div>
