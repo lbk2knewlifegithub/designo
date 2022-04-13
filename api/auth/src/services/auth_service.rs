@@ -22,14 +22,15 @@ pub async fn login(state: &AuthState, credentital: &Credentials) -> Result<Token
     // Check user exist
     let user = match user_repo::get_user_by_username(&client, &credentital.username).await? {
         Some(u) => u,
-        None => return Err(AuthError::Unauthorize.into()),
+        None => return Err(AuthError::InvalidCredentials.into()),
     };
 
     // Hash password and compare with user in database
     state
         .hasher
         .verify(&user.password, &credentital.password)
-        .await?;
+        .await
+        .map_err(|_| AuthError::InvalidCredentials)?;
 
     // Create access_token
     let user_token = UserToken::new(user.user_id).build();

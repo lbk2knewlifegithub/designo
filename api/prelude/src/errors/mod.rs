@@ -84,6 +84,7 @@ impl actix_web::ResponseError for AppError {
             // Auth errors
             AppError::AuthError(e) => match e {
                 AuthError::Unauthorize => HttpResponse::Unauthorized(),
+                AuthError::InvalidCredentials => HttpResponse::BadRequest(),
             },
             AppError::FeedbackError(e) => match e {
                 FeedbackError::AlreadyUpvote => HttpResponse::Conflict(),
