@@ -1,7 +1,7 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { LoginAPIActions, LoginPageActions } from './actions';
 
-const loginFeatureKey = 'home';
+const loginFeatureKey = 'loginPage';
 
 export enum LoginError {
   InvalidCredentials = 'InvalidCredentials',
