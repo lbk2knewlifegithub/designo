@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavigationService } from '@lbk/services';
 
@@ -21,10 +21,20 @@ import { NavigationService } from '@lbk/services';
   `,
   // animations: [CAROUSEL_ROUTE_ANIMATION],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(private readonly _navigationService: NavigationService) {}
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet?.activatedRouteData?.['animation'];
+  }
+
+  ngOnInit(): void {
+    const splashScreen = document.getElementById(
+      'splash-screen'
+    ) as HTMLElement;
+    splashScreen.classList.add('slide-out-top');
+    splashScreen.addEventListener('transitionend', () => {
+      splashScreen.remove();
+    });
   }
 }

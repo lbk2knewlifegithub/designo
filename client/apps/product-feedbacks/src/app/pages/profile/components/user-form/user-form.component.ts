@@ -1,4 +1,3 @@
-import { AvatarInputComponent } from '@lbk/comps';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -15,6 +14,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { AvatarInputComponent } from '@lbk/comps';
 import { UpdateUserDTO } from '@lbk/dto';
 import { User } from '@lbk/models';
 import { UserService } from '@lbk/state/auth';

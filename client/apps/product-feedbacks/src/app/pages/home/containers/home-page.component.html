@@ -8,30 +8,23 @@
     <lbk-home-sub-header></lbk-home-sub-header>
     <!-- end Sub Header -->
 
-    <!-- Loading -->
-    <div
-      *ngIf="loading$ | async; else loaded"
-      class="flex justify-center mt-20"
-    >
-      <lbk-spinner [radius]="50"></lbk-spinner>
+    <!-- Feedbacks -->
+    <div [ngClass]="{ 'flex justify-center mt-20': loading$ | async }">
+      <lbk-spinner [loading]="(loading$ | async)!" [radius]="50">
+        <main class="container mb-10 mt-8 xl:px-0 xl:mt-6">
+          <lbk-feedbacks-empty
+            *ngIf="isEmptyFeedbacks$ | async; else feedbacks"
+          ></lbk-feedbacks-empty>
+
+          <ng-template #feedbacks>
+            <lbk-feedback-preview-list
+              [feedbacks]="(feedbacks$ | async)!"
+            ></lbk-feedback-preview-list>
+          </ng-template>
+        </main>
+      </lbk-spinner>
+      <!-- end Feedbacks -->
     </div>
-    <!-- end Loading -->
-
-    <!-- Loaded Feedbacks -->
-    <ng-template #loaded>
-      <main class="container mb-10 mt-8 xl:px-0 xl:mt-6">
-        <lbk-feedbacks-empty
-          *ngIf="isEmptyFeedbacks$ | async; else feedbacks"
-        ></lbk-feedbacks-empty>
-
-        <ng-template #feedbacks>
-          <lbk-feedback-preview-list
-            [feedbacks]="(feedbacks$ | async)!"
-          ></lbk-feedback-preview-list>
-        </ng-template>
-      </main>
-    </ng-template>
-    <!-- end Loaded Feedbacks -->
   </div>
 </div>
 

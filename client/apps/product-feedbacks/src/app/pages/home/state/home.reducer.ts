@@ -22,7 +22,7 @@ export interface State {
 
 export const initialState: State = {
   error: '',
-  loading: false,
+  loading: true,
   shownSideBar: false,
   sort: SortFeedback.MOST_UPVOTES,
   category: undefined,

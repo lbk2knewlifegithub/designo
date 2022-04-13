@@ -29,7 +29,7 @@ const routes: Routes = [
     path: 'create-feedback',
     loadChildren: () =>
       import('./pages/create-feedback').then((m) => m.CreateFeedbackModule),
-    data: { animation: 'create-feedback' },
+    data: { animation: 'create-feedback', mustLoggedIn: true },
     canActivate: [AuthGuard],
   },
 

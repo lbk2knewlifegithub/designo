@@ -15,14 +15,14 @@ export class HomePageComponent implements OnInit {
   isEmptyFeedbacks$!: Observable<boolean>;
 
   constructor(
-    private readonly _facade: HomeFacade,
+    private readonly _homeFacade: HomeFacade,
     private readonly _feedbacksFacade: FeedbacksFacade
   ) {}
 
   ngOnInit(): void {
-    this.loading$ = this._facade.loading$;
+    this.loading$ = this._homeFacade.loading$;
 
-    this.feedbacks$ = this._facade.feedbackFiltered$;
+    this.feedbacks$ = this._homeFacade.feedbackFiltered$;
 
     this.isEmptyFeedbacks$ = this.feedbacks$.pipe(
       map((feedbacks) => feedbacks.length === 0)
