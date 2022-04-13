@@ -73,7 +73,7 @@ pub struct UpdateAccount {
     pub user_id: i32,
     pub firstname: String,
     pub lastname: String,
-    pub email: String,
+    // pub email: String,
 }
 
 impl UpdateAccount {
@@ -82,7 +82,7 @@ impl UpdateAccount {
             user_id,
             firstname: update_account_dto.firstname.to_owned(),
             lastname: update_account_dto.lastname.to_owned(),
-            email: update_account_dto.email.to_owned(),
+            // email: update_account_dto.email.to_owned(),
         }
     }
 }

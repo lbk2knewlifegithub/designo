@@ -110,20 +110,32 @@ pub async fn create_user<'a>(client: &Client, new_user: &NewUser<'a>) -> Result<
 
 /// Update Account Repo
 pub async fn update_account(client: &Client, update_account: &UpdateAccount) -> Result<()> {
+    // let stmt = client
+    //     .prepare(
+    //         &r#"
+    //         UPDATE users u
+    //         SET
+    //             firstname = $1,
+    //             lastname = $2,
+    //             email = $3,
+    //             verified = CASE
+    //                     WHEN u.email IS NOT NULL AND u.email = $4 AND  u.verified IS NOT NULL
+    //                     THEN true
+    //                     ELSE false END
+    //         WHERE user_id = $5;
+    //         "#,
+    //     )
+    //     .await
+    //     .expect("Auth -> update_account -> Error preparing statement");
+
     let stmt = client
         .prepare(
             &r#"
             UPDATE users u
             SET 
                 firstname = $1, 
-                lastname = $2, 
-                email = $3,
-                verified = CASE 
-                        WHEN u.email IS NOT NULL AND u.email = $4 AND  u.verified IS NOT NULL 
-                        THEN true 
-                        ELSE false END
-            WHERE user_id = $5;
-
+                lastname = $2
+            WHERE user_id = $3;
             "#,
         )
         .await
@@ -135,8 +147,8 @@ pub async fn update_account(client: &Client, update_account: &UpdateAccount) -> 
             &[
                 &update_account.firstname,
                 &update_account.lastname,
-                &update_account.email,
-                &update_account.email,
+                // &update_account.email,
+                // &update_account.email,
                 &update_account.user_id,
             ],
         )

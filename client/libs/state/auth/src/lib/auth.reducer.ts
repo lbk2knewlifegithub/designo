@@ -88,7 +88,17 @@ export const authFeature = createFeature({
      */
     on(
       AuthApiActions.updateAccountSuccess,
-      (state, { updateUserDTO: { firstname, lastname, email }, avatar }) => {
+      (
+        state,
+        {
+          updateUserDTO: {
+            firstname,
+            lastname,
+            // email
+          },
+          avatar,
+        }
+      ) => {
         if (!state.user) return state;
         const { user } = state;
 
@@ -98,8 +108,8 @@ export const authFeature = createFeature({
             ...user,
             firstname,
             lastname,
-            verified: user.email === email,
-            email,
+            // verified: user.email === email,
+            // email,
             avatar: avatar ? avatar : user.avatar,
           },
           pending: false,

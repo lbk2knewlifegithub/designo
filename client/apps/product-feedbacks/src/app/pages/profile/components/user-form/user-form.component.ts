@@ -89,7 +89,11 @@ export class UserFormComponent implements OnInit {
   }
 
   private _initForm() {
-    const { firstname, lastname, email } = this.user;
+    const {
+      firstname,
+      lastname,
+      // email
+    } = this.user;
 
     this.form = this._fb.group({
       // First Name
@@ -111,16 +115,20 @@ export class UserFormComponent implements OnInit {
         ],
       ],
       // Email
-      email: [
-        email,
-        [Validators.required, Validators.email],
-        [this.checkEmailExists()],
-      ],
+      // email: [
+      //   email,
+      //   [Validators.required, Validators.email],
+      //   [this.checkEmailExists()],
+      // ],
     });
   }
 
   onSubmit(avatar?: File) {
-    if (!this.form.dirty && !avatar && this.user?.email) {
+    if (
+      !this.form.dirty &&
+      !avatar
+      // && this.user?.email
+    ) {
       this._dialogService.error('Nothing to update');
       return;
     }
@@ -133,9 +141,17 @@ export class UserFormComponent implements OnInit {
       return;
     }
 
-    const { firstname, lastname, email } = this.form.value;
+    const {
+      firstname,
+      lastname,
+      // email
+    } = this.form.value;
     this.updateAccount.emit({
-      updateUserDTO: { firstname, lastname, email },
+      updateUserDTO: {
+        firstname,
+        lastname,
+        // email
+      },
       avatar,
     });
   }

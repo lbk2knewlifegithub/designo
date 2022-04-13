@@ -16,7 +16,7 @@
   <!-- end Title -->
 
   <!-- Alert Area -->
-  <lbk-alert *ngIf="!user.email && !user.verified" class="error">
+  <!-- <lbk-alert *ngIf="!user.email && !user.verified" class="error">
     You don't have an email yet.
   </lbk-alert>
 
@@ -29,7 +29,7 @@
     <lbk-spinner [radius]="30" [loading]="(pending$ | async)!">
       <lbk-verify-button (click)="verifyButtonClick()"></lbk-verify-button>
     </lbk-spinner>
-  </div>
+  </div> -->
   <!-- end Alert Area -->
 
   <div class="grid gap-3 mt-4">
@@ -52,7 +52,7 @@
     </div>
 
     <!-- Email -->
-    <lbk-input
+    <!-- <lbk-input
       [parent]="form"
       controlName="email"
       inputType="email"
@@ -61,7 +61,7 @@
       <span *ngIf="emailExists" class="error">
         Email already <strong>exists</strong>
       </span>
-    </lbk-input>
+    </lbk-input> -->
     <!-- end end Email -->
 
     <!-- Change Password -->

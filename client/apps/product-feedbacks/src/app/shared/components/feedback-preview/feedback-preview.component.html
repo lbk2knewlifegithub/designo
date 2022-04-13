@@ -7,9 +7,9 @@
 ></lbk-upvote>
 <!-- end Upvote -->
 
-<div class="md:w-full">
-  <div class="justify-between items-end md:flex md:w-full">
-    <div>
+<div class="md:grow">
+  <div class="justify-between items-end md:flex md:gap-6">
+    <div class="md:grow">
       <!-- Title -->
       <a
         [routerLink]="['/feedback', feedback.feedback_id]"
@@ -27,7 +27,7 @@
 
     <!--  Number of Comments  -->
     <lbk-comments-amount
-      class="summary hidden md:block"
+      class="summary hidden md:inline-block min-w-[50px]"
       [amount]="feedback.commentsLength"
     ></lbk-comments-amount>
     <!--  end Number of Comments  -->

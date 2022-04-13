@@ -1,9 +1,9 @@
-<div class="xl:flex xl:pt-24 xl:container xl:gap-7">
+<div class="flex justify-center xl:flex xl:pt-24 xl:container xl:gap-7">
   <!--    Header-->
   <lbk-home-header class="xl:w-[255px]"></lbk-home-header>
   <!--    end Header-->
 
-  <div class="xl:grow">
+  <div class="max-w-[825px] xl:grow">
     <!-- Sub Header -->
     <lbk-home-sub-header></lbk-home-sub-header>
     <!-- end Sub Header -->
@@ -26,7 +26,6 @@
 
         <ng-template #feedbacks>
           <lbk-feedback-preview-list
-            class="max-w-[825px]"
             [feedbacks]="(feedbacks$ | async)!"
           ></lbk-feedback-preview-list>
         </ng-template>

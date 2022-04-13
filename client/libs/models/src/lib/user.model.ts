@@ -20,12 +20,12 @@ export interface User {
   /**
    * - Email
    */
-  email: string;
+  // email: string;
 
   /**
    * - Verified
    */
-  verified: boolean | undefined;
+  // verified: boolean | undefined;
 
   /**
    * - User Name

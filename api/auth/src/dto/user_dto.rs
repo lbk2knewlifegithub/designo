@@ -40,9 +40,8 @@ pub struct UpdateAccountDTO {
 
     #[validate(length(min = 3, max = 40))]
     pub lastname: String,
-
-    #[validate(email)]
-    pub email: String,
+    // #[validate(email)]
+    // pub email: String,
 }
 
 #[derive(Deserialize, Validate)]
