@@ -1,0 +1,42 @@
+:root {
+  --transition-duration: 400ms;
+}
+
+button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+svg {
+  transition: transform var(--transition-duration);
+}
+
+.top {
+  stroke-dasharray: 40 160;
+  transition: stroke-dashoffset var(--transition-duration);
+}
+
+.middle {
+  transform-origin: 50%;
+  transition: transform var(--transition-duration);
+}
+
+.bottom {
+  stroke-dasharray: 40 85;
+  transition: stroke-dashoffset var(--transition-duration);
+}
+
+.shown {
+  transform: rotate(45deg);
+}
+
+.shown .top,
+.shown .bottom {
+  stroke-dashoffset: -64px;
+}
+
+.shown .middle {
+  transform: rotate(90deg);
+}

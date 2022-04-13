@@ -1,0 +1,39 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@lbk/angular-state-feedbacks": [
+        "libs/angular/state/feedbacks/src/index.ts"
+      ],
+      "@lbk/anims": ["libs/anims/src/index.ts"],
+      "@lbk/comps": ["libs/comps/src/index.ts"],
+      "@lbk/data": ["libs/data/src/index.ts"],
+      "@lbk/directives": ["libs/directives/src/index.ts"],
+      "@lbk/dto": ["libs/dto/src/index.ts"],
+      "@lbk/effects": ["libs/effects/src/index.ts"],
+      "@lbk/environments": ["libs/environments/src/index.ts"],
+      "@lbk/interceptors": ["libs/interceptors/src/index.ts"],
+      "@lbk/models": ["libs/models/src/index.ts"],
+      "@lbk/pipes": ["libs/pipes/src/index.ts"],
+      "@lbk/rxjs": ["libs/rxjs/src/index.ts"],
+      "@lbk/services": ["libs/services/src/index.ts"],
+      "@lbk/state/auth": ["libs/state/auth/src/index.ts"],
+      "@lbk/state/feedbacks": ["libs/state/feedbacks/src/index.ts"],
+      "@lbk/tokens": ["libs/tokens/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

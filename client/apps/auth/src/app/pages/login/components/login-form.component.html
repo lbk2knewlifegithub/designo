@@ -1,0 +1,69 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  class="relative bg-white rounded-lg shadow-lg p-8 min-w-[320px] sm:min-w-[400px]"
+>
+  <!-- Title -->
+  <h1 class="text-5xl font-bold mb-4">Login</h1>
+  <!-- end Title -->
+
+  <!-- Errors -->
+  <div *ngIf="isInvalidCredentials" class="alert alert-warning shadow-lg">
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="stroke-current flex-shrink-0 h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+        />
+      </svg>
+      <span>Username or password incorret!</span>
+    </div>
+  </div>
+  <!-- end Errors -->
+
+  <div class="grid gap-2">
+    <!-- Username -->
+    <lbk-input [parent]="form" controlName="username" label="Username">
+      <span *ngIf="usernameExists" class="error">
+        Username already <strong>exists</strong>
+      </span>
+    </lbk-input>
+    <!-- end Username -->
+
+    <!-- Password -->
+    <lbk-password-input label="Password" [parent]="form"></lbk-password-input>
+    <!-- end Password -->
+  </div>
+
+  <div class="mt-8 space-y-2">
+    <!-- Login Button -->
+    <div>
+      <button class="btn btn-primary w-full">Login</button>
+    </div>
+    <!-- end Login Button -->
+
+    <!-- Or -->
+    <div class="flex gap-2 items-center">
+      <span class="grow h-[1px] bg-gray-400"></span>
+      Or
+      <span class="grow h-[1px] bg-gray-400"></span>
+    </div>
+    <!-- end Or -->
+
+    <!-- Sign Up Button -->
+    <a
+      [routerLink]="['/signup', ]"
+      [queryParams]="queryParams$ | async"
+      class="btn w-full"
+      >Sign Up</a
+    >
+    <!-- end Sign Up Button -->
+  </div>
+</form>

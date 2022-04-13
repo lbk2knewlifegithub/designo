@@ -1,0 +1,36 @@
+:host {
+  @apply bg-white block rounded-lg p-5;
+}
+
+:host-context(.planned, .in-progress, .live, .summary) {
+  @apply border-t-[6px] pt-4;
+  @apply md:block;
+
+  .status {
+    @apply flex;
+  }
+}
+
+:host-context(.planned) {
+  @apply border-warning;
+
+  .ball {
+    @apply bg-warning;
+  }
+}
+
+:host-context(.in-progress) {
+  @apply border-accent;
+
+  .ball {
+    @apply bg-accent;
+  }
+}
+
+:host-context(.live) {
+  @apply border-primary;
+
+  .ball {
+    @apply bg-primary;
+  }
+}

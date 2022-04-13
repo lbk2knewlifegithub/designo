@@ -1,0 +1,5 @@
+deploy:
+  - envsubst < okteto/config-map.yaml > config.yaml
+  - kubectl apply -f config.yaml
+  - okteto build -t okteto.dev/api-auth:${OKTETO_GIT_COMMIT} api -f api/auth.Dockerfile
+  - helm upgrade -i api-auth charts/api -n lbk2knewlifegithub -f values/api-auth.yaml --set tag=${OKTETO_GIT_COMMIT}

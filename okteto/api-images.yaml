@@ -1,0 +1,5 @@
+deploy:
+  - envsubst < okteto/config-map.yaml > config.yaml
+  - kubectl apply -f config.yaml
+  - okteto build -t okteto.dev/api-images:${OKTETO_GIT_COMMIT} api -f api/images.Dockerfile
+  - helm upgrade -i api-images charts/api-storage -n lemon-lbk2knewlifegithub -f values/api-images.yaml --set tag=${OKTETO_GIT_COMMIT}

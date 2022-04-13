@@ -1,0 +1,12 @@
+:host {
+  @apply relative block p-6 pt-2 bg-white md:px-0 md:overflow-hidden;
+}
+
+:host-context(.reply) {
+  padding-right: 0 !important;
+  @apply md:ml-10;
+}
+
+:host-context(.first-reply) {
+  padding-top: 0 !important;
+}

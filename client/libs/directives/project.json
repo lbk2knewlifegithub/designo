@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/directives",
+  "sourceRoot": "libs/directives/src",
+  "prefix": "lbk",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/directives"],
+      "options": {
+        "jestConfig": "libs/directives/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/directives/src/**/*.ts",
+          "libs/directives/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

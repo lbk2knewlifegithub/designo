@@ -1,0 +1,65 @@
+<form
+  [formGroup]="form"
+  class="relative bg-white rounded-xl p-6 pt-10 md:pt-12 md:w-[540px]"
+>
+  <!--     Icon -->
+  <div class="absolute top-0 left-0 -translate-y-1/2 translate-x-full">
+    <img class="w-10 md:w-14" [src]="srcIcon" alt="New Feedback" />
+  </div>
+  <!--     end Icon -->
+
+  <!--      Title Form-->
+  <h3 class="text-neutral-300">{{ titleForm }}</h3>
+  <!--      end Title Form-->
+
+  <ul class="space-y-6 mt-6">
+    <!--      Feedback Title-->
+    <li>
+      <lbk-title-input [parent]="form"></lbk-title-input>
+    </li>
+    <!--      end Feedback Title-->
+
+    <!--      Category-->
+    <li>
+      <lbk-category-input [parent]="form"></lbk-category-input>
+    </li>
+    <!--      end Category-->
+
+    <!--      Update Status-->
+    <li *ngIf="isEditMode">
+      <lbk-status-input [parent]="form"></lbk-status-input>
+    </li>
+    <!--      end Update Status-->
+
+    <!--      Feedback Detail-->
+    <li>
+      <lbk-description-input [parent]="form"></lbk-description-input>
+    </li>
+    <!--      end Feedback Detail-->
+  </ul>
+
+  <div [ngClass]="{ 'flex justify-center': pending }">
+    <lbk-spinner class="mt-8" [loading]="pending">
+      <!--        Edit Feedback Actions-->
+      <lbk-edit-feedback-actions
+        *ngIf="isEditMode; else addActions"
+        (deleteFeedback)="deleteFeedbackButtonClick()"
+        (updateFeedback)="updateFeedbackButtonClick()"
+        (cancelUpdateFeedback)="reset()"
+      >
+      </lbk-edit-feedback-actions>
+      <!--        end Edit Feedback Actions-->
+
+      <!--        Add Feedback Actions-->
+      <ng-template #addActions>
+        <lbk-add-feedback-actions
+          [disabled]="form.disabled"
+          (cancelAddFeedback)="reset()"
+          (addFeedback)="addFeedbackButtonClick()"
+        >
+        </lbk-add-feedback-actions>
+      </ng-template>
+      <!--        end Add Feedback Actions-->
+    </lbk-spinner>
+  </div>
+</form>

@@ -1,0 +1,149 @@
+<!--          line-->
+<div
+  *ngIf="comment.replies"
+  class="hidden absolute translate-x-5 translate-y-[26%] top-0 left-0 h-full w-[1px] bg-neutral/20 md:block"
+></div>
+<!--          end line-->
+
+<div
+  [ngClass]="{ 'border-t pt-4': !comment.parent_id }"
+  class="md:flex md:gap-8"
+>
+  <!--        User Image-->
+  <div class="hidden md:block">
+    <img
+      class="avatar avatar-md"
+      [src]="(user$ | async)! | avatar"
+      [alt]="(user$ | async)!.username"
+    />
+  </div>
+  <!--        end User Image-->
+
+  <div class="md:w-full flow-root">
+    <div class="flex items-center justify-between w-full">
+      <div class="flex gap-4">
+        <!--        User Image-->
+        <div class="md:hidden">
+          <img
+            class="avatar avatar-md"
+            [src]="(user$ | async)! | avatar"
+            [alt]="(user$ | async)!.username"
+          />
+        </div>
+        <!--        end User Image-->
+
+        <div class="text-xs md:text-sm-h">
+          <!--        User Name-->
+          <h4 class="capitalize text-neutral-300">
+            {{ (user$ | async)! | fullName }}
+          </h4>
+          <!--        end User Name-->
+
+          <!--        Email-->
+          <span class="text-neutral">@{{ (user$ | async)!.username }}</span>
+          <!--        end Email-->
+        </div>
+      </div>
+
+      <!-- You Badge -->
+      <span
+        *ngIf="isOwnedByUser$ | async; else replyButton"
+        class="text-xs bg-primary-200 text-white rounded-lg px-2 font-bold"
+        >You</span
+      >
+      <!-- end You Badge -->
+
+      <!--        Reply Button-->
+      <ng-template #replyButton>
+        <button
+          *ngIf="!shownEditForm"
+          [class.underline]="shownReplyForm"
+          (click)="toggleReply()"
+          class="btn btn-ghost-primary hover:underline md:text-sm"
+        >
+          Reply
+        </button>
+      </ng-template>
+      <!--        end Reply Button-->
+    </div>
+
+    <!--        Content-->
+    <p class="text-xs mt-4 text-neutral break-words md:text-base">
+      <!--        Reply to-->
+      <strong *ngIf="comment.replyingTo" class="text-accent"
+        >@{{ comment.replyingTo }}</strong
+      >
+      <!--        end Reply to-->
+      {{ comment.content }}
+    </p>
+    <!--        end Content-->
+
+    <div class="flex items-center gap-4 mt-2">
+      <!--        Delete Button-->
+      <button
+        *ngIf="isOwnedByUser$ | async"
+        [disabled]="shownEditForm && shownReplyForm"
+        (click)="deleteComment()"
+        class="btn btn-ghost-error"
+      >
+        Delete
+      </button>
+      <!--        end Delete-->
+
+      <!--        Edit  Button-->
+      <button
+        *ngIf="(isOwnedByUser$ | async) && !shownReplyForm"
+        (click)="editButtonClick()"
+        class="btn btn-ghost-accent"
+      >
+        Edit
+      </button>
+      <!--        end end Edit Button-->
+    </div>
+
+    <!-- Reply Form -->
+    <lbk-content-form
+      class="overflow-hidden"
+      *ngIf="shownReplyForm"
+      @expandIn
+      @collapseOut
+      (submitted)="reply($event)"
+    >
+      <button class="btn btn-accent">Post Reply</button>
+    </lbk-content-form>
+    <!-- end Reply Form -->
+
+    <!-- Edit Form -->
+    <lbk-content-form
+      class="overflow-hidden"
+      *ngIf="shownEditForm"
+      @expandIn
+      @collapseOut
+      (submitted)="update($event)"
+      [content]="comment.content"
+    >
+      <button class="btn btn-accent">Update</button>
+    </lbk-content-form>
+    <!-- end Edit Form -->
+  </div>
+</div>
+
+<!--      Replies-->
+<div *ngIf="comment.replies as replies" class="mt-6 md:mt-8">
+  <ul class="relative">
+    <li
+      class="pr-0"
+      *ngFor="let comment of replies; index as i"
+      [ngClass]="{ 'first-reply': i === 0 }"
+    >
+      <lbk-comment class="reply" [comment]="comment"></lbk-comment>
+    </li>
+
+    <!--          line-->
+    <div
+      class="absolute top-0 left-0 h-full w-[1px] bg-neutral/20 md:hidden"
+    ></div>
+    <!--          end line-->
+  </ul>
+</div>
+<!--      end Replies-->

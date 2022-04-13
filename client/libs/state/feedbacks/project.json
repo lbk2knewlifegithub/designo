@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/state/feedbacks",
+  "sourceRoot": "libs/state/feedbacks/src",
+  "prefix": "lbk",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/state/feedbacks"],
+      "options": {
+        "jestConfig": "libs/state/feedbacks/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/state/feedbacks/src/**/*.ts",
+          "libs/state/feedbacks/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

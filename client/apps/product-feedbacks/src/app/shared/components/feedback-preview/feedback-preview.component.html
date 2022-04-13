@@ -1,0 +1,62 @@
+<!-- Upvote -->
+<lbk-upvote
+  (upvote)="upvoteButtonClick()"
+  class="hidden md-col md:block"
+  [upvotes]="feedback.upvotes"
+  [upvoted]="feedback.upvoted"
+></lbk-upvote>
+<!-- end Upvote -->
+
+<div class="md:w-full">
+  <div class="justify-between items-end md:flex md:w-full">
+    <div>
+      <!-- Title -->
+      <a
+        [routerLink]="['/feedback', feedback.feedback_id]"
+        class="font-bold text-neutral-300 text-sm md:text-lg hover:underline"
+        >{{ feedback.title }}</a
+      >
+      <!-- end Title -->
+
+      <!-- Description -->
+      <p class="text-neutral text-sm mt-2 md:text-base">
+        {{ feedback.description }}
+      </p>
+      <!-- end Description -->
+    </div>
+
+    <!--  Number of Comments  -->
+    <lbk-comments-amount
+      class="summary hidden md:block"
+      [amount]="feedback.commentsLength"
+    ></lbk-comments-amount>
+    <!--  end Number of Comments  -->
+  </div>
+
+  <!-- Category -->
+  <div class="mt-2 xl:mt-4">
+    <a
+      [routerLink]="['/']"
+      [queryParams]="{ category: feedback.category }"
+      class="btn btn-secondary"
+    >
+      {{ feedback.category | upper: 2 }}
+    </a>
+  </div>
+  <!-- end Category -->
+
+  <div class="summary flex items-center justify-between mt-4 md:hidden">
+    <!-- Upvote -->
+    <lbk-upvote
+      [upvoted]="feedback.upvoted"
+      (upvote)="upvoteButtonClick()"
+      class="md:flex-col"
+      [upvotes]="feedback.upvotes"
+    ></lbk-upvote>
+    <!-- end Upvote -->
+
+    <!--  Number of Comments  -->
+    <lbk-comments-amount [amount]="commentsAmount"></lbk-comments-amount>
+    <!--  end Number of Comments  -->
+  </div>
+</div>

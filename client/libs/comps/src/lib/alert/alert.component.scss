@@ -1,0 +1,21 @@
+:host {
+  @apply flex items-center rounded-lg gap-3 not-italic;
+  @apply duration-300 py-3 px-5 shadow-lg;
+  @apply hover:opacity-50;
+}
+
+:host-context(.warning) {
+  @apply bg-yellow-400 text-stone-600;
+}
+
+:host-context(.info) {
+  @apply bg-sky-400 text-stone-600;
+}
+
+:host-context(.success) {
+  @apply bg-green-400 text-stone-600;
+}
+
+:host-context(.error) {
+  @apply bg-red-400 text-stone-200;
+}

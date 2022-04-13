@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.client.name }}
+spec:
+  replicas: {{ .Values.client.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.client.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.client.name }}
+    spec:
+      containers:
+        - name: {{ .Values.client.name }}
+          image: {{ .Values.client.image }}:{{ .Values.tag }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.client.name }}
+spec:
+  selector:
+    app: {{ .Values.client.name }}
+  type: {{ .Values.client.serviceType }}
+  ports:
+    - port: {{ int .Values.client.port }}
+      targetPort: {{ int .Values.client.port }}

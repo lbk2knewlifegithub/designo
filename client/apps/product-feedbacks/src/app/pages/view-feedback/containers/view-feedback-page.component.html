@@ -1,0 +1,52 @@
+<header
+  class="container flex items-center justify-between mt-6 md:mt-14 max-w-[730px] md:px-0"
+>
+  <!--      Go Back-->
+  <lbk-go-back></lbk-go-back>
+  <!--      end Go Back-->
+
+  <!--      Edit Feedback-->
+  <a
+    *ngIf="isOwnedByUser$ | async"
+    [routerLink]="['/edit-feedback', (feedback$ | async)!.feedback_id]"
+    class="btn btn-primary"
+    >Edit Feedback</a
+  >
+  <!--      end Edit Feedback-->
+</header>
+
+<main class="container mt-8 pb-20 max-w-[730px] md:px-0 md:mt-6">
+  <!--      Feedback Preview-->
+  <lbk-feedback-preview
+    [feedback]="(feedback$ | async)!"
+  ></lbk-feedback-preview>
+  <!--      end Feedback Preview-->
+
+  <div class="mt-6">
+    <!-- Loading -->
+    <div
+      *ngIf="loadingComments$ | async; else loaded"
+      class="flex justify-center"
+    >
+      <lbk-spinner [radius]="60"></lbk-spinner>
+    </div>
+    <!-- end Loading -->
+
+    <ng-template #loaded>
+      <!--      Comment List-->
+      <ng-container *ngIf="hasComments$ | async">
+        <lbk-comment-list
+          [comments]="(feedback$ | async)!.comments!"
+        ></lbk-comment-list>
+      </ng-container>
+      <!--      end Comment List-->
+    </ng-template>
+  </div>
+
+  <!--      Add Comment-->
+  <lbk-add-comment-form
+    (addComment)="addComment($event)"
+    class="mt-6"
+  ></lbk-add-comment-form>
+  <!--      end Add Comment-->
+</main>

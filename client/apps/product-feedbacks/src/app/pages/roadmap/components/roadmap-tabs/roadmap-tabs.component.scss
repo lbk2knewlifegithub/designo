@@ -1,0 +1,17 @@
+:host-context(.planned) {
+  .line {
+    @apply bg-warning;
+  }
+}
+
+:host-context(.in-progress) {
+  .line {
+    @apply bg-accent;
+  }
+}
+
+:host-context(.live) {
+  .line {
+    @apply bg-primary;
+  }
+}

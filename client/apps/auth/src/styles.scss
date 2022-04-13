@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-mono;
+  }
+
+  [type='text'],
+  [type='password'] {
+    @apply input input-bordered w-full;
+  }
+
+  .avatar {
+    @apply w-32 h-32 rounded-full;
+  }
+
+  .bg {
+    @apply fixed inset-0 w-full h-full;
+    @apply object-cover object-center;
+  }
+  .error {
+    @apply text-error italic font-bold text-sm;
+  }
+  .center {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+}
+
+input.ng-invalid.ng-touched {
+  @apply border-2 border-error;
+}

@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.api.name }}
+spec:
+  replicas: {{ .Values.api.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.api.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.api.name }}
+    spec:
+      containers:
+        - name: {{ .Values.api.name }}
+          image: {{ .Values.api.image }}:{{ .Values.tag }}
+          ports:
+            - containerPort: {{ int .Values.api.port }}
+          env:
+            # Jwt Secret
+            - name: JWT_SECRET
+              valueFrom:
+                configMapKeyRef: 
+                  name: config-map 
+                  key: jwt-secret 
+            # Email Config
+            - name: EMAIL_ADDRESS
+              valueFrom:
+                configMapKeyRef: 
+                  name: config-map 
+                  key: email-address 
+            - name: EMAIL_USERNAME
+              valueFrom:
+                configMapKeyRef: 
+                  name: config-map 
+                  key: email-username 
+            - name: EMAIL_PASSWORD
+              valueFrom:
+                configMapKeyRef: 
+                  name: config-map 
+                  key: email-password 
+            - name: EMAIL_TEMPLATES_FOLDER
+              value: "/app/templates"
+            - name: CLIENT_AUTH
+              value: https://client-auth-client-lbk2knewlifegithub.cloud.okteto.net
+            # Postgres Config
+            - name: PG_USERNAME 
+              valueFrom:
+                configMapKeyRef: 
+                  name: config-map 
+                  key: pg-username 
+            - name: PG_PASSWORD
+              valueFrom:
+                configMapKeyRef: 
+                  name: config-map 
+                  key: pg-password 
+            - name: PG_HOST_READ_WRITE
+              value: postgresql-primary.db-lbk2knewlifegithub.svc.cluster.local 
+            - name: PG_HOST_READ
+              value: postgresql-read.db-lbk2knewlifegithub.svc.cluster.local 
+            - name: PG_DB_NAME
+              valueFrom:
+                configMapKeyRef: 
+                  name: config-map 
+                  key: pg-db-name 
+            # Redis Config
+            - name: REDIS_HOST_READ_WRITE
+              value: redis-master.db-lbk2knewlifegithub.svc.cluster.local
+            - name: REDIS_HOST_READ
+              value: redis-replicas.db-lbk2knewlifegithub.svc.cluster.local
+            - name: REDIS_PASSWORD
+              valueFrom:
+                configMapKeyRef: 
+                  name: config-map 
+                  key: redis-password 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.api.name }}
+spec:
+  type: {{ .Values.api.serviceType }}
+  selector:
+    app: {{ .Values.api.name }}
+  ports:
+    - port: {{ int .Values.api.port }}
+      targetPort: {{ int .Values.api.port }}

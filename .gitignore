@@ -1,0 +1,12 @@
+**/dist
+**/.angular
+**/target
+**/node_modules
+**/.env
+api/.env
+**/.vscode
+node_modules
+dist
+Makefile
+secret
+config.yaml

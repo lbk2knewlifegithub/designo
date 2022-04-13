@@ -1,0 +1,8 @@
+tag: dev
+
+client:
+  name: client-auth
+  replicaCount: 1
+  image: okteto.dev/client-auth
+  serviceType: LoadBalancer
+  port: 80

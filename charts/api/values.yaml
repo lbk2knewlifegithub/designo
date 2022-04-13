@@ -1,0 +1,10 @@
+tag: dev
+
+# Api
+api:
+  name: api-auth
+  replicaCount: 1
+  image: okteto.dev/api-auth
+  emailTemplatesFolder: "/app/templates"
+  serviceType: LoadBalancer
+  port: 8080

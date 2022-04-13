@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/interceptors",
+  "sourceRoot": "libs/interceptors/src",
+  "prefix": "lbk",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/interceptors"],
+      "options": {
+        "jestConfig": "libs/interceptors/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/interceptors/src/**/*.ts",
+          "libs/interceptors/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,87 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{.Values.apiStorage.name}}
+spec:
+  storageClassName: csi-okteto-standard
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{.Values.apiStorage.storage.size}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.apiStorage.name}}
+spec:
+  replicas: {{ .Values.apiStorage.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{.Values.apiStorage.name}} 
+  template:
+    metadata:
+      labels:
+        app: {{.Values.apiStorage.name}} 
+    spec:
+      containers:
+        - name: {{.Values.apiStorage.name}} 
+          image: {{ .Values.apiStorage.image }}:{{ .Values.tag }}
+          ports:
+            - containerPort: {{ int .Values.apiStorage.port }}
+          env:
+            # Jwt Secret
+            - name: JWT_SECRET
+              valueFrom:
+                configMapKeyRef:
+                  name: config-map
+                  key: jwt-secret
+            # Postgres Config
+            - name: PG_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: config-map
+                  key: pg-username
+            - name: PG_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: config-map
+                  key: pg-password
+            - name: PG_HOST_READ_WRITE
+              value: postgresql-primary.db-lbk2knewlifegithub.svc.cluster.local 
+            - name: PG_HOST_READ
+              value: postgresql-read.db-lbk2knewlifegithub.svc.cluster.local 
+            - name: PG_DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: config-map
+                  key: pg-db-name
+            # Redis Config
+            - name: REDIS_HOST_READ_WRITE
+              value: redis-master.db-lbk2knewlifegithub.svc.cluster.local
+            - name: REDIS_HOST_READ
+              value: redis-replicas.db-lbk2knewlifegithub.svc.cluster.local
+            - name: REDIS_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: config-map
+                  key: redis-password 
+          volumeMounts:
+            - name: {{.Values.apiStorage.name}}
+              mountPath: {{.Values.apiStorage.storage.storageMountPath}}
+      volumes:
+        - name: {{.Values.apiStorage.name}}
+          persistentVolumeClaim:
+            claimName: {{.Values.apiStorage.name}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Values.apiStorage.name}}
+spec:
+  type: {{ .Values.apiStorage.serviceType }}
+  selector:
+    app: {{.Values.apiStorage.name}} 
+  ports:
+    - port: {{ int .Values.apiStorage.port }}
+      targetPort: {{ int .Values.apiStorage.port }}

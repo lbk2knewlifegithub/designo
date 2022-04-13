@@ -1,0 +1,5 @@
+deploy:
+  # Build Client Product Feedbacks
+  - okteto build -t okteto.dev/client-product-feedbacks:${OKTETO_GIT_COMMIT} client -f client/product-feedbacks.Dockerfile
+  # Ungrade Chart
+  - helm upgrade -i client-product-feedbacks charts/client -n client-lbk2knewlifegithub -f values/client-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}

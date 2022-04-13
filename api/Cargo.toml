@@ -1,0 +1,3 @@
+[workspace]
+
+members = ["auth", "product-feedbacks", "images", "prelude"]

@@ -1,0 +1,9 @@
+tag: dev
+
+# Api Product Feedbacks
+api:
+  name: api-product-feedbacks
+  replicaCount: 3
+  image: okteto.dev/api-product-feedbacks
+  serviceType: LoadBalancer
+  port: 8082

@@ -1,0 +1,26 @@
+<ul class="relative grid grid-cols-3 shadow-sm text-center list-none">
+  <!--          line-->
+  <div
+    [ngStyle]="line$ | async"
+    class="line duration-300 absolute bottom-0 left-0 h-1"
+  ></div>
+  <!--          end line-->
+
+  <!--      Tabs-->
+  <li
+    *ngFor="
+      let summary of summaries$ | async;
+      index as i;
+      trackBy: identifyStatus
+    "
+  >
+    <button
+      (click)="setFilter(summary.status)"
+      #tabs
+      class="inline-block duration-500 relative py-5 font-bold text-neutral/30"
+    >
+      {{ summary.status | titlecase }}({{ summary.feedbacks.length }})
+    </button>
+  </li>
+  <!--      end Tabs-->
+</ul>

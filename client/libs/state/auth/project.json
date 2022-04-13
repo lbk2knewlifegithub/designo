@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/state/auth",
+  "sourceRoot": "libs/state/auth/src",
+  "prefix": "lbk",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/state/auth"],
+      "options": {
+        "jestConfig": "libs/state/auth/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/state/auth/src/**/*.ts",
+          "libs/state/auth/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

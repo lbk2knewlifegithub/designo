@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map
+data:
+  jwt-secret: $JWT_SECRET
+  email-address: $EMAIL_ADDRESS
+  email-password: $EMAIL_PASSWORD
+  email-username: $EMAIL_USERNAME
+  pg-username: $PG_USERNAME
+  pg-password: $PG_PASSWORD
+  pg-db-name: $PG_DB_NAME
+  redis-password: $REDIS_PASSWORD

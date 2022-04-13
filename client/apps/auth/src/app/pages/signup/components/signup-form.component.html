@@ -1,0 +1,75 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit(avatar.file)"
+  class="relative bg-white rounded-lg shadow-lg p-8 pt-32 sm:pt-20"
+>
+  <!-- Avatar -->
+  <lbk-avatar-input
+    #avatar
+    class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center"
+  ></lbk-avatar-input>
+  <!-- end Avatar -->
+
+  <!-- Title -->
+  <h1 class="text-4xl font-bold mb-6">Sign Up</h1>
+  <!-- end Title -->
+
+  <div class="grid gap-2">
+    <div class="flex flex-col sm:flex-row sm:gap-6">
+      <!-- FirstName -->
+      <lbk-input
+        [parent]="form"
+        label="First Name"
+        controlName="firstname"
+      ></lbk-input>
+      <!-- end FirstName -->
+
+      <!-- LastName -->
+      <lbk-input
+        [parent]="form"
+        label="Last Name"
+        controlName="lastname"
+      ></lbk-input>
+      <!-- end end LastName -->
+    </div>
+
+    <!-- Username -->
+    <lbk-input [parent]="form" controlName="username" label="Username">
+      <span *ngIf="usernameExists" class="error">
+        Username already <strong>exists</strong>
+      </span>
+    </lbk-input>
+    <!-- end Username -->
+
+    <!-- Password -->
+    <lbk-password-input label="Password" [parent]="form"></lbk-password-input>
+    <!-- end Password -->
+
+    <!-- Confirm Password -->
+    <lbk-confirm-password-input [parent]="form"></lbk-confirm-password-input>
+    <!-- end Confirm Password -->
+  </div>
+
+  <div class="mt-8 space-y-2">
+    <!-- Sign Up Button -->
+    <button class="btn btn-primary w-full">Sign Up</button>
+    <!-- end Sign Up Button -->
+
+    <!-- Or -->
+    <div class="flex gap-2 items-center">
+      <span class="grow h-[1px] bg-gray-400"></span>
+      Or
+      <span class="grow h-[1px] bg-gray-400"></span>
+    </div>
+    <!-- end Or -->
+
+    <!-- Login Button -->
+    <a
+      routerLink="/login"
+      [queryParams]="queryParams$ | async"
+      class="btn w-full"
+      >Login</a
+    >
+    <!-- end Login Button -->
+  </div>
+</form>

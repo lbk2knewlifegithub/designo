@@ -1,0 +1,26 @@
+FROM lukemathwalker/cargo-chef:latest-rust-1.59.0 AS chef
+WORKDIR /app
+
+FROM chef AS planner
+COPY . .
+RUN cargo chef prepare --recipe-path recipe.json
+
+FROM chef AS builder 
+RUN apt update -y
+RUN apt-get install clang libclang-dev pkg-config libssl-dev -y
+
+COPY --from=planner /app/recipe.json recipe.json
+# Build dependencies - this is the caching Docker layer!
+RUN cargo chef cook --release --recipe-path recipe.json
+# Build application
+COPY . .
+RUN cargo build --bin auth --release
+
+# We do not need the Rust toolchain to run the binary!
+FROM debian:bullseye-slim AS runtime
+RUN apt-get update && apt-get install -y ca-certificates 
+WORKDIR /app
+COPY --from=builder /app/target/release/auth /usr/local/bin
+COPY --from=builder /app/templates ./templates
+EXPOSE 587
+ENTRYPOINT ["/usr/local/bin/auth"]

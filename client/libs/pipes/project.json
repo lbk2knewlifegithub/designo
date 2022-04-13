@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/pipes",
+  "sourceRoot": "libs/pipes/src",
+  "prefix": "lbk",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/pipes"],
+      "options": {
+        "jestConfig": "libs/pipes/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/pipes/src/**/*.ts",
+          "libs/pipes/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,12 @@
+tag: dev
+
+# Api Images
+apiStorage:
+  name: api-images
+  replicaCount: 6
+  image: okteto.dev/api-images
+  serviceType: LoadBalancer
+  port: 8081
+  storage:
+    size: 5Gi
+    storageMountPath: /app/static

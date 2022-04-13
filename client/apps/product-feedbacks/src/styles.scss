@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-mono bg-secondary;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  h3 {
+    @apply text-lg;
+  }
+
+  h4 {
+    @apply text-sm;
+  }
+
+  //   Buttons
+  .btn {
+    @apply inline-block font-bold text-sm;
+    @apply duration-300 py-3 px-4 rounded-lg;
+    @apply disabled:opacity-50;
+    @apply hover:opacity-60;
+  }
+
+  .btn-icon {
+    @apply inline-flex gap-2 items-center;
+  }
+
+  .btn-primary {
+    @apply bg-primary-200 text-white;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white;
+  }
+
+  .btn-secondary {
+    @apply text-primary;
+    @apply bg-secondary-200;
+    @apply md:py-2 md:text-xs md:px-4;
+  }
+
+  .btn-ghost {
+    @apply text-primary-200;
+  }
+
+  .btn-ghost-primary {
+    @apply text-primary-200;
+    @apply hover:bg-primary-200/20;
+  }
+
+  .btn-ghost-error {
+    @apply text-error;
+    @apply hover:bg-error/20;
+  }
+
+  .btn-ghost-accent {
+    @apply text-accent;
+    @apply hover:bg-accent/20;
+  }
+
+  .btn-neutral {
+    @apply text-white bg-neutral-200;
+  }
+
+  .btn-error {
+    @apply text-white bg-error;
+  }
+
+  //Link
+  .link {
+    @apply text-primary font-bold underline text-sm;
+  }
+
+  //Avatar
+  .avatar {
+    @apply rounded-full object-cover object-center shadow-md;
+  }
+
+  // Error
+  .error {
+    @apply text-error font-bold italic text-xs;
+  }
+
+  .overlay {
+    @apply fixed inset-0  bg-black/30 grid place-items-center;
+  }
+
+  // Input
+  [type='text'],
+  [type='email'],
+  [type='password'],
+  select,
+  textarea {
+    @apply bg-secondary rounded-lg py-3 px-4 w-full text-sm text-neutral;
+    @apply border-2 border-transparent;
+    @apply focus:border-accent focus:ring-accent;
+    @apply md:text-base;
+  }
+
+  label {
+    @apply text-neutral-300 font-medium;
+  }
+
+  .bg-img {
+    @apply absolute inset-0 w-full h-full object-cover object-center z-[-1];
+  }
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  @apply border-2 border-error;
+}
+
+@layer utilities {
+  .avatar-md {
+    @apply w-10 shadow-md;
+  }
+
+  .avatar-lg {
+    @apply w-11 shadow-md;
+  }
+
+  .avatar-xl {
+    @apply w-32 shadow-xl;
+  }
+}

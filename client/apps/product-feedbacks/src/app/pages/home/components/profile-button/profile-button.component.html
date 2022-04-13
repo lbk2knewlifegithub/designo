@@ -1,0 +1,72 @@
+<!-- Profile LoggedIn -->
+<lbk-dropdown [closeWhenContentClick]="true" #dropdown>
+  <!-- Toggle -->
+  <button dropDownToggle aria-label="Sort By">
+    <!-- LoggedIn User -->
+    <img
+      id="avatar"
+      *ngIf="loggedIn$ | async; else defaultUser"
+      class="avatar avatar-md border border-white md:avatar-lg md:border-2"
+      [src]="(user$ | async)! | avatar"
+      alt="Avatar"
+    />
+    <!-- end LoggedIn User -->
+
+    <ng-template #defaultUser>
+      <!-- Default user -->
+      <div
+        class="w-8 rounded-full aspect-square bg-white grid place-items-center"
+      >
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <!-- end Default user -->
+    </ng-template>
+  </button>
+  <!-- end Toggle -->
+
+  <!-- Content -->
+  <ng-template dropDownContent>
+    <!-- LoggedIn Menu -->
+    <ul *ngIf="loggedIn$ | async; else defaultMenu" class="group">
+      <li>
+        <a routerLink="/profile">
+          Profile
+          <i class="fa-solid fa-user"></i>
+        </a>
+      </li>
+      <!-- Logout -->
+      <li>
+        <button class="w-full" (click)="logout()">
+          Logout
+          <i class="fa-regular fa-arrow-up-left-from-circle"></i>
+        </button>
+      </li>
+      <!-- end Logout -->
+    </ul>
+    <!-- end LoggedIn Menu -->
+
+    <ng-template #defaultMenu>
+      <ul class="group">
+        <!-- Login -->
+        <li>
+          <button (click)="login()">
+            Login
+            <i class="fa-solid fa-arrow-right-to-arc"></i>
+          </button>
+        </li>
+        <!-- end Login -->
+
+        <!-- SignUp -->
+        <li>
+          <button (click)="signup()">
+            SignUp
+            <i class="fa-solid fa-arrow-right-to-arc"></i>
+          </button>
+        </li>
+        <!-- end SignUp -->
+      </ul>
+    </ng-template>
+  </ng-template>
+  <!-- end Content -->
+</lbk-dropdown>
+<!-- end Profile LoggedIn -->

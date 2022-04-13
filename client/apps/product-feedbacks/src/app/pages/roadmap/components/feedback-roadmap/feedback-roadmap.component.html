@@ -1,0 +1,51 @@
+<!--  Status Indicator-->
+<div class="status flex items-center gap-2 text-neutral text-sm">
+  <span class="w-2 h-2 rounded-full ball"></span>
+  {{ feedback.status | titlecase }}
+</div>
+<!--  end Status Indicator-->
+
+<div class="justify-between items-end mt-2">
+  <div>
+    <!-- Title -->
+    <a
+      [routerLink]="['/feedback', feedback.feedback_id]"
+      class="duration-300 text-xs font-bold text-neutral-300 md:text-base hover:underline"
+      >{{ feedback.title }}</a
+    >
+    <!-- end Title -->
+
+    <!-- Description -->
+    <p class="text-neutral text-xs mt-2 md:mt-0">
+      {{ feedback.description }}
+    </p>
+    <!-- end Description -->
+  </div>
+</div>
+
+<!-- Category -->
+<a
+  [routerLink]="['/']"
+  [queryParams]="{ category: feedback.category }"
+  class="btn btn-secondary mt-3 md:mt-4"
+>
+  {{ feedback.category | upper: 2 }}
+</a>
+<!-- end Category -->
+
+<div class="flex items-center justify-between mt-4">
+  <!-- Upvote -->
+  <lbk-upvote
+    (click)="upvoteButtonClick()"
+    [upvoted]="feedback.upvoted"
+    [upvotes]="feedback.upvotes"
+  ></lbk-upvote>
+  <!-- end Upvote -->
+
+  <!--  Number of Comments  -->
+  <span class="btn-icon text-neutral-300 font-bold">
+    <img src="assets/shared/icon-comments.svg" alt="Comments" />
+    {{ feedback.commentsLength }}
+  </span>
+  <!--  end Number of Comments  -->
+</div>

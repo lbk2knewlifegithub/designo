@@ -1,0 +1,38 @@
+<div [formGroup]="parent">
+  <label class="grid gap-1" [for]="controlName">
+    {{ label | titlecase }}
+    <input [id]="controlName" [formControlName]="controlName" type="text" />
+  </label>
+
+  <!-- Errors -->
+  <div class="grid">
+    <ng-content></ng-content>
+
+    <!-- Email Invalid -->
+    <span *ngIf="email" class="error">
+      Email invalid
+    </span>
+    <!-- end Email Invalid -->
+
+    <!-- Required Error -->
+    <span *ngIf="required" class="error">
+      {{ controlName | titlecase }} is requried.
+    </span>
+    <!-- end Required Error -->
+
+    <!-- Min Length Error -->
+    <span *ngIf="minlength" class="error">
+      {{ controlName | titlecase }} must at least
+      {{ minlength.requiredLength }} characters
+    </span>
+    <!-- end Min Length Error -->
+
+    <!-- Max Length error  -->
+    <span *ngIf="maxlength" class="error">
+      {{ controlName | titlecase }} max length is
+      {{ maxlength.requiredLength }} chracters
+    </span>
+    <!-- end Max Length error  -->
+  </div>
+  <!-- end Errors -->
+</div>
