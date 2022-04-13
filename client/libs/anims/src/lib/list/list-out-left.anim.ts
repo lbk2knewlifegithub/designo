@@ -16,26 +16,26 @@ interface ListAnimationsOpstions extends AnimationOptions {
   staggerDuration?: number;
 }
 
-export function listInLeft(options?: ListAnimationsOpstions) {
+export function listOutLeft(options?: ListAnimationsOpstions) {
   options = {
     ...options,
     ...DEFAULT_ANIMATION_OPTIONS,
   };
 
   const { anchor, item, staggerDuration, delay, easing, duration } = options;
-  return trigger(anchor || 'listInLeft', [
+  return trigger(anchor || 'listOutLeft', [
     transition(
-      ':enter',
+      ':leave',
       [
         query(
           item || 'listItem',
           [
-            style({
-              opacity: 0,
-              transform: 'translateX(-100px) scale(.9)',
-            }),
+            style({ position: 'absolute', transform: 'translateX(200px)' }),
             stagger(staggerDuration ?? 100, [
-              animate('{{duration}}ms {{delay}}ms {{easing}}'),
+              animate(
+                '{{duration}}ms {{delay}}ms {{easing}}',
+                style({ opacity: 0, transform: 'translateX(-100%)' })
+              ),
             ]),
           ],
           { optional: true }

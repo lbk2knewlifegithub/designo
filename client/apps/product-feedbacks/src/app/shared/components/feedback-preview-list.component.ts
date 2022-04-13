@@ -8,12 +8,13 @@ import { Feedback, identifyFeedback } from '@lbk/models';
 import { FeedbackPreviewModule } from './feedback-preview/feedback-preview.module';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { listInLeft, listOutLeft } from '@lbk/anims';
 
 @Component({
   selector: 'lbk-feedback-preview-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <ul class="grid gap-4 xl:gap-5">
+    <ul @listInLeft @listOutLeft class="relative grid gap-4 xl:gap-5">
       <li *ngFor="let feedback of feedbacks; trackBy: identifyFeedback">
         <lbk-feedback-preview [feedback]="feedback"></lbk-feedback-preview>
       </li>
@@ -29,6 +30,10 @@ import { RouterModule } from '@angular/router';
         @apply gap-6;
       }
     `,
+  ],
+  animations: [
+    listInLeft({ item: 'lbk-feedback-preview' }),
+    listOutLeft({ item: 'lbk-feedback-preview' }),
   ],
 })
 export class FeedbackPreviewListComponent {
