@@ -5,7 +5,7 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { CLIENT_PRODUCT_FEEDBACK_URL } from '@lbk/tokens';
+import { CLIENT_PRODUCT_FEEDBACKS_URL } from '@lbk/tokens';
 import {
   AbstractControl,
   FormBuilder,
@@ -43,7 +43,7 @@ export class SignupFormComponent implements OnInit {
     private readonly _fb: FormBuilder,
     private readonly _facade: SignUpFacade,
     private readonly _routeFacade: RouteFacade,
-    @Inject(CLIENT_PRODUCT_FEEDBACK_URL)
+    @Inject(CLIENT_PRODUCT_FEEDBACKS_URL)
     readonly clientProductFeedbacksUrl: string
   ) {}
 

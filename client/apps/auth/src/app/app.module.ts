@@ -5,7 +5,7 @@ import { CoreHttpClientModule } from '@lbk/services';
 import {
   API_AUTH_URL,
   API_IMAGES_URL,
-  CLIENT_PRODUCT_FEEDBACK_URL,
+  CLIENT_PRODUCT_FEEDBACKS_URL,
 } from '@lbk/tokens';
 import { NxModule } from '@nrwl/angular';
 import { environment } from '../environments/environment';
@@ -34,7 +34,7 @@ import { StateModule } from './state';
       useValue: environment.apiImagesUrl,
     },
     {
-      provide: CLIENT_PRODUCT_FEEDBACK_URL,
+      provide: CLIENT_PRODUCT_FEEDBACKS_URL,
       useValue: environment.clientProductFeedbacksUrl,
     },
   ],

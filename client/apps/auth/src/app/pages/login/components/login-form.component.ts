@@ -14,7 +14,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Credentials } from '@lbk/models';
-import { CLIENT_PRODUCT_FEEDBACK_URL } from '@lbk/tokens';
+import { CLIENT_PRODUCT_FEEDBACKS_URL } from '@lbk/tokens';
 import { Observable } from 'rxjs';
 import { RouteFacade } from './../../../shared/route.facade';
 import { LoginError } from './../state/login.reducer';
@@ -36,7 +36,7 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private readonly _fb: FormBuilder,
     private readonly _routeFacade: RouteFacade,
-    @Inject(CLIENT_PRODUCT_FEEDBACK_URL)
+    @Inject(CLIENT_PRODUCT_FEEDBACKS_URL)
     readonly clientProductFeedbacksUrl: string
   ) {}
 

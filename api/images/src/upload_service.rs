@@ -8,7 +8,7 @@ pub async fn upload_avatar(
     user_id: &i32,
     payload: Multipart,
 ) -> Result<String> {
-    let client = state.db.read_write.get().await?;
+    let client = state.db.write.get().await?;
 
     // Get old_avatar if exists
     let old_avatar = upload_repo::get_avatar(&client, user_id).await?;

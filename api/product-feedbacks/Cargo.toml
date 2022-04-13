@@ -14,6 +14,11 @@ actix-cors = "0.6"
 actix-service = "2.0.2"
 actix-rt = "2.7.0"
 actix-web-validator = "3.0.0"
+actix-redis = "0.10"
+redis-async = { version = "0.8", default_features = false, features = [
+    "tokio10",
+] }
+
 validator = { version = "0.14.0", features = ["derive"] }
 chrono = { version = "0.4.10", features = ["serde"] }
 derive_more = "0.99.2"

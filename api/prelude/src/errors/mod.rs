@@ -18,6 +18,11 @@ use upload_error::UploadError;
 #[derive(Debug, Display)]
 pub enum AppError {
     /**
+     * - DDos Error
+     */
+    DDosError,
+
+    /**
      * - Record Already Exists
      */
     RecordAlreadyExists,
@@ -83,6 +88,7 @@ impl actix_web::ResponseError for AppError {
             AppError::FeedbackError(e) => match e {
                 FeedbackError::AlreadyUpvote => HttpResponse::Conflict(),
             },
+            AppError::DDosError => HttpResponse::TooManyRequests(),
         };
 
         builder.json(ErrorResponse { error })

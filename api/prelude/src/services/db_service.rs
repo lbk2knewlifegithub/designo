@@ -39,13 +39,12 @@ impl DbConfig {
 #[derive(Clone)]
 pub struct DBService {
     pub read: Pool,
-    pub read_write: Pool,
+    pub write: Pool,
 }
 
 impl DBService {
     pub fn from_env() -> Self {
-        let host_read_write = var("PG_HOST_READ_WRITE")
-            .expect("Missing PG_HOST_READ_WRITE (Postgres Host Read Write)");
+        let host_write = var("PG_HOST_WRITE").expect("Missing PG_HOST_WRITE (Postgres Host Write)");
         let host_read = var("PG_HOST_READ").expect("Missing PG_HOST_READ (Postgres Host Read)");
 
         let username = var("PG_USERNAME").expect("Missing PG_USERNAME (Postgres username)");
@@ -55,11 +54,11 @@ impl DBService {
         let db_name = var("PG_DB_NAME").expect("Missing PG_DB_NAME (Postgres database name).");
 
         let read_config = DbConfig::new(&username, &password, &host_read, &db_name);
-        let read_write_config = DbConfig::new(&username, &password, &host_read_write, &db_name);
+        let write_config = DbConfig::new(&username, &password, &host_write, &db_name);
 
         Self {
             read: read_config.connect(),
-            read_write: read_write_config.connect(),
+            write: write_config.connect(),
         }
     }
 }

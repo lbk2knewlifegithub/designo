@@ -39,19 +39,29 @@ async fn get_feedback_by_id(
         .map_err(Into::into)
 }
 
-/// Delete feedback by id Route
-async fn delete_feedback_by_id(
+/// Delete feedback Route
+async fn delete_feedback(
     state: web::Data<FeedbacksState>,
     feedback_id: Path<i32>,
     req: HttpRequest,
 ) -> Result<HttpResponse> {
-    let user_token = state.jwt.authorize(&req).await?;
+    let token = state.jwt.get_token(&req)?;
+    let delete_feedback_token = format!("deletefeedback:{}", token);
+
+    // Check DDos
+    state.ddos.medium.check(&delete_feedback_token).await?;
+
+    let user_token = state.jwt.decode(&token).await?;
 
     let delete_feedback = DeleteFeedback::new(&feedback_id.into_inner(), &user_token.user_id);
-    feedback_service::delete_feedback_by_id(&state, &delete_feedback)
-        .await
-        .map(|_| HttpResponse::NoContent().finish())
-        .map_err(Into::into)
+
+    match feedback_service::delete_feedback(&state, &delete_feedback).await {
+        Ok(_) => {
+            state.ddos.medium.remember(&delete_feedback_token).await?;
+            Ok(HttpResponse::NoContent().finish())
+        }
+        Err(e) => Err(e),
+    }
 }
 
 /// Update feedback Route
@@ -61,17 +71,26 @@ async fn update_feedback<'a>(
     update_feedback_dto: Json<UpdateFeedbackDTO>,
     req: HttpRequest,
 ) -> Result<HttpResponse> {
-    let user_token = state.jwt.authorize(&req).await?;
+    let token = state.jwt.get_token(&req)?;
+    let update_token = format!("update:{}", token);
+    state.ddos.medium.check(&update_token).await?;
 
-    feedback_service::update_feedback(
+    let user_token = state.jwt.decode(&token).await?;
+
+    match feedback_service::update_feedback(
         &state,
         &feedback_id,
         &user_token.user_id,
         &update_feedback_dto.into_inner(),
     )
     .await
-    .map(|_| HttpResponse::NoContent().finish())
-    .map_err(Into::into)
+    {
+        Ok(_) => {
+            state.ddos.medium.remember(&update_token).await?;
+            Ok(HttpResponse::NoContent().finish())
+        }
+        Err(e) => Err(e),
+    }
 }
 
 /// Create Feedback Route
@@ -80,15 +99,26 @@ async fn create_feedback(
     create_feedback_dto: Json<CreateFeedbackDTO>,
     req: HttpRequest,
 ) -> Result<HttpResponse> {
-    let user_token = state.jwt.authorize(&req).await?;
-    feedback_service::create_feedback(
+    let token = state.jwt.get_token(&req)?;
+    let create_key = format!("createfeedback:{}", token);
+
+    state.ddos.high.check(&create_key).await?;
+
+    let user_token = state.jwt.decode(&token).await?;
+
+    match feedback_service::create_feedback(
         &state,
         &user_token.user_id,
         &create_feedback_dto.into_inner(),
     )
     .await
-    .map(|feedback| HttpResponse::Ok().json(feedback))
-    .map_err(Into::into)
+    {
+        Ok(feedback) => {
+            state.ddos.high.remember(&create_key).await?;
+            Ok(HttpResponse::Ok().json(feedback))
+        }
+        Err(e) => Err(e),
+    }
 }
 
 /// Upvote Feedback Route
@@ -97,13 +127,25 @@ async fn upvote_feedback(
     feedback_id: Path<i32>,
     req: HttpRequest,
 ) -> Result<HttpResponse> {
-    let user_token = state.jwt.authorize(&req).await?;
+    let token = state.jwt.get_token(&req)?;
+    let feedback_id = feedback_id.into_inner();
+    let upvote_key = format!("upvote:{}:{}", token, feedback_id);
 
-    let upvote = Upvote::new(&feedback_id.into_inner(), &user_token.user_id);
-    feedback_service::upvote_feedback(&state, &upvote)
-        .await
-        .map(|_| HttpResponse::NoContent().finish())
-        .map_err(Into::into)
+    // Check DDOS protection
+    state.ddos.low.check(&upvote_key).await?;
+
+    // Decode token
+    let user_token = state.jwt.decode(token.as_str()).await?;
+
+    let upvote = Upvote::new(&feedback_id, &user_token.user_id);
+
+    match feedback_service::upvote_feedback(&state, &upvote).await {
+        Ok(()) => {
+            state.ddos.low.remember(&upvote_key).await?;
+            Ok(HttpResponse::NoContent().finish())
+        }
+        Err(e) => Err(e),
+    }
 }
 
 /// Downvote Feedback Route
@@ -112,13 +154,25 @@ async fn downvote_feedback(
     feedback_id: Path<i32>,
     req: HttpRequest,
 ) -> Result<HttpResponse> {
-    let user_token = state.jwt.authorize(&req).await?;
+    let token = state.jwt.get_token(&req)?;
+    let feedback_id = feedback_id.into_inner();
+    let downvote_key = format!("downvote:{}:{}", token, feedback_id);
 
-    let downvote = Downvote::new(&feedback_id.into_inner(), &user_token.user_id);
-    feedback_service::downvote_feedback(&state, &downvote)
-        .await
-        .map(|_| HttpResponse::NoContent().finish())
-        .map_err(Into::into)
+    // Check DDOS protection
+    state.ddos.low.check(&downvote_key).await?;
+
+    // Decode token
+    let user_token = state.jwt.decode(token.as_str()).await?;
+
+    let downvote = Downvote::new(&feedback_id, &user_token.user_id);
+
+    match feedback_service::downvote_feedback(&state, &downvote).await {
+        Ok(()) => {
+            state.ddos.low.remember(&downvote_key).await?;
+            Ok(HttpResponse::NoContent().finish())
+        }
+        Err(e) => Err(e),
+    }
 }
 
 /// All comments Route
@@ -158,17 +212,25 @@ async fn add_comment_to_feedback(
     feedback_id: web::Path<i32>,
     add_comment_to_feedback_dto: Json<AddCommentDTO>,
 ) -> Result<HttpResponse> {
-    let user_token = state.jwt.authorize(&req).await?;
+    let token = state.jwt.get_token(&req)?;
+    let add_comment_ddos_token = format!("addcomment:{}", token);
+    state.ddos.medium.check(&add_comment_ddos_token).await?;
+
+    let user_token = state.jwt.decode(&token).await?;
 
     let new_comment = NewComment::new(
         &feedback_id.into_inner(),
         &user_token.user_id,
         &add_comment_to_feedback_dto.into_inner(),
     );
-    comment_service::add_comment_to_feedback(&state, &new_comment)
-        .await
-        .map(|component_response| HttpResponse::Created().json(component_response))
-        .map_err(Into::into)
+
+    match comment_service::add_comment_to_feedback(&state, &new_comment).await {
+        Ok(component_response) => {
+            state.ddos.medium.remember(&add_comment_ddos_token).await?;
+            Ok(HttpResponse::Created().json(component_response))
+        }
+        Err(e) => Err(e),
+    }
 }
 
 ///  Update comment by id
@@ -178,27 +240,55 @@ async fn update_comment_by_id(
     update_comment_dto: Json<UpdateCommentDTO>,
     req: HttpRequest,
 ) -> Result<HttpResponse> {
-    let user_token = state.jwt.authorize(&req).await?;
+    let token = state.jwt.get_token(&req)?;
+    let update_comment_ddos_token = format!("updatecomment:{}", token);
+
+    state.ddos.medium.check(&update_comment_ddos_token).await?;
+
+    let user_token = state.jwt.decode(&token).await?;
+
     let update_comment = UpdateComment::new(
         &comment_id.into_inner(),
         &user_token.user_id,
         &update_comment_dto.content.to_owned(),
     );
-    comment_service::update_comment(&state, &update_comment)
-        .await
-        .map(|_| HttpResponse::NoContent().finish())
-        .map_err(Into::into)
+    match comment_service::update_comment(&state, &update_comment).await {
+        Ok(_) => {
+            state
+                .ddos
+                .medium
+                .remember(&update_comment_ddos_token)
+                .await?;
+            Ok(HttpResponse::NoContent().finish())
+        }
+        Err(e) => Err(e),
+    }
 }
 
-/// Delete comment by id
-async fn delete_comment_by_id(
+/// Delete comment Handler
+async fn delete_comment(
     state: web::Data<FeedbacksState>,
     comment_id: web::Path<i32>,
+    req: HttpRequest,
 ) -> Result<HttpResponse> {
-    comment_service::delete_comment_by_id(&state, &comment_id)
-        .await
-        .map(|_| HttpResponse::NoContent().finish())
-        .map_err(Into::into)
+    let token = state.jwt.get_token(&req)?;
+    let delete_comment_ddos_token = format!("deletecomment:{}", token);
+
+    state.ddos.medium.check(&delete_comment_ddos_token).await?;
+
+    let user_token = state.jwt.decode(&token).await?;
+
+    match comment_service::delete_comment(&state, &user_token.user_id, &comment_id).await {
+        Ok(_) => {
+            state
+                .ddos
+                .medium
+                .remember(&delete_comment_ddos_token)
+                .await?;
+            Ok(HttpResponse::NoContent().finish())
+        }
+        Err(e) => Err(e),
+    }
 }
 
 /// Configure Feedback Routes
@@ -230,7 +320,7 @@ pub fn configure(cfg: &mut web::ServiceConfig) {
                             // Update comment by id
                             .route(web::put().to(update_comment_by_id))
                             // Delete comment by id
-                            .route(web::delete().to(delete_comment_by_id)),
+                            .route(web::delete().to(delete_comment)),
                     )
                     .service(
                         // Feedack
@@ -252,7 +342,7 @@ pub fn configure(cfg: &mut web::ServiceConfig) {
                                 // Get feedback by Id
                                 .route(web::get().to(get_feedback_by_id))
                                 // Delete feedback by Id
-                                .route(web::delete().to(delete_feedback_by_id))
+                                .route(web::delete().to(delete_feedback))
                                 // Update feedback by Id
                                 .route(web::put().to(update_feedback)),
                         )

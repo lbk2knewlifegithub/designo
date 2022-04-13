@@ -15,8 +15,8 @@ export const API_PRODUCT_FEEDBACKS_URL = new InjectionToken<string>(
 export const CLIENT_AUTH_URL = new InjectionToken<string>('CLIENT_AUTH_URL');
 
 // CLIENT PRODUCT FEEDBACKS URL
-export const CLIENT_PRODUCT_FEEDBACK_URL = new InjectionToken<string>(
-  'CLIENT_PRODUCT_FEEDBACK'
+export const CLIENT_PRODUCT_FEEDBACKS_URL = new InjectionToken<string>(
+  'CLIENT_PRODUCT_FEEDBACKS_URL'
 );
 
 // DEFAULT AVATAR

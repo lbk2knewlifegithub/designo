@@ -7,4 +7,5 @@ export const environment = {
   // Client
   clientAuthUrl: 'http://localhost:4200',
   clientProductFeedbacksUrl: 'http://localhost:4201',
+  clientPortfolio: 'http://localhost:4202',
 };

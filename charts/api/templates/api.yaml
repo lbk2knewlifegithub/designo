@@ -21,59 +21,59 @@ spec:
             # Jwt Secret
             - name: JWT_SECRET
               valueFrom:
-                configMapKeyRef: 
-                  name: config-map 
-                  key: jwt-secret 
+                configMapKeyRef:
+                  name: config-map
+                  key: jwt-secret
             # Email Config
             - name: EMAIL_ADDRESS
               valueFrom:
-                configMapKeyRef: 
-                  name: config-map 
-                  key: email-address 
+                configMapKeyRef:
+                  name: config-map
+                  key: email-address
             - name: EMAIL_USERNAME
               valueFrom:
-                configMapKeyRef: 
-                  name: config-map 
-                  key: email-username 
+                configMapKeyRef:
+                  name: config-map
+                  key: email-username
             - name: EMAIL_PASSWORD
               valueFrom:
-                configMapKeyRef: 
-                  name: config-map 
-                  key: email-password 
+                configMapKeyRef:
+                  name: config-map
+                  key: email-password
             - name: EMAIL_TEMPLATES_FOLDER
               value: "/app/templates"
             - name: CLIENT_AUTH
               value: https://client-auth-client-lbk2knewlifegithub.cloud.okteto.net
             # Postgres Config
-            - name: PG_USERNAME 
+            - name: PG_USERNAME
               valueFrom:
-                configMapKeyRef: 
-                  name: config-map 
-                  key: pg-username 
+                configMapKeyRef:
+                  name: config-map
+                  key: pg-username
             - name: PG_PASSWORD
               valueFrom:
-                configMapKeyRef: 
-                  name: config-map 
-                  key: pg-password 
-            - name: PG_HOST_READ_WRITE
-              value: postgresql-primary.db-lbk2knewlifegithub.svc.cluster.local 
+                configMapKeyRef:
+                  name: config-map
+                  key: pg-password
+            - name: PG_HOST_WRITE
+              value: postgresql-primary.db-lbk2knewlifegithub.svc.cluster.local
             - name: PG_HOST_READ
-              value: postgresql-read.db-lbk2knewlifegithub.svc.cluster.local 
+              value: postgresql-read.db-lbk2knewlifegithub.svc.cluster.local
             - name: PG_DB_NAME
               valueFrom:
-                configMapKeyRef: 
-                  name: config-map 
-                  key: pg-db-name 
+                configMapKeyRef:
+                  name: config-map
+                  key: pg-db-name
             # Redis Config
-            - name: REDIS_HOST_READ_WRITE
+            - name: REDIS_HOST_WRITE
               value: redis-master.db-lbk2knewlifegithub.svc.cluster.local
             - name: REDIS_HOST_READ
               value: redis-replicas.db-lbk2knewlifegithub.svc.cluster.local
             - name: REDIS_PASSWORD
               valueFrom:
-                configMapKeyRef: 
-                  name: config-map 
-                  key: redis-password 
+                configMapKeyRef:
+                  name: config-map
+                  key: redis-password
 ---
 apiVersion: v1
 kind: Service

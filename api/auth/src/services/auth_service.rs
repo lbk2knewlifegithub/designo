@@ -42,7 +42,7 @@ pub async fn login(state: &AuthState, credentital: &Credentials) -> Result<Token
 
 /// SignUp
 pub async fn signup(state: &AuthState, create_user_dto: &CreateUserDTO) -> Result<Token> {
-    let client = &state.db.read_write.get().await?;
+    let client = &state.db.write.get().await?;
     // Check User existed
     let user = user_repo::get_user_by_username(&client, &create_user_dto.username).await?;
 
@@ -104,7 +104,7 @@ pub async fn me(state: &AuthState, token: &Token) -> Result<User> {
 
 /// Delete Account Service
 pub async fn delete_account(state: &AuthState, da: DeleteAccount) -> Result<()> {
-    let client = &state.db.read_write.get().await?;
+    let client = &state.db.write.get().await?;
 
     // Check User existed
     let user = match user_repo::get_user_by_id(&client, &da.user_id).await? {
@@ -120,13 +120,13 @@ pub async fn delete_account(state: &AuthState, da: DeleteAccount) -> Result<()> 
 
 /// Update Account Service
 pub async fn update_account(state: &AuthState, ua: &UpdateAccount) -> Result<()> {
-    let client = &state.db.read_write.get().await?;
+    let client = &state.db.write.get().await?;
     Ok(user_repo::update_account(&client, ua).await?)
 }
 
 /// Change Password Service
 pub async fn change_password(state: &AuthState, cp: &ChangePassword) -> Result<()> {
-    let client = &state.db.read_write.get().await?;
+    let client = &state.db.write.get().await?;
 
     // Check User existed
     let user = match user_repo::get_user_by_id(&client, &cp.user_id).await? {

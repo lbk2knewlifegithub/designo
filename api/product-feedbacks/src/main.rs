@@ -3,7 +3,10 @@ use actix_web::middleware::Logger;
 use actix_web::{web, App, HttpServer};
 use prelude::{
     config::Config,
-    services::{db_service::DBService, jwt_service::JWTService},
+    services::{
+        db_service::DBService, ddos_service::DDosService, jwt_service::JWTService,
+        redis_service::RedisService,
+    },
 };
 
 mod dto;
@@ -16,11 +19,17 @@ mod services;
 pub struct FeedbacksState {
     pub jwt: JWTService,
     pub db: DBService,
+    pub ddos: DDosService,
 }
 
 impl FeedbacksState {
-    pub fn new(jwt: JWTService, db: DBService) -> Self {
-        Self { jwt, db }
+    pub async fn init() -> Self {
+        let redis = RedisService::from_env().await;
+        Self {
+            jwt: JWTService::from_env(),
+            db: DBService::from_env(),
+            ddos: DDosService::new(redis),
+        }
     }
 }
 
@@ -28,7 +37,7 @@ impl FeedbacksState {
 async fn main() -> std::io::Result<()> {
     Config::init();
 
-    let feedbacks_state = FeedbacksState::new(JWTService::from_env(), DBService::from_env());
+    let feedbacks_state = FeedbacksState::init().await;
 
     HttpServer::new(move || {
         App::new()

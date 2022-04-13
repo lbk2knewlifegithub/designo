@@ -3,8 +3,7 @@ use crate::models::user_token::UserToken;
 use crate::Result;
 
 use actix_web::{http::header, HttpRequest};
-use jsonwebtoken::{decode, encode, DecodingKey, EncodingKey, Header, Validation};
-use serde::de::DeserializeOwned;
+use jsonwebtoken::{DecodingKey, EncodingKey, Header, Validation};
 use std::env::var;
 use tracing::debug;
 
@@ -24,7 +23,7 @@ impl JWTService {
 
 impl JWTService {
     pub async fn hash(&self, user_token: UserToken) -> String {
-        encode(
+        jsonwebtoken::encode(
             &Header::default(),
             &user_token,
             &EncodingKey::from_secret(self.jwt_secret.as_ref()),
@@ -38,11 +37,8 @@ impl JWTService {
         panic!("Not implemented");
     }
 
-    pub fn decode<T>(&self, token: &str) -> Result<T>
-    where
-        T: DeserializeOwned,
-    {
-        Ok(decode::<T>(
+    pub async fn decode(&self, token: &str) -> Result<UserToken> {
+        Ok(jsonwebtoken::decode::<UserToken>(
             &token,
             &DecodingKey::from_secret(self.jwt_secret.as_ref()),
             &Validation::default(),
@@ -54,21 +50,26 @@ impl JWTService {
         .claims)
     }
 
-    /// Auth middleware
-    pub async fn authorize(&self, req: &HttpRequest) -> Result<UserToken> {
+    /// Get token from RequestHeader Return 401 if not found
+    pub fn get_token(&self, req: &HttpRequest) -> Result<String> {
         let token = req.headers().get(header::AUTHORIZATION);
 
         match token {
             Some(t) => {
                 let banana = t.to_str().map_err(|_| AuthError::Unauthorize)?;
-                let lemon = banana
+                Ok(banana
                     .split_whitespace()
                     .nth(1)
-                    .ok_or(AuthError::Unauthorize)?;
-
-                Ok(self.decode::<UserToken>(lemon)?)
+                    .ok_or(AuthError::Unauthorize)?
+                    .to_string())
             }
             None => Err(AuthError::Unauthorize.into()),
         }
+    }
+
+    /// Auth middleware
+    pub async fn authorize(&self, req: &HttpRequest) -> Result<UserToken> {
+        let token = self.get_token(req)?;
+        Ok(self.decode(token.as_str()).await?)
     }
 }

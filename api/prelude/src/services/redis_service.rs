@@ -43,22 +43,22 @@ impl RedisConfig {
 #[derive(Clone)]
 pub struct RedisService {
     pub read: Addr<RedisActor>,
-    pub read_write: Addr<RedisActor>,
+    pub write: Addr<RedisActor>,
 }
 
 impl RedisService {
     pub async fn from_env() -> Self {
         let host_read = var("REDIS_HOST_READ").expect("Missing REDIS_HOST_READ (Redis Host Read)");
-        let host_read_write = var("REDIS_HOST_READ_WRITE")
-            .expect("Missing REDIS_HOST_READ_WRITE (Redis Host Read Write)");
+        let host_write =
+            var("REDIS_HOST_WRITE").expect("Missing REDIS_HOST_WRITE (Redis Host Write)");
         let password = var("REDIS_PASSWORD").expect("Missing REDIS_PASSWORD (Redis Password)");
 
         let read_config = RedisConfig::new(&host_read, &password);
-        let read_write_config = RedisConfig::new(&host_read_write, &password);
+        let write_config = RedisConfig::new(&host_write, &password);
 
         RedisService {
             read: read_config.connect().await,
-            read_write: read_write_config.connect().await,
+            write: write_config.connect().await,
         }
     }
 }

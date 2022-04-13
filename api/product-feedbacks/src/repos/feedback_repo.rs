@@ -151,10 +151,7 @@ pub async fn downvote_feedback(client: &Client, downvote: &Downvote) -> Result<i
 }
 
 /// Delete feedback By id
-pub async fn delete_feedback_by_id(
-    client: &Client,
-    delete_feedback: &DeleteFeedback,
-) -> Result<i32> {
+pub async fn delete_feedback(client: &Client, delete_feedback: &DeleteFeedback) -> Result<i32> {
     let stmt = client
         .prepare(&r#"DELETE FROM feedbacks WHERE feedback_id= $1 AND user_id = $2;"#)
         .await?;

@@ -22,7 +22,7 @@ pub async fn get_comment_by_id(state: &FeedbacksState, comment_id: &i32) -> Resu
 }
 /// Update comment by id Service
 pub async fn update_comment(state: &FeedbacksState, update_comment: &UpdateComment) -> Result<()> {
-    let client = state.db.read_write.get().await?;
+    let client = state.db.write.get().await?;
 
     let affected = comment_repo::update_comment(&client, update_comment).await?;
 
@@ -53,7 +53,7 @@ pub async fn add_comment_to_feedback(
     state: &FeedbacksState,
     new_comment: &NewComment,
 ) -> Result<Comment> {
-    let client = state.db.read_write.get().await?;
+    let client = state.db.write.get().await?;
 
     let comment_id = comment_repo::add_comment_to_feedback(&client, new_comment).await?;
 
@@ -62,11 +62,11 @@ pub async fn add_comment_to_feedback(
         .unwrap())
 }
 
-// Delete comment by id Service
-pub async fn delete_comment_by_id(state: &FeedbacksState, comment_id: &i32) -> Result<()> {
-    let client = state.db.read_write.get().await?;
+// Delete Comment Service
+pub async fn delete_comment(state: &FeedbacksState, user_id: &i32, comment_id: &i32) -> Result<()> {
+    let client = state.db.write.get().await?;
 
-    let affected = comment_repo::delete_comment_by_id(&client, comment_id).await?;
+    let affected = comment_repo::delete_comment(&client, user_id, comment_id).await?;
 
     if affected != 1 {
         return Err(AppError::RecordNotFound);

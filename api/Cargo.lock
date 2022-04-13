@@ -2135,6 +2135,7 @@ version = "0.1.0"
 dependencies = [
  "actix-cors",
  "actix-multipart",
+ "actix-redis",
  "actix-rt",
  "actix-service",
  "actix-web",
@@ -2147,6 +2148,7 @@ dependencies = [
  "jsonwebtoken",
  "postgres-types",
  "prelude",
+ "redis-async",
  "serde",
  "serde_derive",
  "serde_json",

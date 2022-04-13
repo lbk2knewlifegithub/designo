@@ -259,19 +259,19 @@ pub async fn update_comment(client: &Client, update_comment: &UpdateComment) -> 
     Ok(affected as i32)
 }
 
-/// Delete comment by id
-pub async fn delete_comment_by_id(client: &Client, comment_id: &i32) -> Result<i32> {
+/// Delete Comment Repo
+pub async fn delete_comment(client: &Client, user_id: &i32, comment_id: &i32) -> Result<i32> {
     let stmt = client
         .prepare(
             &r#"
             DELETE 
             FROM comments
-            WHERE comment_id = $1;"#,
+            WHERE comment_id = $1 AND user_id = $2;"#,
         )
         .await?;
 
     let affected = client
-        .execute(&stmt, &[comment_id])
+        .execute(&stmt, &[comment_id, user_id])
         .await
         .map_err(|_| AppError::InvalidInput)?;
 

@@ -18,14 +18,14 @@ spec:
   replicas: {{ .Values.apiStorage.replicaCount }}
   selector:
     matchLabels:
-      app: {{.Values.apiStorage.name}} 
+      app: {{.Values.apiStorage.name}}
   template:
     metadata:
       labels:
-        app: {{.Values.apiStorage.name}} 
+        app: {{.Values.apiStorage.name}}
     spec:
       containers:
-        - name: {{.Values.apiStorage.name}} 
+        - name: {{.Values.apiStorage.name}}
           image: {{ .Values.apiStorage.image }}:{{ .Values.tag }}
           ports:
             - containerPort: {{ int .Values.apiStorage.port }}
@@ -47,17 +47,17 @@ spec:
                 configMapKeyRef:
                   name: config-map
                   key: pg-password
-            - name: PG_HOST_READ_WRITE
-              value: postgresql-primary.db-lbk2knewlifegithub.svc.cluster.local 
+            - name: PG_HOST_WRITE
+              value: postgresql-primary.db-lbk2knewlifegithub.svc.cluster.local
             - name: PG_HOST_READ
-              value: postgresql-read.db-lbk2knewlifegithub.svc.cluster.local 
+              value: postgresql-read.db-lbk2knewlifegithub.svc.cluster.local
             - name: PG_DB_NAME
               valueFrom:
                 configMapKeyRef:
                   name: config-map
                   key: pg-db-name
             # Redis Config
-            - name: REDIS_HOST_READ_WRITE
+            - name: REDIS_HOST_WRITE
               value: redis-master.db-lbk2knewlifegithub.svc.cluster.local
             - name: REDIS_HOST_READ
               value: redis-replicas.db-lbk2knewlifegithub.svc.cluster.local
@@ -65,7 +65,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: config-map
-                  key: redis-password 
+                  key: redis-password
           volumeMounts:
             - name: {{.Values.apiStorage.name}}
               mountPath: {{.Values.apiStorage.storage.storageMountPath}}
@@ -81,7 +81,7 @@ metadata:
 spec:
   type: {{ .Values.apiStorage.serviceType }}
   selector:
-    app: {{.Values.apiStorage.name}} 
+    app: {{.Values.apiStorage.name}}
   ports:
     - port: {{ int .Values.apiStorage.port }}
       targetPort: {{ int .Values.apiStorage.port }}
