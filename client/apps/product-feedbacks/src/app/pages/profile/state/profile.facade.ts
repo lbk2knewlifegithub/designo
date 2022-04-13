@@ -13,16 +13,9 @@ export class ProfileFacade {
   user$: Observable<User | null> = this._store.select(fromProfile.selectUser);
 
   /**
-   * - Changing Password
+   * - Pending
    */
-  // changingPassword$ = this._store.select(fromProfile.selectCategory);
-  requestingVerifyEmail$ = this._store.select(
-    fromProfile.selectRequestingVerifyEmail
-  );
-
-  updatingAccount$ = this._store.select(
-    fromProfile.selectRequestingVerifyEmail
-  );
+  pending$ = this._store.select(fromProfile.selectPending);
 
   constructor(private readonly _store: Store) {}
 

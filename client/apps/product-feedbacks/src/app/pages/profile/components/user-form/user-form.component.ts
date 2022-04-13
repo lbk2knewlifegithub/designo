@@ -7,30 +7,11 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AvatarInputComponent } from '@lbk/comps';
 import { UpdateUserDTO } from '@lbk/dto';
 import { User } from '@lbk/models';
-import { UserService } from '@lbk/state/auth';
 import { DialogService } from '@ngneat/dialog';
-import {
-  combineLatest,
-  debounceTime,
-  distinctUntilChanged,
-  first,
-  map,
-  Observable,
-  of,
-  startWith,
-  switchMap,
-} from 'rxjs';
-import { ProfileFacade } from '../../state';
 
 @Component({
   selector: 'lbk-user-form',
@@ -64,11 +45,16 @@ export class UserFormComponent implements OnInit {
   @ViewChild('avatarInput', { static: true })
   avatarInput!: AvatarInputComponent;
 
-  pending$!: Observable<boolean>;
+  _pending!: boolean;
+  @Input() set pending(pending: boolean) {
+    this._pending = pending;
+    this._updateForm();
+  }
+  get pending() {
+    return this._pending;
+  }
 
   @Output() changePassword = new EventEmitter<void>();
-  @Output() deleteAccount = new EventEmitter<void>();
-  @Output() requestVerifyEmail = new EventEmitter<void>();
   @Output() updateAccount = new EventEmitter<{
     updateUserDTO: UpdateUserDTO;
     avatar?: File;
@@ -78,28 +64,11 @@ export class UserFormComponent implements OnInit {
 
   constructor(
     private readonly _fb: FormBuilder,
-    private readonly _dialogService: DialogService,
-    private readonly _userService: UserService,
-    private readonly _profileFacade: ProfileFacade
+    private readonly _dialogService: DialogService
   ) {}
 
   ngOnInit(): void {
     this._initForm();
-
-    this.pending$ = combineLatest([
-      this.form.statusChanges.pipe(
-        startWith(false),
-        map((status) => status === 'PENDING')
-      ),
-      this._profileFacade.requestingVerifyEmail$,
-      this._profileFacade.updatingAccount$,
-    ]).pipe(
-      map(([formPending, requestVerifyEmail, updatingAcount]) => {
-        console.log(formPending, requestVerifyEmail, updatingAcount);
-        return formPending || requestVerifyEmail || updatingAcount;
-      })
-    );
-
     this._updateForm();
   }
 
@@ -137,22 +106,12 @@ export class UserFormComponent implements OnInit {
           disabled: true,
         },
       ],
-      // Email
-      // email: [
-      //   email,
-      //   [Validators.required, Validators.email],
-      //   [this.checkEmailExists()],
-      // ],
     });
   }
 
   onSubmit() {
     const avatar = this.avatarInput.file;
-    if (
-      !this.form.dirty &&
-      !avatar
-      // && this.user?.email
-    ) {
+    if (!this.form.dirty && !avatar) {
       this._dialogService.error('Nothing to update');
       return;
     }
@@ -179,39 +138,18 @@ export class UserFormComponent implements OnInit {
       avatar,
     });
   }
-
-  checkEmailExists() {
-    return (control: AbstractControl) => {
-      if (!control.dirty) return of(null);
-
-      return control.valueChanges.pipe(
-        debounceTime(400),
-        distinctUntilChanged(),
-        switchMap((value) => this._userService.emailExists(value)),
-        map((exists: boolean) => (exists ? { emailExists: true } : null)),
-        first()
-      );
-    }; // important to make observable finite
-  }
-
-  get emailExists(): boolean {
-    const email = this.form.get('email') as FormControl;
-    return email.dirty && email.hasError('emailExists');
-  }
   cancel() {
     this.form.reset({ ...this.user });
-  }
-
-  verifyButtonClick() {
-    this.requestVerifyEmail.emit();
   }
 
   private _updateForm() {
     if (!this.form) return;
 
-    if (this.isOwned && this.form.disabled) return this.form.enable();
+    if ((this.isOwned || !this.pending) && this.form.disabled)
+      return this.form.enable();
 
-    if (!this.isOwned && this.form.enabled) return this.form.disable();
+    if ((!this.isOwned || this.pending) && this.form.enabled)
+      return this.form.disable();
   }
 
   private _reset(newUser: User) {

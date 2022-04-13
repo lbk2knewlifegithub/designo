@@ -19,11 +19,11 @@ import { ChangePasswordDialogComponent } from './../components';
 
         <lbk-user-form
           [isOwned]="(isOwned$ | async)!"
+          [pending]="(pending$ | async)!"
           class="block mt-20 md:mt-24"
           [user]="(user$ | async)!"
           (changePassword)="changePassword()"
           (updateAccount)="updateAccount($event)"
-          (requestVerifyEmail)="requestVerifyEmail()"
         ></lbk-user-form>
       </div>
     </main>
@@ -32,6 +32,7 @@ import { ChangePasswordDialogComponent } from './../components';
 export class ProfilePageComponent implements OnInit {
   user$!: Observable<User>;
   isOwned$!: Observable<boolean>;
+  pending$!: Observable<boolean>;
 
   constructor(
     private readonly _dialogService: DialogService,
@@ -44,11 +45,10 @@ export class ProfilePageComponent implements OnInit {
 
     this.isOwned$ = combineLatest([this._authFacade.user$, this.user$]).pipe(
       map(([me, another]) => {
-        console.log('What the fuck');
-        console.log(me, another);
         return me?.user_id === another?.user_id;
       })
     );
+    this.pending$ = this._profileFacade.pending$;
   }
 
   changePassword() {

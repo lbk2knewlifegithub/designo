@@ -2,7 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { ChangePasswordDTO, UpdateUserDTO } from '@lbk/dto';
 import { API_AUTH_URL } from '@lbk/tokens';
-import { BehaviorSubject, exhaustMap, forkJoin, Observable, of } from 'rxjs';
+import {
+  BehaviorSubject,
+  exhaustMap,
+  forkJoin,
+  Observable,
+  of,
+  delay,
+} from 'rxjs';
 import { catchError, map, shareReplay } from 'rxjs/operators';
 import { ImagesService } from './images.service';
 import { User } from '@lbk/models';
@@ -53,9 +60,10 @@ export class UserService {
    */
   updateAccount(updateUserDTO: UpdateUserDTO): Observable<string | undefined> {
     if (!this.avatar)
-      return this._http
-        .put<void>(`${this._authUrl}/me`, updateUserDTO)
-        .pipe(map(() => undefined));
+      return this._http.put<void>(`${this._authUrl}/me`, updateUserDTO).pipe(
+        map(() => undefined),
+        delay(3_000)
+      );
 
     const formData = new FormData();
     formData.append('avatar', this.avatar);

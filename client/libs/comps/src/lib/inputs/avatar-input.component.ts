@@ -15,7 +15,7 @@ import { DEFAULT_AVATAR } from '@lbk/tokens';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div
-      (click)="file.click()"
+      (click)="onAvatarClick(file)"
       class="relative group  rounded-full object-cover object-center shadow-lg overflow-hidden"
     >
       <img #image class="w-32 h-32" [src]="avatarSrc" alt="Avatar" />
@@ -68,8 +68,6 @@ export class AvatarInputComponent implements OnInit {
    * - On File Change
    */
   onFileChange = (e: Event) => {
-    if (this.disabled) return;
-
     const target = e.target as HTMLInputElement;
     if (!target || !target.files) return;
     const file = target.files[0];
@@ -96,6 +94,11 @@ export class AvatarInputComponent implements OnInit {
       this._cd.detectChanges();
     };
   };
+
+  onAvatarClick(file: HTMLInputElement) {
+    if (this.disabled) return;
+    file.click();
+  }
 }
 
 @NgModule({

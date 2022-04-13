@@ -7,15 +7,13 @@ const profileFeatureKey = 'profile';
 
 export interface State {
   error: string;
-  requestingVerifyEmail: boolean;
-  updatingAccount: boolean;
+  pending: boolean;
   user: User | null;
 }
 
 export const initialState: State = {
   error: '',
-  requestingVerifyEmail: false,
-  updatingAccount: false,
+  pending: false,
   user: null,
 };
 
@@ -32,39 +30,13 @@ export const profileFeature = createFeature({
         user,
       };
     }),
-    /**
-     * - Request Verify Email
-     */
-    on(AuthActions.requestVerifyEmail, (state) => {
-      return {
-        ...state,
-        requestingVerifyEmail: true,
-      };
-    }),
-
-    /**
-     * - Request Verify Email Success
-     */
-    on(AuthApiActions.requestVerifyEmailSuccess, (state) => ({
-      ...state,
-      requestingVerifyEmail: false,
-    })),
-
-    /**
-     * - Request Verify Email Failure
-     */
-    on(AuthApiActions.requestVerifyEmailFailure, (state, { error }) => ({
-      ...state,
-      error,
-      requestingVerifyEmail: false,
-    })),
 
     /**
      * - Update Account
      */
     on(AuthActions.updateAccount, (state) => ({
       ...state,
-      updatingAccount: true,
+      pending: true,
     })),
 
     /**
@@ -83,14 +55,12 @@ export const profileFeature = createFeature({
           avatar,
         }
       ) => {
-        console.log(firstname, lastname);
-
         if (!state.user) return state;
         const { user } = state;
 
         return {
           ...state,
-          updatingAccount: false,
+          pending: false,
           user: {
             ...user,
             firstname,
@@ -109,7 +79,7 @@ export const profileFeature = createFeature({
     on(AuthApiActions.updateAccountFailure, (state, { error }) => ({
       ...state,
       error,
-      updatingAccount: false,
+      pending: false,
     }))
   ),
 });
