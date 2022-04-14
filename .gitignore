@@ -7,6 +7,5 @@ api/.env
 **/.vscode
 node_modules
 dist
-Makefile
 secret
 config.yaml

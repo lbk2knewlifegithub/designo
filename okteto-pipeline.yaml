@@ -1,0 +1,9 @@
+deploy:
+  # Build api auth
+  - make deploy-api-auth
+  # Build api images
+  - make deploy-api-images
+  # Build apie product feedbacks
+  - make deploy-api-product-feedbacks
+  # Build Client Product Feedbacks
+  - make deploy-client-product-feedbacks
