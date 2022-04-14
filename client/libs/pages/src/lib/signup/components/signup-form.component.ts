@@ -58,7 +58,7 @@ export class SignupFormComponent implements OnInit {
     this.form = this._fb.group({
       // First Name
       firstname: [
-        'Julian',
+        '',
         [
           Validators.required,
           Validators.minLength(3),
@@ -67,7 +67,7 @@ export class SignupFormComponent implements OnInit {
       ],
       // Last name
       lastname: [
-        'Alexander',
+        '',
         [
           Validators.required,
           Validators.minLength(3),
@@ -77,7 +77,7 @@ export class SignupFormComponent implements OnInit {
 
       // Username
       username: [
-        'Michael Flowers',
+        '',
         [
           Validators.required,
           Validators.minLength(3),
@@ -88,7 +88,7 @@ export class SignupFormComponent implements OnInit {
 
       // Password
       password: [
-        'lebinhkhang',
+        '',
         [
           Validators.required,
           Validators.minLength(8),
@@ -98,7 +98,7 @@ export class SignupFormComponent implements OnInit {
 
       // Confirm password
       confirmPassword: [
-        'lebinhkhang',
+        '',
         [
           Validators.required,
           Validators.minLength(8),

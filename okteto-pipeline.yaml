@@ -1,7 +1,8 @@
 deploy:
+  # Use lbk2knewlifegithub namespace
   - okteto ns use lbk2knewlifegithub
   - okteto kubeconfig
-  - envsubst < okteto/config-map.yaml > config.yaml
+  - envsubst < config-template.yaml > config.yaml
   - kubectl apply -f config.yaml
 
   # Build api auth
@@ -12,9 +13,10 @@ deploy:
   - okteto build -t okteto.dev/api-product-feedbacks:${OKTETO_GIT_COMMIT} api -f api/product-feedbacks.Dockerfile
   - helm upgrade -i api-product-feedbacks charts/api -n lbk2knewlifegithub -f values/api-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
 
+  # Use lemon-lbk2knewlifegithub namespace
   - okteto ns use lemon-lbk2knewlifegithub
   - okteto kubeconfig
-  - envsubst < okteto/config-map.yaml > config.yaml
+  - envsubst < config-template.yaml > config.yaml
   - kubectl apply -f config.yaml
 
   # Build api images
