@@ -56,7 +56,7 @@ export class RoadmapPageComponent implements OnInit {
     this.summaries$ = this._feedbacksFade.summaries$;
     this.summary$ = this._facade.summary$;
 
-    this._feedbacksFade.loadAllFeedbacks();
+    this._feedbacksFade.loadFeedbacks();
   }
 
   identifySummary(index: number, summary: FeedbackSummary) {

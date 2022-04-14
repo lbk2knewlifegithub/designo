@@ -1,3 +1,1 @@
-import { SignupFormComponent } from './signup-form.component';
-
-export const COMPONENTS = [SignupFormComponent];
+export { SignupFormComponent } from './signup-form.component';

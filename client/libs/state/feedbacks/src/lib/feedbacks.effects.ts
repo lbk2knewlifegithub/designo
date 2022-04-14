@@ -1,8 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
+import { AuthApiActions } from '@lbk/auth';
+import { FeedbacksFacade } from './feedbacks.facade';
 import { DialogService } from '@ngneat/dialog';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, delay, exhaustMap, map, tap } from 'rxjs/operators';
+import { catchError, exhaustMap, map, tap } from 'rxjs/operators';
 import { FeedbacksActions, FeedbacksApiActions } from './actions';
 import { FEEDBACKS_SERVICE } from './feedbacks.token';
 import { FeedbacksService } from './services';
@@ -12,6 +14,23 @@ import { FeedbacksService } from './services';
  */
 @Injectable({ providedIn: 'root' })
 export class FeedbackEffects {
+  /**
+   * - Logout
+   * - When user logout will remove all feedbacks and load again
+   */
+  logout$ = createEffect(
+    () =>
+      this._actions$.pipe(
+        ofType(AuthApiActions.logoutSuccess),
+        tap(() => {
+          this._feedbacksFacade.reset();
+        })
+      ),
+    {
+      dispatch: false,
+    }
+  );
+
   /**
    * - Load Feedbacks
    */
@@ -266,6 +285,7 @@ export class FeedbackEffects {
     private readonly _actions$: Actions,
     @Inject(FEEDBACKS_SERVICE)
     private readonly _feedBacksService: FeedbacksService,
-    private readonly _dialogService: DialogService
+    private readonly _dialogService: DialogService,
+    private readonly _feedbacksFacade: FeedbacksFacade
   ) {}
 }

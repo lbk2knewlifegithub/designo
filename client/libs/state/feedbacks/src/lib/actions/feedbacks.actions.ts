@@ -12,6 +12,11 @@ import { createAction, props } from '@ngrx/store';
 export const loadFeedBacks = createAction('[Feedbacks] Load Feedbacks');
 
 /**
+ * - Reset
+ */
+export const reset = createAction('[Feedbacks] Reset');
+
+/**
  * - Load Comments
  */
 export const loadComments = createAction(

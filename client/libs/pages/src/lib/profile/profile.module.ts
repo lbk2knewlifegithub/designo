@@ -10,13 +10,14 @@ import {
   SpinnerModule,
 } from '@lbk/comps';
 import { AvatarPipeModule } from '@lbk/pipes';
-import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { COMPONENTS } from './components';
+import { ChangePasswordDialogComponent, UserFormComponent } from './components';
 import { ProfilePageComponent } from './containers';
 import { ProfileRoutingModule } from './profile-routing.module';
-import { ProfileEffects } from './state/profile.effects';
 import { profileFeature } from './state/profile.reducer';
+
+const COMPONENTS = [ChangePasswordDialogComponent, UserFormComponent];
+const CONTAINERS = [ProfilePageComponent];
 
 @NgModule({
   imports: [
@@ -26,8 +27,6 @@ import { profileFeature } from './state/profile.reducer';
     ProfileRoutingModule,
     // Stores
     StoreModule.forFeature(profileFeature),
-    EffectsModule.forFeature([ProfileEffects]),
-    // Shared Components From Feedbacks
     // Shared Components From Library
     AvatarInputModule,
     PasswordInputModule,
@@ -37,6 +36,6 @@ import { profileFeature } from './state/profile.reducer';
     AvatarPipeModule,
     AlertModule,
   ],
-  declarations: [COMPONENTS, ProfilePageComponent],
+  declarations: [COMPONENTS, CONTAINERS],
 })
 export class ProfileModule {}

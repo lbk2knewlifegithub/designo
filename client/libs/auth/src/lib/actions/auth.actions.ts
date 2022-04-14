@@ -48,14 +48,14 @@ export const updateAccount = createAction(
 );
 
 /**
- * - Request Verify Email
+ * - Set Return Url
  */
-export const requestVerifyEmail = createAction('[Auth] Request Verify Email');
+export const setReturnUrl = createAction(
+  '[Auth] Set Return Url',
+  props<{ returnUrl: string | null }>()
+);
 
 /**
- * - Verify Email
+ * - Clear Error
  */
-export const verifyEmail = createAction(
-  '[Auth] Verify Email',
-  props<{ token: string }>()
-);
+export const clearError = createAction('[Auth] Clear Error');

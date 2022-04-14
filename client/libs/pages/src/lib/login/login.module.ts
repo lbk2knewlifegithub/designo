@@ -1,19 +1,16 @@
-import {
-  PasswordInputModule,
-  InputModule,
-  AttributionModule,
-} from '@lbk/comps';
-import { OpenTheDoorLoadingModule } from '@lbk/comps';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
+import {
+  AlertModule,
+  AttributionModule,
+  InputModule,
+  OpenTheDoorLoadingModule,
+  PasswordInputModule,
+} from '@lbk/comps';
 import { LoginFormComponent } from './components/login-form.component';
 import { LoginPageComponent } from './containers';
 import { LoginRoutingModule } from './login-routing.module';
-import { LoginEffects } from './state/login.effects';
-import * as fromLoginPage from './state/login.reducer';
 
 export const CONTAINERS = [LoginPageComponent];
 export const COMPONENTS = [LoginFormComponent];
@@ -23,14 +20,12 @@ export const COMPONENTS = [LoginFormComponent];
     CommonModule,
     LoginRoutingModule,
     ReactiveFormsModule,
-    // Stores
-    StoreModule.forFeature(fromLoginPage.loginFeature),
-    EffectsModule.forFeature([LoginEffects]),
     // Shared Components from Libs
     OpenTheDoorLoadingModule,
     PasswordInputModule,
     InputModule,
     AttributionModule,
+    AlertModule,
   ],
   declarations: [COMPONENTS, CONTAINERS],
 })

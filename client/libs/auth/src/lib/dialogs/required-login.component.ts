@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthFacade } from '@lbk/auth';
 import { DialogRef } from '@ngneat/dialog';
 
 @Component({
@@ -18,7 +19,6 @@ import { DialogRef } from '@ngneat/dialog';
         <!-- Login Button -->
         <a
           routerLink="/login"
-          [queryParams]="queryParams"
           (click)="close()"
           class="duration-100 bg-sky-500 rounded-lg text-white px-6 py-3 hover:bg-sky-600"
           >Login</a
@@ -27,8 +27,7 @@ import { DialogRef } from '@ngneat/dialog';
 
         <!-- Signup Button -->
         <a
-          routerLink="signup"
-          [queryParams]="queryParams"
+          routerLink="/signup"
           (click)="close()"
           class="duration-100 bg-orange-400 rounded-lg text-white px-6 py-3 hover:bg-sky-600"
         >
@@ -42,15 +41,12 @@ import { DialogRef } from '@ngneat/dialog';
 export class RequiredLoginComponent {
   constructor(
     private readonly _ref: DialogRef,
+    private readonly _authFacade: AuthFacade,
     private readonly _router: Router
   ) {}
 
   close() {
     this._ref.close();
-  }
-
-  get queryParams() {
-    const returnUrl = this._router.url;
-    return returnUrl ? { returnUrl } : {};
+    this._authFacade.setReturnUrl(this._router.url);
   }
 }

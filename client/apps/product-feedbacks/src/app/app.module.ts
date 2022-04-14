@@ -10,7 +10,6 @@ import {
   API_AUTH_URL,
   API_IMAGES_URL,
   API_PRODUCT_FEEDBACKS_URL,
-  CLIENT_AUTH_URL,
 } from '@lbk/tokens';
 import { DialogModule } from '@ngneat/dialog';
 import { NxModule } from '@nrwl/angular';
@@ -47,10 +46,6 @@ import { StateModule } from './state';
     {
       provide: API_PRODUCT_FEEDBACKS_URL,
       useValue: environment.apiProductFeedbacksUrl,
-    },
-    {
-      provide: CLIENT_AUTH_URL,
-      useValue: environment.clientAuthUrl,
     },
     {
       provide: HTTP_INTERCEPTORS,

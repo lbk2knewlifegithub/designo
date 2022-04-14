@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { UserFormComponent } from '../components';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { AuthFacade } from '@lbk/auth';
 import { UpdateUserDTO } from '@lbk/dto';
 import { User } from '@lbk/models';
@@ -27,6 +33,7 @@ import { ProfileFacade } from './../state/profile.facade';
         </header>
 
         <lbk-user-form
+          #userForm
           [isOwned]="(isOwned$ | async)!"
           [pending]="(pending$ | async)!"
           class="block mt-20 md:mt-24"
@@ -42,6 +49,9 @@ export class ProfilePageComponent implements OnInit {
   user$!: Observable<User>;
   isOwned$!: Observable<boolean>;
   pending$!: Observable<boolean>;
+
+  @ViewChild('userForm', { static: true, read: UserFormComponent })
+  signupForm!: UserFormComponent;
 
   constructor(
     private readonly _dialogService: DialogService,
@@ -75,9 +85,5 @@ export class ProfilePageComponent implements OnInit {
   updateAccount(data: { updateUserDTO: UpdateUserDTO; avatar?: File }) {
     const { updateUserDTO, avatar } = data;
     this._authFacade.updateAccount(updateUserDTO, avatar);
-  }
-
-  requestVerifyEmail() {
-    this._authFacade.requestVerifyEmail();
   }
 }

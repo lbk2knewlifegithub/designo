@@ -15,7 +15,7 @@ import {
 } from '@angular/forms';
 import { Credentials } from '@lbk/models';
 import { Observable } from 'rxjs';
-import { LoginError } from './../state/login.reducer';
+import { AuthError } from '@lbk/auth';
 
 @Component({
   selector: 'lbk-login-form',
@@ -23,7 +23,7 @@ import { LoginError } from './../state/login.reducer';
   templateUrl: './login-form.component.html',
 })
 export class LoginFormComponent implements OnInit {
-  @Input() error!: LoginError | null;
+  @Input() error!: AuthError | null;
   @Input() pending!: boolean;
 
   @Output() login = new EventEmitter<Credentials>();
@@ -72,7 +72,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   get isInvalidCredentials(): boolean {
-    return this.error === LoginError.InvalidCredentials;
+    return this.error === AuthError.InvalidCredentials;
   }
 
   get usernameExists(): boolean {

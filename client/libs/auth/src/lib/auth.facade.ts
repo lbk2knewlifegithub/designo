@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ChangePasswordDTO, UpdateUserDTO } from '@lbk/dto';
-import { User } from '@lbk/models';
+import { ChangePasswordDTO, CreateUserDTO, UpdateUserDTO } from '@lbk/dto';
+import { Credentials, User } from '@lbk/models';
 import { TokenService } from '@lbk/services';
 import { DialogService } from '@ngneat/dialog';
 import { Store } from '@ngrx/store';
 import { catchError, map, Observable, of, switchMap, take, tap } from 'rxjs';
 import { AuthActions, AuthApiActions } from './actions';
+import { AuthError } from './auth.reducer';
 import * as fromAuth from './auth.selectors';
 import { RequiredLoginComponent } from './dialogs';
 import { AuthService, UserService } from './services';
@@ -15,6 +16,13 @@ export class AuthFacade {
   user$: Observable<User | null> = this._store.select(fromAuth.selectUser);
   loggedIn$: Observable<boolean> = this.user$.pipe(map((user) => !!user));
   pending$: Observable<boolean> = this._store.select(fromAuth.selectPending);
+  error$: Observable<AuthError | null> = this._store.select(
+    fromAuth.selectError
+  );
+
+  returnUrl$: Observable<string | null> = this._store.select(
+    fromAuth.selectReturnUrl
+  );
 
   constructor(
     private readonly _store: Store,
@@ -115,22 +123,6 @@ export class AuthFacade {
   }
 
   /**
-   *  - Request Verify Email
-   * @param user_id
-   */
-  requestVerifyEmail() {
-    this._store.dispatch(AuthActions.requestVerifyEmail());
-  }
-
-  /**
-   *  - verify Email
-   * @param token
-   */
-  verifyEmail(token: string) {
-    this._store.dispatch(AuthActions.verifyEmail({ token }));
-  }
-
-  /**
    *  - Has User In Store
    * @param username
    * @returns
@@ -152,5 +144,31 @@ export class AuthFacade {
     return this._userService
       .getUserByUsername(username)
       .pipe(catchError(() => of(null)));
+  }
+
+  /**
+   * - Set Return Url
+   * @param returnUrl
+   */
+  setReturnUrl(returnUrl: string | null) {
+    this._store.dispatch(AuthActions.setReturnUrl({ returnUrl }));
+  }
+
+  /**
+   * - Login
+   * @param credentials
+   */
+  login(credentials: Credentials) {
+    this._store.dispatch(AuthActions.login({ credentials }));
+  }
+
+  /**
+   *  - Sign Up
+   * @param createUserDTO
+   * @param avatar
+   */
+  signUp(createUserDTO: CreateUserDTO, avatar?: File) {
+    this._authService.uploadFile = avatar;
+    this._store.dispatch(AuthActions.signup({ createUserDTO }));
   }
 }

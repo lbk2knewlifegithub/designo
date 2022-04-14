@@ -1,10 +1,18 @@
+import { delay } from 'rxjs/operators';
 import { API_AUTH_URL } from '@lbk/tokens';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { CreateUserDTO } from '@lbk/dto';
 import { ImagesService } from './images.service';
 import { Credentials, Tokens, User } from '@lbk/models';
-import { BehaviorSubject, map, Observable, of, switchMap } from 'rxjs';
+import {
+  BehaviorSubject,
+  map,
+  Observable,
+  of,
+  switchMap,
+  shareReplay,
+} from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { TokenService } from '@lbk/services';
 import { DialogService } from '@ngneat/dialog';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { exhaustMap, map, of, tap } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, delay, switchMap } from 'rxjs/operators';
 import { AuthActions, AuthApiActions } from './actions';
 import { AuthFacade } from './auth.facade';
 import { AuthService, UserService } from './services';
@@ -23,15 +23,6 @@ export class AuthEffects {
       exhaustMap(({ credentials }) =>
         this._authService.login(credentials).pipe(
           map((tokens) => AuthApiActions.loginSuccess({ tokens })),
-          tap(
-            () => void 0,
-            () => {
-              this._dialog.error({
-                title: 'Login failed',
-                body: 'Something went wrong, please try again later.',
-              });
-            }
-          ),
           catchError(({ error }) => of(AuthApiActions.loginFailure(error)))
         )
       )
@@ -71,14 +62,13 @@ export class AuthEffects {
     () =>
       this._actions$.pipe(
         ofType(AuthApiActions.loginSuccess, AuthApiActions.signUpSuccess),
-        concatLatestFrom(() => this._route.queryParams),
-        tap(([{ tokens }, queryParams]) => {
+        concatLatestFrom(() => this._authFacade.returnUrl$),
+        tap(([{ tokens }, returnUrl]) => {
           this._tokenService.saveTokens(tokens);
           this._authFacade.tryLogin();
 
-          const returnUrl = queryParams['returnUrl'];
-          const redirectUrl = returnUrl ? returnUrl : `/`;
-          this._router.navigateByUrl(redirectUrl);
+          this._router.navigateByUrl(returnUrl ? returnUrl : `/`);
+          this._authFacade.setReturnUrl(null);
         })
       ),
     {
@@ -89,22 +79,19 @@ export class AuthEffects {
   /**
    * -Logout
    */
-  logout$ = createEffect(
-    () =>
-      this._actions$.pipe(
-        ofType(AuthActions.logout),
-        tap(() => {
-          this._tokenService.clear();
-          this._router.navigateByUrl('/');
-          this._dialog.success({
-            title: 'Logout success',
-            body: 'See you soon!',
-          });
-        })
-      ),
-    {
-      dispatch: false,
-    }
+  logout$ = createEffect(() =>
+    this._actions$.pipe(
+      ofType(AuthActions.logout),
+      tap(() => {
+        this._tokenService.clear();
+        this._router.navigateByUrl('/');
+        this._dialog.success({
+          title: 'Logout success',
+          body: 'See you soon!',
+        });
+      }),
+      map(() => AuthApiActions.logoutSuccess())
+    )
   );
 
   /**
@@ -219,10 +206,19 @@ export class AuthEffects {
     return href ? `returnUrl=${href}` : '';
   }
 
+  /**
+   * - Auto clear error after 4 seconds
+   */
+  autoClearError$ = createEffect(() =>
+    this._actions$.pipe(
+      ofType(AuthApiActions.loginFailure, AuthApiActions.signUpFailure),
+      switchMap(() => of(AuthActions.clearError()).pipe(delay(4_000)))
+    )
+  );
+
   constructor(
     private readonly _actions$: Actions,
     private readonly _router: Router,
-    private readonly _route: ActivatedRoute,
     private readonly _authFacade: AuthFacade,
     private readonly _tokenService: TokenService,
     private readonly _authService: AuthService,

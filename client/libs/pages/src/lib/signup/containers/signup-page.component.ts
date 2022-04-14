@@ -1,8 +1,8 @@
-import { CreateUserDTO } from '@lbk/dto';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { zoomIn } from '@lbk/anims';
+import { AuthError, AuthFacade } from '@lbk/auth';
+import { CreateUserDTO } from '@lbk/dto';
 import { Observable } from 'rxjs';
-import { SignUpFacade } from './../state';
 
 @Component({
   selector: 'lbk-signup-page',
@@ -29,6 +29,7 @@ import { SignUpFacade } from './../state';
         <lbk-signup-form
           [pending]="(pending$ | async)!"
           [error]="(error$ | async)!"
+          (signup)="signup($event)!"
         >
         </lbk-signup-form>
       </div>
@@ -44,16 +45,17 @@ import { SignUpFacade } from './../state';
 })
 export class SignupPageComponent implements OnInit {
   pending$!: Observable<boolean>;
-  error$!: Observable<string>;
+  error$!: Observable<AuthError | null>;
 
-  constructor(private readonly _facade: SignUpFacade) {}
+  constructor(private readonly _authFacade: AuthFacade) {}
 
   ngOnInit(): void {
-    this.pending$ = this._facade.pending$;
-    this.error$ = this._facade.error$;
+    this.pending$ = this._authFacade.pending$;
+    this.error$ = this._authFacade.error$;
   }
 
-  createUser(createUserDTO: CreateUserDTO) {
-    this._facade.signUp(createUserDTO);
+  signup(payload: { createUserDTO: CreateUserDTO; avatar?: File }) {
+    const { createUserDTO, avatar } = payload;
+    this._authFacade.signUp(createUserDTO, avatar);
   }
 }

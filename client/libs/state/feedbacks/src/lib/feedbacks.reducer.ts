@@ -1,4 +1,3 @@
-import { AuthApiActions } from '@lbk/auth';
 import { Comment, Feedback } from '@lbk/models';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
@@ -24,6 +23,14 @@ export const initialState: State = adapter.getInitialState({
 
 export const reducer = createReducer(
   initialState,
+
+  /**
+   * - Reset
+   * - Remove all feedbacks and set loaded to false
+   */
+  on(FeedbacksActions.reset, (state) =>
+    adapter.removeAll({ ...state, loaded: false })
+  ),
 
   /**
    * - Load Feedbacks Success

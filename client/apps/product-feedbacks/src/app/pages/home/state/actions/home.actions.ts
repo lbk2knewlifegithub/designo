@@ -1,6 +1,6 @@
 import { FeedbackCategory } from '@lbk/models';
-import { SortFeedback } from './home.reducer';
 import { createAction, props } from '@ngrx/store';
+import { SortFeedback } from '../home.reducer';
 
 /**
  * - Enter Home Page

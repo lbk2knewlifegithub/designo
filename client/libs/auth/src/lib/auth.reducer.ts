@@ -4,58 +4,57 @@ import { AuthActions, AuthApiActions } from './actions';
 
 const authFeatureKey = 'auth';
 
+export enum AuthError {
+  InvalidCredentials = 'InvalidCredentials',
+  Unauthorize = 'Unauthorize',
+}
+
 export interface State {
   user: User | null;
-  error: string;
+  error: AuthError | null;
   pending: boolean;
+  returnUrl: string | null;
 }
 
 export const initialState: State = {
   user: null,
-  error: '',
+  error: null,
   pending: false,
+  returnUrl: null,
 };
 
 export const authFeature = createFeature({
   name: authFeatureKey,
   reducer: createReducer(
     initialState,
-    /**
-     * - Me
-     */
+    // Set pending to true
     on(
-      AuthActions.me,
+      AuthActions.login,
+      AuthActions.signup,
       AuthActions.changePassword,
       AuthActions.updateAccount,
-      AuthActions.requestVerifyEmail,
       (state) => ({
         ...state,
         pending: true,
       })
     ),
 
-    /**
-     * - Change password success
-     * - Delete account success
-     * - Update Account success
-     * - Request Verify Email Success
-     */
+    // Set pending to false
     on(
       AuthApiActions.changePasswordSuccess,
       AuthApiActions.updateAccountSuccess,
+      AuthApiActions.loginSuccess,
+      AuthApiActions.signUpSuccess,
       (state) => ({
         ...state,
         pending: false,
       })
     ),
 
-    /**
-     * - Login Failure
-     * - Change password Failure
-     * - Delete account Failure
-     */
+    // Set pending to false
     on(
       AuthApiActions.loginFailure,
+      AuthApiActions.signUpFailure,
       AuthApiActions.changePasswordFailure,
       AuthApiActions.updateAccountFailure,
       (state, { error }) => ({
@@ -78,7 +77,6 @@ export const authFeature = createFeature({
     on(AuthApiActions.meSuccess, (state, { user }) => ({
       ...state,
       user,
-      pending: false,
     })),
 
     /**
@@ -113,6 +111,20 @@ export const authFeature = createFeature({
           pending: false,
         };
       }
-    )
+    ),
+    /**
+     * - Set returnUrl
+     */
+    on(AuthActions.setReturnUrl, (state, { returnUrl }) => ({
+      ...state,
+      returnUrl,
+    })),
+    /**
+     * - Clear Error
+     */
+    on(AuthActions.clearError, (state) => ({
+      ...state,
+      error: null,
+    }))
   ),
 });

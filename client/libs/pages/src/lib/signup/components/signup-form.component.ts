@@ -1,9 +1,10 @@
-import { NavigationService } from '@lbk/services';
 import {
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   Input,
   OnInit,
+  Output,
 } from '@angular/core';
 import {
   AbstractControl,
@@ -13,6 +14,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { zoomIn } from '@lbk/anims';
+import { UserService } from '@lbk/auth';
+import { CreateUserDTO } from '@lbk/dto';
+import { NavigationService } from '@lbk/services';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -21,7 +25,6 @@ import {
   Observable,
   switchMap,
 } from 'rxjs';
-import { SignUpFacade } from './../state';
 
 @Component({
   selector: 'lbk-signup-form',
@@ -32,6 +35,10 @@ import { SignUpFacade } from './../state';
 export class SignupFormComponent implements OnInit {
   @Input() error!: string;
   @Input() pending!: boolean;
+  @Output() signup = new EventEmitter<{
+    createUserDTO: CreateUserDTO;
+    avatar?: File;
+  }>();
 
   form!: FormGroup;
   isCheckingUsername = true;
@@ -39,8 +46,8 @@ export class SignupFormComponent implements OnInit {
 
   constructor(
     private readonly _fb: FormBuilder,
-    private readonly _facade: SignUpFacade,
-    private readonly _navigationService: NavigationService
+    private readonly _navigationService: NavigationService,
+    private readonly _userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -110,15 +117,15 @@ export class SignupFormComponent implements OnInit {
 
     const { firstname, lastname, username, password } = this.form.value;
 
-    this._facade.signUp(
-      {
+    this.signup.emit({
+      createUserDTO: {
         firstname,
         lastname,
         username,
         password,
       },
-      avatar
-    );
+      avatar,
+    });
   }
 
   checkUsernameExists() {
@@ -126,7 +133,7 @@ export class SignupFormComponent implements OnInit {
       control.valueChanges.pipe(
         debounceTime(400),
         distinctUntilChanged(),
-        switchMap((value) => this._facade.isUsernameUnique(value)),
+        switchMap((value) => this._userService.usernameExists(value)),
         map((exists: boolean) => (exists ? { usernameExists: true } : null)),
         first()
       ); // important to make observable finite

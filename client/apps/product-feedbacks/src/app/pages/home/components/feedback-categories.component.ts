@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FeedbackCategory } from '@lbk/models';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { HomeActions } from '../state';
 import { HomeFacade } from '../state/home.facade';
 
 @Component({
@@ -40,12 +42,12 @@ export class FeedbackCategoriesComponent implements OnInit {
 
   constructor(public _facade: HomeFacade) {}
 
-  changeCategory(category: FeedbackCategory | undefined) {
-    this._facade.setCategory(category);
-  }
-
   ngOnInit(): void {
     this.categories = [undefined, ...Object.values(FeedbackCategory)];
     this.category$ = this._facade.category$;
+  }
+
+  changeCategory(category: FeedbackCategory | undefined) {
+    this._facade.setCategory(category);
   }
 }

@@ -1,7 +1,7 @@
 import { FeedbackCategory } from '@lbk/models';
 import { FeedbacksActions, FeedbacksApiActions } from '@lbk/state/feedbacks';
 import { createFeature, createReducer, on } from '@ngrx/store';
-import * as HomeActions from './home.actions';
+import { HomeActions } from './actions';
 
 export enum SortFeedback {
   MOST_UPVOTES = 'Most Upvotes',
@@ -10,7 +10,7 @@ export enum SortFeedback {
   LEAST_COMMENTS = 'Least Comments',
 }
 
-const homeFeatureKey = 'home';
+const homeFeatureKey = 'homePage';
 
 export interface State {
   error: string;
@@ -32,6 +32,13 @@ export const homeFeature = createFeature({
   name: homeFeatureKey,
   reducer: createReducer(
     initialState,
+    /**
+     * - Set Category
+     */
+    on(HomeActions.setCategory, (state, { category }) => ({
+      ...state,
+      category,
+    })),
 
     /**
      * - Show Side Bar
@@ -54,14 +61,6 @@ export const homeFeature = createFeature({
     on(HomeActions.setSort, (state, { sort }) => ({
       ...state,
       sort,
-    })),
-
-    /**
-     * - Set Category
-     */
-    on(HomeActions.setCategory, (state, { category }) => ({
-      ...state,
-      category,
     })),
 
     /**

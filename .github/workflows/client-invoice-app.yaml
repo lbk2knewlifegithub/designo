@@ -1,34 +1,34 @@
-# File: .github/workflows/workflow.yml
+# # File: .github/workflows/workflow.yml
+# # on:
+# #   pull_request:
+# #     branches:
+# #       - master
 # on:
-#   pull_request:
+#   push:
 #     branches:
-#       - master
-on:
-  push:
-    branches:
-      - "master"
-name: client-invoice-app
+#       - "master"
+# name: client-invoice-app
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@master
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: checkout
+#         uses: actions/checkout@master
 
-      - name: context
-        uses: okteto/context@latest
-        with:
-          token: ${{ secrets.OKTETO_TOKEN }}
+#       - name: context
+#         uses: okteto/context@latest
+#         with:
+#           token: ${{ secrets.OKTETO_TOKEN }}
 
-      - name: "Activate Namespace"
-        uses: okteto/namespace@latest
-        with:
-          name: client-lbk2knewlifegithub
+#       - name: "Activate Namespace"
+#         uses: okteto/namespace@latest
+#         with:
+#           name: client-lbk2knewlifegithub
 
-      - name: "Trigger the pipeline"
-        uses: okteto/pipeline@latest
-        with:
-          name: client-invoice-app
-          namespace: client-lbk2knewlifegithub
-          filename: okteto/client-invoice-app.yaml
+#       - name: "Trigger the pipeline"
+#         uses: okteto/pipeline@latest
+#         with:
+#           name: client-invoice-app
+#           namespace: client-lbk2knewlifegithub
+#           filename: okteto/client-invoice-app.yaml

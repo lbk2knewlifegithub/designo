@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { createRoadmap, Roadmap } from '../models/roadmap.model';
-import * as HomeActions from './home.actions';
+import { HomeActions } from './actions';
 import { SortFeedback } from './home.reducer';
 import * as fromHome from './home.selector';
 
@@ -164,6 +164,7 @@ export class HomeFacade {
   setCategory(category: FeedbackCategory | undefined) {
     this.category$.pipe(take(1)).subscribe((old) => {
       if (old === category) return;
+      console.log('old ' + old);
       this._store.dispatch(HomeActions.setCategory({ category }));
     });
   }

@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AuthFacade, AuthError } from '@lbk/auth';
 import { zoomIn } from '@lbk/anims';
 import { Credentials } from '@lbk/models';
 import { Observable } from 'rxjs';
-import { LoginFacade } from '../state/login.facade';
-import { LoginError } from './../state/login.reducer';
 
 @Component({
   selector: 'lbk-login-page',
@@ -47,18 +46,16 @@ import { LoginError } from './../state/login.reducer';
 })
 export class LoginPageComponent implements OnInit {
   pending$!: Observable<boolean>;
-  error$!: Observable<LoginError | null>;
+  error$!: Observable<AuthError | null>;
 
-  constructor(private readonly _loginFacade: LoginFacade) {}
+  constructor(private readonly _authFacade: AuthFacade) {}
 
   ngOnInit(): void {
-    this.pending$ = this._loginFacade.pending$;
-    this.error$ = this._loginFacade.error$;
-
-    this.error$.subscribe(console.log);
+    this.pending$ = this._authFacade.pending$;
+    this.error$ = this._authFacade.error$;
   }
 
   login(credentials: Credentials) {
-    this._loginFacade.login(credentials);
+    this._authFacade.login(credentials);
   }
 }

@@ -5,18 +5,15 @@ import {
   AvatarInputModule,
   ConfirmPasswordInputModule,
   InputModule,
+  OpenTheDoorLoadingModule,
   PasswordInputModule,
 } from '@lbk/comps';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
-import { OpenTheDoorLoadingModule } from '@lbk/comps';
-import { COMPONENTS } from './components';
+import { SignupFormComponent } from './components';
 import { SignupPageComponent } from './containers';
 import { SignupRoutingModule } from './signup-routing.module';
-import { SignUpEffects } from './state';
-import * as fromSignUpPage from './state/signup.reducer';
 
 const CONTAINERS = [SignupPageComponent];
+const COMPONENTS = [SignupFormComponent];
 
 @NgModule({
   imports: [
@@ -24,9 +21,6 @@ const CONTAINERS = [SignupPageComponent];
     CommonModule,
     SignupRoutingModule,
     ReactiveFormsModule,
-    // Stores
-    StoreModule.forFeature(fromSignUpPage.signUpFeature),
-    EffectsModule.forFeature([SignUpEffects]),
     // Shared Components From Auth
     OpenTheDoorLoadingModule,
     // Shared Components From Lib

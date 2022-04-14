@@ -31,6 +31,6 @@ export class HomePageComponent implements OnInit {
     /**
      * - Trigger Load feedback when enter home page
      */
-    this._feedbacksFacade.loadAllFeedbacks();
+    this._feedbacksFacade.loadFeedbacks();
   }
 }

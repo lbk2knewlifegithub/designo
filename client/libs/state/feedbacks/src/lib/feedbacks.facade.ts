@@ -135,7 +135,7 @@ export class FeedbacksFacade {
   /**
    * - Load Feed backs
    */
-  loadAllFeedbacks() {
+  loadFeedbacks() {
     this.loaded$.pipe(take(1)).subscribe((loaded) => {
       if (loaded) return;
       this._store.dispatch(FeedbacksActions.loadFeedBacks());
@@ -251,5 +251,14 @@ export class FeedbacksFacade {
    */
   deleteFeedback(feedback_id: number) {
     this._store.dispatch(FeedbacksActions.deleteFeedback({ feedback_id }));
+  }
+
+  /**
+   * - Reset
+   * - Remove all feedbacks and set loaded to false
+   */
+  reset() {
+    this._store.dispatch(FeedbacksActions.reset());
+    setTimeout(() => this.loadFeedbacks(), 300);
   }
 }
