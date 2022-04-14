@@ -7,7 +7,7 @@ on:
   push:
     branches:
       - "master"
-name: api-auth
+name: deploy-to-okteto
 
 jobs:
   deploy:
@@ -21,14 +21,7 @@ jobs:
         with:
           token: ${{ secrets.OKTETO_TOKEN }}
 
-      - name: "Activate Namespace"
-        uses: okteto/namespace@latest
-        with:
-          name: lbk2knewlifegithub
-
       - name: "Trigger the pipeline"
         uses: okteto/pipeline@latest
         with:
-          name: api-auth
-          namespace: lbk2knewlifegithub
-          filename: ./okteto/api-auth.yaml
+          name: deploy-to-okteto
