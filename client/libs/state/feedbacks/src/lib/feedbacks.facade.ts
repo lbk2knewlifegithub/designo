@@ -188,12 +188,14 @@ export class FeedbacksFacade {
    * @param addCommentDTO
    */
   addCommentSelectedFeedback(addCommentDTO: AddCommentDTO) {
-    this.selectedFeedback$.pipe(take(1)).subscribe((feedback) => {
-      if (!feedback) return;
-      const { feedback_id } = feedback;
-      this._store.dispatch(
-        FeedbacksActions.addComment({ feedback_id, addCommentDTO })
-      );
+    this._authFacade.checkLoggedIn(() => {
+      this.selectedFeedback$.pipe(take(1)).subscribe((feedback) => {
+        if (!feedback) return;
+        const { feedback_id } = feedback;
+        this._store.dispatch(
+          FeedbacksActions.addComment({ feedback_id, addCommentDTO })
+        );
+      });
     });
   }
 
