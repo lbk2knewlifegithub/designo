@@ -7,7 +7,7 @@ import {
   UpdateFeedbackDTO,
 } from '@lbk/dto';
 import { Comment, Feedback } from '@lbk/models';
-import { Observable, shareReplay } from 'rxjs';
+import { delay, Observable, shareReplay } from 'rxjs';
 import { API_PRODUCT_FEEDBACKS_URL } from '@lbk/tokens';
 import { FeedbacksService } from './feedbacks.service';
 

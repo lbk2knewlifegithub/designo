@@ -9,29 +9,25 @@
     <!-- end Sub Header -->
 
     <!-- Feedbacks -->
-    <!-- <div [ngClass]="{ 'flex justify-center mt-20': loading$ | async }"> -->
-    <!-- <lbk-spinner [loading]="(loading$ | async)!" [radius]="50"> -->
-    <main class="container mb-10 mt-8 xl:px-0 xl:mt-6">
-      <lbk-feedbacks-empty
-        *ngIf="isEmptyFeedbacks$ | async; else feedbacks"
-      ></lbk-feedbacks-empty>
+    <div [ngClass]="{ 'flex justify-center mt-20': loading$ | async }">
+      <lbk-spinner [loading]="(loading$ | async)!" [radius]="50">
+        <main class="container mb-10 mt-8 xl:px-0 xl:mt-6">
+          <lbk-feedbacks-empty
+            *ngIf="isEmptyFeedbacks$ | async; else feedbacks"
+          ></lbk-feedbacks-empty>
 
-      <ng-template #feedbacks>
-        <lbk-feedback-preview-list
-          [feedbacks]="(feedbacks$ | async)!"
-        ></lbk-feedback-preview-list>
-      </ng-template>
-    </main>
-    <!-- </lbk-spinner> -->
-    <!-- end Feedbacks -->
-    <!-- </div> -->
+          <ng-template #feedbacks>
+            <lbk-feedback-preview-list
+              [feedbacks]="(feedbacks$ | async)!"
+            ></lbk-feedback-preview-list>
+          </ng-template>
+        </main>
+      </lbk-spinner>
+      <!-- end Feedbacks -->
+    </div>
   </div>
+
+  <!--    Side Bar-->
+  <lbk-sidebar class="md:hidden"></lbk-sidebar>
+  <!--    end Side Bar-->
 </div>
-
-<!--    Side Bar-->
-<lbk-sidebar class="md:hidden"></lbk-sidebar>
-<!--    end Side Bar-->
-
-<!-- Profile Dialog -->
-<!-- <lbk-profile-modal [shown]="true"></lbk-profile-modal> -->
-<!-- end Profile Dialog -->
