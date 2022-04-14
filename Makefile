@@ -28,7 +28,7 @@ deploy-client-product-feedbacks:
 destroy-client-product-feedbacks:
 	okteto destroy -n client-lbk2knewlifegithub -f okteto/client-product-feedbacks.yaml
 
-deploy-all: deploy-api-auth deploy-api-images deploy-api-product-feedbacks deploy-client-auth deploy-client-product-feedbacks
+deploy-all: deploy-api-auth & deploy-api-images & deploy-api-product-feedbacks & deploy-client-product-feedbacks
 destroy-all: destroy-api-auth destroy-api-images destroy-api-product-feedbacks destroy-client-auth destroy-client-product-feedbacks
 
 # Postgres
