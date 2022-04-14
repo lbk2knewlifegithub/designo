@@ -1,3 +1,0 @@
-deploy:
-  - okteto build -t okteto.dev/client-auth:${OKTETO_GIT_COMMIT} client -f client/auth.Dockerfile
-  - helm upgrade -i client-auth charts/client -n client-lbk2knewlifegithub -f values/client-auth.yaml  --set tag=${OKTETO_GIT_COMMIT}
