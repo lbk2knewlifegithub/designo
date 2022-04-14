@@ -31,4 +31,4 @@ jobs:
         with:
           name: api-product-feedbacks
           namespace: lbk2knewlifegithub
-          filename: okteto/api-product-feedbacks.yaml
+          filename: ./okteto/api-product-feedbacks.yaml

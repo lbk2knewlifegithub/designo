@@ -31,4 +31,4 @@ jobs:
         with:
           name: api-images
           namespace: lemon-lbk2knewlifegithub
-          filename: okteto/api-images.yaml
+          filename: ./okteto/api-images.yaml

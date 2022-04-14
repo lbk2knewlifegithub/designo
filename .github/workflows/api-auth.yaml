@@ -31,4 +31,4 @@ jobs:
         with:
           name: api-auth
           namespace: lbk2knewlifegithub
-          filename: okteto/api-auth.yaml
+          filename: ./okteto/api-auth.yaml

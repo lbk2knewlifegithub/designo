@@ -31,4 +31,4 @@ jobs:
         with:
           name: client-product-feedbacks
           namespace: client-lbk2knewlifegithub
-          filename: okteto/client-product-feedbacks.yaml
+          filename: ./okteto/client-product-feedbacks.yaml
