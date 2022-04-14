@@ -1,6 +1,6 @@
 use crate::{
     dto::{
-        auth_dto::{Credentials, Token},
+        auth_dto::{Credentials, Tokens},
         user_dto::CreateUserDTO,
     },
     models::user_model::{ChangePassword, DeleteAccount, NewUser, UpdateAccount, User},
@@ -16,7 +16,7 @@ use prelude::{
 use tracing::{debug, info};
 
 /// Login
-pub async fn login(state: &AuthState, credentital: &Credentials) -> Result<Token> {
+pub async fn login(state: &AuthState, credentital: &Credentials) -> Result<Tokens> {
     let client = state.db.read.get().await?;
 
     // Check user exist
@@ -36,13 +36,13 @@ pub async fn login(state: &AuthState, credentital: &Credentials) -> Result<Token
     let user_token = UserToken::new(user.user_id).build();
     let access_token = state.jwt.hash(user_token).await;
 
-    Ok(Token {
+    Ok(Tokens {
         access_token: Some(access_token),
     })
 }
 
 /// SignUp
-pub async fn signup(state: &AuthState, create_user_dto: &CreateUserDTO) -> Result<Token> {
+pub async fn signup(state: &AuthState, create_user_dto: &CreateUserDTO) -> Result<Tokens> {
     let client = &state.db.write.get().await?;
     // Check User existed
     let user = user_repo::get_user_by_username(&client, &create_user_dto.username).await?;
@@ -69,13 +69,13 @@ pub async fn signup(state: &AuthState, create_user_dto: &CreateUserDTO) -> Resul
         access_token
     );
 
-    Ok(Token {
+    Ok(Tokens {
         access_token: Some(access_token),
     })
 }
 
 /// Me
-pub async fn me(state: &AuthState, token: &Token) -> Result<User> {
+pub async fn me(state: &AuthState, token: &Tokens) -> Result<User> {
     let client = &state.db.read.get().await?;
 
     // Decode Token

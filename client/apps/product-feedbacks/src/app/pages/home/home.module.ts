@@ -1,11 +1,7 @@
-import {
-  UpperPipeModule,
-  AvatarPipeModule,
-  NeverChangePipeModule,
-} from '@lbk/pipes';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { DropDownModule, MenuOneModule, SpinnerModule } from '@lbk/comps';
+import { AvatarPipeModule, UpperPipeModule } from '@lbk/pipes';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import {
@@ -36,7 +32,6 @@ import { homeFeature } from './state/home.reducer';
     MenuOneModule,
     UpperPipeModule,
     AvatarPipeModule,
-    NeverChangePipeModule,
   ],
   declarations: [COMPONENTS, CONTAINERS],
 })

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Feedback, FeedbackStatus } from '@lbk/models';
+import { Feedback } from '@lbk/models';
 import { FeedbacksFacade } from '@lbk/state/feedbacks';
 import { map, Observable } from 'rxjs';
 import { HomeFacade } from '../state/home.facade';
@@ -22,11 +22,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.loading$ = this._homeFacade.loading$;
 
-    this.feedbacks$ = this._homeFacade.feedbackFiltered$.pipe(
-      map((feedbacks) =>
-        feedbacks.filter((f) => f.status === FeedbackStatus.SUGGESTION)
-      )
-    );
+    this.feedbacks$ = this._homeFacade.feedbackFiltered$;
 
     this.isEmptyFeedbacks$ = this.feedbacks$.pipe(
       map((feedbacks) => feedbacks.length === 0)

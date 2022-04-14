@@ -49,19 +49,19 @@
       <ul class="group">
         <!-- Login -->
         <li>
-          <button (click)="login()">
+          <a [routerLink]="['/login']">
             Login
             <i class="fa-solid fa-arrow-right-to-arc"></i>
-          </button>
+          </a>
         </li>
         <!-- end Login -->
 
         <!-- SignUp -->
         <li>
-          <button (click)="signup()">
+          <a [routerLink]="['/signup']">
             SignUp
             <i class="fa-solid fa-arrow-right-to-arc"></i>
-          </button>
+          </a>
         </li>
         <!-- end SignUp -->
       </ul>

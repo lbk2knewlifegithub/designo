@@ -3,7 +3,7 @@ import { Feedback, FeedbackCategory, FeedbackStatus } from '@lbk/models';
 import { FeedbacksFacade } from '@lbk/state/feedbacks';
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
-import { map, take, tap } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { createRoadmap, Roadmap } from '../models/roadmap.model';
 import * as HomeActions from './home.actions';
 import { SortFeedback } from './home.reducer';
@@ -34,14 +34,13 @@ export class HomeFacade {
     );
 
   /**
-   * - Number of feedbacks is suggestion
+   * - Get all feedbacks status is suggestion
    */
-  numberOfFeedbacksSuggestion$: Observable<number> =
+  suggestionFeedbacks$: Observable<Feedback[]> =
     this._feedbacksFacade.allFeedbacks$.pipe(
       map((feedbacks) =>
         feedbacks.filter((f) => f.status === FeedbackStatus.SUGGESTION)
-      ),
-      map((feedbacks) => feedbacks.length)
+      )
     );
 
   /**
@@ -56,7 +55,7 @@ export class HomeFacade {
    * - Filter  feedback
    */
   feedbackFiltered$: Observable<Feedback[]> = combineLatest([
-    this._feedbacksFacade.allFeedbacks$,
+    this.suggestionFeedbacks$,
     this.sort,
     this.category$,
   ]).pipe(
@@ -163,6 +162,9 @@ export class HomeFacade {
    * - Set Category
    */
   setCategory(category: FeedbackCategory | undefined) {
-    this._store.dispatch(HomeActions.setCategory({ category }));
+    this.category$.pipe(take(1)).subscribe((old) => {
+      if (old === category) return;
+      this._store.dispatch(HomeActions.setCategory({ category }));
+    });
   }
 }

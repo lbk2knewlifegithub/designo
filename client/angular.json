@@ -3,7 +3,7 @@
   "projects": {
     "anims": "libs/anims",
     "audiophile": "apps/audiophile",
-    "auth": "apps/auth",
+    "auth": "libs/auth",
     "comps": "libs/comps",
     "data": "libs/data",
     "directives": "libs/directives",
@@ -13,12 +13,12 @@
     "interceptors": "libs/interceptors",
     "invoice-app": "apps/invoice-app",
     "models": "libs/models",
+    "pages": "libs/pages",
     "pipes": "libs/pipes",
     "portfolio": "apps/portfolio",
     "product-feedbacks": "apps/product-feedbacks",
     "rxjs": "libs/rxjs",
     "services": "libs/services",
-    "state-auth": "libs/state/auth",
     "state-feedbacks": "libs/state/feedbacks",
     "tokens": "libs/tokens"
   }

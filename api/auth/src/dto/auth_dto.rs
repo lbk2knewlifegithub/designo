@@ -12,7 +12,7 @@ pub struct Credentials {
 }
 
 #[derive(Debug, Serialize, Deserialize, Validate)]
-pub struct Token {
+pub struct Tokens {
     #[serde(rename = "accessToken")]
     #[validate(required)]
     pub access_token: Option<String>,

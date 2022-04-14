@@ -58,8 +58,9 @@ export class HomeSubHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.sorts = Object.values(SortFeedback);
     this.sort = this._facade.sort;
-    this.numberOfFeedbacksSuggestion$ =
-      this._facade.numberOfFeedbacksSuggestion$;
+    this.numberOfFeedbacksSuggestion$ = this._facade.suggestionFeedbacks$.pipe(
+      map((feedbacks) => feedbacks.length)
+    );
   }
 
   changeFilter(filter: SortFeedback) {

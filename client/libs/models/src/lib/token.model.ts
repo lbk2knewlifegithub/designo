@@ -1,7 +1,7 @@
 /**
  * - Token
  */
-export interface Token {
+export interface Tokens {
   /**
    * - Access Token
    */

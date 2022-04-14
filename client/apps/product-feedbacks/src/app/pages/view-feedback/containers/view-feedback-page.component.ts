@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AuthFacade } from '@lbk/auth';
 import { Feedback } from '@lbk/models';
-import { AuthFacade } from '@lbk/state/auth';
 import { FeedbacksFacade } from '@lbk/state/feedbacks';
 import { combineLatest, map, Observable, take } from 'rxjs';
 import { ViewFeedbacksFacade } from '../state';
-import { CoreFacade } from './../../../core/state/core.facade';
 
 @Component({
   selector: 'lbk-view-feedback-page',
@@ -20,8 +19,7 @@ export class ViewFeedbackPageComponent implements OnInit {
   constructor(
     private readonly _feedbacksFacade: FeedbacksFacade,
     private readonly _facade: ViewFeedbacksFacade,
-    private readonly _authFacade: AuthFacade,
-    private readonly _coreFacade: CoreFacade
+    private readonly _authFacade: AuthFacade
   ) {}
 
   ngOnInit(): void {
@@ -49,15 +47,11 @@ export class ViewFeedbackPageComponent implements OnInit {
   }
 
   addComment(content: string) {
-    this._authFacade.loggedIn$.pipe(take(1)).subscribe((loggedIn) => {
-      if (!loggedIn) return this._coreFacade.showRequiredLogin();
-
-      this.feedback$.pipe(take(1)).subscribe(({ feedback_id }) => {
-        this._feedbacksFacade.addComment(feedback_id, {
-          content,
-          parent_id: null,
-          replying_to: null,
-        });
+    this.feedback$.pipe(take(1)).subscribe(({ feedback_id }) => {
+      this._feedbacksFacade.addComment(feedback_id, {
+        content,
+        parent_id: null,
+        replying_to: null,
       });
     });
   }

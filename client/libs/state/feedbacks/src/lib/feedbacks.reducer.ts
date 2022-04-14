@@ -1,4 +1,4 @@
-import { AuthApiActions } from '@lbk/state/auth';
+import { AuthApiActions } from '@lbk/auth';
 import { Comment, Feedback } from '@lbk/models';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';

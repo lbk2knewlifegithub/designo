@@ -31,6 +31,7 @@ class SomeComponent {
 export class NavigationService {
   private MAX_HISTORY_LEN = 10; // prevent history from growing indefinitely
   private history: string[] = [];
+  private excludes = ['/login', '/signup'];
 
   constructor(private router: Router, private location: Location) {
     this.router.events.subscribe((event) => {
@@ -44,11 +45,18 @@ export class NavigationService {
   }
 
   back(): void {
-    this.history.pop();
-    if (this.history.length > 0) {
-      this.location.back();
-    } else {
+    const url = this.history.pop();
+    if (!url) {
       this.router.navigateByUrl('/');
+      return;
     }
+
+    const lastHistory = this.history[this.history.length - 1];
+    if (lastHistory && this.excludes.find((u) => lastHistory.startsWith(u))) {
+      this.router.navigateByUrl('/');
+      return;
+    }
+
+    this.location.back();
   }
 }

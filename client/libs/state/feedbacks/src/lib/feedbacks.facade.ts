@@ -1,4 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
+import { AuthFacade } from '@lbk/auth';
 import { AddCommentDTO, CreateFeedbackDTO, UpdateFeedbackDTO } from '@lbk/dto';
 import {
   createSummaryFeedback,
@@ -6,7 +7,6 @@ import {
   FeedbackStatus,
   FeedbackSummary,
 } from '@lbk/models';
-import { AuthFacade } from '@lbk/state/auth';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { catchError, map, take, tap } from 'rxjs/operators';
@@ -146,14 +146,18 @@ export class FeedbacksFacade {
    * - Upvote Feedback By Id
    */
   upvote(feedback_id: number) {
-    this._store.dispatch(FeedbacksActions.upvote({ feedback_id }));
+    this._authFacade.checkLoggedIn(() => {
+      this._store.dispatch(FeedbacksActions.upvote({ feedback_id }));
+    });
   }
 
   /**
    * - Downvote Feedback By Id
    */
   downvote(feedback_id: number) {
-    this._store.dispatch(FeedbacksActions.downvote({ feedback_id }));
+    this._authFacade.checkLoggedIn(() => {
+      this._store.dispatch(FeedbacksActions.downvote({ feedback_id }));
+    });
   }
 
   /**
@@ -172,9 +176,11 @@ export class FeedbacksFacade {
    * @param addCommentDTO
    */
   addComment(feedback_id: number, addCommentDTO: AddCommentDTO) {
-    this._store.dispatch(
-      FeedbacksActions.addComment({ feedback_id, addCommentDTO })
-    );
+    this._authFacade.checkLoggedIn(() => {
+      this._store.dispatch(
+        FeedbacksActions.addComment({ feedback_id, addCommentDTO })
+      );
+    });
   }
 
   /**

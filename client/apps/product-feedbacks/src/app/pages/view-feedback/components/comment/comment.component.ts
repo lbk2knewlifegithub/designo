@@ -7,12 +7,11 @@ import {
 import { collapseOut, expandIn } from '@lbk/anims';
 import { AddCommentDTO } from '@lbk/dto';
 import { Comment, User, UserComment } from '@lbk/models';
-import { AuthFacade } from '@lbk/state/auth';
+import { AuthFacade } from '@lbk/auth';
 import { FeedbacksFacade } from '@lbk/state/feedbacks';
 import { DialogService } from '@ngneat/dialog';
 import { combineLatest, map, Observable, take, switchMap, of } from 'rxjs';
 import { ConfirmDeleteCommentComponent } from '../confirm-delete-comment.component';
-import { CoreFacade } from './../../../../core/state/core.facade';
 import { ViewFeedbacksFacade } from './../../state/view-feedback.facade';
 
 @Component({
@@ -36,7 +35,6 @@ export class CommentComponent implements OnInit {
   constructor(
     private readonly _feedbacksFacade: FeedbacksFacade,
     private readonly _authFacade: AuthFacade,
-    private readonly _coreFacade: CoreFacade,
     private readonly _dialogService: DialogService,
     private readonly _facade: ViewFeedbacksFacade
   ) {}
@@ -66,15 +64,7 @@ export class CommentComponent implements OnInit {
   }
 
   toggleReply(): void {
-    if (!this.shownReplyForm) {
-      this._authFacade.loggedIn$.pipe(take(1)).subscribe((loggedIn) => {
-        if (!loggedIn) return this._coreFacade.showRequiredLogin();
-
-        this.shownReplyForm = true;
-      });
-      return;
-    }
-    this.shownReplyForm = false;
+    this.shownReplyForm = !this.shownReplyForm;
   }
 
   reply(content: string) {

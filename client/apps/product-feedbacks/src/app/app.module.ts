@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtInterceptor } from '@lbk/interceptors';
 import { CoreHttpClientModule } from '@lbk/services';
-import { AuthStateModule } from '@lbk/state/auth';
+import { AuthStateModule } from '@lbk/auth';
 import { FeedbacksStateModule } from '@lbk/state/feedbacks';
 import {
   API_AUTH_URL,

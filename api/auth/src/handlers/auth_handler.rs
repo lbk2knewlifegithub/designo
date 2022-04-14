@@ -1,6 +1,6 @@
 use crate::{
     dto::{
-        auth_dto::{Credentials, Token},
+        auth_dto::{Credentials, Tokens},
         user_dto::{ChangePasswordDTO, CreateUserDTO, DeleteAccountDTO, UpdateAccountDTO},
     },
     models::user_model::{ChangePassword, DeleteAccount, UpdateAccount},
@@ -35,7 +35,7 @@ async fn signup(
 }
 
 /// Me
-async fn me(state: web::Data<AuthState>, token: Json<Token>) -> Result<HttpResponse> {
+async fn me(state: web::Data<AuthState>, token: Json<Tokens>) -> Result<HttpResponse> {
     auth_service::me(&state, &token)
         .await
         .map(|user| HttpResponse::Created().json(user))

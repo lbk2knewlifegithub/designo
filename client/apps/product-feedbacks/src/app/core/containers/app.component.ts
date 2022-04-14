@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CAROUSEL_ROUTE_ANIMATION } from '@lbk/anims';
-import { NavigationService } from '@lbk/services';
+import { NavigationService, SplashScreenService } from '@lbk/services';
 
 @Component({
   selector: 'lbk-root',
@@ -13,26 +13,16 @@ import { NavigationService } from '@lbk/services';
     >
       <router-outlet #outlet="outlet"></router-outlet>
     </div>
-
-    <lbk-required-login></lbk-required-login>
-    <lbk-footer></lbk-footer>
   `,
   animations: [CAROUSEL_ROUTE_ANIMATION],
 })
-export class AppComponent implements OnInit {
-  constructor(private readonly _navigationService: NavigationService) {}
+export class AppComponent {
+  constructor(
+    private readonly _navigationService: NavigationService,
+    private readonly _splashScreenService: SplashScreenService
+  ) {}
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet?.activatedRouteData?.['animation'];
-  }
-
-  ngOnInit(): void {
-    const splashScreen = document.getElementById(
-      'splash-screen'
-    ) as HTMLElement;
-    splashScreen.classList.add('slide-out-top');
-    splashScreen.addEventListener('transitionend', () => {
-      splashScreen.remove();
-    });
   }
 }

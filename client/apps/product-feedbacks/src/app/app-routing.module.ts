@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './shared/guards/auth.guard';
+import { AuthGuard, TryLoginGuard } from '@lbk/auth';
 
 const routes: Routes = [
   /**
@@ -10,7 +10,7 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
     data: { animation: 'feedbacks' },
-    canActivate: [AuthGuard],
+    canActivate: [TryLoginGuard],
   },
   /**
    * - Feedback Detail Route
@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/view-feedback').then((m) => m.ViewFeedbackModule),
     data: { animation: 'feedback' },
-    canActivate: [AuthGuard],
+    canActivate: [TryLoginGuard],
   },
   /**
    * - Create Feedback Route
@@ -29,7 +29,7 @@ const routes: Routes = [
     path: 'create-feedback',
     loadChildren: () =>
       import('./pages/create-feedback').then((m) => m.CreateFeedbackModule),
-    data: { animation: 'create-feedback', mustLoggedIn: true },
+    data: { animation: 'create-feedback' },
     canActivate: [AuthGuard],
   },
 
@@ -40,7 +40,7 @@ const routes: Routes = [
     path: 'edit-feedback',
     loadChildren: () =>
       import('./pages/edit-feedback').then((m) => m.EditFeedbackModule),
-    data: { animation: 'edit-feedback', mustLoggedIn: true },
+    data: { animation: 'edit-feedback' },
     canActivate: [AuthGuard],
   },
   /**
@@ -50,16 +50,32 @@ const routes: Routes = [
     path: 'roadmap',
     loadChildren: () => import('./pages/roadmap').then((m) => m.RoadmapModule),
     data: { animation: 'roadmap' },
-    canActivate: [AuthGuard],
+    canActivate: [TryLoginGuard],
   },
 
+  /**
+   * - Login route
+   */
+  {
+    path: 'login',
+    loadChildren: () => import('@lbk/pages').then((m) => m.LoginModule),
+    data: { animation: 'login' },
+  },
+  /**
+   * - Sign Up route
+   */
+  {
+    path: 'signup',
+    loadChildren: () => import('@lbk/pages').then((m) => m.SignupModule),
+    data: { animation: 'signup' },
+  },
   /**
    * - Profile Route
    */
   {
     path: 'profile',
-    loadChildren: () => import('./pages/profile').then((m) => m.ProfileModule),
-    data: { animation: 'profile', mustLoggedIn: true },
+    loadChildren: () => import('@lbk/pages').then((m) => m.ProfileModule),
+    data: { animation: 'profile' },
     canActivate: [AuthGuard],
   },
   {

@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
-import { Token } from '@lbk/models';
+import { Tokens } from '@lbk/models';
 import { LOCAL_STORAGE_TOKEN } from '@lbk/tokens';
-import { map, Observable, of, tap, throwError } from 'rxjs';
+import { map, Observable, of, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class TokenService {
@@ -13,9 +13,9 @@ export class TokenService {
       : throwError(() => 'Local Storage Not Supported');
   }
 
-  getToken(): Observable<Token | undefined> {
+  getToken(): Observable<Tokens | undefined> {
     return this.supported().pipe(
-      map((_) => this.storage.getItem(TokenService.TOKEN_KEY)),
+      map(() => this.storage.getItem(TokenService.TOKEN_KEY)),
       map((value: string | null) => (value ? JSON.parse(value) : undefined))
     );
   }
@@ -24,8 +24,8 @@ export class TokenService {
     this.storage.removeItem(TokenService.TOKEN_KEY);
   }
 
-  saveToken(token: Token) {
-    this.storage.setItem(TokenService.TOKEN_KEY, JSON.stringify(token));
+  saveTokens(tokens: Tokens) {
+    this.storage.setItem(TokenService.TOKEN_KEY, JSON.stringify(tokens));
   }
 
   constructor(@Inject(LOCAL_STORAGE_TOKEN) private storage: Storage) {}

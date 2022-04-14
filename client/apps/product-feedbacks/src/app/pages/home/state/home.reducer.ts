@@ -74,11 +74,13 @@ export const homeFeature = createFeature({
     /**
      * - Set Shown Side Bar
      */
-    on(FeedbacksApiActions.loadFeedbacksSuccess, (state) => ({
-      ...state,
-      loading: false,
-      loaded: true,
-    })),
+    on(FeedbacksApiActions.loadFeedbacksSuccess, (state) => {
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+      };
+    }),
 
     /**
      * - Load Feedbacks Failure

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { User } from '@lbk/models';
-import { AuthFacade } from '@lbk/state/auth';
+import { AuthFacade } from '@lbk/auth';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -22,12 +22,5 @@ export class ProfileButtonComponent implements OnInit {
 
   logout() {
     this._authFacade.logout();
-  }
-  signup() {
-    this._authFacade.signup();
-  }
-
-  login() {
-    this._authFacade.login();
   }
 }
