@@ -52,7 +52,7 @@ impl DBService {
 
         let password = var("YSQL_PASSWORD").expect("Missing YSQL_PASSWORD (Yugabyte password)");
 
-        let db_name = var("YSQL_DBNAME").expect("Missing YSQL_DBNAME (Yugabyte database name).");
+        let db_name = var("YSQL_DB_NAME").expect("Missing YSQL_DB_NAME (Yugabyte database name).");
 
         let port = var("YSQL_PORT")
             .expect("Missing YSQL_PORT (Yugabyte port).")
