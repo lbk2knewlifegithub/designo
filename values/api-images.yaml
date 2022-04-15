@@ -3,9 +3,9 @@ tag: dev
 # Api Images
 apiStorage:
   name: api-images
-  replicaCount: 6
+  replicaCount: 2
   image: okteto.dev/api-images
-  serviceType: LoadBalancer
+  serviceType: ClusterIP
   port: 8081
   storage:
     size: 5Gi

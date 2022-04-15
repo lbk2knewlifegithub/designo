@@ -3,7 +3,7 @@ tag: dev
 # Api Product Feedbacks
 api:
   name: api-product-feedbacks
-  replicaCount: 3
+  replicaCount: 2
   image: okteto.dev/api-product-feedbacks
-  serviceType: LoadBalancer
+  serviceType: ClusterIP
   port: 8082

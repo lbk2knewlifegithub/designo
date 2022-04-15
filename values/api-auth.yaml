@@ -3,8 +3,8 @@ tag: dev
 # Api Auth
 api:
   name: api-auth
-  replicaCount: 3
+  replicaCount: 2
   image: okteto.dev/api-auth
   emailTemplatesFolder: "/app/templates"
-  serviceType: LoadBalancer
+  serviceType: ClusterIP
   port: 8080
