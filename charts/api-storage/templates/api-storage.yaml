@@ -49,8 +49,6 @@ spec:
                   key: ysql-password
             - name: YSQL_HOST
               value: yb-tserver-service.db-lbk2knewlifegithub.svc.cluster.local
-            - name: YSQL_PORT
-              value: 5433 
             - name: YSQL_DB_NAME
               valueFrom:
                 configMapKeyRef:

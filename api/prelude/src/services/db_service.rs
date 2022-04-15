@@ -7,17 +7,15 @@ pub struct DbConfig {
     pub password: String,
     pub host: String,
     pub db_name: String,
-    pub port: u16,
 }
 
 impl DbConfig {
-    pub fn new(username: &str, password: &str, host: &str, db_name: &str, port: u16) -> Self {
+    pub fn new(username: &str, password: &str, host: &str, db_name: &str) -> Self {
         DbConfig {
             username: username.to_owned(),
             password: password.to_owned(),
             host: host.to_owned(),
             db_name: db_name.to_owned(),
-            port,
         }
     }
 
@@ -28,7 +26,7 @@ impl DbConfig {
         config.user(&self.username);
         config.password(&self.password);
         config.dbname(&self.db_name);
-        config.port(self.port);
+        config.port(5433);
 
         let mgr_config = ManagerConfig {
             recycling_method: RecyclingMethod::Fast,
@@ -54,12 +52,7 @@ impl DBService {
 
         let db_name = var("YSQL_DB_NAME").expect("Missing YSQL_DB_NAME (Yugabyte database name).");
 
-        let port = var("YSQL_PORT")
-            .expect("Missing YSQL_PORT (Yugabyte port).")
-            .parse()
-            .expect("Invalid YSQL_PORT (Yugabyte port) must be a number.");
-
-        let config = DbConfig::new(&username, &password, &host, &db_name, port);
+        let config = DbConfig::new(&username, &password, &host, &db_name);
 
         Self {
             pool: config.connect(),
