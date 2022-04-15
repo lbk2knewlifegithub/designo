@@ -3,11 +3,15 @@ kind: ConfigMap
 metadata:
   name: config-map
 data:
+  # JWT
   jwt-secret: $JWT_SECRET
+  # Email
   email-address: $EMAIL_ADDRESS
   email-password: $EMAIL_PASSWORD
   email-username: $EMAIL_USERNAME
-  pg-username: $PG_USERNAME
-  pg-password: $PG_PASSWORD
-  pg-db-name: $PG_DB_NAME
+  # Yugabyte DB
+  ysql-username: $YSQL_USERNAME
+  ysql-password: $YSQL_PASSWORD
+  ysql-db-name: $YSQL_DB_NAME
+  # Redis
   redis-password: $REDIS_PASSWORD
