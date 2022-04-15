@@ -74,3 +74,9 @@ delete-all-configmap:
 	kubectl delete configmap --all 
 	okteto ns use lemon-lbk2knewlifegithub && okteto kubeconfig 
 	kubectl delete configmap --all 
+
+# YugabyteDB dev
+yugabytedb-dev:
+	kubectx minikube && kubectl create namespace yb-dev || helm upgrade --install yb-dev -f values/yugabytedb-dev.yaml -n yb-dev yugabytedb/yugabyte
+	kubectl get pods -n yb-dev 
+	kubectl port-forward --namespace yb-dev yb-tserver-0 5433:5433
