@@ -68,9 +68,8 @@ impl TmpFile {
 
         // Remove old_avatar if exist
         if let Some(id) = &self.old_avatar {
-            if let Err(e) = std::fs::remove_file(TmpFile::static_image(id)) {
-                error!("Not found old_avatar to remove {}", e);
-                return Err(AppError::IntervalServerError);
+            if let Err(_) = std::fs::remove_file(TmpFile::static_image(id)) {
+                // Do nothing
             }
         }
 
