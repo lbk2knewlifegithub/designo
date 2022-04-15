@@ -16,7 +16,7 @@ import { FeedbacksService } from './feedbacks.service';
  */
 @Injectable({ providedIn: 'root' })
 export class FeedbacksImplService implements FeedbacksService {
-  private readonly _apiFeedbacksUrl = `${this._apiUrl}/feedbacks`;
+  private readonly _apiFeedbacksUrl = `${this._apiUrl}/product-feedbacks`;
   constructor(
     @Inject(API_URL)
     private readonly _apiUrl: string,
