@@ -1,7 +1,6 @@
 deploy:
   # Use lbk2knewlifegithub namespace
-  - okteto ns use lbk2knewlifegithub
-  - okteto kubeconfig
+  - okteto ns use lbk2knewlifegithub && okteto kubeconfig
   - envsubst < config-template.yaml > config.yaml
   - kubectl apply -f config.yaml
 
@@ -14,8 +13,7 @@ deploy:
   - helm upgrade -i api-product-feedbacks charts/api -n lbk2knewlifegithub -f values/api-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
 
   # Use lemon-lbk2knewlifegithub namespace
-  - okteto ns use lemon-lbk2knewlifegithub
-  - okteto kubeconfig
+  - okteto ns use lemon-lbk2knewlifegithub && okteto kubeconfig
   - envsubst < config-template.yaml > config.yaml
   - kubectl apply -f config.yaml
 
@@ -23,8 +21,7 @@ deploy:
   - okteto build -t okteto.dev/api-images:${OKTETO_GIT_COMMIT} api -f api/images.Dockerfile
   - helm upgrade -i api-images charts/api-storage -n lemon-lbk2knewlifegithub -f values/api-images.yaml --set tag=${OKTETO_GIT_COMMIT}
 
-  - okteto ns use client-lbk2knewlifegithub
-  - okteto kubeconfig
+  - okteto ns use client-lbk2knewlifegithub && okteto kubeconfig
 
   # Build Client Product Feedbacks
   - okteto build -t okteto.dev/client-product-feedbacks:${OKTETO_GIT_COMMIT} client -f client/product-feedbacks.Dockerfile
