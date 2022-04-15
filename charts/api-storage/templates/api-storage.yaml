@@ -58,9 +58,9 @@ spec:
                   key: ysql-db-name
             # Redis Config
             - name: REDIS_HOST_WRITE
-              value: redis-master.db-lbk2knewlifegithub.svc.cluster.local
+              value: redis-master.banana-lbk2knewlifegithub.svc.cluster.local
             - name: REDIS_HOST_READ
-              value: redis-replicas.db-lbk2knewlifegithub.svc.cluster.local
+              value: redis-replicas.banana-lbk2knewlifegithub.svc.cluster.local
             - name: REDIS_PASSWORD
               valueFrom:
                 configMapKeyRef:

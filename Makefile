@@ -33,10 +33,10 @@ destroy-all: destroy-api-auth destroy-api-images destroy-api-product-feedbacks d
 
 # Redis
 upgrade-redis:
-	helm upgrade -i redis -n db-lbk2knewlifegithub -f secret/redis-values.yaml bitnami/redis
+	helm upgrade -i redis -n banana-lbk2knewlifegithub -f secret/redis-values.yaml bitnami/redis
 
 uninstall-redis:
-	helm delete redis -n db-lbk2knewlifegithub
+	helm delete redis -n banana-lbk2knewlifegithub
 
 forward-redis:
 	echo "Forwarding port 6379"
