@@ -7,58 +7,62 @@ pub struct DbConfig {
     pub password: String,
     pub host: String,
     pub db_name: String,
+    pub port: u16,
 }
 
 impl DbConfig {
-    pub fn new(username: &str, password: &str, host: &str, db_name: &str) -> Self {
+    pub fn new(username: &str, password: &str, host: &str, db_name: &str, port: u16) -> Self {
         DbConfig {
             username: username.to_owned(),
             password: password.to_owned(),
             host: host.to_owned(),
             db_name: db_name.to_owned(),
+            port,
         }
     }
 
     /// Create a new pool of database connections.
     pub fn connect(&self) -> Pool {
-        let mut pg_config = tokio_postgres::Config::new();
-        pg_config.host(&self.host);
-        pg_config.user(&self.username);
-        pg_config.password(&self.password);
-        pg_config.dbname(&self.db_name);
+        let mut config = tokio_postgres::Config::new();
+        config.host(&self.host);
+        config.user(&self.username);
+        config.password(&self.password);
+        config.dbname(&self.db_name);
+        config.port(self.port);
 
         let mgr_config = ManagerConfig {
             recycling_method: RecyclingMethod::Fast,
         };
 
-        let mgr = Manager::from_config(pg_config, NoTls, mgr_config);
+        let mgr = Manager::from_config(config, NoTls, mgr_config);
         Pool::builder(mgr).build().unwrap()
     }
 }
 
 #[derive(Clone)]
 pub struct DBService {
-    pub read: Pool,
-    pub write: Pool,
+    pub pool: Pool,
 }
 
 impl DBService {
     pub fn from_env() -> Self {
-        let host_write = var("PG_HOST_WRITE").expect("Missing PG_HOST_WRITE (Postgres Host Write)");
-        let host_read = var("PG_HOST_READ").expect("Missing PG_HOST_READ (Postgres Host Read)");
+        let host = var("YSQL_HOST").expect("Missing YSQL_HOST (YugabyteDB Host)");
 
-        let username = var("PG_USERNAME").expect("Missing PG_USERNAME (Postgres username)");
+        let username = var("YSQL_USERNAME").expect("Missing YSQL_USERNAME (Yugabyte Username)");
 
-        let password = var("PG_PASSWORD").expect("Missing PG_PASSWORD (Postgres password)");
+        let password = var("YSQL_PASSWORD").expect("Missing YSQL_PASSWORD (Yugabyte password)");
 
-        let db_name = var("PG_DB_NAME").expect("Missing PG_DB_NAME (Postgres database name).");
+        let db_name = var("YSQL_DBNAME").expect("Missing YSQL_DBNAME (Yugabyte database name).");
 
-        let read_config = DbConfig::new(&username, &password, &host_read, &db_name);
-        let write_config = DbConfig::new(&username, &password, &host_write, &db_name);
+        let port = var("YSQL_PORT")
+            .expect("Missing YSQL_PORT (Yugabyte port).")
+            .parse()
+            .expect("Invalid YSQL_PORT (Yugabyte port) must be a number.");
+
+        let config = DbConfig::new(&username, &password, &host, &db_name, port);
 
         Self {
-            read: read_config.connect(),
-            write: write_config.connect(),
+            pool: config.connect(),
         }
     }
 }

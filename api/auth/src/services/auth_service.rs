@@ -17,7 +17,7 @@ use tracing::{debug, info};
 
 /// Login
 pub async fn login(state: &AuthState, credentital: &Credentials) -> Result<Tokens> {
-    let client = state.db.read.get().await?;
+    let client = state.db.pool.get().await?;
 
     // Check user exist
     let user = match user_repo::get_user_by_username(&client, &credentital.username).await? {
@@ -43,7 +43,7 @@ pub async fn login(state: &AuthState, credentital: &Credentials) -> Result<Token
 
 /// SignUp
 pub async fn signup(state: &AuthState, create_user_dto: &CreateUserDTO) -> Result<Tokens> {
-    let client = &state.db.write.get().await?;
+    let client = &state.db.pool.get().await?;
     // Check User existed
     let user = user_repo::get_user_by_username(&client, &create_user_dto.username).await?;
 
@@ -76,7 +76,7 @@ pub async fn signup(state: &AuthState, create_user_dto: &CreateUserDTO) -> Resul
 
 /// Me
 pub async fn me(state: &AuthState, token: &Tokens) -> Result<User> {
-    let client = &state.db.read.get().await?;
+    let client = &state.db.pool.get().await?;
 
     // Decode Token
     let user_token = state
@@ -106,7 +106,7 @@ pub async fn me(state: &AuthState, token: &Tokens) -> Result<User> {
 
 /// Delete Account Service
 pub async fn delete_account(state: &AuthState, da: DeleteAccount) -> Result<()> {
-    let client = &state.db.write.get().await?;
+    let client = &state.db.pool.get().await?;
 
     // Check User existed
     let user = match user_repo::get_user_by_id(&client, &da.user_id).await? {
@@ -122,13 +122,13 @@ pub async fn delete_account(state: &AuthState, da: DeleteAccount) -> Result<()> 
 
 /// Update Account Service
 pub async fn update_account(state: &AuthState, ua: &UpdateAccount) -> Result<()> {
-    let client = &state.db.write.get().await?;
+    let client = &state.db.pool.get().await?;
     Ok(user_repo::update_account(&client, ua).await?)
 }
 
 /// Change Password Service
 pub async fn change_password(state: &AuthState, cp: &ChangePassword) -> Result<()> {
-    let client = &state.db.write.get().await?;
+    let client = &state.db.pool.get().await?;
 
     // Check User existed
     let user = match user_repo::get_user_by_id(&client, &cp.user_id).await? {
@@ -150,7 +150,7 @@ pub async fn change_password(state: &AuthState, cp: &ChangePassword) -> Result<(
 
 // /// Request Verify Email Service
 // pub async fn request_verify_email(state: &AuthState, user_id: &i32) -> Result<()> {
-//     let client = &state.db.read.get().await?;
+//     let client = &state.db.get().await?;
 
 //     // Get User By Id
 //     let user = match user_repo::get_user_by_id(&client, user_id).await? {
@@ -210,7 +210,7 @@ pub async fn change_password(state: &AuthState, cp: &ChangePassword) -> Result<(
 
 // /// Verify Email Service
 // pub async fn verify_email(state: &AuthState, token: &str) -> Result<()> {
-//     let client = &state.db.read_write.get().await?;
+//     let client = &state.db.pool.get().await?;
 
 //     // Get token to redis
 //     let resp = state

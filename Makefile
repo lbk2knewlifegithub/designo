@@ -31,17 +31,6 @@ destroy-client-product-feedbacks:
 deploy-all: deploy-api-auth & deploy-api-images & deploy-api-product-feedbacks & deploy-client-product-feedbacks
 destroy-all: destroy-api-auth destroy-api-images destroy-api-product-feedbacks destroy-client-auth destroy-client-product-feedbacks
 
-# Postgres
-upgrade-pg:
-	helm upgrade -i postgresql -n db-lbk2knewlifegithub -f secret/pg-values.yaml bitnami/postgresql --version 11.1.19
-
-uninstall-pg:
-	helm delete postgresql -n db-lbk2knewlifegithub
-
-forward-pg:
-	echo "Forwarding port 5000"
-	kubectl port-forward --namespace db-lbk2knewlifegithub svc/postgresql-primary 5000:5432
-
 # Redis
 upgrade-redis:
 	helm upgrade -i redis -n db-lbk2knewlifegithub -f secret/redis-values.yaml bitnami/redis
@@ -76,7 +65,19 @@ delete-all-configmap:
 	kubectl delete configmap --all 
 
 # YugabyteDB dev
-yugabytedb-dev:
-	kubectx minikube && kubectl create namespace yb-dev || helm upgrade --install yb-dev -f values/yugabytedb-dev.yaml -n yb-dev yugabytedb/yugabyte
+ysql-dev:
+	kubectx minikube && kubectl create namespace ysql-dev || helm upgrade --install ysql-dev -f values/yugabytedb-dev.yaml -n yb-dev yugabytedb/yugabyte
 	kubectl get pods -n yb-dev 
 	kubectl port-forward --namespace yb-dev yb-tserver-0 5433:5433
+
+
+# YugabyteDB Prod
+upgrade-ysql-prod:
+	helm upgrade -i ysql -n db-lbk2knewlifegithub -f secret/ysql.yaml yugabytedb/yugabyte 
+
+uninstall-ysql:
+	helm delete ysql -n db-lbk2knewlifegithub
+
+forward-ysql:
+	echo "Forwarding port 5435"
+	kubectl port-forward -n db-lbk2knewlifegithub svc/yb-tserver-service 5434:5433

@@ -36,26 +36,26 @@ spec:
                 configMapKeyRef:
                   name: config-map
                   key: jwt-secret
-            # Postgres Config
-            - name: PG_USERNAME
+            # Ysql Config
+            - name: YSQL_USERNAME
               valueFrom:
                 configMapKeyRef:
                   name: config-map
-                  key: pg-username
-            - name: PG_PASSWORD
+                  key: ysql-username
+            - name: YSQL_PASSWORD
               valueFrom:
                 configMapKeyRef:
                   name: config-map
-                  key: pg-password
-            - name: PG_HOST_WRITE
-              value: postgresql-primary.db-lbk2knewlifegithub.svc.cluster.local
-            - name: PG_HOST_READ
-              value: postgresql-read.db-lbk2knewlifegithub.svc.cluster.local
-            - name: PG_DB_NAME
+                  key: ysql-password
+            - name: YSQL_HOST_WRITE
+              value: yb-tserver-service.db-lbk2knewlifegithub.svc.cluster.local
+            - name: YSQL_HOST_READ
+              value: yb-tserver-service.db-lbk2knewlifegithub.svc.cluster.local
+            - name: YSQL_DB_NAME
               valueFrom:
                 configMapKeyRef:
                   name: config-map
-                  key: pg-db-name
+                  key: ysql-db-name
             # Redis Config
             - name: REDIS_HOST_WRITE
               value: redis-master.db-lbk2knewlifegithub.svc.cluster.local
