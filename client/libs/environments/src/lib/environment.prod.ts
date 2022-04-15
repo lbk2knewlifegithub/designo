@@ -1,10 +1,7 @@
 export const environment = {
   production: true,
   // Api
-  apiAuthUrl: 'https://api-auth-lbk2knewlifegithub.cloud.okteto.net',
-  apiImagesUrl: 'https://api-images-lbk2knewlifegithub.cloud.okteto.net',
-  apiProductFeedbacksUrl:
-    'https://api-product-feedbacks-lbk2knewlifegithub.cloud.okteto.net',
+  apiUrl: 'https://api-ingress-lbk2knewlifegithub.cloud.okteto.net',
 
   // Client
   clientProductFeedbacksUrl:

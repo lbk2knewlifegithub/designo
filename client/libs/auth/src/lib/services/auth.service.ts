@@ -1,18 +1,10 @@
-import { delay } from 'rxjs/operators';
-import { API_AUTH_URL } from '@lbk/tokens';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { CreateUserDTO } from '@lbk/dto';
-import { ImagesService } from './images.service';
 import { Credentials, Tokens, User } from '@lbk/models';
-import {
-  BehaviorSubject,
-  map,
-  Observable,
-  of,
-  switchMap,
-  shareReplay,
-} from 'rxjs';
+import { API_URL } from '@lbk/tokens';
+import { BehaviorSubject, map, Observable, of, switchMap } from 'rxjs';
+import { ImagesService } from './images.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -26,10 +18,11 @@ export class AuthService {
   get uploadFile(): File | undefined {
     return this._uploadFile.getValue();
   }
+  private readonly _apiAuthUrl = `${this._apiUrl}/auth`;
 
   constructor(
-    @Inject(API_AUTH_URL)
-    private readonly _apiAuthUrl: string,
+    @Inject(API_URL)
+    private readonly _apiUrl: string,
     private readonly _http: HttpClient,
     private readonly _imagesService: ImagesService
   ) {}

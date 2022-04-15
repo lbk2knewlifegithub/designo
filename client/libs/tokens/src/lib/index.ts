@@ -1,18 +1,7 @@
 import { InjectionToken } from '@angular/core';
 
-// API AUTH URL
-export const API_AUTH_URL = new InjectionToken<string>('API_AUTH_URL');
-
-// API IMAGES URL
-export const API_IMAGES_URL = new InjectionToken<string>('API_IMAGES_URL');
-
-// API PRODUCT FEEDBACKS URL
-export const API_PRODUCT_FEEDBACKS_URL = new InjectionToken<string>(
-  'API_PRODUCT_FEEDBACKS_URL'
-);
-
-// CLIENT URL URL
-export const CLIENT_AUTH_URL = new InjectionToken<string>('CLIENT_AUTH_URL');
+// API URL
+export const API_URL = new InjectionToken<string>('API_URL');
 
 // CLIENT PRODUCT FEEDBACKS URL
 export const CLIENT_PRODUCT_FEEDBACKS_URL = new InjectionToken<string>(

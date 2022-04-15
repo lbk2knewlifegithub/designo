@@ -1,16 +1,12 @@
+import { API_URL } from '@lbk/tokens';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthStateModule } from '@lbk/auth';
 import { JwtInterceptor } from '@lbk/interceptors';
 import { CoreHttpClientModule } from '@lbk/services';
-import { AuthStateModule } from '@lbk/auth';
 import { FeedbacksStateModule } from '@lbk/state/feedbacks';
-import {
-  API_AUTH_URL,
-  API_IMAGES_URL,
-  API_PRODUCT_FEEDBACKS_URL,
-} from '@lbk/tokens';
 import { DialogModule } from '@ngneat/dialog';
 import { NxModule } from '@nrwl/angular';
 import { environment } from '../environments/environment';
@@ -36,16 +32,8 @@ import { StateModule } from './state';
   ],
   providers: [
     {
-      provide: API_AUTH_URL,
-      useValue: environment.apiAuthUrl,
-    },
-    {
-      provide: API_IMAGES_URL,
-      useValue: environment.apiImagesUrl,
-    },
-    {
-      provide: API_PRODUCT_FEEDBACKS_URL,
-      useValue: environment.apiProductFeedbacksUrl,
+      provide: API_URL,
+      useValue: environment.apiUrl,
     },
     {
       provide: HTTP_INTERCEPTORS,

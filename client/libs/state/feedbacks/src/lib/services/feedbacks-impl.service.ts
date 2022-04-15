@@ -7,8 +7,8 @@ import {
   UpdateFeedbackDTO,
 } from '@lbk/dto';
 import { Comment, Feedback } from '@lbk/models';
-import { delay, Observable, shareReplay } from 'rxjs';
-import { API_PRODUCT_FEEDBACKS_URL } from '@lbk/tokens';
+import { API_URL } from '@lbk/tokens';
+import { Observable, shareReplay } from 'rxjs';
 import { FeedbacksService } from './feedbacks.service';
 
 /**
@@ -16,9 +16,10 @@ import { FeedbacksService } from './feedbacks.service';
  */
 @Injectable({ providedIn: 'root' })
 export class FeedbacksImplService implements FeedbacksService {
+  private readonly _apiFeedbacksUrl = `${this._apiUrl}/feedbacks`;
   constructor(
-    @Inject(API_PRODUCT_FEEDBACKS_URL)
-    private readonly _apiFeedbacksUrl: string,
+    @Inject(API_URL)
+    private readonly _apiUrl: string,
     private readonly _http: HttpClient
   ) {}
 

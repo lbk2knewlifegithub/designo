@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { ChangePasswordDTO, UpdateUserDTO } from '@lbk/dto';
-import { API_AUTH_URL } from '@lbk/tokens';
+import { API_URL } from '@lbk/tokens';
 import {
   BehaviorSubject,
   exhaustMap,
@@ -27,9 +27,11 @@ export class UserService {
     return this._avatar.getValue();
   }
 
+  private readonly _authUrl = `${this._apiUrl}/auth`;
+
   constructor(
-    @Inject(API_AUTH_URL)
-    private readonly _authUrl: string,
+    @Inject(API_URL)
+    private readonly _apiUrl: string,
     private readonly _http: HttpClient,
     private readonly _imagesService: ImagesService
   ) {}
