@@ -16,6 +16,9 @@ deploy:
   - okteto build -t okteto.dev/api-images:${OKTETO_GIT_COMMIT} api -f api/images.Dockerfile
   - helm upgrade -i api-images charts/api-storage -n lbk2knewlifegithub -f values/api-images.yaml --set tag=${OKTETO_GIT_COMMIT}
 
+  # Apply ingress
+  - kubectl apply -f ingress/api-ingress.yaml
+
   # Use client-lbk2knewlifegithub namespace
   - okteto ns use client-lbk2knewlifegithub && okteto kubeconfig
 
