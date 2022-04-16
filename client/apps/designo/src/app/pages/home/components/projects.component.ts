@@ -10,7 +10,7 @@ interface Project {
   selector: 'lbk-projects',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section scrollTo class="container grid gap-6">
+    <section class="container grid gap-6">
       <div
         *ngFor="let project of projects; trackBy: identifyProject"
         class="relative text-white uppercase text-center rounded-[15px] h-[250px] grid place-content-center overflow-hidden z-10"
