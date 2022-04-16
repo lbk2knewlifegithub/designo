@@ -4,7 +4,6 @@ deploy:
   - okteto ns use lbk2knewlifegithub && okteto kubeconfig
   - envsubst < my-secret.yaml > secret.yaml
   - kubectl apply -f secret.yaml
-  - rm secret.yaml
 
   # Build api auth PRODUCTION
   - okteto build -t okteto.dev/api-auth:${OKTETO_GIT_COMMIT} api -f api/auth.Dockerfile
