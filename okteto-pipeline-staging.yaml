@@ -17,8 +17,8 @@ deploy:
   - helm upgrade -i api-images-staging charts/api-storage -n lemon-lbk2knewlifegithub -f values/staging/api-images.yaml --set tag=${OKTETO_GIT_COMMIT}
 
   # Build Client Product Feedbacks STAGING
-  - okteto build -t okteto.dev/client-product-feedbacks:${OKTETO_GIT_COMMIT} client -f client/product-feedbacks-staging.Dockerfile
-  - helm upgrade -i client-product-feedbacks-staging charts/client -n lemon-lbk2knewlifegithub -f values/client-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
+  - okteto build -t okteto.dev/client-product-feedbacks:${OKTETO_GIT_COMMIT} client -f client/product-feedbacks-state.Dockerfile
+  - helm upgrade -i client-product-feedbacks-staging charts/client -n lemon-lbk2knewlifegithub -f values/staging/client-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
 
   # Apply ingress
   - kubectl apply -f ingress/api-staging.yaml

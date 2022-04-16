@@ -5,7 +5,7 @@ COPY pnpm-lock.yaml .
 RUN npm i -g pnpm 
 RUN pnpm i
 COPY . .
-RUN pnpm run product-feedbacks:staging
+RUN pnpm run product-feedbacks:stage
 
 FROM nginx:stable-alpine
 COPY --from=builder /app/dist/apps/product-feedbacks /usr/share/nginx/html
