@@ -48,7 +48,7 @@ spec:
                   name: config-map
                   key: ysql-password
             - name: YSQL_HOST
-              value: yb-tserver-service.db-lbk2knewlifegithub.svc.cluster.local
+              value: {{ .Values.api.env.ysql.host}} 
             - name: YSQL_DB_NAME
               valueFrom:
                 configMapKeyRef:
@@ -56,9 +56,9 @@ spec:
                   key: ysql-db-name
             # Redis Config
             - name: REDIS_HOST_WRITE
-              value: redis-master.banana-lbk2knewlifegithub.svc.cluster.local
+              value: {{ .Values.api.env.redis.host.write }} 
             - name: REDIS_HOST_READ
-              value: redis-replicas.banana-lbk2knewlifegithub.svc.cluster.local
+              value: {{ .Values.api.env.redis.host.read }} 
             - name: REDIS_PASSWORD
               valueFrom:
                 configMapKeyRef:

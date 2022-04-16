@@ -1,0 +1,28 @@
+# Deploy to PRODUCTION environment
+deploy:
+  # Use lbk2knewlifegithub namespace
+  - okteto ns use lbk2knewlifegithub && okteto kubeconfig
+  - envsubst < config-template.yaml > config.yaml
+  - kubectl apply -f config.yaml
+
+  # Build api auth PRODUCTION
+  - okteto build -t okteto.dev/api-auth:${OKTETO_GIT_COMMIT} api -f api/auth.Dockerfile
+  - helm upgrade -i api-auth charts/api -n lbk2knewlifegithub -f values/prod/api-auth.yaml --set tag=${OKTETO_GIT_COMMIT}
+
+  # Build api product feedbacks PRODUCTION
+  - okteto build -t okteto.dev/api-product-feedbacks:${OKTETO_GIT_COMMIT} api -f api/product-feedbacks.Dockerfile
+  - helm upgrade -i api-product-feedbacks charts/api -n lbk2knewlifegithub -f values/prod/api-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
+
+  # Build api images PRODUCTION
+  - okteto build -t okteto.dev/api-images:${OKTETO_GIT_COMMIT} api -f api/images.Dockerfile
+  - helm upgrade -i api-images charts/api-storage -n lbk2knewlifegithub -f values/prod/api-images.yaml --set tag=${OKTETO_GIT_COMMIT}
+
+  # Apply ingress PRODUCTION in lbk2knewlifegithub namespace
+  - kubectl apply -f ingress/api-prod.yaml
+
+  # Use client-lbk2knewlifegithub namespace
+  - okteto ns use client-lbk2knewlifegithub && okteto kubeconfig
+
+  # Build Client Product Feedbacks PRODUCTION
+  - okteto build -t okteto.dev/client-product-feedbacks:${OKTETO_GIT_COMMIT} client -f client/product-feedbacks.Dockerfile
+  - helm upgrade -i client-product-feedbacks charts/client -n client-lbk2knewlifegithub -f values/prod/client-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}

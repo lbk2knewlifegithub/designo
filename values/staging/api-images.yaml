@@ -1,0 +1,19 @@
+tag: dev
+
+# Api Images Staging
+apiStorage:
+  name: api-images
+  replicaCount: 1
+  image: okteto.dev/api-images
+  serviceType: ClusterIP
+  port: 8081
+  storage:
+    size: 0.5Gi
+    storageMountPath: /app/static
+  env:
+    ysql:
+      host: yb-tserver-service.lemon-lbk2knewlifegithub.svc.cluster.local
+    redis:
+      host:
+        read: redis-replicas.lemon-lbk2knewlifegithub.svc.cluster.local
+        write: redis-master.lemon-lbk2knewlifegithub.svc.cluster.local

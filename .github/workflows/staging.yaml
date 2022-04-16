@@ -1,16 +1,12 @@
-# File: .github/workflows/workflow.yml
-# on:
-#   pull_request:
-#     branches:
-#       - master
+# WORKFLOW STAGING
 on:
   push:
     branches:
-      - "master"
-name: deploy-to-okteto
+      - staging
+name: deploy-staging
 
 jobs:
-  deploy:
+  deploy-staging:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -24,4 +20,5 @@ jobs:
       - name: "Trigger the pipeline"
         uses: okteto/pipeline@latest
         with:
-          name: deploy-to-okteto
+          name: deploy-to-staging-environment
+          filename: okteto-pipeline-staging.yaml
