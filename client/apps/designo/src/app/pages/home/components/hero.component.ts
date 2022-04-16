@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-hero',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="relative h-[843px] bg-peach-200 flow-root overflow-hidden">
+    <section class="relative h-[843px] bg-peach-200 flow-root overflow-hidden">
       <div class="container mt-[80px] text-center">
         <h1 class="font-md text-white text-lg">
           Award-winning custom designs and digital branding solutions
@@ -35,7 +35,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         src="assets/home/desktop/image-hero-phone.png"
       />
       <!-- end Phone -->
-    </div>
+    </section>
   `,
   styles: [
     `

@@ -1,2 +1,4 @@
 import { HeroComponent } from './hero.component';
-export const COMPONENTS = [HeroComponent];
+import { ProjectsComponent } from './projects.component';
+
+export const COMPONENTS = [HeroComponent, ProjectsComponent];

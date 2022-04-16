@@ -8,10 +8,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- Hero -->
       <lbk-hero></lbk-hero>
       <!-- end Hero -->
+
+      <!-- Projects -->
+      <lbk-projects class="block mt-[120px]"></lbk-projects>
+      <!-- end Projects -->
     </main>
 
-    <!-- Web Design
-  View Projects
+    <!-- 
   
   App Design
   View Projects
