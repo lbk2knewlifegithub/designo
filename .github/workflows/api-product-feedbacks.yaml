@@ -21,4 +21,4 @@ jobs:
         uses: okteto/pipeline@latest
         with:
           name: deploy-api-product-feedbacks
-          filename: okteto/okteto-pipeline-api-product-feedbacks.yaml
+          filename: .okteto/api-product-feedbacks.yaml

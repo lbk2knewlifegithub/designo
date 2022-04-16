@@ -21,4 +21,4 @@ jobs:
         uses: okteto/pipeline@latest
         with:
           name: deploy-api-auth
-          filename: okteto/okteto-pipeline-api-auth.yaml
+          filename: ./okteto/api-auth.yaml
