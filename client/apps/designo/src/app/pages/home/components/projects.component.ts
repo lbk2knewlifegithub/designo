@@ -10,9 +10,17 @@ interface Project {
   selector: 'lbk-projects',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="container grid gap-6">
+    <section
+      class="container grid gap-6 2xl:grid-cols-2 2xl:grid-rows-2 2xl:gap-x-[30px]"
+    >
       <div
-        *ngFor="let project of projects; trackBy: identifyProject"
+        *ngFor="let project of projects; index as i; trackBy: identifyProject"
+        [ngClass]="{
+          '2xl:row-span-2 2xl:h-[640px]': i === 0,
+          '2xl:col-span-1 2xl:col-start-2 2xl:row-span-1 2xl:min-h-[308px]':
+            i === 1,
+          '2xl:col-span-1 2xl:col-start-2 2xl:row-start-2 2xl:h-full': i === 2
+        }"
         class="relative text-white uppercase text-center rounded-[15px] h-[250px] grid place-content-center overflow-hidden z-10 md:h-[200px]"
       >
         <h2 class=" font-md text-lg md:text-xl">{{ project.name }}</h2>
@@ -46,7 +54,7 @@ export class ProjectsComponent implements OnInit {
         image: {
           mobile: 'assets/home/mobile/image-web-design.jpg',
           tablet: 'assets/home/tablet/image-web-design.jpg',
-          desktop: 'assets/home/desktop/image-web-design.jpg',
+          desktop: 'assets/home/desktop/image-web-design-large.jpg',
           alt: 'Web Design Desktop',
         },
       },

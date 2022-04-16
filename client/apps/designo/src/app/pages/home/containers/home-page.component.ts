@@ -10,11 +10,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- end Hero -->
 
       <!-- Projects -->
-      <lbk-projects class="block mt-[120px]"></lbk-projects>
+      <lbk-projects class="block mt-[120px] 2xl:mt-[160px]"></lbk-projects>
       <!-- end Projects -->
 
       <!-- Features -->
-      <lbk-features class="block mt-[120px]"></lbk-features>
+      <lbk-features class="block mt-[120px] 2xl:mt-[160px]"></lbk-features>
       <!-- end Features -->
     </main>
   `,

@@ -1,9 +1,10 @@
 <footer
+  scrollTo
   class="relative container bg-black-200 pt-[253px] pb-16 flex flex-col items-center text-white md:pt-[166px] md:pb-20"
 >
   <!-- Let Talks -->
   <lbk-let-talks
-    class="absolute block w-full top-0 left-1/2 -translate-y-1/2 -translate-x-1/2 md:-translate-y-[70%]"
+    class="absolute block w-full top-0 left-1/2 -translate-y-1/2 -translate-x-1/2 md:-translate-y-[70%] 2xl:-translate-y-[calc(50%+74px)]"
   ></lbk-let-talks>
   <!-- end Let Talks -->
 
@@ -32,7 +33,7 @@
   <!-- end Line -->
 
   <div
-    class="grid gap-10 mt-8 place-items-center text-center md:grid-cols-3 md:place-items-end md:justify-items-start md:text-left"
+    class="flex flex-col gap-10 mt-8 items-center text-center md:flex-row md:justify-between md:items-end md:text-left 2xl:justify-between 2xl:w-full"
   >
     <!-- Links Mobile-->
     <ul class="grid gap-8 md:hidden">
@@ -42,21 +43,23 @@
     </ul>
     <!-- end Links Mobile-->
 
-    <!-- Address -->
-    <div class="grid text-white-200/60">
-      <strong> Designo Central Office </strong>
-      <span>3886 Wellington Street</span>
-      <span>Toronto, Ontario M9C 3J5</span>
-    </div>
-    <!-- end Address -->
+    <div class="grid gap-10 2xl:grid-cols-2 2xl:gap-52 2xl:justify-items-start">
+      <!-- Address -->
+      <div class="grid text-white-200/60">
+        <strong> Designo Central Office </strong>
+        <span>3886 Wellington Street</span>
+        <span>Toronto, Ontario M9C 3J5</span>
+      </div>
+      <!-- end Address -->
 
-    <!-- Contact Us -->
-    <div class="grid text-white-200/60">
-      <strong> Contact Us (Central Office) </strong>
-      <span>P : +1 253-863-8967</span>
-      <span>M : contact@designo.co</span>
+      <!-- Contact Us -->
+      <div class="grid text-white-200/60">
+        <strong> Contact Us (Central Office) </strong>
+        <span>P : +1 253-863-8967</span>
+        <span>M : contact@designo.co</span>
+      </div>
+      <!-- end Contact Us -->
     </div>
-    <!-- end Contact Us -->
 
     <!-- Socials -->
     <ul class="flex gap-3">

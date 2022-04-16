@@ -4,21 +4,23 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-let-talks',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section scrollTo class="container">
+    <section class="container">
       <div
-        class="relative flex flex-col items-center bg-peach-200 py-16 px-6 rounded-xl text-white text-center"
+        class="relative flex flex-col items-center bg-peach-200 py-16 px-6 rounded-xl text-white text-center 2xl:flex-row 2xl:px-[95px] 2xl:text-left 2xl:justify-between 2xl:h-[292px]"
       >
-        <h2 class="text-lg font-medium md:text-xl">
-          Let’s talk about <br />
-          your project
-        </h2>
+        <div>
+          <h2 class="text-lg font-medium md:text-xl 2xl:leading-10">
+            Let’s talk about <br />
+            your project
+          </h2>
 
-        <span
-          class="block text-sm text-white-200 max-w-lg mt-2 md:mt-5 md:text-base"
-        >
-          Ready to take it to the next level? Contact us today and find out how
-          our expertise can help your business grow. Get in touch
-        </span>
+          <span
+            class="block text-sm text-white-200 max-w-lg mt-2 md:mt-5 md:text-base"
+          >
+            Ready to take it to the next level? Contact us today and find out
+            how our expertise can help your business grow. Get in touch
+          </span>
+        </div>
 
         <button class="btn btn-white mt-8 py-[17px] px-[18px]">
           GET IN TOUCH

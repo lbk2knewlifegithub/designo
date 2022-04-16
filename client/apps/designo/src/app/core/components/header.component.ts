@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <header class="container flex justify-between py-8 md:py-16">
+    <header class="container flex justify-between py-8 md:py-16 2xl:py-[67px]">
       <div>
         <img
           class="max-w-[197px]"
