@@ -1,0 +1,16 @@
+tag: dev
+
+# Api Auth Staging
+api:
+  name: api-auth
+  replicaCount: 1
+  image: lbk2kdocker/api-auth
+  emailTemplatesFolder: "/app/templates"
+  serviceType: ClusterIP
+  port: 8080
+  ysql:
+    host: yb-tserver-service
+  redis:
+    host:
+      read: redis-staging-replicas
+      write: redis-staging-master

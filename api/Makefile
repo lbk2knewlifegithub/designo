@@ -18,3 +18,8 @@ images-dev:
 
 images-prod:
 	cargo run --bin images --release
+
+# YugabyteDB dev
+api-dev:
+	docker-compose up -d 
+	echo "YugabyteDB, Redis started."

@@ -33,36 +33,36 @@ spec:
             # Jwt Secret
             - name: JWT_SECRET
               valueFrom:
-                configMapKeyRef:
-                  name: config-map
+                secretKeyRef:
+                  name: my-secret
                   key: jwt-secret
             # Ysql Config
             - name: YSQL_USERNAME
               valueFrom:
-                configMapKeyRef:
-                  name: config-map
+                secretKeyRef:
+                  name: my-secret
                   key: ysql-username
             - name: YSQL_PASSWORD
               valueFrom:
-                configMapKeyRef:
-                  name: config-map
+                secretKeyRef:
+                  name: my-secret
                   key: ysql-password
             - name: YSQL_HOST
-              value: yb-tserver-service.db-lbk2knewlifegithub.svc.cluster.local
+              value: {{ .Values.apiStorage.ysql.host }}
             - name: YSQL_DB_NAME
               valueFrom:
-                configMapKeyRef:
-                  name: config-map
+                secretKeyRef:
+                  name: my-secret
                   key: ysql-db-name
             # Redis Config
             - name: REDIS_HOST_WRITE
-              value: redis-master.banana-lbk2knewlifegithub.svc.cluster.local
+              value: {{ .Values.apiStorage.redis.host.write }}
             - name: REDIS_HOST_READ
-              value: redis-replicas.banana-lbk2knewlifegithub.svc.cluster.local
+              value: {{ .Values.apiStorage.redis.host.read }}
             - name: REDIS_PASSWORD
               valueFrom:
-                configMapKeyRef:
-                  name: config-map
+                secretKeyRef:
+                  name: my-secret
                   key: redis-password
           volumeMounts:
             - name: {{.Values.apiStorage.name}}
