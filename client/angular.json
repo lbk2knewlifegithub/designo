@@ -6,6 +6,7 @@
     "auth": "libs/auth",
     "comps": "libs/comps",
     "data": "libs/data",
+    "designo": "apps/designo",
     "directives": "libs/directives",
     "dto": "libs/dto",
     "effects": "libs/effects",
