@@ -1,0 +1,11 @@
+# Deploy to PRODUCTION environment
+deploy:
+  # Use lbk2knewlifegithub namespace
+  - okteto ns use lbk2knewlifegithub && okteto kubeconfig
+  - envsubst < my-secret.yaml > secret.yaml
+  - kubectl apply -f secret.yaml
+  - rm secret.yaml
+
+  # Build api product feedbacks PRODUCTION
+  - okteto build -t okteto.dev/api-product-feedbacks:${OKTETO_GIT_COMMIT} api -f api/product-feedbacks.Dockerfile
+  - helm upgrade -i api-product-feedbacks charts/api -n lbk2kngitewlifehub -f values/prod/api-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
