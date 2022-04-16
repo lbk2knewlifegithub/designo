@@ -52,6 +52,27 @@
           ],
           "outputHashing": "all"
         },
+        "staging": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/product-feedbacks/src/environments/environment.ts",
+              "with": "apps/product-feedbacks/src/environments/environment.stage.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
         "development": {
           "buildOptimizer": false,
           "optimization": false,
@@ -71,6 +92,9 @@
         },
         "development": {
           "browserTarget": "product-feedbacks:build:development"
+        },
+        "staging": {
+          "browserTarget": "product-feedbacks:build:staging"
         }
       },
       "defaultConfiguration": "development"
