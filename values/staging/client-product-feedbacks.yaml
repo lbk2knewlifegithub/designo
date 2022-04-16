@@ -3,6 +3,6 @@ tag: dev
 client:
   name: client-product-feedbacks
   replicaCount: 1
-  image: okteto.dev/client-product-feedbacks
+  image: lbk2kdocker/client-product-feedbacks
   serviceType: LoadBalancer
   port: 80

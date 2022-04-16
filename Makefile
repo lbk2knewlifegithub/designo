@@ -1,30 +1,50 @@
-export VERSION=$(shell echo $RANDOM | md5sum | head -c 20)
+VERSION=$(shell echo $RANDOM | md5sum | head -c 20)
+
 staging:
 	echo USING VERSION=$(VERSION)
 	kubectx minikube
-	envsubst < secret/staging-secret.yaml > secret.yaml
-	kubectl apply -f secret.yaml
-	rm secret.yaml
+	kubectl apply -f secret/config-staging.yaml
 
-	# Build api auth STAGING
+# Upgrade redis
+	helm upgrade -i redis-staging -f secret/redis-staging.yaml bitnami/redis
+
+# Upgrade ysql
+	helm upgrade -i ysql-staging -f secret/ysql-staging.yaml yugabytedb/yugabyte 
+
+# Build api auth STAGING
 	docker build -t lbk2kdocker/api-auth:$(VERSION) api -f api/auth.Dockerfile
 	docker push lbk2kdocker/api-auth:$(VERSION)
-	helm upgrade -i api-auth-staging charts/api -f values/staging/api-auth.yaml --set tag=$(VERSION)
+	helm upgrade -i api-auth-staging charts/api \
+	-f values/staging/api-auth.yaml \
+	--set tag=$(VERSION)
 
-  # # Build api product feedbacks STAGING
-  # - okteto build -t okteto.dev/api-product-feedbacks:${OKTETO_GIT_COMMIT} api -f api/product-feedbacks.Dockerfile
-  # - helm upgrade -i api-product-feedbacks-staging charts/api -n lemon-lbk2knewlifegithub -f values/staging/api-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
+# Build api product feedbacks STAGING
+	docker build -t lbk2kdocker/api-product-feedbacks:$(VERSION) api -f api/product-feedbacks.Dockerfile
+	docker push lbk2kdocker/api-product-feedbacks:$(VERSION)
 
-  # # Build api images STAGING
-  # - okteto build -t okteto.dev/api-images:${OKTETO_GIT_COMMIT} api -f api/images.Dockerfile
-  # - helm upgrade -i api-images-staging charts/api-storage -n lemon-lbk2knewlifegithub -f values/staging/api-images.yaml --set tag=${OKTETO_GIT_COMMIT}
+	helm upgrade -i api-product-feedbacks-staging charts/api \
+	-f values/staging/api-product-feedbacks.yaml \
+	--set tag=$(VERSION)
 
-  # Build Client Product Feedbacks STAGING
-#   - okteto build -t okteto.dev/client-product-feedbacks:${OKTETO_GIT_COMMIT} client -f client/product-feedbacks-stage.Dockerfile
-#   - helm upgrade -i client-product-feedbacks-staging charts/client -n lemon-lbk2knewlifegithub -f values/staging/client-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
+# Build api images STAGING
+	docker build -t lbk2kdocker/api-images:$(VERSION) api \
+	-f api/images.Dockerfile
+	docker push lbk2kdocker/api-images:$(VERSION)
 
-  # Apply ingress
-#   - kubectl apply -f ingress/api-staging.yaml
+	helm upgrade -i api-images-staging charts/api-storage \
+	-f values/staging/api-images.yaml \
+	--set tag=$(VERSION)
+
+# Build Client Product Feedbacks STAGING
+	docker build -t lbk2kdocker/client-product-feedbacks:$(VERSION) client \
+	-f client/product-feedbacks-stage.Dockerfile
+	docker push lbk2kdocker/client-product-feedbacks:$(VERSION)
+	helm upgrade -i client-product-feedbacks-staging charts/client \
+	-f values/staging/client-product-feedbacks.yaml \
+	--set tag=$(VERSION)
+
+# Apply ingress
+	kubectl apply -f ingress/api-staging.yaml
 
 # API AUTH
 deploy-api-auth:
@@ -79,18 +99,10 @@ delete-all-configmap:
 	okteto ns use lemon-lbk2knewlifegithub && okteto kubeconfig 
 	kubectl delete configmap --all 
 
-
-# YugabyteDB STAGING
-upgrade-ysql-staging:
-	helm upgrade -i ysql-staging -n lemon-lbk2knewlifegithub -f secret/ysql-staging.yaml yugabytedb/yugabyte 
-
-uninstall-ysql-staging:
-	helm delete ysql-staging -n lemon-lbk2knewlifegithub
-
+# Forward Ysql staging
 forward-ysql-staging:
-	echo "Forwarding YugabyteDB STATING to port 5434"
-	kubectl port-forward -n lemon-lbk2knewlifegithub svc/yb-tserver-service 5434:5433
-
+	echo "Forwarding YugabyteDb STAGING to port 5434"
+	kubectl port-forward svc/yb-tserver-service 5434:5433
 
 # YugabyteDB PRODUCTION
 upgrade-ysql-prod:
@@ -103,17 +115,6 @@ forward-ysql-prod:
 	echo "Forwarding YugabyteDb PRODUCTION to port 5435"
 	kubectl port-forward -n db-lbk2knewlifegithub svc/yb-tserver-service 5435:5433
 
-
-# Redis STAGING
-upgrade-redis-staging:
-	helm upgrade -i redis-staging -n lemon-lbk2knewlifegithub -f secret/redis-staging.yaml bitnami/redis
-
-uninstall-redis-staging:
-	helm delete redis-staging -n lemon-lbk2knewlifegithub
-
-forward-redis-staging:
-	echo "Forwarding REDIS STAGING to  port  6380"
-	kubectl port-forward --namespace lemon-lbk2knewlifegithub svc/redis-master 6380:6379
 
 
 # Redis PRODUCTION

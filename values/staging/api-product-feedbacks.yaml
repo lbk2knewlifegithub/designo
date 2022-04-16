@@ -4,7 +4,7 @@ tag: dev
 api:
   name: api-product-feedbacks
   replicaCount: 1
-  image: okteto.dev/api-product-feedbacks
+  image: lbk2kdocker/api-product-feedbacks
   serviceType: ClusterIP
   port: 8082
   ysql:
