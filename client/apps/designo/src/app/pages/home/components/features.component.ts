@@ -8,7 +8,7 @@ interface Feature {
   selector: 'lbk-features',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section scrollTo class="container">
+    <section class="container">
       <ul class="grid gap-[80px]">
         <li
           class="flex flex-col items-center text-center"

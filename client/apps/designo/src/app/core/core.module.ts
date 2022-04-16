@@ -1,3 +1,4 @@
+import { ScrollToModule } from '@lbk/directives';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -11,6 +12,7 @@ import { AppComponent } from './containers';
     RouterModule,
     // Shared Components from Libs
     AttributionModule,
+    ScrollToModule,
   ],
   declarations: [COMPONENTS, AppComponent],
 })

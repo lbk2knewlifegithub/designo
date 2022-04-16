@@ -1,4 +1,4 @@
 import { HeaderComponent } from './header.component';
-import { FooterComponent } from './footer.component';
+import { FooterComponent, LetTalksComponent } from './footer';
 
-export const COMPONENTS = [FooterComponent, HeaderComponent];
+export const COMPONENTS = [FooterComponent, LetTalksComponent, HeaderComponent];

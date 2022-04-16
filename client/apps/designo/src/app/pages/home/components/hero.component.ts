@@ -15,11 +15,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
           Find out more about our services.
         </p>
 
-        <button
-          class="bg-white rounded-lg font-md text-base tracking-[1px] uppercase px-6 py-[18px] mt-6"
-        >
-          Learn more
-        </button>
+        <!-- Learn More Button -->
+        <button class="btn btn-white">Learn more</button>
+        <!-- end Learn More Button -->
       </div>
 
       <!-- Circle -->

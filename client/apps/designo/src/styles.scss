@@ -6,4 +6,13 @@
   body {
     @apply font-mono text-black-200;
   }
+
+  .btn {
+    @apply rounded-lg font-medium text-base tracking-[1px] uppercase;
+    @apply px-6 py-[18px];
+  }
+
+  .btn-white {
+    @apply bg-white text-black;
+  }
 }
