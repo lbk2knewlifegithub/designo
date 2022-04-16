@@ -81,19 +81,19 @@ forward-ysql-prod:
 
 # Redis STAGING
 upgrade-redis-staging:
-	helm upgrade -i redis-staging -n lemon-lbk2knewlifegithub -f secret/staging/redis.yaml bitnami/redis
+	helm upgrade -i redis-staging -n lemon-lbk2knewlifegithub -f secret/redis.yaml bitnami/redis
 
 uninstall-redis-staging:
 	helm delete redis-staging -n lemon-lbk2knewlifegithub
 
 forward-redis-staging:
-	echo "Forwarding port 6379"
-	kubectl port-forward --namespace lemon-lbk2knewlifegithub svc/redis-master 6379:6379
+	echo "Forwarding REDIS STAGING to  port  6380"
+	kubectl port-forward --namespace lemon-lbk2knewlifegithub svc/redis-master 6380:6379
 
 
 # Redis PRODUCTION
 upgrade-redis-prod:
-	helm upgrade -i redis-prod -n banana-lbk2knewlifegithub -f secret/prod/redis.yaml bitnami/redis
+	helm upgrade -i redis-prod -n banana-lbk2knewlifegithub -f secret/redis.yaml bitnami/redis
 
 uninstall-redis-prod:
 	helm delete redis-prod -n banana-lbk2knewlifegithub

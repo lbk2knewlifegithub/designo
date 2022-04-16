@@ -1,8 +1,0 @@
-tag: dev
-
-client:
-  name: client-invoice-app
-  replicaCount: 1
-  image: okteto.dev/client-invoice-app
-  serviceType: LoadBalancer
-  port: 80
