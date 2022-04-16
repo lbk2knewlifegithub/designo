@@ -20,6 +20,7 @@ module.exports = {
       },
     },
     fontSize: {
+      xs: ['14px', { lineHeight: '14px', letterSpacing: '2px' }],
       sm: ['15px', { lineHeight: '25px' }],
       base: ['16px', { lineHeight: '26px' }],
       md: ['20px', { lineHeight: '26px', letterSpacing: '5px' }],

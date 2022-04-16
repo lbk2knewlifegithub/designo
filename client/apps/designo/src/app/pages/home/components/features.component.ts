@@ -9,24 +9,26 @@ interface Feature {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="container">
-      <ul class="grid gap-[80px]">
+      <ul class="grid gap-[80px] md:gap-6">
         <li
-          class="flex flex-col items-center text-center"
+          class="flex flex-col items-center text-center gap-12 md:flex-row md:text-left md:gap-12"
           *ngFor="let feature of features; trackBy: identifyFeature"
         >
           <!-- Image -->
-          <img class="block" [src]="feature.image" [alt]="feature.title" />
+          <img [src]="feature.image" [alt]="feature.title" />
           <!-- end Image -->
 
-          <!-- Title -->
-          <h2 class="text-md uppercase mt-12">
-            {{ feature.title }}
-          </h2>
-          <!-- end Title -->
+          <div>
+            <!-- Title -->
+            <h2 class="text-md uppercase ">
+              {{ feature.title }}
+            </h2>
+            <!-- end Title -->
 
-          <!-- Desciption -->
-          <p class="text-black mt-8">{{ feature.description }}</p>
-          <!-- end Desciption -->
+            <!-- Desciption -->
+            <p class="text-black mt-8">{{ feature.description }}</p>
+            <!-- end Desciption -->
+          </div>
         </li>
       </ul>
     </section>

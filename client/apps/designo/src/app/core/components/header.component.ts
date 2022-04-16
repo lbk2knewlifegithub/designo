@@ -4,14 +4,22 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <header class="flex justify-between py-8 container">
-      <img
-        class="max-w-[197px]"
-        src="assets/shared/desktop/logo-dark.png"
-        alt="Logo"
-      />
+    <header class="container flex justify-between py-8 md:py-16">
+      <div>
+        <img
+          class="max-w-[197px]"
+          src="assets/shared/desktop/logo-dark.png"
+          alt="Logo"
+        />
+      </div>
 
-      <img src="assets/shared/mobile/icon-hamburger.svg" />
+      <img class="md:hidden" src="assets/shared/mobile/icon-hamburger.svg" />
+
+      <ul class="hidden gap-[42px] text-xs md:flex">
+        <li><a> OUR COMPANY </a></li>
+        <li><a>LOCATIONS</a></li>
+        <li><a>CONTACT</a></li>
+      </ul>
     </header>
 
     <!-- Our Company

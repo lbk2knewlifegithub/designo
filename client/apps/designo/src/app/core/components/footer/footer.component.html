@@ -1,31 +1,46 @@
 <footer
-  class="relative container bg-black-200 pt-[253px] pb-16 flex flex-col items-center text-white"
+  class="relative container bg-black-200 pt-[253px] pb-16 flex flex-col items-center text-white md:pt-[166px] md:pb-20"
 >
   <!-- Let Talks -->
   <lbk-let-talks
-    class="absolute block w-full top-0 left-1/2 -translate-y-1/2 -translate-x-1/2"
-    scrollTo
+    class="absolute block w-full top-0 left-1/2 -translate-y-1/2 -translate-x-1/2 md:-translate-y-[70%]"
   ></lbk-let-talks>
   <!-- end Let Talks -->
 
-  <!-- Logo Light-->
-  <img
-    class="max-w-[202px]"
-    src="assets/shared/desktop/logo-light.png"
-    alt="Logo Light"
-  />
-  <!-- end Logo Light-->
+  <div class="md:flex md:w-full md:justify-between">
+    <!-- Logo Light-->
+    <div>
+      <img
+        class="max-w-[202px]"
+        src="assets/shared/desktop/logo-light.png"
+        alt="Logo Light"
+      />
+    </div>
+    <!-- end Logo Light-->
 
-  <div class="h-[1px] w-full bg-white-200/30 mt-8"></div>
-
-  <div class="grid gap-10 mt-8 place-items-center text-center">
-    <!-- Links -->
-    <ul class="grid gap-8">
+    <!-- Links Tablet-->
+    <ul class="hidden gap-8 md:flex">
       <li>OUR COMPANY</li>
       <li>LOCATIONS</li>
       <li>CONTACT</li>
     </ul>
-    <!-- end Links -->
+    <!-- end Links Tablet-->
+  </div>
+
+  <!-- Line -->
+  <div class="h-[1px] w-full bg-white-200/30 mt-8 md:mt-10"></div>
+  <!-- end Line -->
+
+  <div
+    class="grid gap-10 mt-8 place-items-center text-center md:grid-cols-3 md:place-items-end md:justify-items-start md:text-left"
+  >
+    <!-- Links Mobile-->
+    <ul class="grid gap-8 md:hidden">
+      <li>OUR COMPANY</li>
+      <li>LOCATIONS</li>
+      <li>CONTACT</li>
+    </ul>
+    <!-- end Links Mobile-->
 
     <!-- Address -->
     <div class="grid text-white-200/60">

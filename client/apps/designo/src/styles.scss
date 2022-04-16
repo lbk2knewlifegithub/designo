@@ -9,7 +9,7 @@
 
   .btn {
     @apply rounded-lg font-medium text-base tracking-[1px] uppercase;
-    @apply px-6 py-[18px];
+    @apply px-6 py-[18px] md:px-[26px];
   }
 
   .btn-white {

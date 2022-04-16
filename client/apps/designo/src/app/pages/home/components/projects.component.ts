@@ -13,11 +13,11 @@ interface Project {
     <section class="container grid gap-6">
       <div
         *ngFor="let project of projects; trackBy: identifyProject"
-        class="relative text-white uppercase text-center rounded-[15px] h-[250px] grid place-content-center overflow-hidden z-10"
+        class="relative text-white uppercase text-center rounded-[15px] h-[250px] grid place-content-center overflow-hidden z-10 md:h-[200px]"
       >
-        <h2 class=" font-md text-lg">{{ project.name }}</h2>
+        <h2 class=" font-md text-lg md:text-xl">{{ project.name }}</h2>
 
-        <h3 class="mt-2 text-sm tracking-[5px]">View Projects</h3>
+        <h3 class="mt-2 text-sm tracking-[5px] md:mt-6">View Projects</h3>
 
         <lbk-image
           class="z-[-1] absolute inset-0"
