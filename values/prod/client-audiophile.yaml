@@ -1,0 +1,8 @@
+tag: dev
+
+client:
+  name: client-audiophile
+  replicaCount: 1
+  image: okteto.dev/client-audiophile
+  serviceType: LoadBalancer
+  port: 80
