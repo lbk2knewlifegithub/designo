@@ -9,7 +9,7 @@
     "build": "nx build",
     "test": "nx test",
     "product-feedbacks:dev": "nx serve product-feedbacks -- --port=4200",
-    "product-feedbacks:build": "nx build product-feedbacks --configuration=production",
+    "product-feedbacks:build": "nx build product-feedbacks",
     "product-feedbacks:stage": "nx build product-feedbacks --configuration=staging",
     "portfolio:dev": "nx serve portfolio -- --port=4201",
     "portfolio:build": "nx build portfolio --base-href='https://lbk2knewlifegithub.github.io/lbk/'",

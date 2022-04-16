@@ -1,4 +1,4 @@
-import { envProd } from '@lbk/environments';
+import { envStage } from '@lbk/environments';
 export const environment = {
-  ...envProd,
+  ...envStage,
 };
