@@ -1,4 +1,0 @@
-# Deploy to PRODUCTION environment
-deploy:
-  - okteto ns use lbk2knewlifegithub && okteto kubeconfig
-  - kubectl apply -f ingress/api-ingress-prod.yaml
