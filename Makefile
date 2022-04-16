@@ -57,7 +57,7 @@ delete-all-configmap:
 
 # YugabyteDB STAGING
 upgrade-ysql-staging:
-	helm upgrade -i ysql-staging -n lemon-lbk2knewlifegithub -f secret/staging/ysql.yaml yugabytedb/yugabyte 
+	helm upgrade -i ysql-staging -n lemon-lbk2knewlifegithub -f secret/ysql-staging.yaml yugabytedb/yugabyte 
 
 uninstall-ysql-staging:
 	helm delete ysql-staging -n lemon-lbk2knewlifegithub
@@ -69,7 +69,7 @@ forward-ysql-staging:
 
 # YugabyteDB PRODUCTION
 upgrade-ysql-prod:
-	helm upgrade -i ysql -n db-lbk2knewlifegithub -f secret/prod/ysql.yaml yugabytedb/yugabyte 
+	helm upgrade -i ysql -n db-lbk2knewlifegithub -f secret/ysql.yaml yugabytedb/yugabyte 
 
 uninstall-ysql-prod:
 	helm delete ysql -n db-lbk2knewlifegithub
@@ -81,7 +81,7 @@ forward-ysql-prod:
 
 # Redis STAGING
 upgrade-redis-staging:
-	helm upgrade -i redis-staging -n lemon-lbk2knewlifegithub -f secret/redis.yaml bitnami/redis
+	helm upgrade -i redis-staging -n lemon-lbk2knewlifegithub -f secret/redis-staging.yaml bitnami/redis
 
 uninstall-redis-staging:
 	helm delete redis-staging -n lemon-lbk2knewlifegithub
