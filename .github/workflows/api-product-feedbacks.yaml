@@ -3,10 +3,10 @@ on:
   push:
     branches:
       - "master"
-name: deploy-prod
+name: api-product-feedbacks
 
 jobs:
-  deploy-prod:
+  api-product-feedbacks:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -20,5 +20,5 @@ jobs:
       - name: "Trigger the pipeline"
         uses: okteto/pipeline@latest
         with:
-          name: deploy-to-okteto
-          filename: okteto-pipeline-prod.yaml
+          name: deploy-api-product-feedbacks
+          filename: okteto/api-product-feedbacks.yaml
