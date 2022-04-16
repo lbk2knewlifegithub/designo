@@ -1,10 +1,9 @@
-# Deploy to PRODUCTION environment
 deploy:
   - okteto ns use lbk2knewlifegithub && okteto kubeconfig
   - envsubst < config-template.yaml > config.yaml
   - kubectl apply -f config.yaml
   - rm config.yaml
 
-  # Build api product feedbacks PRODUCTION
+  # Build api auth PRODUCTION
   - okteto build -t okteto.dev/api-product-feedbacks:${OKTETO_GIT_COMMIT} api -f api/product-feedbacks.Dockerfile
-  - helm upgrade -i api-product-feedbacks charts/api -n lbk2kngitewlifehub -f values/prod/api-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
+  - helm upgrade -i api-product-feedbacks charts/api -n lbk2knewlifegithub -f values/prod/api-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
