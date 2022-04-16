@@ -2,8 +2,9 @@
 deploy:
   # Use lbk2knewlifegithub namespace
   - okteto ns use lbk2knewlifegithub && okteto kubeconfig
-  - envsubst < config-template.yaml > config.yaml
-  - kubectl apply -f config.yaml
+  - envsubst < my-secret.yaml > secret.yaml
+  - kubectl apply -f secret.yaml
+  - rm secret.yaml
 
   # Build api auth PRODUCTION
   - okteto build -t okteto.dev/api-auth:${OKTETO_GIT_COMMIT} api -f api/auth.Dockerfile
@@ -11,7 +12,7 @@ deploy:
 
   # Build api product feedbacks PRODUCTION
   - okteto build -t okteto.dev/api-product-feedbacks:${OKTETO_GIT_COMMIT} api -f api/product-feedbacks.Dockerfile
-  - helm upgrade -i api-product-feedbacks charts/api -n lbk2knewlifegithub -f values/prod/api-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
+  - helm upgrade -i api-product-feedbacks charts/api -n lbk2kngitewlifehub -f values/prod/api-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
 
   # Build api images PRODUCTION
   - okteto build -t okteto.dev/api-images:${OKTETO_GIT_COMMIT} api -f api/images.Dockerfile

@@ -1,3 +1,31 @@
+export VERSION=$(shell echo $RANDOM | md5sum | head -c 20)
+staging:
+	echo USING VERSION=$(VERSION)
+	kubectx minikube
+	envsubst < secret/staging-secret.yaml > secret.yaml
+	kubectl apply -f secret.yaml
+	rm secret.yaml
+
+	# Build api auth STAGING
+	docker build -t lbk2kdocker/api-auth:$(VERSION) api -f api/auth.Dockerfile
+	docker push lbk2kdocker/api-auth:$(VERSION)
+	helm upgrade -i api-auth-staging charts/api -f values/staging/api-auth.yaml --set tag=$(VERSION)
+
+  # # Build api product feedbacks STAGING
+  # - okteto build -t okteto.dev/api-product-feedbacks:${OKTETO_GIT_COMMIT} api -f api/product-feedbacks.Dockerfile
+  # - helm upgrade -i api-product-feedbacks-staging charts/api -n lemon-lbk2knewlifegithub -f values/staging/api-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
+
+  # # Build api images STAGING
+  # - okteto build -t okteto.dev/api-images:${OKTETO_GIT_COMMIT} api -f api/images.Dockerfile
+  # - helm upgrade -i api-images-staging charts/api-storage -n lemon-lbk2knewlifegithub -f values/staging/api-images.yaml --set tag=${OKTETO_GIT_COMMIT}
+
+  # Build Client Product Feedbacks STAGING
+#   - okteto build -t okteto.dev/client-product-feedbacks:${OKTETO_GIT_COMMIT} client -f client/product-feedbacks-stage.Dockerfile
+#   - helm upgrade -i client-product-feedbacks-staging charts/client -n lemon-lbk2knewlifegithub -f values/staging/client-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
+
+  # Apply ingress
+#   - kubectl apply -f ingress/api-staging.yaml
+
 # API AUTH
 deploy-api-auth:
 	okteto ns use lbk2knewlifegithub && okteto kubeconfig 
@@ -27,9 +55,6 @@ deploy-client-product-feedbacks:
 	okteto deploy -f okteto/client-product-feedbacks.yaml 
 destroy-client-product-feedbacks:
 	okteto destroy -n client-lbk2knewlifegithub -f okteto/client-product-feedbacks.yaml
-
-deploy-all: deploy-api-auth & deploy-api-images & deploy-api-product-feedbacks & deploy-client-product-feedbacks
-destroy-all: destroy-api-auth destroy-api-images destroy-api-product-feedbacks destroy-client-auth destroy-client-product-feedbacks
 
 
 # Secret 
