@@ -16,7 +16,9 @@
     "audiophile:dev": "nx serve audiophile -- --port=4202",
     "audiophile:build": "nx build audiophile",
     "invoice-app:dev": "nx serve invoice-app -- --port=4203",
-    "invoice-app:build": "nx build invoice-app"
+    "invoice-app:build": "nx build invoice-app",
+    "designo:dev": "nx serve designo -- --port=4204",
+    "designo:build": "nx build designo"
   },
   "private": true,
   "dependencies": {
