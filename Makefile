@@ -38,7 +38,11 @@ upgrade-redis:
 uninstall-redis:
 	helm delete redis -n banana-lbk2knewlifegithub
 
-forward-redis:
+forward-redis-prod:
+	echo "Forwarding port 6379"
+	kubectl port-forward --namespace db-lbk2knewlifegithub svc/redis-master 6379:6379
+
+forward-redis-staging:
 	echo "Forwarding port 6379"
 	kubectl port-forward --namespace db-lbk2knewlifegithub svc/redis-master 6379:6379
 
@@ -75,9 +79,13 @@ ysql-dev:
 upgrade-ysql-prod:
 	helm upgrade -i ysql -n db-lbk2knewlifegithub -f secret/ysql.yaml yugabytedb/yugabyte 
 
-uninstall-ysql:
+uninstall-ysql-prod:
 	helm delete ysql -n db-lbk2knewlifegithub
 
-forward-ysql:
-	echo "Forwarding port 5435"
+forward-ysql-prod:
+	echo "Forwarding YugabyteDb ************PRODUCTION*&********* to port 5434"
 	kubectl port-forward -n db-lbk2knewlifegithub svc/yb-tserver-service 5434:5433
+
+forward-ysql-staging:
+	echo "Forwarding YugabyteDB STATING to port 5435"
+	kubectl port-forward -n lemon-lbk2knewlifegithub svc/yb-tserver-service 5435:5433

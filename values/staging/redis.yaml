@@ -1,0 +1,11 @@
+architecture: replication
+global:
+  redis:
+    password: example
+master:
+  persistence:
+    size: 0.5Gi
+replica:
+  replicaCount: 1
+  persistence:
+    size: 0.5Gi

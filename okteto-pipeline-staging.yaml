@@ -2,7 +2,13 @@
 deploy:
   - okteto ns use lemon-lbk2knewlifegithub && okteto kubeconfig
   - envsubst < config-template.yaml > config.yaml
-  - kubectl apply -f config.yaml
+  - kubectl apply -f config.yaml -n lemon-lbk2knewlifegithub
+
+  # Setup redis STAGING
+  - helm upgrade -i redis-staging -n lemon-lbk2knewlifegithub -f values/staging/redis.yaml bitnami/redis
+
+  # Setup ysql STAGING
+  - helm upgrade --install ysql-staging -n lemon-lbk2knewlifegithub -f values/staging/ysql.yaml yugabytedb/yugabyte
 
   # Build api auth STAGING
   - okteto build -t okteto.dev/api-auth:${OKTETO_GIT_COMMIT} api -f api/auth.Dockerfile
