@@ -8,10 +8,9 @@ api:
   emailTemplatesFolder: "/app/templates"
   serviceType: ClusterIP
   port: 8080
-  env:
-    ysql:
-      host: yb-tserver-service.db-lbk2knewlifegithub.svc.cluster.local
-    redis:
-      host:
-        read: redis-replicas.banana-lbk2knewlifegithub.svc.cluster.local
-        write: redis-master.banana-lbk2knewlifegithub.svc.cluster.local
+  ysql:
+    host: yb-tserver-service.db-lbk2knewlifegithub.svc.cluster.local
+  redis:
+    host:
+      read: redis-replicas.banana-lbk2knewlifegithub.svc.cluster.local
+      write: redis-master.banana-lbk2knewlifegithub.svc.cluster.local
