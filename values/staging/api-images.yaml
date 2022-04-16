@@ -14,5 +14,5 @@ apiStorage:
     host: yb-tserver-service
   redis:
     host:
-      read: redis-replicas
-      write: redis-master
+      read: redis-staging-replicas
+      write: redis-staging-master
