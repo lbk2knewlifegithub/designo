@@ -10,10 +10,9 @@ apiStorage:
   storage:
     size: 0.5Gi
     storageMountPath: /app/static
-  env:
-    ysql:
-      host: yb-tserver-service.lemon-lbk2knewlifegithub.svc.cluster.local
-    redis:
-      host:
-        read: redis-replicas.lemon-lbk2knewlifegithub.svc.cluster.local
-        write: redis-master.lemon-lbk2knewlifegithub.svc.cluster.local
+  ysql:
+    host: yb-tserver-service
+  redis:
+    host:
+      read: redis-replicas
+      write: redis-master

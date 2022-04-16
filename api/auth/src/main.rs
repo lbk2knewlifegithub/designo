@@ -3,8 +3,8 @@ use actix_web::{middleware::Logger, web, App, HttpServer};
 use prelude::{
     config::Config,
     services::{
-        db_service::DBService, email_service::EmailService, hasher_service::HashService,
-        jwt_service::JWTService, redis_service::RedisService,
+        db_service::DBService, hasher_service::HashService, jwt_service::JWTService,
+        redis_service::RedisService,
     },
 };
 
@@ -18,7 +18,7 @@ mod services;
 pub struct AuthState {
     pub jwt: JWTService,
     pub hasher: HashService,
-    pub email: EmailService,
+    // pub email: EmailService,
     pub redis: RedisService,
     pub db: DBService,
 }
@@ -27,7 +27,7 @@ impl AuthState {
     pub fn new(
         hasher: HashService,
         jwt: JWTService,
-        email: EmailService,
+        // email: EmailService,
         redis: RedisService,
         db: DBService,
     ) -> Self {
@@ -35,7 +35,7 @@ impl AuthState {
             jwt,
             hasher,
             db,
-            email,
+            // email,
             redis,
         }
     }
@@ -48,7 +48,7 @@ async fn main() -> std::io::Result<()> {
     let auth_state = AuthState::new(
         HashService {},
         JWTService::from_env(),
-        EmailService::from_env(),
+        // EmailService::from_env(),
         RedisService::from_env().await,
         DBService::from_env(),
     );

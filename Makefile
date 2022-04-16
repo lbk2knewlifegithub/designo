@@ -31,20 +31,6 @@ destroy-client-product-feedbacks:
 deploy-all: deploy-api-auth & deploy-api-images & deploy-api-product-feedbacks & deploy-client-product-feedbacks
 destroy-all: destroy-api-auth destroy-api-images destroy-api-product-feedbacks destroy-client-auth destroy-client-product-feedbacks
 
-# Redis
-upgrade-redis:
-	helm upgrade -i redis -n banana-lbk2knewlifegithub -f secret/redis-values.yaml bitnami/redis
-
-uninstall-redis:
-	helm delete redis -n banana-lbk2knewlifegithub
-
-forward-redis-prod:
-	echo "Forwarding port 6379"
-	kubectl port-forward --namespace db-lbk2knewlifegithub svc/redis-master 6379:6379
-
-forward-redis-staging:
-	echo "Forwarding port 6379"
-	kubectl port-forward --namespace db-lbk2knewlifegithub svc/redis-master 6379:6379
 
 # Secret 
 apply-secret:
@@ -68,24 +54,51 @@ delete-all-configmap:
 	okteto ns use lemon-lbk2knewlifegithub && okteto kubeconfig 
 	kubectl delete configmap --all 
 
-# YugabyteDB dev
-ysql-dev:
-	kubectx minikube && kubectl create namespace ysql-dev || helm upgrade --install ysql-dev -f values/yugabytedb-dev.yaml -n yb-dev yugabytedb/yugabyte
-	kubectl get pods -n yb-dev 
-	kubectl port-forward --namespace yb-dev yb-tserver-0 5433:5433
+
+# YugabyteDB STAGING
+upgrade-ysql-staging:
+	helm upgrade -i ysql-staging -n lemon-lbk2knewlifegithub -f secret/staging/ysql.yaml yugabytedb/yugabyte 
+
+uninstall-ysql-staging:
+	helm delete ysql-staging -n lemon-lbk2knewlifegithub
+
+forward-ysql-staging:
+	echo "Forwarding YugabyteDB STATING to port 5434"
+	kubectl port-forward -n lemon-lbk2knewlifegithub svc/yb-tserver-service 5434:5433
 
 
-# YugabyteDB Prod
+# YugabyteDB PRODUCTION
 upgrade-ysql-prod:
-	helm upgrade -i ysql -n db-lbk2knewlifegithub -f secret/ysql.yaml yugabytedb/yugabyte 
+	helm upgrade -i ysql -n db-lbk2knewlifegithub -f secret/prod/ysql.yaml yugabytedb/yugabyte 
 
 uninstall-ysql-prod:
 	helm delete ysql -n db-lbk2knewlifegithub
 
 forward-ysql-prod:
-	echo "Forwarding YugabyteDb ************PRODUCTION*&********* to port 5434"
-	kubectl port-forward -n db-lbk2knewlifegithub svc/yb-tserver-service 5434:5433
+	echo "Forwarding YugabyteDb PRODUCTION to port 5435"
+	kubectl port-forward -n db-lbk2knewlifegithub svc/yb-tserver-service 5435:5433
 
-forward-ysql-staging:
-	echo "Forwarding YugabyteDB STATING to port 5435"
-	kubectl port-forward -n lemon-lbk2knewlifegithub svc/yb-tserver-service 5435:5433
+
+# Redis STAGING
+upgrade-redis-staging:
+	helm upgrade -i redis-staging -n lemon-lbk2knewlifegithub -f secret/staging/redis.yaml bitnami/redis
+
+uninstall-redis-staging:
+	helm delete redis-staging -n lemon-lbk2knewlifegithub
+
+forward-redis-staging:
+	echo "Forwarding port 6379"
+	kubectl port-forward --namespace lemon-lbk2knewlifegithub svc/redis-master 6379:6379
+
+
+# Redis PRODUCTION
+upgrade-redis-prod:
+	helm upgrade -i redis-prod -n banana-lbk2knewlifegithub -f secret/prod/redis.yaml bitnami/redis
+
+uninstall-redis-prod:
+	helm delete redis-prod -n banana-lbk2knewlifegithub
+
+forward-redis-prod:
+	echo "Forwarding REDIS PRODUCTION to port 6381"
+	kubectl port-forward --namespace db-lbk2knewlifegithub svc/redis-master 6381:6379
+
