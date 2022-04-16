@@ -1,6 +1,6 @@
 # WORKFLOW STAGING
 on:
-  push:
+  pull_request:
     branches:
       - staging
 name: deploy-staging

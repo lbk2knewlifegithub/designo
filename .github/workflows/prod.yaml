@@ -1,8 +1,8 @@
 # WORKFLOW PRODUCTION
 on:
-  push:
+  pull_request:
     branches:
-      - "master"
+      - master
 name: deploy-prod
 
 jobs:
