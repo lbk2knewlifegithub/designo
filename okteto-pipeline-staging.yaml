@@ -5,9 +5,11 @@ deploy:
   - kubectl apply -f config.yaml -n lemon-lbk2knewlifegithub
 
   # Setup redis STAGING
+  - helm repo add bitnami https://charts.bitnami.com/bitnami
   - helm upgrade -i redis-staging -n lemon-lbk2knewlifegithub -f values/staging/redis.yaml bitnami/redis
 
   # Setup ysql STAGING
+  - helm repo add yugabytedb https://charts.yugabyte.com
   - helm upgrade --install ysql-staging -n lemon-lbk2knewlifegithub -f values/staging/ysql.yaml yugabytedb/yugabyte
 
   # Build api auth STAGING
