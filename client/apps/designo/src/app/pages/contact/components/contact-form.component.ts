@@ -5,9 +5,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="container bg-peach-200  text-white md:bg-transparent">
-      <div class="py-[72px] md:rounded-lg md:bg-peach-200 md:px-14">
+      <div
+        class="flex flex-col gap-12 py-[72px] md:gap-10 md:rounded-lg md:bg-peach-200 md:px-14 2xl:flex-row 2xl:px-[95px] 2xl:gap-[95px] 2xl:items-center 2xl:py-[55px]"
+      >
         <div class="text-center md:text-left">
-          <h2 class="font-medium text-lg md:text-xl">Contact Us</h2>
+          <h2 class="font-medium text-lg md:text-xl 2xl:text-2xl">
+            Contact Us
+          </h2>
           <p class="mt-6 text-sm md:text-base">
             Ready to take it to the next level? Let’s talk about your project or
             idea and find out how we can help your business grow. If you are
@@ -16,7 +20,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
           </p>
         </div>
 
-        <form class="mt-12 grid place-items-center md:mt-10 md:place-items-end">
+        <form
+          class="grid place-items-center md:place-items-end 2xl:min-w-[380px]"
+        >
           <div class="grid gap-6 w-full">
             <!-- Name -->
             <input type="text" placeholder="Name" />
@@ -36,7 +42,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
           </div>
 
           <!-- Submit Button -->
-          <button class="btn btn-white px-12 mt-10">SUBMIT</button>
+          <button class="btn btn-white px-12  mt-10 2xl:mt-6">SUBMIT</button>
           <!-- end Submit Button -->
         </form>
       </div>
