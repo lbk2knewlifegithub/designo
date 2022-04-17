@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  NgModule,
+  OnInit,
+} from '@angular/core';
 
 interface Location {
   name: string;
@@ -6,10 +12,10 @@ interface Location {
 }
 
 @Component({
-  selector: 'lbk-locations',
+  selector: 'lbk-locations-link',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section scrollTo class="container">
+    <section class="container">
       <ul class="grid gap-12 md:gap-14 2xl:grid-cols-3">
         <li
           class="flex flex-col items-center"
@@ -35,7 +41,7 @@ interface Location {
     </section>
   `,
 })
-export class LocationsComponent implements OnInit {
+export class LocationsLinkComponent implements OnInit {
   locations!: Location[];
 
   ngOnInit(): void {
@@ -63,3 +69,10 @@ export class LocationsComponent implements OnInit {
     return location.name;
   }
 }
+
+@NgModule({
+  imports: [CommonModule],
+  exports: [LocationsLinkComponent],
+  declarations: [LocationsLinkComponent],
+})
+export class LocationsLinkModule {}

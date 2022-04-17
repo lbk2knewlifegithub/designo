@@ -16,7 +16,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- end World-class talent  -->
 
       <!-- Locations -->
-      <lbk-locations class="block mt-[120px] 2xl:mt-[160px]"></lbk-locations>
+      <lbk-locations-link
+        class="block mt-[120px] 2xl:mt-[160px]"
+      ></lbk-locations-link>
       <!-- end Locations -->
 
       <!-- The Real Deal -->

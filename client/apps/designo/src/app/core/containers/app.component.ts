@@ -7,7 +7,7 @@ import { ScrollService } from '@lbk/services';
   template: `
     <lbk-header></lbk-header>
     <router-outlet></router-outlet>
-    <lbk-footer class="block mt-[311px] 2xl:mt-[380px]"></lbk-footer>
+    <lbk-footer></lbk-footer>
   `,
 })
 export class AppComponent implements OnInit {
