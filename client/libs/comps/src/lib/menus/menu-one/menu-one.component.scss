@@ -16,7 +16,7 @@ button {
     position: absolute;
     height: 4px;
     width: 50%;
-    background: white;
+    background: var(--color, 'white');
     opacity: 1;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);

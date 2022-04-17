@@ -1,40 +1,23 @@
-import { CommonModule } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  NgModule,
-  OnInit,
-} from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { ImageModule } from '@lbk/comps';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { identifyLink, Link } from '@lbk/models';
-import { SlugPipeModule } from '@lbk/pipes';
-import { fromData } from '..';
+import { fromData } from '../../../shared';
 
 @Component({
   selector: 'lbk-project-links',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="container">
-      <ul
-        [ngClass]="{
-          '2xl:grid-rows-2': !skip
-        }"
-        class="grid gap-6 2xl:grid-cols-2  2xl:gap-x-[30px]"
-      >
+      <ul class="grid gap-6 2xl:grid-cols-2 2xl:grid-rows-2 2xl:gap-x-[30px]">
         <ng-container
           *ngFor="let link of links; index as i; trackBy: identifyLink"
         >
           <li
-            *ngIf="skip && skip !== (link.name | slug)"
             [ngClass]="{
-              '2xl:row-span-2 2xl:h-[640px]': i === 0 && !skip,
+              '2xl:row-span-2 2xl:h-[640px]': i === 0,
               '2xl:col-span-1 2xl:col-start-2 2xl:row-span-1 2xl:min-h-[308px]':
-                i === 1 && !skip,
+                i === 1,
               '2xl:col-span-1 2xl:col-start-2 2xl:row-start-2 2xl:h-full':
-                i === 2 && !skip,
-              '2xl:h-[308px]': skip
+                i === 2
             }"
             class="relative text-white uppercase text-center rounded-[15px] h-[250px] grid place-content-center overflow-hidden z-10 md:h-[200px]"
           >
@@ -59,8 +42,6 @@ import { fromData } from '..';
   `,
 })
 export class ProjectLinksComponent implements OnInit {
-  @Input() skip: string | null | undefined;
-
   links!: Link[];
   identifyLink = identifyLink;
 
@@ -72,17 +53,3 @@ export class ProjectLinksComponent implements OnInit {
     return false;
   }
 }
-
-@NgModule({
-  imports: [
-    CommonModule,
-    // Shared Component from Library
-    ImageModule,
-    RouterModule,
-    // Shared Pipes From Library
-    SlugPipeModule,
-  ],
-  exports: [ProjectLinksComponent],
-  declarations: [ProjectLinksComponent],
-})
-export class ProjectLinksModule {}

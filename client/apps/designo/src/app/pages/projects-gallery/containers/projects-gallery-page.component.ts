@@ -23,7 +23,6 @@ import { ProjectsGallery } from '../../../shared';
 
       <!-- Project Links -->
       <lbk-project-links
-        scrollTo
         [skip]="(projectGallery$ | async)!.slug"
         class="block mt-[96px] 2xl:mt-[160px]"
       ></lbk-project-links>

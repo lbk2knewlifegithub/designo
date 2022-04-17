@@ -22,9 +22,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
           </span>
         </div>
 
-        <button class="btn btn-white mt-8 py-[17px] px-[18px]">
+        <!-- Get In Touch Link -->
+        <a routerLink="/contact" class="btn btn-white mt-8 py-[17px] px-[18px]">
           GET IN TOUCH
-        </button>
+        </a>
+        <!-- end Get In Touch Link -->
       </div>
     </section>
   `,

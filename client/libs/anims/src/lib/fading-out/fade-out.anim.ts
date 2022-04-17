@@ -18,9 +18,8 @@ import {
  * @param options
  */
 export function fadeOut(options?: AnimationOptions): AnimationTriggerMetadata {
-  options = { ...options, ...DEFAULT_ANIMATION_OPTIONS };
+  options = { ...DEFAULT_ANIMATION_OPTIONS, ...options };
   const { anchor, delay, duration, easing } = options;
-
   return trigger(anchor || 'fadeOut', [
     transition(
       ':leave',
