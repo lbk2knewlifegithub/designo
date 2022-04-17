@@ -1,44 +1,16 @@
-import { HttpClient } from '@angular/common/http';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  OnInit,
-} from '@angular/core';
-import { GOOGLE_MAP } from '@lbk/tokens';
-import { catchError, map, Observable, of, shareReplay } from 'rxjs';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lbk-google-map',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <div class="max-w-full overflow-hidden">
-      <google-map [options]="options" *ngIf="apiLoaded$ | async"></google-map>
-    </div>
-  `,
+  template: ` <google-map [options]="options"></google-map> `,
 })
 export class GoogleMapComponent implements OnInit {
-  apiLoaded$!: Observable<boolean>;
-  options: google.maps.MapOptions = {
-    center: { lat: 40, lng: -20 },
-    zoom: 4,
-  };
-
-  constructor(
-    private readonly _httpClient: HttpClient,
-    @Inject(GOOGLE_MAP)
-    private readonly _googleMapToken: string
-  ) {}
+  options!: google.maps.MapOptions;
   ngOnInit(): void {
-    this.apiLoaded$ = this._httpClient
-      .jsonp(
-        `https://maps.googleapis.com/maps/api/js?key=${this._googleMapToken}`,
-        'callback'
-      )
-      .pipe(
-        map(() => true),
-        catchError(() => of(false)),
-        shareReplay(1)
-      );
+    this.options = {
+      center: { lat: 40, lng: -20 },
+      zoom: 4,
+    };
   }
 }

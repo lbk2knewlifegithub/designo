@@ -10,19 +10,23 @@ import { identifyLocation, Location } from '../../../shared';
         <ng-container
           *ngFor="let location of locations; trackBy: identifyLocation"
         >
-          <li class="max-w-full overflow-hidden">
+          <li class="grid max-w-full overflow-hidden md:gap-8 md:container">
             <!-- Google Map -->
-            <lbk-google-map class=""></lbk-google-map>
+            <lbk-google-map
+              class="md:rounded-xl md:overflow-hidden"
+            ></lbk-google-map>
             <!-- end Google Map -->
 
-            <div class="py-[80px] bg-peach-200/10 container text-center">
+            <div
+              class="py-[80px] bg-peach-200/10 container text-center md:rounded-xl md:text-left md:pl-[75px] md:py-[88px]"
+            >
               <!-- Location -->
-              <h2 class="text-peach-200 font-medium text-lg">
+              <h2 class="text-peach-200 font-medium text-lg md:text-xl">
                 {{ location.location }}
               </h2>
               <!-- end Location -->
 
-              <div class="space-y-6 mt-6">
+              <div class="flex flex-col gap-6 mt-6 md:flex-row md:gap-[100px]">
                 <span class="grid">
                   <!-- Office  -->
                   <strong>{{ location.office }}</strong>

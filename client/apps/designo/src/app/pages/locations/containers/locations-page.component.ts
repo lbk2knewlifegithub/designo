@@ -5,7 +5,7 @@ import { fromData, Location } from '../../../shared';
   selector: 'lbk-locations-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <main class="relative">
+    <main class="relative md:pb-12">
       <!-- Location List -->
       <lbk-location-list [locations]="locations"></lbk-location-list>
       <!-- end Location List -->
