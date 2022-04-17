@@ -3,11 +3,19 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   /**
-   * - Home Route
+   * - Home Page
    */
   {
     path: '',
     loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
+  },
+
+  /**
+   * - About Page
+   */
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/about').then((m) => m.AboutModule),
   },
   {
     path: '',

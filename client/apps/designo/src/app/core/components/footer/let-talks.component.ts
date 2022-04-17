@@ -4,9 +4,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-let-talks',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="container">
+    <section scrollTo class="container">
       <div
-        class="relative flex flex-col items-center bg-peach-200 py-16 px-6 rounded-xl text-white text-center 2xl:flex-row 2xl:px-[95px] 2xl:text-left 2xl:justify-between 2xl:h-[292px]"
+        class="relative  flex flex-col items-center bg-peach-200 py-[57px] px-6 rounded-xl text-white text-center md:max-h-[350px] 2xl:flex-row 2xl:px-[95px] 2xl:text-left 2xl:justify-between "
       >
         <div>
           <h2 class="text-lg font-medium md:text-xl 2xl:leading-10">

@@ -15,4 +15,9 @@
   .btn-white {
     @apply bg-white text-black;
   }
+
+  .btn-primary {
+    @apply bg-peach-200 text-white;
+    @apply px-[18.5px];
+  }
 }
