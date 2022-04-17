@@ -25,6 +25,14 @@ const routes: Routes = [
     path: 'contact',
     loadChildren: () => import('./pages/contact').then((m) => m.ContactModule),
   },
+  /**
+   * - Projects Gallery Page
+   */
+  {
+    path: 'projects-gallery',
+    loadChildren: () =>
+      import('./pages/projects-gallery').then((m) => m.ProjectsGalleryModule),
+  },
   {
     path: '',
     redirectTo: '/home',

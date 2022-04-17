@@ -5,16 +5,20 @@ import { ImageModule } from '@lbk/comps';
 import { COMPONENTS } from './components';
 import { HomePageComponent } from './containers';
 import { HomeRoutingModule } from './home-routing.module';
+import { ProjectLinksModule } from '../../shared';
 
 @NgModule({
   imports: [
     CommonModule,
     HomeRoutingModule,
     // Shared Directives From Libs
+    ScrollToModule,
 
     // Shared Component From Libs
     ImageModule,
-    ScrollToModule,
+
+    // Shared Component From Designo
+    ProjectLinksModule,
   ],
   declarations: [COMPONENTS, HomePageComponent],
 })
