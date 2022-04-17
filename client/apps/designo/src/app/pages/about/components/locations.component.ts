@@ -9,8 +9,8 @@ interface Location {
   selector: 'lbk-locations',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="container">
-      <ul class="grid gap-12 md:gap-14">
+    <section scrollTo class="container">
+      <ul class="grid gap-12 md:gap-14 2xl:grid-cols-3">
         <li
           class="flex flex-col items-center"
           *ngFor="let location of locations; trackBy: identifyLocation"

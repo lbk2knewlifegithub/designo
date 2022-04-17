@@ -5,16 +5,16 @@ import { Image } from '@lbk/models';
   selector: 'lbk-the-real-deal',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section scrollTo class="bg-peach-200/5 container md:bg-transparent">
+    <section class="bg-peach-200/5 container md:bg-transparent 2xl:max-[640px]">
       <div
-        class="md:relative md:bg-peach-200/5 md:rounded-lg md:overflow-hidden"
+        class="md:relative md:bg-peach-200/5 md:rounded-lg md:overflow-hidden 2xl:flex 2xl:gap-[94px] 2xl:items-center 2xl:justify-between"
       >
         <!-- The Real Deal Image -->
-        <lbk-image [image]="image"></lbk-image>
+        <lbk-image class="2xl:order-last" [image]="image"></lbk-image>
         <!-- end The Real Deal Image -->
 
         <div
-          class="relative py-[80px] text-center max-w-[530px] mx-auto md:py-16"
+          class="relative py-[80px] text-center max-w-[530px] mx-auto md:py-16 2xl:text-left 2xl:max-w-[445px] 2xl:mx-0 2xl:ml-[94px]"
         >
           <h1 class="font-medium text-lg text-peach-200 md:text-xl">
             The real deal

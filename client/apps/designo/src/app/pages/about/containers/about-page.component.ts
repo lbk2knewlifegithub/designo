@@ -11,12 +11,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
       <!-- World-class talent  -->
       <lbk-world-class-talent
-        class="md:block md:mt-[120px]"
+        class="md:block md:mt-[120px] 2xl:mt-[160px]"
       ></lbk-world-class-talent>
       <!-- end World-class talent  -->
 
       <!-- Locations -->
-      <lbk-locations class="block mt-[120px]"></lbk-locations>
+      <lbk-locations class="block mt-[120px] 2xl:mt-[160px]"></lbk-locations>
       <!-- end Locations -->
 
       <!-- The Real Deal -->
