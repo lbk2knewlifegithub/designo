@@ -21,11 +21,13 @@ import { HeaderService } from './header.service';
           @listOutLeft
           class="grid gap-8 text-white uppercase text-[24px] leading-[25px] tracking-[2px]"
         >
-          <!-- Home Route -->
+          <!-- About Page -->
           <li>
-            <a routerLink="/home" routerLinkActive="underline"> OUR COMPANY </a>
+            <a routerLink="/about" routerLinkActive="underline">
+              OUR COMPANY
+            </a>
           </li>
-          <!-- end Home Route -->
+          <!-- end About Page -->
 
           <!-- Location Route -->
           <li>

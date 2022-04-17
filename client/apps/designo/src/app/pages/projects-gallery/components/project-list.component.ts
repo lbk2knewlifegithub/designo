@@ -5,11 +5,11 @@ import { Project, identifyProject } from '../../../shared';
   selector: 'lbk-project-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="container ">
+    <section scrollTo class="container ">
       <ul class="grid gap-10 2xl:grid-cols-3">
         <li
           *ngFor="let project of projects; trackBy: identifyProject"
-          class="rounded-2xl overflow-hidden md:grid md:grid-cols-2 md:max-h-[310px] md:place-content-center 2xl:grid-cols-1 2xl:max-h-[478px]"
+          class="rounded-2xl overflow-hidden bg-peach-200/10 md:grid md:grid-cols-2 md:max-h-[310px] md:place-content-center 2xl:grid-cols-1 2xl:max-h-[478px]"
         >
           <!-- Project Image -->
           <img
@@ -19,21 +19,25 @@ import { Project, identifyProject } from '../../../shared';
           />
           <!-- end Project Image -->
 
-          <div class="py-8 px-[30px] text-center bg-peach-200/10 ">
+          <a
+            routerLink="/"
+            class="grid place-content-center duration-300 group py-8 px-[30px] text-center hover:bg-peach-200 md:py-0 2xl:py-8"
+          >
             <!-- Project Name -->
             <h3
-              class="font-medium text-peach-200 text-[20px] tracking-[5px] leading-[26px] uppercase"
+              class="duration-300 font-medium text-peach-200 text-[20px] tracking-[5px] leading-[26px] uppercase group-hover:text-white"
             >
               {{ project.name }}
             </h3>
             <!-- end Project Name -->
 
             <!-- Project Description -->
-            <span class="inline-block mt-4 text-sm md:text-base">{{
-              project.description
-            }}</span>
+            <span
+              class="duration-300 inline-block mt-4 text-sm md:text-base group-hover:text-white"
+              >{{ project.description }}</span
+            >
             <!-- end Project Description -->
-          </div>
+          </a>
         </li>
       </ul>
     </section>

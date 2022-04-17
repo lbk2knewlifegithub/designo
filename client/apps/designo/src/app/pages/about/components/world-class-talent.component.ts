@@ -5,12 +5,18 @@ import { Image } from '@lbk/models';
   selector: 'lbk-world-class-talent',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="bg-peach-200/5 container md:bg-transparent 2xl:max-[640px]">
+    <section
+      class="md:container bg-peach-200/5 md:bg-transparent 2xl:max-[640px]"
+    >
       <div
         class="md:relative md:bg-peach-200/5 md:rounded-lg md:overflow-hidden 2xl:flex 2xl:gap-[94px] 2xl:items-center"
       >
         <!-- World Class Talent Image -->
-        <lbk-image [image]="image"></lbk-image>
+        <lbk-image
+          classImage="w-full"
+          class="w-full object-center object-cover max-h-[320px] 2xl:w-auto 2xl:max-h-[640px]"
+          [image]="image"
+        ></lbk-image>
         <!-- end World Class Talent Image -->
 
         <div

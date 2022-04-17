@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       class="container relative h-[843px] bg-peach-200 overflow-hidden md:bg-transparent 2xl:h-[640px]"
     >
       <div
-        class="pt-[80px] sm:rounded-2xl md:relative md:overflow-hidden md:bg-peach-200 md:pt-[60px] md:h-full 2xl:pt-0 2xl:flex 2xl:justify-between 2xl:items-center 2xl:px-[95px]"
+        class="z-10 pt-[80px] sm:rounded-2xl md:relative md:overflow-hidden md:bg-peach-200 md:pt-[60px] md:h-full 2xl:pt-0 2xl:flex 2xl:justify-between 2xl:items-center 2xl:px-[95px]"
       >
         <div
           class="flex flex-col items-center text-center mx-auto max-w-lg 2xl:mx-0 2xl:text-left 2xl:items-start"
@@ -34,7 +34,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
         <!-- Circle -->
         <img
-          class="absolute left-0 w-[640px] aspect-square top-[10%] md:left-[45%] 2xl:left-full 2xl:-translate-x-full 2xl:top-0"
+          class="absolute z-[-1] left-0 w-[640px] aspect-square top-[10%] md:left-[45%] 2xl:left-full 2xl:-translate-x-full 2xl:top-0"
           src="assets/home/desktop/bg-pattern-hero-home.svg"
         />
         <!-- end Circle -->

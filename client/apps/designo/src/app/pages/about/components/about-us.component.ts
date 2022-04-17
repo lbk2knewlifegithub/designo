@@ -5,13 +5,16 @@ import { Image } from '@lbk/models';
   selector: 'lbk-about-us',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="bg-peach-200 md:bg-transparent 2xl:max-h-[480px]">
+    <section
+      class="md:container bg-peach-200 md:bg-transparent 2xl:max-h-[480px]"
+    >
       <div
         class="md:relative md:bg-peach-200 md:rounded-lg md:overflow-hidden 2xl:flex 2xl:justify-between 2xl:items-center"
       >
         <!-- About Image Hero -->
         <lbk-image
-          class="bg-green-900 2xl:order-last"
+          classImage="w-full"
+          class="object-center object-cover max-h-[320px] 2xl:max-h-[480px] 2xl:w-auto 2xl:order-last"
           [image]="image"
         ></lbk-image>
         <!-- end About Image Hero -->

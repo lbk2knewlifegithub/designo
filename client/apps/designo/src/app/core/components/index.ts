@@ -1,7 +1,8 @@
 import {
-  FooterComponent,
-  LetTalksComponent,
-  LinksFooterComponent,
+    FooterComponent,
+    LetTalksComponent,
+    LinksFooterComponent,
+    SocialsComponent
 } from './footer';
 import { HeaderComponent } from './header/header.component';
 import { OverlayComponent } from './header/overlay.component';
@@ -12,4 +13,5 @@ export const COMPONENTS = [
   HeaderComponent,
   LinksFooterComponent,
   OverlayComponent,
+  SocialsComponent,
 ];

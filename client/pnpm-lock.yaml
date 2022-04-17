@@ -48,6 +48,7 @@ specifiers:
   eslint-config-prettier: 8.1.0
   jest: 27.2.3
   jest-preset-angular: 11.1.1
+  ng-lazyload-image: ^9.1.2
   ng-packagr: ^13.0.0
   nx: 13.9.3
   postcss: ^8.4.5
@@ -84,6 +85,7 @@ dependencies:
   '@ngrx/store': 13.0.2_@angular+core@13.2.7+rxjs@7.4.0
   '@ngrx/store-devtools': 13.0.2_@ngrx+store@13.0.2+rxjs@7.4.0
   '@nrwl/angular': 13.9.3_3122d922b1f4124b26354f26aa47151e
+  ng-lazyload-image: 9.1.2_ff4162bf753d9e50941b1cfeba2a27cb
   reflect-metadata: 0.1.13
   rxjs: 7.4.0
   tslib: 2.3.1
@@ -7750,6 +7752,19 @@ packages:
 
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
+
+  /ng-lazyload-image/9.1.2_ff4162bf753d9e50941b1cfeba2a27cb:
+    resolution: {integrity: sha512-E5oz5HdTRtYW/TH+jceT4VMcRXKdX9Ut82eEwt2K0/bFAXKU14HluCFa8cMidPBgSa08Mlf+gmoKCTvAfUPgag==}
+    peerDependencies:
+      '@angular/common': '>=11.0.0'
+      '@angular/core': '>=11.0.0'
+      rxjs: '>=6.0.0'
+    dependencies:
+      '@angular/common': 13.2.7_@angular+core@13.2.7+rxjs@7.4.0
+      '@angular/core': 13.2.7_rxjs@7.4.0+zone.js@0.11.5
+      rxjs: 7.4.0
+      tslib: 2.3.1
+    dev: false
 
   /ng-packagr/13.3.0_859ca7dea1ade6e98fd82424bf266d50:
     resolution: {integrity: sha512-y0bmIkGp1YQJVPYX3/dOjZBTqN+qD6rDbVhJB//1y0WEs8WDjrwaRPp6JGT79z2jbUXoIOsDmPnIKNegpNAgPw==}

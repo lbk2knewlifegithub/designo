@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   template: `
     <ul class="flex flex-col gap-8 text-xs md:flex-row">
       <li>
-        <a routerLink="/home" routerLinkActive="underline"> OUR COMPANY </a>
+        <a routerLink="/about" routerLinkActive="underline"> OUR COMPANY </a>
       </li>
       <li>
         <a routerLink="/locations" routerLinkActive="underline">LOCATIONS</a>
@@ -16,5 +16,16 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       </li>
     </ul>
   `,
+  styles: [
+    `
+      ul {
+        li {
+          a {
+            @apply hover:underline;
+          }
+        }
+      }
+    `,
+  ],
 })
 export class LinksFooterComponent {}

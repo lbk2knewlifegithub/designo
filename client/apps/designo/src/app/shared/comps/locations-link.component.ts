@@ -1,3 +1,4 @@
+import { ImageModule } from '@lbk/comps';
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
@@ -71,7 +72,7 @@ export class LocationsLinkComponent implements OnInit {
 }
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, ImageModule],
   exports: [LocationsLinkComponent],
   declarations: [LocationsLinkComponent],
 })

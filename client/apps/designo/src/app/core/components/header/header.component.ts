@@ -32,7 +32,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
       <!-- Tablet and Desktop Links -->
       <ul class="hidden gap-[42px] text-xs md:flex">
         <li>
-          <a routerLink="/home" routerLinkActive="underline"> OUR COMPANY </a>
+          <a routerLink="/about" routerLinkActive="underline"> OUR COMPANY </a>
         </li>
         <li>
           <a routerLink="/locations" routerLinkActive="underline">LOCATIONS</a>
@@ -45,9 +45,20 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
     </header>
 
     <!-- Overlay -->
-    <lbk-overlay></lbk-overlay>
+    <lbk-overlay class="md:hidden"></lbk-overlay>
     <!-- end Overlay -->
   `,
+  styles: [
+    `
+      ul {
+        li {
+          a {
+            @apply duration-300 hover:underline;
+          }
+        }
+      }
+    `,
+  ],
 })
 export class HeaderComponent implements OnInit {
   shown$!: Observable<boolean>;
