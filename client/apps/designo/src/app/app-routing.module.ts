@@ -33,6 +33,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/projects-gallery').then((m) => m.ProjectsGalleryModule),
   },
+  /**
+   * - Locations page
+   */
+  {
+    path: 'locations',
+    loadChildren: () =>
+      import('./pages/locations').then((m) => m.LocationsModule),
+  },
   {
     path: '',
     redirectTo: '/home',

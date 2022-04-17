@@ -1,5 +1,5 @@
 import { Link } from '@lbk/models';
-import { ProjectsGallery, ProjectSlug } from './models';
+import { ProjectsGallery, ProjectSlug, Location } from './models';
 
 export const projectsGalleryMap: Map<ProjectSlug, ProjectsGallery> = new Map([
   //   App Design
@@ -157,6 +157,47 @@ export const projectLinks: Link[] = [
       tablet: 'assets/home/tablet/image-graphic-design.jpg',
       desktop: 'assets/home/desktop/image-graphic-design.jpg',
       alt: 'Graphic Design',
+    },
+  },
+];
+
+export const locations: Location[] = [
+  // Canada Location
+  {
+    location: 'Canada',
+    office: ' Designo Central Office ',
+    address: '3886 Wellington Street <br> Toronto, Ontario M9C 3J5 ',
+    phone: '+1 253-863-8967',
+    email: 'contact@designo.co',
+    coordinate: {
+      lat: 43.642567,
+      lng: -79.387053,
+    },
+  },
+
+  // Australia Location
+  {
+    location: 'Australia',
+    office: ' Designo AU Office ',
+    address: '19 Balonne Street <br> New South Wales 2443',
+    phone: '(02) 6720 9092',
+    email: 'contact@designo.au',
+    coordinate: {
+      lat: 43.642567,
+      lng: -79.387053,
+    },
+  },
+
+  // United Kingdom
+  {
+    location: 'United Kingdom',
+    office: 'Designo UK Office',
+    address: '13 Colorado Way <br> Rhyd-y-fro SA8 9GA',
+    phone: '078 3115 1400',
+    email: 'contact@designo.uk',
+    coordinate: {
+      lat: 43.642567,
+      lng: -79.387053,
     },
   },
 ];

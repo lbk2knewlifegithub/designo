@@ -14,6 +14,9 @@ export const DEFAULT_AVATAR = new InjectionToken<string>('DEFAULT_AVATAR', {
     'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/dc/dc8cf07e4359374d5958451ac2410efa1d530683_full.jpg',
 });
 
+// Goole Map TOKEN
+export const GOOGLE_MAP = new InjectionToken<string>('GOOGLE_MAP');
+
 // Local Storage Token
 function storageFactory() {
   return typeof window === undefined || typeof localStorage === undefined

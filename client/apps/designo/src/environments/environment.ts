@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  googleMapToken: 'AIzaSyAi-i5NaPd_HeLfLNqYP1ACsCh1bIsVRrA',
 };
 
 /*
