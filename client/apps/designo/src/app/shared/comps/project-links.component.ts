@@ -4,7 +4,7 @@ import {
   Component,
   Input,
   NgModule,
-  OnInit
+  OnInit,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ImageModule } from '@lbk/comps';
@@ -17,18 +17,24 @@ import { fromData } from '..';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="container">
-      <ul class="grid gap-6 2xl:grid-cols-2 2xl:grid-rows-2 2xl:gap-x-[30px]">
+      <ul
+        [ngClass]="{
+          '2xl:grid-rows-2': !skip
+        }"
+        class="grid gap-6 2xl:grid-cols-2  2xl:gap-x-[30px]"
+      >
         <ng-container
           *ngFor="let link of links; index as i; trackBy: identifyLink"
         >
           <li
             *ngIf="skip && skip !== (link.name | slug)"
             [ngClass]="{
-              '2xl:row-span-2 2xl:h-[640px]': i === 0,
+              '2xl:row-span-2 2xl:h-[640px]': i === 0 && !skip,
               '2xl:col-span-1 2xl:col-start-2 2xl:row-span-1 2xl:min-h-[308px]':
-                i === 1,
+                i === 1 && !skip,
               '2xl:col-span-1 2xl:col-start-2 2xl:row-start-2 2xl:h-full':
-                i === 2
+                i === 2 && !skip,
+              '2xl:h-[308px]': skip
             }"
             class="relative text-white uppercase text-center rounded-[15px] h-[250px] grid place-content-center overflow-hidden z-10 md:h-[200px]"
           >
@@ -54,6 +60,7 @@ import { fromData } from '..';
 })
 export class ProjectLinksComponent implements OnInit {
   @Input() skip: string | null | undefined;
+
   links!: Link[];
   identifyLink = identifyLink;
 

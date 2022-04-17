@@ -5,23 +5,21 @@ import { Project, identifyProject } from '../../../shared';
   selector: 'lbk-project-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="container mt-[96px]">
-      <ul class="grid gap-10">
+    <section class="container ">
+      <ul class="grid gap-10 2xl:grid-cols-3">
         <li
           *ngFor="let project of projects; trackBy: identifyProject"
-          class="rounded-xl overflow-hidden md:grid md:grid-cols-2 md:max-h-[310px]"
+          class="rounded-2xl overflow-hidden md:grid md:grid-cols-2 md:max-h-[310px] md:place-content-center 2xl:grid-cols-1 2xl:max-h-[478px]"
         >
           <!-- Project Image -->
           <img
-            [class.order-last]="reverse"
+            [ngClass]="{ 'order-last 2xl:order-first': reverse }"
             [src]="project.image"
             [alt]="project.name"
           />
           <!-- end Project Image -->
 
-          <div
-            class="py-8 px-[30px] text-center bg-peach-200/10  md:!py-0 md:grid md:place-content-center"
-          >
+          <div class="py-8 px-[30px] text-center bg-peach-200/10 ">
             <!-- Project Name -->
             <h3
               class="font-medium text-peach-200 text-[20px] tracking-[5px] leading-[26px] uppercase"

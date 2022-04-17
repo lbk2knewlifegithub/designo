@@ -7,7 +7,7 @@ import { ProjectsGallery } from '../../../shared';
   selector: 'lbk-projects-gallery-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <main class="md:pb-20">
+    <main class="md:pb-20 2xl:pb-0">
       <!-- Hero -->
       <lbk-hero [projectGallery]="(projectGallery$ | async)!"></lbk-hero>
       <!-- end Hero -->
@@ -16,14 +16,16 @@ import { ProjectsGallery } from '../../../shared';
       <lbk-project-list
         [projects]="(projectGallery$ | async)!.projects"
         [reverse]="(projectGallery$ | async)!.slug === 'graphic-design'"
+        class="block mt-[96px] 2xl:mt-[160px]"
       ></lbk-project-list>
 
       <!-- end Project List -->
 
       <!-- Project Links -->
       <lbk-project-links
+        scrollTo
         [skip]="(projectGallery$ | async)!.slug"
-        class="block mt-[96px]"
+        class="block mt-[96px] 2xl:mt-[160px]"
       ></lbk-project-links>
       <!-- end Project Links -->
     </main>
