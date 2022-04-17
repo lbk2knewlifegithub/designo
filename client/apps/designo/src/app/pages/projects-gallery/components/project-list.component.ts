@@ -6,16 +6,22 @@ import { Project, identifyProject } from '../../../shared';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="container mt-[96px]">
-      <ul scrollTo class="grid gap-10">
+      <ul class="grid gap-10">
         <li
-          class="rounded-xl overflow-hidden "
           *ngFor="let project of projects; trackBy: identifyProject"
+          class="rounded-xl overflow-hidden md:grid md:grid-cols-2 md:max-h-[310px]"
         >
           <!-- Project Image -->
-          <img [src]="project.image" [alt]="project.name" />
+          <img
+            [class.order-last]="reverse"
+            [src]="project.image"
+            [alt]="project.name"
+          />
           <!-- end Project Image -->
 
-          <div class="py-8 px-[30px] text-center bg-peach-200/10">
+          <div
+            class="py-8 px-[30px] text-center bg-peach-200/10  md:!py-0 md:grid md:place-content-center"
+          >
             <!-- Project Name -->
             <h3
               class="font-medium text-peach-200 text-[20px] tracking-[5px] leading-[26px] uppercase"
@@ -25,7 +31,7 @@ import { Project, identifyProject } from '../../../shared';
             <!-- end Project Name -->
 
             <!-- Project Description -->
-            <span class="inline-block mt-4 text-sm">{{
+            <span class="inline-block mt-4 text-sm md:text-base">{{
               project.description
             }}</span>
             <!-- end Project Description -->
@@ -37,5 +43,7 @@ import { Project, identifyProject } from '../../../shared';
 })
 export class ProjectListComponent {
   @Input() projects!: Project[];
+  @Input() reverse?: boolean;
+
   identifyProject = identifyProject;
 }
