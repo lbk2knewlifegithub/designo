@@ -6,19 +6,26 @@ import { identifyLocation, Location } from '../../../shared';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section>
-      <ul class="grid gap-10">
+      <ul class="grid gap-10 2xl:gap-8">
         <ng-container
-          *ngFor="let location of locations; trackBy: identifyLocation"
+          *ngFor="
+            let location of locations;
+            trackBy: identifyLocation;
+            index as i
+          "
         >
-          <li class="grid max-w-full overflow-hidden md:gap-8 md:container">
+          <li
+            class="flex flex-col max-w-full overflow-hidden md:gap-8 md:container 2xl:flex-row 2xl:gap-5"
+          >
             <!-- Google Map -->
             <lbk-google-map
-              class="md:rounded-xl md:overflow-hidden"
+              [class.order-last]="i !== 1"
+              class="2xl:grow"
             ></lbk-google-map>
             <!-- end Google Map -->
 
             <div
-              class="py-[80px] bg-peach-200/10 container text-center md:rounded-xl md:text-left md:pl-[75px] md:py-[88px]"
+              class="py-[80px] bg-peach-200/10 container text-center md:rounded-xl md:text-left md:pl-[75px] md:py-[88px] 2xl:pl-[95px]"
             >
               <!-- Location -->
               <h2 class="text-peach-200 font-medium text-lg md:text-xl">
