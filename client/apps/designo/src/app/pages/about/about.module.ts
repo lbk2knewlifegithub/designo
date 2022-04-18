@@ -1,4 +1,3 @@
-import { ScrollToModule } from '@lbk/directives';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ImageModule } from '@lbk/comps';
@@ -13,9 +12,6 @@ import { LocationsLinkModule } from '../../shared';
     AboutRoutingModule,
     // Shared Component From Designo
     LocationsLinkModule,
-
-    // Shared Directives From Libs
-    ScrollToModule,
 
     // Shared Component From Libs
     ImageModule,

@@ -1,11 +1,6 @@
-import { fadeInUpBig } from '@lbk/anims';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { fadeInUpBig } from '@lbk/anims';
 import { UnSubscribe } from '@lbk/comps';
 import { ScrollService } from '@lbk/services';
 import { pluck } from 'rxjs';
@@ -28,8 +23,7 @@ export class LocationsPageComponent extends UnSubscribe implements OnInit {
 
   constructor(
     private readonly _route: ActivatedRoute,
-    private readonly _scrollService: ScrollService,
-    private readonly _cd: ChangeDetectorRef
+    private readonly _scrollService: ScrollService
   ) {
     super();
   }
