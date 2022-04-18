@@ -13,10 +13,9 @@ import { pluck } from 'rxjs';
   selector: 'lbk-root',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <main>
-      <!-- <h1>Portfolio</h1> -->
-      <router-outlet></router-outlet>
-    </main>
+    <lbk-header></lbk-header>
+    <router-outlet></router-outlet>
+    <lbk-footer></lbk-footer>
   `,
 })
 export class AppComponent extends UnSubscribe implements OnInit {
@@ -43,8 +42,7 @@ export class AppComponent extends UnSubscribe implements OnInit {
         //  if(project === "audiophile") return  window.location.href = this._clientProductFeedbacksUrl;
         //  if(project === "invoice-app") return  window.location.href = this._clientProductFeedbacksUrl;
         //  if(project === "frontendmentor") return  window.location.href = this._clientProductFeedbacksUrl;
-
-        return (window.location.href = this._clientProductFeedbacksUrl);
+        return;
       });
   }
 }
