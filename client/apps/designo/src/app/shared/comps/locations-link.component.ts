@@ -18,7 +18,15 @@ interface Location {
   selector: 'lbk-locations-link',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="container">
+    <section class="relative container">
+      <!-- Pattern Leaf -->
+      <img
+        class="hidden z-[-1] absolute bottom-0 right-0 scale-x-[-1] scale-y-[-1] translate-y-[55%] 2xl:block "
+        src="assets/shared/desktop/bg-pattern-leaf.svg"
+        alt="Pattern Leaf"
+      />
+      <!-- end Pattern Leaf -->
+
       <ul class="grid gap-12 md:gap-14 2xl:grid-cols-3">
         <li
           class="flex flex-col items-center"
