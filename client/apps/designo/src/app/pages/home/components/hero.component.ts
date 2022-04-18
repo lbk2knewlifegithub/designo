@@ -27,15 +27,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
           </p>
 
           <!-- Learn More Button -->
-          <button class="btn btn-white mt-6 md:mt-5 2xl:mt-10">
+          <a routerLink="/about" class="btn btn-white mt-6 md:mt-5 2xl:mt-10">
             Learn more
-          </button>
+          </a>
           <!-- end Learn More Button -->
         </div>
 
         <!-- Circle -->
         <img
-          class="absolute z-[-1] left-0 w-[640px] aspect-square top-[10%] md:left-[45%] 2xl:left-full 2xl:-translate-x-full 2xl:top-0"
+          class="absolute z-[-1] right-0 w-[640px] aspect-square top-[10%] md:left-[45%] 2xl:left-full 2xl:-translate-x-full 2xl:top-0"
           src="assets/home/desktop/bg-pattern-hero-home.svg"
         />
         <!-- end Circle -->
