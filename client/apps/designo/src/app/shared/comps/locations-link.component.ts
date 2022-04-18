@@ -1,4 +1,3 @@
-import { ImageModule } from '@lbk/comps';
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
@@ -6,6 +5,9 @@ import {
   NgModule,
   OnInit,
 } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { ImageModule } from '@lbk/comps';
+import { SlugPipeModule } from '@lbk/pipes';
 
 interface Location {
   name: string;
@@ -23,7 +25,10 @@ interface Location {
           *ngFor="let location of locations; trackBy: identifyLocation"
         >
           <!-- Location Image -->
-          <img [src]="location.image" [alt]="location.name" />
+          <lbk-image
+            [singleImage]="location.image"
+            [alt]="location.name"
+          ></lbk-image>
           <!-- end Location Image -->
 
           <!-- Location Name -->
@@ -35,7 +40,12 @@ interface Location {
           <!-- end Location Name -->
 
           <!-- See Location Button -->
-          <button class="btn btn-primary mt-8">SEE LOCATION</button>
+          <a
+            [routerLink]="['/locations']"
+            [queryParams]="{ name: location.name | slug }"
+            class="btn btn-primary mt-8"
+            >SEE LOCATION</a
+          >
           <!-- end See Location Button -->
         </li>
       </ul>
@@ -72,7 +82,14 @@ export class LocationsLinkComponent implements OnInit {
 }
 
 @NgModule({
-  imports: [CommonModule, ImageModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    // Shared Components from Lib
+    ImageModule,
+    // Shared Pipe from Lib
+    SlugPipeModule,
+  ],
   exports: [LocationsLinkComponent],
   declarations: [LocationsLinkComponent],
 })

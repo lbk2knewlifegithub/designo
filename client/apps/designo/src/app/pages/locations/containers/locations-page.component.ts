@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UnSubscribe } from '@lbk/comps';
+import { ScrollService } from '@lbk/services';
+import { pluck } from 'rxjs';
 import { fromData, Location } from '../../../shared';
 
 @Component({
@@ -12,10 +21,25 @@ import { fromData, Location } from '../../../shared';
     </main>
   `,
 })
-export class LocationsPageComponent implements OnInit {
+export class LocationsPageComponent extends UnSubscribe implements OnInit {
   locations!: Location[];
 
-  ngOnInit(): void {
+  constructor(
+    private readonly _route: ActivatedRoute,
+    private readonly _scrollService: ScrollService,
+    private readonly _cd: ChangeDetectorRef
+  ) {
+    super();
+  }
+  override ngOnInit(): void {
+    super.ngOnInit();
     this.locations = fromData.locations;
+
+    this.appendSub = this._route.queryParams
+      .pipe(pluck('name'))
+      .subscribe((name) => {
+        if (!name) return;
+        this._scrollService.scrollToElement(name, { delay: 300 });
+      });
   }
 }

@@ -19,7 +19,8 @@ import { identifyLocation, Location } from '../../../shared';
           >
             <!-- Google Map -->
             <lbk-google-map
-              [class.order-last]="i !== 1"
+              [id]="location.location | slug"
+              [ngClass]="{ '2xl:order-last': i !== 1 }"
               class="2xl:grow"
             ></lbk-google-map>
             <!-- end Google Map -->

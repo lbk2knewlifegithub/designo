@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ImageModule } from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
+import { SlugPipeModule } from '@lbk/pipes';
 import { GOOGLE_MAP } from '@lbk/tokens';
 import { environment as env } from '../../../environments/environment';
 import { COMPONENTS } from './components';
@@ -22,6 +23,9 @@ import { LocationsRoutingModule } from './locations-routing.module';
 
     // Shared Directives From Libs
     ScrollToModule,
+
+    // Shared Pipe From Libs
+    SlugPipeModule,
 
     // Shared Component From Libs
     ImageModule,

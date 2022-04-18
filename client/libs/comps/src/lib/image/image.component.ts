@@ -23,15 +23,16 @@ import { map, Observable, of } from 'rxjs';
   template: `
     <img
       [classList]="classImage"
-      [alt]="image.alt"
+      [alt]="image?.alt || alt"
       [defaultImage]="defaultImage"
       [lazyLoad]="(src$ | async)!"
     />
   `,
 })
 export class ImageComponent implements OnInit {
-  @Input() image!: Image;
+  @Input() image?: Image;
   @Input() singleImage?: string;
+  @Input() alt?: string;
   @Input() classImage = '';
 
   src$!: Observable<string | undefined>;
@@ -51,13 +52,13 @@ export class ImageComponent implements OnInit {
       map((size) => {
         switch (size) {
           case '2xl':
-            return this.image.desktop;
+            return this.image?.desktop;
           case 'xl':
           case 'lg':
           case 'md':
-            return this.image.tablet;
+            return this.image?.tablet;
           default:
-            return this.image.mobile;
+            return this.image?.mobile;
         }
       })
     );
