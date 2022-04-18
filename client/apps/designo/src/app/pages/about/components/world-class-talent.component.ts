@@ -20,7 +20,7 @@ import { Image } from '@lbk/models';
         <!-- end World Class Talent Image -->
 
         <div
-          class="relative py-[80px] text-center max-w-[530px] mx-auto md:py-16 2xl:text-left 2xl:max-w-[445px] 2xl:mx-0"
+          class="container relative py-[80px] text-center max-w-[530px] mx-auto md:px-0 md:py-16 2xl:text-left 2xl:max-w-[445px] 2xl:mx-0"
         >
           <h1 class="font-medium text-lg text-peach-200 md:text-xl">
             World-class talent
