@@ -8,8 +8,19 @@ interface Feature {
   selector: 'lbk-features',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="container">
-      <ul class="grid gap-[80px] md:gap-6 2xl:grid-cols-3 2xl:gap-[30px]">
+    <section class="relative container">
+      <!-- Pattern Leaf -->
+      <img
+        class="hidden z-[-1] absolute bottom-0 right-0 scale-x-[-1] scale-y-[-1] translate-y-[55%] 2xl:block "
+        src="assets/shared/desktop/bg-pattern-leaf.svg"
+        alt="Pattern Leaf"
+      />
+      <!-- end Pattern Leaf -->
+
+      <ul
+        scrollTo
+        class="grid gap-[80px] md:gap-6 2xl:grid-cols-3 2xl:gap-[30px]"
+      >
         <li
           class="flex flex-col items-center text-center gap-12 md:flex-row md:text-left md:gap-12 2xl:flex-col 2xl:text-center"
           *ngFor="let feature of features; trackBy: identifyFeature"
