@@ -1,24 +1,24 @@
 {
   "projectType": "application",
-  "root": "apps/designo",
-  "sourceRoot": "apps/designo/src",
+  "root": "apps/frontendmentor",
+  "sourceRoot": "apps/frontendmentor/src",
   "prefix": "lbk",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/designo",
-        "index": "apps/designo/src/index.html",
-        "main": "apps/designo/src/main.ts",
-        "polyfills": "apps/designo/src/polyfills.ts",
-        "tsConfig": "apps/designo/tsconfig.app.json",
+        "outputPath": "dist/apps/frontendmentor",
+        "index": "apps/frontendmentor/src/index.html",
+        "main": "apps/frontendmentor/src/main.ts",
+        "polyfills": "apps/frontendmentor/src/polyfills.ts",
+        "tsConfig": "apps/frontendmentor/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/designo/src/favicon.ico", "apps/designo/src/assets"],
-        "styles": [
-          "apps/designo/src/styles.scss",
-          "node_modules/aos/dist/aos.css"
+        "assets": [
+          "apps/frontendmentor/src/favicon.ico",
+          "apps/frontendmentor/src/assets"
         ],
+        "styles": ["apps/frontendmentor/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -37,8 +37,8 @@
           ],
           "fileReplacements": [
             {
-              "replace": "apps/designo/src/environments/environment.ts",
-              "with": "apps/designo/src/environments/environment.prod.ts"
+              "replace": "apps/frontendmentor/src/environments/environment.ts",
+              "with": "apps/frontendmentor/src/environments/environment.prod.ts"
             }
           ],
           "outputHashing": "all"
@@ -58,10 +58,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "designo:build:production"
+          "browserTarget": "frontendmentor:build:production"
         },
         "development": {
-          "browserTarget": "designo:build:development"
+          "browserTarget": "frontendmentor:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -69,23 +69,23 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "designo:build"
+        "browserTarget": "frontendmentor:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "apps/designo/src/**/*.ts",
-          "apps/designo/src/**/*.html"
+          "apps/frontendmentor/src/**/*.ts",
+          "apps/frontendmentor/src/**/*.html"
         ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/designo"],
+      "outputs": ["coverage/apps/frontendmentor"],
       "options": {
-        "jestConfig": "apps/designo/jest.config.js",
+        "jestConfig": "apps/frontendmentor/jest.config.js",
         "passWithNoTests": true
       }
     }

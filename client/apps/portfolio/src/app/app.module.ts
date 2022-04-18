@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { CLIENT_PRODUCT_FEEDBACKS_URL } from '@lbk/tokens';
+import { CLIENT_PRODUCT_FEEDBACKS_URL, CLIENT_DESIGNO_URL } from '@lbk/tokens';
 import { AppComponent, CoreModule } from './core';
 import { environment } from '../environments/environment';
 
@@ -12,6 +12,11 @@ import { environment } from '../environments/environment';
     {
       provide: CLIENT_PRODUCT_FEEDBACKS_URL,
       useValue: environment.clientProductFeedbacksUrl,
+    },
+
+    {
+      provide: CLIENT_DESIGNO_URL,
+      useValue: environment.clientDesignoUrl,
     },
   ],
   bootstrap: [AppComponent],

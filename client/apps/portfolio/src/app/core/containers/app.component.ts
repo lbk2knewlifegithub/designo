@@ -4,9 +4,10 @@ import {
   Inject,
   OnInit,
 } from '@angular/core';
-import { CLIENT_PRODUCT_FEEDBACKS_URL } from '@lbk/tokens';
-// import { HttpClient } from '@angular/common/http';
-// import { Message } from '@lbk/api-interfaces';
+import { ActivatedRoute } from '@angular/router';
+import { UnSubscribe } from '@lbk/comps';
+import { CLIENT_DESIGNO_URL, CLIENT_PRODUCT_FEEDBACKS_URL } from '@lbk/tokens';
+import { pluck } from 'rxjs';
 
 @Component({
   selector: 'lbk-root',
@@ -18,15 +19,32 @@ import { CLIENT_PRODUCT_FEEDBACKS_URL } from '@lbk/tokens';
     </main>
   `,
 })
-export class AppComponent implements OnInit {
+export class AppComponent extends UnSubscribe implements OnInit {
   constructor(
     @Inject(CLIENT_PRODUCT_FEEDBACKS_URL)
-    private readonly _clientProductFeedbacksUrl: string
-  ) {}
-
-  ngOnInit(): void {
-    window.location.href = this._clientProductFeedbacksUrl;
+    private readonly _clientProductFeedbacksUrl: string,
+    @Inject(CLIENT_DESIGNO_URL)
+    private readonly _clientDesignoUrl: string,
+    private readonly _route: ActivatedRoute
+  ) {
+    super();
   }
-  // hello$ = this.http.get<Message>('/api/hello');
-  // constructor(private http: HttpClient) {}
+
+  override ngOnInit(): void {
+    super.ngOnInit();
+
+    this.appendSub = this._route.queryParams
+      .pipe(pluck('project'))
+      .subscribe((project) => {
+        if (project === 'project-feedbacks')
+          return (window.location.href = this._clientProductFeedbacksUrl);
+        if (project === 'designo')
+          return (window.location.href = this._clientDesignoUrl);
+        //  if(project === "audiophile") return  window.location.href = this._clientProductFeedbacksUrl;
+        //  if(project === "invoice-app") return  window.location.href = this._clientProductFeedbacksUrl;
+        //  if(project === "frontendmentor") return  window.location.href = this._clientProductFeedbacksUrl;
+
+        return (window.location.href = this._clientProductFeedbacksUrl);
+      });
+  }
 }
