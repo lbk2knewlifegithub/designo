@@ -5,7 +5,9 @@ import { ProjectsGallery } from '../../../shared';
   selector: 'lbk-hero',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="overflow-hidden container bg-peach-200 md:bg-transparent ">
+    <section
+      class="relative overflow-hidden z-10 container bg-peach-200 md:bg-transparent"
+    >
       <div
         class="relative overflow-hidden text-white text-center py-[105px] md:flex md:flex-col md:items-center md:bg-peach-200 md:rounded-lg md:h-[252px] md:py-0 md:justify-center"
       >
