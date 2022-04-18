@@ -26,6 +26,7 @@ import { fromData } from '../../../shared';
               <lbk-image
                 class="z-[-1] absolute inset-0 "
                 [image]="link.image!"
+                classImage="w-full h-full"
               ></lbk-image>
               <!-- end Background Image -->
 
