@@ -8,3 +8,5 @@ export * from './inputs';
 export * from './alert';
 export { AttributionModule } from './attribution.component';
 export { UnSubscribe } from './unsubscribe.component';
+export * from './image';
+export * from './scroll-to-top';

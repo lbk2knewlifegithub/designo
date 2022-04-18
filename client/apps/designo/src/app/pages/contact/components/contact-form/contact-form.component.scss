@@ -1,0 +1,7 @@
+[type='text'],
+[type='email'],
+textarea {
+  @apply duration-300 bg-transparent text-white placeholder-white-200/60;
+  @apply border-transparent border-b border-b-white pb-2 pl-2;
+  @apply focus:border-0 focus:ring-0 focus:outline-0 focus:border-b-2;
+}

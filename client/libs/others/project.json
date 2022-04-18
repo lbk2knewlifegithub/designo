@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/others",
+  "sourceRoot": "libs/others/src",
+  "prefix": "lbk",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/others"],
+      "options": {
+        "jestConfig": "libs/others/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/others/src/**/*.ts",
+          "libs/others/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

@@ -10,3 +10,4 @@ export * from './jwt-payload.model';
 export * from './price-options.model';
 export * from './token.model';
 export * from './user.model';
+export * from './link.model';

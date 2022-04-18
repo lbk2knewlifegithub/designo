@@ -1,0 +1,67 @@
+<footer
+  class="relative container bg-black-200 pt-[253px] pb-16 mt-[311px] flex flex-col items-center text-white md:pt-[166px] md:pb-20 2xl:mt-[380px]"
+>
+  <!-- Let Talks -->
+  <div *ngIf="!isContactPage">
+    <lbk-let-talks
+      class="absolute block w-full top-0 left-1/2 -translate-y-1/2 -translate-x-1/2 md:-translate-y-[70%] 2xl:-translate-y-[calc(50%+74px)]"
+    ></lbk-let-talks>
+  </div>
+  <!-- end Let Talks -->
+
+  <div class="md:flex md:w-full md:justify-between">
+    <!-- Logo Light-->
+    <a aria-label="Logo" routerLink="/">
+      <img
+        class="max-w-[202px]"
+        src="assets/shared/desktop/logo-light.png"
+        alt="Logo Light"
+      />
+    </a>
+    <!-- end Logo Light-->
+
+    <!-- Links Tablet-->
+    <lbk-links-footer class="hidden md:block"></lbk-links-footer>
+    <!-- end Links Tablet-->
+  </div>
+
+  <!-- Line -->
+  <div class="h-[1px] w-full bg-white-200/30 mt-8 md:mt-10"></div>
+  <!-- end Line -->
+
+  <div
+    class="flex flex-col gap-10 mt-8 items-center text-center md:flex-row md:w-full md:justify-between md:items-end 2xl:text-left 2xl:justify-between"
+  >
+    <!-- Links Mobile-->
+    <lbk-links-footer class="md:hidden"></lbk-links-footer>
+    <!-- end Links Mobile-->
+
+    <div class="grid gap-10 md:grid-cols-2 md:justify-items-start 2xl:gap-52">
+      <!-- Address -->
+      <div class="grid text-white-200/60">
+        <strong> Designo Central Office </strong>
+        <span>3886 Wellington Street</span>
+        <span>Toronto, Ontario M9C 3J5</span>
+      </div>
+      <!-- end Address -->
+
+      <!-- Contact Us -->
+      <div class="grid text-white-200/60">
+        <strong> Contact Us (Central Office) </strong>
+        <span>P : +1 253-863-8967</span>
+        <span>M : contact@designo.co</span>
+      </div>
+      <!-- end Contact Us -->
+    </div>
+
+    <!-- Socials -->
+    <lbk-socials class="block"></lbk-socials>
+    <!-- end Socials -->
+  </div>
+
+  <!-- Attribution -->
+  <lbk-attribution
+    class="absolute bottom-0 left-1/2 -translate-x-1/2"
+  ></lbk-attribution>
+  <!-- end Attribution -->
+</footer>

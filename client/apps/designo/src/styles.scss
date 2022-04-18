@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-mono text-black-200;
+  }
+
+  .btn {
+    @apply duration-300;
+    @apply rounded-lg font-medium text-base tracking-[1px] uppercase;
+    @apply px-6 py-[18px] md:px-[26px];
+  }
+
+  .btn-white {
+    @apply bg-white text-black;
+    @apply hover:bg-peach hover:text-white;
+  }
+
+  .btn-primary {
+    @apply bg-peach-200 text-white;
+    @apply px-[18.5px];
+    @apply hover:bg-peach hover:text-white;
+  }
+}
+
+.map-container {
+  height: 326px !important;
+  width: 100% !important;
+}
+
+@media (min-width: 768px) {
+  .map-container {
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .map-container {
+    height: 326px !important;
+    width: 326px !important;
+  }
+}

@@ -1,0 +1,14 @@
+.body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  .body__tabs {
+    width: 10%;
+    border-right: 2px solid black;
+  }
+
+  .body__content {
+    flex-grow: 1;
+  }
+}

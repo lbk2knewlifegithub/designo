@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/validators",
+  "sourceRoot": "libs/validators/src",
+  "prefix": "lbk",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/validators"],
+      "options": {
+        "jestConfig": "libs/validators/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/validators/src/**/*.ts",
+          "libs/validators/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

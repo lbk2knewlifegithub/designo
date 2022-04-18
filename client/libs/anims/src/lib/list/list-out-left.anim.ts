@@ -30,7 +30,6 @@ export function listOutLeft(options?: ListAnimationsOpstions) {
         query(
           item || 'listItem',
           [
-            style({ position: 'absolute', transform: 'translateX(200px)' }),
             stagger(staggerDuration ?? 100, [
               animate(
                 '{{duration}}ms {{delay}}ms {{easing}}',

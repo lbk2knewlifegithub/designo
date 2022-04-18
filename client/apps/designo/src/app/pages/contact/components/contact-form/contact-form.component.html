@@ -1,0 +1,145 @@
+<section
+  class="relative z-10 container overflow-hidden bg-peach-200 text-white md:bg-transparent"
+>
+  <div
+    class="flex flex-col gap-12 py-[72px] md:overflow-hidden md:z-10 md:relative md:gap-10 md:rounded-lg md:bg-peach-200 md:px-14 2xl:flex-row 2xl:px-[95px] 2xl:gap-[95px] 2xl:items-center 2xl:py-[55px]"
+  >
+    <div class="text-center md:text-left">
+      <h2 class="font-medium text-lg md:text-xl 2xl:text-2xl">
+        Contact Us
+      </h2>
+      <p class="mt-6 text-sm md:text-base">
+        Ready to take it to the next level? Let’s talk about your project or
+        idea and find out how we can help your business grow. If you are looking
+        for unique digital experiences that’s relatable to your users, drop us a
+        line.
+      </p>
+    </div>
+
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      class="grid place-items-center md:place-items-end 2xl:min-w-[380px]"
+    >
+      <div class="grid gap-6 w-full">
+        <!-- Name -->
+        <div class="relative">
+          <input
+            formControlName="name"
+            class="w-full"
+            type="text"
+            placeholder="Name"
+          />
+
+          <!-- Required Error -->
+          <lbk-contact-form-error *ngIf="hasError('name', 'required')">
+            Can't be empty
+          </lbk-contact-form-error>
+          <!-- end Required Error -->
+
+          <!-- Min Length -->
+          <lbk-contact-form-error *ngIf="hasError('name', 'minlength')">
+            Least 2 letters
+          </lbk-contact-form-error>
+          <!-- end Min Length -->
+
+          <!-- Max Length -->
+          <lbk-contact-form-error *ngIf="hasError('name', 'maxlength')">
+            Max 30 letters
+          </lbk-contact-form-error>
+          <!-- end Max Length -->
+        </div>
+        <!-- end Name -->
+
+        <!-- Email -->
+        <div class="relative">
+          <input
+            formControlName="email"
+            class="w-full"
+            type="email"
+            placeholder="Email"
+          />
+
+          <!-- Email Required -->
+          <lbk-contact-form-error *ngIf="hasError('email', 'required')">
+            Can't be empty
+          </lbk-contact-form-error>
+          <!-- end Email Required -->
+
+          <!-- Email invalid -->
+          <lbk-contact-form-error *ngIf="hasError('email', 'email')">
+            Email invalid
+          </lbk-contact-form-error>
+          <!-- end Email invalid -->
+        </div>
+        <!-- end Email -->
+
+        <!-- Phone -->
+        <div class="relative">
+          <input
+            class="w-full"
+            formControlName="phone"
+            type="text"
+            placeholder="Phone"
+          />
+
+          <!-- Phone Required -->
+          <lbk-contact-form-error *ngIf="hasError('phone', 'required')">
+            Can't be empty
+          </lbk-contact-form-error>
+          <!-- end Phone Required -->
+
+          <!-- Phone invalid -->
+          <lbk-contact-form-error *ngIf="hasError('phone', 'pattern')">
+            Phone invalid
+          </lbk-contact-form-error>
+          <!-- end Phone invalid -->
+        </div>
+        <!-- end Phone -->
+
+        <!-- Message -->
+        <div class="relative">
+          <textarea
+            class="w-full"
+            formControlName="message"
+            rows="3"
+            placeholder="Your Message"
+          ></textarea>
+
+          <!-- Message Required -->
+          <lbk-contact-form-error *ngIf="hasError('message', 'required')">
+            Can't be empty
+          </lbk-contact-form-error>
+          <!-- end Message Required -->
+
+          <!-- Max Length Error -->
+          <lbk-contact-form-error *ngIf="hasError('message', 'maxlength')">
+            Max 250 letters
+          </lbk-contact-form-error>
+          <!-- end Max Length Required -->
+        </div>
+        <!-- end Message -->
+      </div>
+
+      <!-- Submit Button -->
+      <button class="btn btn-white px-12 mt-10 2xl:mt-6">SUBMIT</button>
+      <!-- end Submit Button -->
+    </form>
+
+    <!-- Pattern Circle Tablet -->
+    <img
+      class="hidden absolute top-0 left-0 scale-[200%] -translate-y-1/2 -translate-x-1/2 z-[-1] md:block"
+      src="assets/contact/desktop/bg-pattern-hero-desktop.svg"
+      alt="Pattern Mobile"
+    />
+    <!-- end Pattern Circle Tablet -->
+  </div>
+
+  <!-- Pattern Circle Mobile -->
+  <img
+    class="absolute top-0 left-0 scale-[200%] z-[-1] sm:scale-[300%] md:hidden"
+    src="assets/shared/desktop/bg-pattern-small-circle.svg"
+    alt="Pattern Mobile"
+  />
+  <!-- end Pattern Circle Mobile -->
+</section>

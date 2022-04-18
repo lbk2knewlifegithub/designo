@@ -6,9 +6,7 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/product-feedbacks",
         "index": "apps/product-feedbacks/src/index.html",
@@ -25,9 +23,7 @@
             "output": "assets/"
           }
         ],
-        "styles": [
-          "apps/product-feedbacks/src/styles.scss"
-        ],
+        "styles": ["apps/product-feedbacks/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -116,9 +112,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/product-feedbacks"
-      ],
+      "outputs": ["coverage/apps/product-feedbacks"],
       "options": {
         "jestConfig": "apps/product-feedbacks/jest.config.js",
         "passWithNoTests": true

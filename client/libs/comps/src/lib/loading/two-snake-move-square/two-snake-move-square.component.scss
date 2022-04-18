@@ -1,0 +1,22 @@
+svg {
+  width: 100px;
+  height: 100px;
+
+  rect {
+    width: 100px;
+    height: 100px;
+    fill: none;
+    stroke-width: 100px;
+    stroke: #00adff;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 50%;
+    animation: animateTwoSnake 2s linear infinite;
+  }
+
+}
+
+@keyframes animateTwoSnake {
+  to {
+    stroke-dashoffset: 250%;
+  }
+}

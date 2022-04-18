@@ -1,0 +1,38 @@
+.loader {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  filter: url(#gooey);
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    animation: animateLiquidCircle 4s ease-in-out infinite;
+    animation-delay: calc(.2s * var(--i));
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: calc(50% - 20px);
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(#fce4ec, #03aef4);
+      border-radius: 50%;
+    }
+  }
+}
+
+@keyframes animateLiquidCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50%, 100% {
+    transform: rotate(360deg);
+  }
+}
