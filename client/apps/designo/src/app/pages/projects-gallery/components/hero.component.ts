@@ -5,12 +5,9 @@ import { ProjectsGallery } from '../../../shared';
   selector: 'lbk-hero',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section
-      data-aos="zoom-out-left"
-      class="container bg-peach-200 md:bg-transparent "
-    >
+    <section class="overflow-hidden container bg-peach-200 md:bg-transparent ">
       <div
-        class="text-white text-center py-[105px] md:flex md:flex-col md:items-center md:bg-peach-200 md:rounded-lg md:h-[252px] md:py-0 md:justify-center"
+        class="relative overflow-hidden text-white text-center py-[105px] md:flex md:flex-col md:items-center md:bg-peach-200 md:rounded-lg md:h-[252px] md:py-0 md:justify-center"
       >
         <!-- Projects Gallery Name -->
         <h1 class="font-medium text-lg md:text-2xl">
@@ -23,7 +20,23 @@ import { ProjectsGallery } from '../../../shared';
           {{ projectGallery.description }}
         </p>
         <!-- end Projects Gallery Description -->
+
+        <!-- Pattern Circle Tablet-->
+        <img
+          class="hidden absolute top-0 left-1/2 -translate-x-1/2 scale-[190%] md:block"
+          src="assets/app-design/desktop/bg-pattern-intro-app.svg"
+          alt="Pattern Circle"
+        />
+        <!-- end Pattern Circle Tablet-->
       </div>
+
+      <!-- Pattern Circle Mobile-->
+      <img
+        class="absolute top-0 left-1/2 -translate-x-1/2 scale-[300%] md:hidden"
+        src="assets/app-design/desktop/bg-pattern-intro-app.svg"
+        alt="Pattern Circle"
+      />
+      <!-- end Pattern Circle Mobile-->
     </section>
   `,
 })

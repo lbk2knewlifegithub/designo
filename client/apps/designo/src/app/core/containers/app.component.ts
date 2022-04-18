@@ -22,10 +22,5 @@ import * as AOS from 'aos';
     <!-- end Scroll To Top -->
   `,
 })
-export class AppComponent implements OnInit {
-  ngOnInit(): void {
-    AOS.init({
-      once: true,
-    });
-  }
+export class AppComponent  {
 }

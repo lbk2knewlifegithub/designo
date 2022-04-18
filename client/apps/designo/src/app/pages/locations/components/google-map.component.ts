@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { Coordinate } from '../../../shared';
 
 @Component({
   selector: 'lbk-google-map',
@@ -7,10 +13,12 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class GoogleMapComponent implements OnInit {
   options!: google.maps.MapOptions;
+  @Input() coor!: Coordinate;
+
   ngOnInit(): void {
     this.options = {
-      center: { lat: 40, lng: -20 },
-      zoom: 4,
+      center: { ...this.coor },
+      zoom: 12,
     };
   }
 }

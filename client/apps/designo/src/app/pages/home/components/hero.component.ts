@@ -5,7 +5,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section
-      data-aos="fade-up"
       class="container relative h-[843px] bg-peach-200 overflow-hidden md:bg-transparent 2xl:h-[640px]"
     >
       <div

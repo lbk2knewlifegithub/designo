@@ -170,8 +170,8 @@ export const locations: Location[] = [
     phone: '+1 253-863-8967',
     email: 'contact@designo.co',
     coordinate: {
-      lat: 43.642567,
-      lng: -79.387053,
+      lat: 51.297826,
+      lng: 9.52723,
     },
   },
 
@@ -183,8 +183,8 @@ export const locations: Location[] = [
     phone: '(02) 6720 9092',
     email: 'contact@designo.au',
     coordinate: {
-      lat: 43.642567,
-      lng: -79.387053,
+      lat: 35.123483,
+      lng: -97.625375,
     },
   },
 
@@ -196,8 +196,8 @@ export const locations: Location[] = [
     phone: '078 3115 1400',
     email: 'contact@designo.uk',
     coordinate: {
-      lat: 43.642567,
-      lng: -79.387053,
+      lat: 51.835612,
+      lng: 8.955941,
     },
   },
 ];

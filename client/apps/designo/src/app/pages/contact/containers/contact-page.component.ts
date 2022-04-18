@@ -11,7 +11,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
       <!-- Locations -->
       <lbk-locations-link
-        data-aos="zoom-out"
         class="block mt-[120px] 2xl:mt-[160px]"
       ></lbk-locations-link>
       <!-- end Locations -->

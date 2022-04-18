@@ -11,23 +11,18 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
       <!-- World-class talent  -->
       <lbk-world-class-talent
-        data-aos="zoom-in"
         class="md:block md:mt-[120px] 2xl:mt-[160px]"
       ></lbk-world-class-talent>
       <!-- end World-class talent  -->
 
       <!-- Locations -->
       <lbk-locations-link
-        data-aos="zoom-in"
         class="block mt-[120px] 2xl:mt-[160px]"
       ></lbk-locations-link>
       <!-- end Locations -->
 
       <!-- The Real Deal -->
-      <lbk-the-real-deal
-        data-aos="zoom-in"
-        class="block mt-[120px] "
-      ></lbk-the-real-deal>
+      <lbk-the-real-deal class="block mt-[120px] "></lbk-the-real-deal>
       <!-- end The Real Deal -->
     </main>
   `,
