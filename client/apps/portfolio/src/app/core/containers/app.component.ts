@@ -35,7 +35,7 @@ export class AppComponent extends UnSubscribe implements OnInit {
     this.appendSub = this._route.queryParams
       .pipe(pluck('project'))
       .subscribe((project) => {
-        if (project === 'project-feedbacks')
+        if (project === 'product-feedbacks')
           return (window.location.href = this._clientProductFeedbacksUrl);
         if (project === 'designo')
           return (window.location.href = this._clientDesignoUrl);

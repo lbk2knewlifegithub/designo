@@ -5,7 +5,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <main class="container mt-20">
-      <lbk-project-preview-list></lbk-project-preview-list>
+      <h2 class="text-3xl text-center">Portfolio (Coming Soon)</h2>
+
+      <!-- <lbk-skills></lbk-skills> -->
+
+      <lbk-project-preview-list class="block mt-8"></lbk-project-preview-list>
     </main>
   `,
 })
