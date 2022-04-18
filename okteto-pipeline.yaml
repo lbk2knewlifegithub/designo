@@ -25,3 +25,7 @@ deploy:
   # Build client product feedbacks PRODUCTION
   - okteto build -t okteto.dev/client-product-feedbacks:${OKTETO_GIT_COMMIT} client -f client/product-feedbacks.Dockerfile
   - helm upgrade -i client-product-feedbacks charts/client -n client-lbk2knewlifegithub -f values/prod/client-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
+
+  # Build Designo PRODUCTION
+  - okteto build -t okteto.dev/client-designo:${OKTETO_GIT_COMMIT} client -f client/designo.Dockerfile
+  - helm upgrade -i client-designo charts/client -n client-lbk2knewlifegithub -f values/prod/client-designo.yaml --set tag=${OKTETO_GIT_COMMIT}
