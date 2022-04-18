@@ -18,7 +18,9 @@
     "invoice-app:dev": "nx serve invoice-app -- --port=4203",
     "invoice-app:build": "nx build invoice-app",
     "designo:dev": "nx serve designo -- --port=4204",
-    "designo:build": "nx build designo"
+    "designo:build": "nx build designo",
+    "sandbox:dev": "nx serve sandbox -- --port=4205",
+    "sandbox:build": "nx build sandbox"
   },
   "private": true,
   "dependencies": {

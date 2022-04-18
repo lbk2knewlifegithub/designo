@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Project, identifyProject } from '../../../shared';
+import { identifyProject, Project } from '../../../shared';
 
 @Component({
   selector: 'lbk-project-list',
@@ -9,15 +9,15 @@ import { Project, identifyProject } from '../../../shared';
       <ul class="grid gap-10 2xl:grid-cols-3">
         <li
           *ngFor="let project of projects; trackBy: identifyProject"
-          class="rounded-2xl overflow-hidden bg-peach-200/10 md:grid md:grid-cols-2 md:max-h-[310px] md:place-content-center 2xl:grid-cols-1 2xl:max-h-[478px]"
+          class="rounded-2xl overflow-hidden bg-peach-200/10 md:grid md:grid-cols-2 md:max-h-[320px] md:place-content-center lg:max-h-[400px] 2xl:grid-cols-1 2xl:max-h-[478px]"
         >
           <!-- Project Image -->
           <img
             [ngClass]="{ 'order-last 2xl:order-first': reverse }"
-            [src]=""
+            class="object-cover object-center"
             [alt]="project.name"
+            [src]="project.image"
           />
-          <lbk-image [singleImage]="project.image"></lbk-image>
           <!-- end Project Image -->
 
           <a
