@@ -1,23 +1,15 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lbk-footer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: `./footer.component.html`,
 })
-export class FooterComponent implements OnInit {
-  isNotContactPage$!: Observable<boolean>;
+export class FooterComponent {
   constructor(private readonly _router: Router) {}
-  ngOnInit(): void {
-    this.isNotContactPage$ = this._router.events.pipe(
-      map((event) => {
-        if (event instanceof NavigationEnd) {
-          return !event.url.startsWith('/contact');
-        }
-        return false;
-      })
-    );
+
+  get isContactPage() {
+    return this._router.url.startsWith('/contact');
   }
 }

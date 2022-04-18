@@ -1,3 +1,4 @@
+import { fadeInUpBig } from '@lbk/anims';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -14,12 +15,13 @@ import { fromData, Location } from '../../../shared';
   selector: 'lbk-locations-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <main class="relative md:pb-12 2xl:pb-0">
+    <main @fadeInUpBig class="relative md:pb-12 2xl:pb-0">
       <!-- Location List -->
       <lbk-location-list [locations]="locations"></lbk-location-list>
       <!-- end Location List -->
     </main>
   `,
+  animations: [fadeInUpBig()],
 })
 export class LocationsPageComponent extends UnSubscribe implements OnInit {
   locations!: Location[];

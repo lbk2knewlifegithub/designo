@@ -32,7 +32,6 @@ import { identifyLocation, Location } from '../../../shared';
               <!-- Pattern Three  Circle -->
               <img
                 *ngIf="i === 1; else twoCircles"
-                scrollTo
                 class="absolute top-0 left-0 md:right-0 md:scale-150 md:-translate-y-1/2 2xl:translate-x-[300px] 2xl:scale-200"
                 src="assets/shared/desktop/bg-pattern-three-circles.svg"
                 alt="Pattern Three Circles"

@@ -10,6 +10,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
     data: {
       animation: 'home',
+      title: "Designo's Home Page",
     },
   },
 
@@ -21,6 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/about').then((m) => m.AboutModule),
     data: {
       animation: 'about',
+      title: "Designo's About Page",
     },
   },
 
@@ -32,6 +34,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/contact').then((m) => m.ContactModule),
     data: {
       animation: 'contact',
+      title: "Designo's Contact Page",
     },
   },
   /**
@@ -43,6 +46,7 @@ const routes: Routes = [
       import('./pages/projects-gallery').then((m) => m.ProjectsGalleryModule),
     data: {
       animation: 'projects-gallery',
+      title: "Designo's Projects Gallery",
     },
   },
   /**
@@ -54,6 +58,7 @@ const routes: Routes = [
       import('./pages/locations').then((m) => m.LocationsModule),
     data: {
       animation: 'locations',
+      title: "Designo's Locations Gallery",
     },
   },
   {

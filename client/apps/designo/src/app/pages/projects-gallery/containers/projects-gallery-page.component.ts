@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { fadeInUpBig } from '@lbk/anims';
 import { Observable, pluck } from 'rxjs';
 import { ProjectsGallery } from '../../../shared';
 
@@ -7,7 +8,7 @@ import { ProjectsGallery } from '../../../shared';
   selector: 'lbk-projects-gallery-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <main class="md:pb-20 2xl:pb-0">
+    <main @fadeInUpBig class="md:pb-20 2xl:pb-0">
       <!-- Hero -->
       <lbk-hero [projectGallery]="(projectGallery$ | async)!"></lbk-hero>
       <!-- end Hero -->
@@ -29,6 +30,7 @@ import { ProjectsGallery } from '../../../shared';
       <!-- end Project Links -->
     </main>
   `,
+  animations: [fadeInUpBig()],
 })
 export class ProjectsGalleryPageComponent implements OnInit {
   projectGallery$!: Observable<ProjectsGallery>;

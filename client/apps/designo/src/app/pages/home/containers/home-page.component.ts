@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { fadeInUp } from '@lbk/anims';
 
 @Component({
   selector: 'lbk-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <main class="relative">
+    <main @fadeInUp class="relative">
       <!-- Hero -->
       <lbk-hero></lbk-hero>
       <!-- end Hero -->
@@ -20,5 +21,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- end Features -->
     </main>
   `,
+  animations: [fadeInUp()],
 })
 export class HomePageComponent {}

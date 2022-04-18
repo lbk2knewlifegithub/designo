@@ -3,6 +3,7 @@ import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ImageModule } from '@lbk/comps';
+import { ScrollToModule } from '@lbk/directives';
 import { SlugPipeModule } from '@lbk/pipes';
 import { GOOGLE_MAP } from '@lbk/tokens';
 import { environment as env } from '../../../environments/environment';
@@ -19,6 +20,9 @@ import { LocationsRoutingModule } from './locations-routing.module';
 
     // Third Librarys
     GoogleMapsModule,
+
+    // Shared Directives From Libs
+    ScrollToModule,
 
     // Shared Pipe From Libs
     SlugPipeModule,

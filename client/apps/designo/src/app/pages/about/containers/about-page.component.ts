@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { fadeInUpBig } from '@lbk/anims';
 
 @Component({
   selector: 'lbk-about-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <main class="relative md:pb-10">
+    <main @fadeInUpBig class="relative md:pb-10">
       <!-- About Us  -->
       <lbk-about-us></lbk-about-us>
       <!-- end About Us -->
@@ -26,5 +27,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- end The Real Deal -->
     </main>
   `,
+  animations: [fadeInUpBig()],
 })
 export class AboutPageComponent {}
