@@ -1,0 +1,46 @@
+.paperPlaneButton {
+  border: none;
+  display: block;
+  position: relative;
+  font-size: 25px;
+  padding: .5rem 1.6rem;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+  color: royalblue;
+  overflow: hidden;
+
+  &:focus, &:hover {
+    color: white;
+  }
+
+  &:hover span:before,
+  &:focus span:before {
+    transform: translate(-50%, -50%) rotate(-90deg);
+    width: 100%;
+    background: royalblue;
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: -1;
+    border: 5px solid royalblue;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 8%;
+      height: 500%;
+      background: white;
+      top: 50%;
+      left: 50%;
+      transition: all .3s;
+      transform: translate(-50%, -50%) rotate(-60deg);
+    }
+  }
+}

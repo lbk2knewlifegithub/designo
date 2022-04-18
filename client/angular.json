@@ -14,13 +14,16 @@
     "interceptors": "libs/interceptors",
     "invoice-app": "apps/invoice-app",
     "models": "libs/models",
+    "others": "libs/others",
     "pages": "libs/pages",
     "pipes": "libs/pipes",
     "portfolio": "apps/portfolio",
     "product-feedbacks": "apps/product-feedbacks",
     "rxjs": "libs/rxjs",
+    "sandbox": "apps/sandbox",
     "services": "libs/services",
     "state-feedbacks": "libs/state/feedbacks",
-    "tokens": "libs/tokens"
+    "tokens": "libs/tokens",
+    "validators": "libs/validators"
   }
 }

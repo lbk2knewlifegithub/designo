@@ -1,0 +1,111 @@
+$color-search-icon: white;
+$color-clear-icon: #999;
+$border-search-bar: 10px;
+
+.search-bar {
+  position: relative;
+  display: flex;
+
+  .form-control {
+    height: 50px;
+    font-size: 1.2rem;
+    // top-left top-right bottom-right bottom-left
+    border-radius: 0 $border-search-bar $border-search-bar 0;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+  }
+
+  //search icon
+  .search-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00a1ff;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      transform: translate(-4px, -4px);
+      border: 3px solid $color-search-icon;
+      border-radius: 50%;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 3px;
+      height: 12px;
+      background: $color-search-icon;
+      transform: translate(6px, 6px) rotate(-45deg);
+    }
+
+  }
+
+  //end search icon
+
+  //clear icon
+  .clear-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:before {
+      position: absolute;
+      content: "";
+      width: 2px;
+      height: 15px;
+      background: $color-clear-icon;
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      position: absolute;
+      content: "";
+      width: 2px;
+      height: 15px;
+      background: $color-clear-icon;
+      transform: rotate(-45deg);
+    }
+  }
+
+  //end clear icon
+  .custom-list-group {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .custom-list-group-item {
+    position: relative;
+    display: block;
+    padding: .60rem 1.10rem;
+    background-color: #fff;
+  }
+
+  .custom-list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+}
+

@@ -1,0 +1,38 @@
+<div class='search-bar'>
+  <!--  search icon-->
+  <div class='search-icon'></div>
+  <!--  end search icon-->
+
+  <!--  input search bar-->
+  <input
+    [(ngModel)]='selected'
+    [typeahead]='states'
+    (keydown.enter)='onSubmit()'
+    [optionsListTemplate]='customListTemplate'
+    class='form-control'>
+  <!--  end input search bar-->
+
+  <!-- clear icon -->
+  <span
+    (click)='onClear()'
+    class='clear-icon'></span>
+  <!-- end clear icon -->
+
+
+  <!--  list item searching-->
+  <ng-template #customListTemplate
+               let-matches='matches'
+               let-query='query' let-typeaheadTemplateMethods>
+    <ul class='custom-list-group' [class.dropdown-menu]='isBs3'>
+      <li class='custom-list-group-item'
+          *ngFor='let match of matches'
+          [class.active]='typeaheadTemplateMethods.isActive(match)'
+          (click)='typeaheadTemplateMethods.selectMatch(match, $event);onSubmit()'
+          (mouseenter)='typeaheadTemplateMethods.selectActive(match)'>
+        {{ match.item }}
+      </li>
+    </ul>
+  </ng-template>
+  <!--  end list item searching-->
+</div>
+

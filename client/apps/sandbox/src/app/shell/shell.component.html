@@ -1,0 +1,23 @@
+<!--toolbar-->
+<mat-toolbar class='shadow-sm' color='primary'>
+  <strong>{{currentLink.href | uppercase}}</strong>
+</mat-toolbar>
+<!--end toolbar-->
+
+<!--body-->
+<div class='body'>
+  <!-- tabs-->
+  <mat-nav-list class='body__tabs'>
+    <a mat-list-item
+       routerLinkActive='active'
+       (click)='currentLink = link'
+       [routerLink]='[link.href]'
+       *ngFor='let link of links'> {{ link.title | titlecase }} </a>
+  </mat-nav-list>
+  <!-- end tabs-->
+
+  <div class='body__content'>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<!--end body-->

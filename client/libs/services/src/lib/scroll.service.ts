@@ -8,7 +8,7 @@ interface ScrollOptions {
 @Injectable({ providedIn: 'root' })
 export class ScrollService {
   defaultOptions: ScrollOptions = {
-    delay: 200,
+    delay: 0,
     behavior: 'smooth',
   };
 
