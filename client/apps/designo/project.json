@@ -6,9 +6,7 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/designo",
         "index": "apps/designo/src/index.html",
@@ -16,10 +14,7 @@
         "polyfills": "apps/designo/src/polyfills.ts",
         "tsConfig": "apps/designo/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": [
-          "apps/designo/src/favicon.ico",
-          "apps/designo/src/assets"
-        ],
+        "assets": ["apps/designo/src/favicon.ico", "apps/designo/src/assets"],
         "styles": [
           "apps/designo/src/styles.scss",
           "node_modules/aos/dist/aos.css"
@@ -88,9 +83,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/designo"
-      ],
+      "outputs": ["coverage/apps/designo"],
       "options": {
         "jestConfig": "apps/designo/jest.config.js",
         "passWithNoTests": true

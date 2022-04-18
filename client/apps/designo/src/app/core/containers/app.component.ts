@@ -33,6 +33,7 @@ export class AppComponent extends UnSubscribe implements OnInit {
   ) {
     super();
   }
+
   override ngOnInit(): void {
     super.ngOnInit();
 

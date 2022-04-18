@@ -22,3 +22,7 @@ export interface Image {
    */
   alt: string;
 }
+
+export const identifyImage = (index: number, image: Image) => {
+  return image.alt;
+};
