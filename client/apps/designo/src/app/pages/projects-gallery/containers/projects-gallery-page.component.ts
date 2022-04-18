@@ -14,6 +14,7 @@ import { ProjectsGallery } from '../../../shared';
 
       <!-- Project List -->
       <lbk-project-list
+        data-aos="fade-up"
         [projects]="(projectGallery$ | async)!.projects"
         [reverse]="(projectGallery$ | async)!.slug === 'graphic-design'"
         class="block mt-[96px] 2xl:mt-[160px]"

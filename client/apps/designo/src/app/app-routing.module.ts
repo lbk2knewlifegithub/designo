@@ -8,6 +8,9 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
+    data: {
+      animation: 'home',
+    },
   },
 
   /**
@@ -16,6 +19,9 @@ const routes: Routes = [
   {
     path: 'about',
     loadChildren: () => import('./pages/about').then((m) => m.AboutModule),
+    data: {
+      animation: 'about',
+    },
   },
 
   /**
@@ -24,6 +30,9 @@ const routes: Routes = [
   {
     path: 'contact',
     loadChildren: () => import('./pages/contact').then((m) => m.ContactModule),
+    data: {
+      animation: 'contact',
+    },
   },
   /**
    * - Projects Gallery Page
@@ -32,6 +41,9 @@ const routes: Routes = [
     path: 'projects-gallery',
     loadChildren: () =>
       import('./pages/projects-gallery').then((m) => m.ProjectsGalleryModule),
+    data: {
+      animation: 'projects-gallery',
+    },
   },
   /**
    * - Locations page
@@ -40,6 +52,9 @@ const routes: Routes = [
     path: 'locations',
     loadChildren: () =>
       import('./pages/locations').then((m) => m.LocationsModule),
+    data: {
+      animation: 'locations',
+    },
   },
   {
     path: '',

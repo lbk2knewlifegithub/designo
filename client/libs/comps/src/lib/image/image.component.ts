@@ -36,7 +36,7 @@ export class ImageComponent implements OnInit {
   @Input() classImage = '';
 
   src$!: Observable<string | undefined>;
-  defaultImage = 'https://www.placecage.com/1000/1000';
+  defaultImage = 'https://via.placeholder.com/1000/FFFFFF/FFFFFF?Text=';
 
   constructor(
     private readonly _breakpointObserver: BreakpointObserverService

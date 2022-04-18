@@ -15,6 +15,7 @@ import { identifyLocation, Location } from '../../../shared';
           "
         >
           <li
+            data-aos="zoom-out-right"
             class="flex flex-col max-w-full overflow-hidden md:gap-8 md:container 2xl:flex-row 2xl:gap-5"
           >
             <!-- Google Map -->

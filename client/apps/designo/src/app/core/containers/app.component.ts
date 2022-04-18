@@ -1,21 +1,31 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ScrollService } from '@lbk/services';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'lbk-root',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
+    <!-- Header -->
     <lbk-header></lbk-header>
+    <!-- end Header -->
+
+    <!-- Router Outlet -->
     <router-outlet></router-outlet>
+    <!-- end Router Outlet -->
+
+    <!-- Footer -->
     <lbk-footer></lbk-footer>
+    <!-- end Footer -->
+
+    <!-- Scroll To Top -->
     <lbk-scroll-to-top bgColor="peach-200"></lbk-scroll-to-top>
+    <!-- end Scroll To Top -->
   `,
 })
 export class AppComponent implements OnInit {
-  constructor(private readonly _scrollService: ScrollService) {}
-
-  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
-    // this._scrollService.scrollToBottom();
+    AOS.init({
+      once: true,
+    });
   }
 }

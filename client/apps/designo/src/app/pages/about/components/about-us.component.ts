@@ -6,6 +6,7 @@ import { Image } from '@lbk/models';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section
+      data-aos="zoom-in"
       class="md:container bg-peach-200 md:bg-transparent 2xl:max-h-[480px]"
     >
       <div

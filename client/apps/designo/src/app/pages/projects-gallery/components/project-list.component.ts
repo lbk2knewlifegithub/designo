@@ -5,7 +5,7 @@ import { identifyProject, Project } from '../../../shared';
   selector: 'lbk-project-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section scrollTo class="container ">
+    <section class="container ">
       <ul class="grid gap-10 2xl:grid-cols-3">
         <li
           *ngFor="let project of projects; trackBy: identifyProject"

@@ -11,7 +11,7 @@ import { fromData } from '../../../shared';
   selector: 'lbk-project-links',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="container">
+    <section data-aos="fade-up" class="container">
       <ul class="grid gap-6 2xl:grid-cols-2 2xl:gap-x-[30px]">
         <ng-container
           *ngFor="let link of links; index as i; trackBy: identifyLink"

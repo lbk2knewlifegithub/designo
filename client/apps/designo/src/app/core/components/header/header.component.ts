@@ -8,6 +8,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   template: `
     <header
       #header
+      data-aos="fade-down"
       class="container flex justify-between py-8 md:py-16 2xl:py-[67px]"
     >
       <!-- Menu -->

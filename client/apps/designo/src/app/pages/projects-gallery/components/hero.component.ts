@@ -5,7 +5,10 @@ import { ProjectsGallery } from '../../../shared';
   selector: 'lbk-hero',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="container bg-peach-200 md:bg-transparent ">
+    <section
+      data-aos="zoom-out-left"
+      class="container bg-peach-200 md:bg-transparent "
+    >
       <div
         class="text-white text-center py-[105px] md:flex md:flex-col md:items-center md:bg-peach-200 md:rounded-lg md:h-[252px] md:py-0 md:justify-center"
       >
