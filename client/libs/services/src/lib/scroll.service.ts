@@ -12,6 +12,10 @@ export class ScrollService {
     behavior: 'smooth',
   };
 
+  /**
+   * - Scroll To Bottom
+   * @param options
+   */
   scrollToBottom(options?: Partial<ScrollOptions>) {
     options = { ...this.defaultOptions, ...options };
     const { delay } = options;
@@ -20,6 +24,23 @@ export class ScrollService {
     }, delay);
   }
 
+  /**
+   * - Scroll To Top
+   * @param options
+   */
+  scrollToTop(options?: Partial<ScrollOptions>) {
+    options = { ...this.defaultOptions, ...options };
+    const { delay, behavior } = options;
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior });
+    }, delay);
+  }
+
+  /**
+   * - Scroll To Element
+   * @param id
+   * @param options
+   */
   scrollToElement(id: string, options?: Partial<ScrollOptions>) {
     options = { ...this.defaultOptions, ...options };
     const { delay, behavior } = options;

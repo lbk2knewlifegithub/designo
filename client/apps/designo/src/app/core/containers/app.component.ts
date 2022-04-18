@@ -8,6 +8,7 @@ import { ScrollService } from '@lbk/services';
     <lbk-header></lbk-header>
     <router-outlet></router-outlet>
     <lbk-footer></lbk-footer>
+    <lbk-scroll-to-top bgColor="peach-200"></lbk-scroll-to-top>
   `,
 })
 export class AppComponent implements OnInit {
