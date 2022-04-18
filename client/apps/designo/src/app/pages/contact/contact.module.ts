@@ -1,16 +1,19 @@
-import { ScrollToModule } from '@lbk/directives';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ImageModule } from '@lbk/comps';
-import { COMPONENTS } from './components';
-import { ContactPageComponent } from './containers';
-import { ContactRoutingModule } from './contact-routing.module';
+import { ScrollToModule } from '@lbk/directives';
 import { LocationsLinkModule } from '../../shared';
+import { COMPONENTS } from './components';
+import { ContactRoutingModule } from './contact-routing.module';
+import { ContactPageComponent } from './containers';
 
 @NgModule({
   imports: [
     CommonModule,
     ContactRoutingModule,
+    ReactiveFormsModule,
+
     // Shared Component From Designo
     LocationsLinkModule,
 

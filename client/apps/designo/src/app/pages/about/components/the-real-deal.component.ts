@@ -13,6 +13,7 @@ import { Image } from '@lbk/models';
       >
         <!-- The Real Deal Image -->
         <lbk-image
+          classImage="w-full"
           class="w-full object-center object-cover max-h-[320px] 2xl:w-auto 2xl:max-h-[640px] 2xl:order-last"
           [image]="image"
         ></lbk-image>

@@ -14,9 +14,10 @@ import { Project, identifyProject } from '../../../shared';
           <!-- Project Image -->
           <img
             [ngClass]="{ 'order-last 2xl:order-first': reverse }"
-            [src]="project.image"
+            [src]=""
             [alt]="project.name"
           />
+          <lbk-image [singleImage]="project.image"></lbk-image>
           <!-- end Project Image -->
 
           <a
