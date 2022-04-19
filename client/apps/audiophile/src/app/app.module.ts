@@ -1,19 +1,29 @@
-import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
-import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogModule } from '@ngneat/dialog';
+import { NxModule } from '@nrwl/angular';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './core/containers/app.component';
+import { CoreModule } from './core/core.module';
+import { StateModule } from './state';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
+    HttpClientModule,
+    BrowserAnimationsModule,
+    CoreModule,
+
+    NxModule.forRoot(),
+    // Stores
+    StateModule.forRoot(),
+
+    // Thirds Librarys
+    DialogModule.forRoot(),
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

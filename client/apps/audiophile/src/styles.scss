@@ -1,5 +1,98 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-/* You can add global styles to this file, and also import other style files */
+@layer base {
+  //make default form look nice
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  textarea,
+  select {
+    @apply w-full pl-6 py-[18px]  border-gray-300 rounded-lg shadow-sm focus:border-primary-900 focus:ring-0;
+  }
+
+  [type='checkbox'],
+  [type='radio'] {
+    @apply border-gray-300 rounded-full text-primary-900 focus:ring-0;
+  }
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
+
+@layer components {
+  .container-large {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  //CUSTOM APPLY HERE
+  .btn {
+    @apply inline-grid place-content-center font-bold  duration-500;
+    @apply text-xs text-center uppercase tracking-[1px];
+    @apply py-[15px] px-[29.5px];
+    @apply active:scale-95 disabled:opacity-30;
+  }
+
+  .btn-primary {
+    @apply bg-primary-900 text-white;
+    @apply hover:brightness-150;
+  }
+
+  .btn-dark {
+    @apply bg-black text-white;
+    @apply hover:opacity-60;
+  }
+
+  .btn-basic {
+    @apply bg-white shadow-md;
+    @apply hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply bg-transparent text-black border border-black;
+    @apply hover:bg-black hover:text-white;
+  }
+
+  .center {
+    @apply block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+
+  .error {
+    @apply text-red-600 font-black text-xs italic;
+  }
+}
+
+@layer utilities {
+  .reset {
+    @apply top-0 translate-x-0 relative p-0 left-0 m-0;
+  }
+
+  .link {
+    @apply duration-500 hover:text-primary-900;
+  }
+
+  .badge-primary {
+    @apply bg-primary-900 text-xs font-bold  text-white rounded-full p-1 leading-none tracking-normal;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}

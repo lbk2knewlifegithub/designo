@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  NgModule,
+} from '@angular/core';
 
 @Component({
   selector: 'lbk-attribution',
@@ -16,10 +21,17 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       >.
     </div>
   `,
+  styles: [
+    `
+      :host-context(.light) {
+        color: white !important;
+      }
+    `,
+  ],
 })
-export class AttributionComponent {}
-
-import { NgModule } from '@angular/core';
+export class AttributionComponent {
+  @Input() class = '';
+}
 
 @NgModule({
   exports: [AttributionComponent],

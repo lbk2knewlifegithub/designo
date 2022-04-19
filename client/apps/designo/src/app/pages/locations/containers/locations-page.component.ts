@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { fadeInUpBig } from '@lbk/anims';
-import { UnSubscribe } from '@lbk/comps';
+import { Unsubscriber } from '@lbk/comps';
 import { ScrollService } from '@lbk/services';
 import { pluck } from 'rxjs';
 import { fromData, Location } from '../../../shared';
@@ -18,7 +18,7 @@ import { fromData, Location } from '../../../shared';
   `,
   animations: [fadeInUpBig()],
 })
-export class LocationsPageComponent extends UnSubscribe implements OnInit {
+export class LocationsPageComponent extends Unsubscriber implements OnInit {
   locations!: Location[];
 
   constructor(

@@ -1,0 +1,19 @@
+<div class="flex items-center overflow-hidden rounded-sm bg-muted-900">
+  <!-- minus -->
+  <button [ngStyle]="buttonStyle" (click)="add(-1)" [disabled]="quantity === min">
+    <span [ngStyle]="iconStyle" class="fa fa-minus"></span>
+  </button>
+  <!-- end minus -->
+
+  <!-- quantity -->
+  <p class="text-xs font-bold min-w-[30px]">
+    {{ quantity }}
+  </p>
+  <!-- end quantity -->
+
+  <!-- plus -->
+  <button [ngStyle]="buttonStyle" (click)="add(1)" [disabled]="quantity === max">
+    <span [ngStyle]="iconStyle" class="fa fa-plus"></span>
+  </button>
+  <!-- end plus -->
+</div>

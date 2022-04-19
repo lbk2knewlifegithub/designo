@@ -48,6 +48,7 @@
     "@nrwl/angular": "13.9.3",
     "aos": "^2.3.4",
     "gsap": "^3.10.3",
+    "memo-decorator": "^2.0.1",
     "ng-lazyload-image": "^9.1.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.4.0",
