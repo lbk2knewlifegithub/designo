@@ -53,6 +53,7 @@ specifiers:
   gsap: ^3.10.3
   jest: 27.2.3
   jest-preset-angular: 11.1.1
+  memo-decorator: ^2.0.1
   ng-lazyload-image: ^9.1.2
   ng-packagr: ^13.0.0
   nx: 13.9.3
@@ -94,6 +95,7 @@ dependencies:
   '@nrwl/angular': 13.9.3_3122d922b1f4124b26354f26aa47151e
   aos: 2.3.4
   gsap: 3.10.3
+  memo-decorator: 2.0.1
   ng-lazyload-image: 9.1.2_ff4162bf753d9e50941b1cfeba2a27cb
   reflect-metadata: 0.1.13
   rxjs: 7.4.0
@@ -7599,6 +7601,10 @@ packages:
     engines: {node: '>= 4.0.0'}
     dependencies:
       fs-monkey: 1.0.3
+
+  /memo-decorator/2.0.1:
+    resolution: {integrity: sha512-Cydoauo7y1Uad1UuznJqhuEQCt6adIl1w5ik3WmNl4FJeBmWAaMs64qyGRahaXWK/Dlmt/+QNesRTeFUcpJPkQ==}
+    dev: false
 
   /merge-descriptors/1.0.1:
     resolution: {integrity: sha1-sAqqVW3YtEVoFQ7J0blT8/kMu2E=}

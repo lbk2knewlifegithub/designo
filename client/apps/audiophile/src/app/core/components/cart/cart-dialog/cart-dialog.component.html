@@ -1,0 +1,45 @@
+<lbk-empty-cart
+  *ngIf="empty$ | async; else cartDialog"
+  class="max-w-[328px]"
+></lbk-empty-cart>
+
+<ng-template #cartDialog>
+  <div class="py-8 px-7 bg-white rounded-lg">
+    <!-- Cart Header -->
+    <nav class="flex items-center justify-between">
+      <h6 class="uppercase font-bold text-lg">
+        CART ({{ (numberOfItems$ | async)! }})
+      </h6>
+
+      <!-- Remove All Items Button -->
+      <button (click)="clear()" class="text-gray-600 underline font-medium">
+        Remove All
+      </button>
+      <!-- end Remove All Items Button -->
+    </nav>
+    <!-- end Cart Header -->
+
+    <lbk-cart-item-list
+      (addQuantity)="addQuantity($event)"
+      (minusQuantity)="minusQuantity($event)"
+      [quantitySmall]="true"
+      [displayQuantity]="true"
+      class="block mt-8"
+      [items]="(items$ | async)!"
+      [priceOptions]="priceOptions"
+    ></lbk-cart-item-list>
+
+    <lbk-total
+      [total]="(items$ | async)! | total"
+      class="block mt-8"
+    ></lbk-total>
+
+    <!-- Checkout Button -->
+    <div class="mt-6">
+      <a routerLink="/checkout" class="btn btn-primary w-full max-h-fit"
+        >Checkout</a
+      >
+    </div>
+    <!-- end Checkout Button -->
+  </div>
+</ng-template>

@@ -5,8 +5,12 @@ import {
   OnInit,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UnSubscribe } from '@lbk/comps';
-import { CLIENT_DESIGNO_URL, CLIENT_PRODUCT_FEEDBACKS_URL } from '@lbk/tokens';
+import { Unsubscriber } from '@lbk/comps';
+import {
+  CLIENT_AUDIOPHILE_URL,
+  CLIENT_DESIGNO_URL,
+  CLIENT_PRODUCT_FEEDBACKS_URL,
+} from '@lbk/tokens';
 import { pluck } from 'rxjs';
 
 @Component({
@@ -18,12 +22,14 @@ import { pluck } from 'rxjs';
     <lbk-footer></lbk-footer>
   `,
 })
-export class AppComponent extends UnSubscribe implements OnInit {
+export class AppComponent extends Unsubscriber implements OnInit {
   constructor(
     @Inject(CLIENT_PRODUCT_FEEDBACKS_URL)
     private readonly _clientProductFeedbacksUrl: string,
     @Inject(CLIENT_DESIGNO_URL)
     private readonly _clientDesignoUrl: string,
+    @Inject(CLIENT_AUDIOPHILE_URL)
+    private readonly _clientAudiophileUrl: string,
     private readonly _route: ActivatedRoute
   ) {
     super();
@@ -39,7 +45,8 @@ export class AppComponent extends UnSubscribe implements OnInit {
           return (window.location.href = this._clientProductFeedbacksUrl);
         if (project === 'designo')
           return (window.location.href = this._clientDesignoUrl);
-        //  if(project === "audiophile") return  window.location.href = this._clientProductFeedbacksUrl;
+        if (project === 'audiophile')
+          return (window.location.href = this._clientAudiophileUrl);
         //  if(project === "invoice-app") return  window.location.href = this._clientProductFeedbacksUrl;
         //  if(project === "frontendmentor") return  window.location.href = this._clientProductFeedbacksUrl;
         return;

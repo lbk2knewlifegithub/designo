@@ -1,0 +1,80 @@
+<header
+  [ngClass]="{
+    '!absolute !bg-transparent left-1/2 -translate-x-1/2': isHome$ | async
+  }"
+  class="relative container bg-dark-900 z-50"
+>
+  <nav
+    class="flex items-center justify-between py-8 border-b border-gray-700 2xl:py-9"
+  >
+    <div class="flex items-center gap-10">
+      <!-- Hamburger Menu Mobile-->
+      <lbk-menu-one
+        (click)="toggleNavOverlay()"
+        [shown]="(shownNav$ | async)!"
+        class="inline-block 2xl:hidden"
+      ></lbk-menu-one>
+      <!-- end Hamburger Menu Mobile-->
+
+      <!-- Logo Tablet-->
+      <lbk-logo class="hidden md:block"></lbk-logo>
+      <!-- end Logo Tablet-->
+    </div>
+
+    <!-- Logo Mobile-->
+    <lbk-logo class="md:hidden"></lbk-logo>
+    <!-- end Logo Mobile-->
+
+    <!-- Links Header -->
+    <lbk-links-header class="hidden 2xl:block"></lbk-links-header>
+    <!-- end Links Header -->
+
+    <!-- Cart Button -->
+    <lbk-cart-button
+      [open]="(shownCart$ | async)!"
+      (click)="toggleCartOverlay()"
+      [numberOfItems]="(numberOfItems$ | async)!"
+    >
+    </lbk-cart-button>
+    <!-- end Cart Button -->
+  </nav>
+</header>
+
+<!-- Nav Overlay -->
+<lbk-category-preview-list
+  *ngIf="(shownNav$ | async)!"
+  @fadeInUp
+  @zoomOut
+  class="z-50 absolute container w-full top-[98px] bg-white pt-[84px] pb-6 md:pb-16 md:pt-[108px] 2xl:hidden"
+  clickOutside
+  (clickOutside)="closeAll()"
+  skip="lbk-menu-one"
+></lbk-category-preview-list>
+<!-- end Nav overlay -->
+
+<!-- Cart Overlay -->
+<div
+  @fadeInUp
+  @zoomOut
+  *ngIf="(shownCart$ | async)!"
+  class="z-50 absolute w-full top-[120px]"
+>
+  <div class="relative container flex justify-end">
+    <lbk-cart-dialog
+      clickOutside
+      (clickOutside)="closeAll()"
+      skip="lbk-cart-button"
+      class="min-w-[328px] md:min-w-[377px]"
+    ></lbk-cart-dialog>
+  </div>
+</div>
+<!-- end cart overlay -->
+
+<!-- Mask -->
+<span
+  @fadeIn
+  @fadeOut
+  *ngIf="(shown$ | async)!"
+  class="fixed inset-0 z-40 bg-dark-900/20"
+></span>
+<!-- end Mask -->

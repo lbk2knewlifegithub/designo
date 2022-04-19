@@ -7,6 +7,7 @@ export const environment = {
   production: false,
   clientProductFeedbacksUrl: envProd.clientProductFeedbacksUrl,
   clientDesignoUrl: envProd.clientDesignoUrl,
+  clientAudiophileUrl: envProd.clientAudiophileUrl,
 };
 
 /*

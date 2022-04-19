@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
-import { UnSubscribe } from '@lbk/comps';
+import { Unsubscriber } from '@lbk/comps';
 import { filter, map } from 'rxjs';
 
 @Component({
@@ -25,7 +25,7 @@ import { filter, map } from 'rxjs';
     <!-- end Scroll To Top -->
   `,
 })
-export class AppComponent extends UnSubscribe implements OnInit {
+export class AppComponent extends Unsubscriber implements OnInit {
   constructor(
     private readonly _route: ActivatedRoute,
     private readonly _title: Title,

@@ -13,6 +13,11 @@ export const CLIENT_DESIGNO_URL = new InjectionToken<string>(
   'CLIENT_DESIGNO_URL'
 );
 
+// CLIENT AUDIOPHILE URL
+export const CLIENT_AUDIOPHILE_URL = new InjectionToken<string>(
+  'CLIENT_AUDIOPHILE_URL'
+);
+
 // DEFAULT AVATAR
 export const DEFAULT_AVATAR = new InjectionToken<string>('DEFAULT_AVATAR', {
   factory: () =>

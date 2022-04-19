@@ -25,7 +25,7 @@ export const projectLinks: Link[] = [
 
   // AudioPhile Project
   {
-    name: 'Audiophile (Coming Soon)',
+    name: 'Audiophile',
     href: 'https://client-audiophile-client-lbk2knewlifegithub.cloud.okteto.net',
     image: {
       desktop:

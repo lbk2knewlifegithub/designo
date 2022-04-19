@@ -75,31 +75,26 @@ export const CAROUSEL_ROUTE_ANIMATION = trigger('routeAnimations', [
 
 export const FADE_IN_UP_ROUTE_ANIMATION = trigger('routeAnimations', [
   transition('* <=> *', [
+    style({ position: 'relative' }),
+    query(
+      ':enter, :leave',
+      [
+        style({
+          opacity: '0%',
+        }),
+      ],
+      { optional: true }
+    ),
+    query(':enter', [style({ left: '0%' })], { optional: true }),
+    query(':leave', animateChild(), { optional: true }),
     group([
-      query(
-        ':leave',
-        [
-          animate(
-            '300ms ease-out',
-            style({ opacity: '0%', transform: 'translateY(100px)' })
-          ),
-        ],
-        {
-          optional: true,
-        }
-      ),
-      query(
-        ':enter',
-        [
-          animate(
-            '300ms ease-out',
-            style({ opacity: '100%', transform: 'translateY(0)' })
-          ),
-        ],
-        {
-          optional: true,
-        }
-      ),
+      query(':leave', [animate('300ms ease-out', style({ opacity: '0%' }))], {
+        optional: true,
+      }),
+      query(':enter', [animate('300ms ease-out', style({ opacity: '100%' }))], {
+        optional: true,
+      }),
     ]),
+    query(':enter', animateChild(), { optional: true }),
   ]),
 ]);

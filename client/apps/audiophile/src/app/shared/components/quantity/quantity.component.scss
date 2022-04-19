@@ -1,0 +1,19 @@
+// button minus, plus
+button {
+  @apply w-[40px] h-[48px] grid place-content-center disabled:opacity-50;
+
+  &:hover {
+    span {
+      @apply text-primary-900;
+    }
+  }
+
+  span {
+    @apply text-xs text-black/30 duration-300;
+  }
+}
+
+// quantity
+p {
+  @apply grid place-content-center;
+}

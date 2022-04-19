@@ -1,20 +1,11 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { Directive, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-@Component({
-  selector: 'lbk-unsubscribe',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: ``,
-})
-
-// eslint-disable-next-line @angular-eslint/component-class-suffix
-export class UnSubscribe implements OnInit, OnDestroy {
-  subscriptions!: Subscription[];
+// eslint-disable-next-line @angular-eslint/directive-selector
+@Directive({ selector: '[unsubscribers]' })
+// eslint-disable-next-line @angular-eslint/directive-class-suffix
+export class Unsubscriber implements OnInit, OnDestroy {
+  protected subscriptions!: Subscription[];
 
   set appendSub(subscription: Subscription) {
     this.subscriptions.push(subscription);

@@ -20,7 +20,7 @@ export interface Image {
   /**
    * - Alternative Image
    */
-  alt: string;
+  alt?: string;
 }
 
 export const identifyImage = (index: number, image: Image) => {

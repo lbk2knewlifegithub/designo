@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { fadeIn, fadeOut, listInLeft, listOutLeft } from '@lbk/anims';
-import { UnSubscribe } from '@lbk/comps';
+import { Unsubscriber } from '@lbk/comps';
 import { delay, Observable } from 'rxjs';
 import { HeaderService } from './header.service';
 
@@ -53,7 +53,7 @@ import { HeaderService } from './header.service';
     fadeIn(),
   ],
 })
-export class OverlayComponent extends UnSubscribe implements OnInit {
+export class OverlayComponent extends Unsubscriber implements OnInit {
   shown$!: Observable<boolean>;
 
   constructor(
