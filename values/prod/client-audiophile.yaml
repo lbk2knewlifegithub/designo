@@ -2,7 +2,7 @@ tag: dev
 
 client:
   name: client-audiophile
-  replicaCount: 1
+  replicaCount: 2
   image: okteto.dev/client-audiophile
   serviceType: LoadBalancer
   port: 80
