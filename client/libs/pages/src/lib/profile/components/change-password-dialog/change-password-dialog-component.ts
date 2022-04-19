@@ -5,8 +5,8 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UnSubscribe } from '@lbk/comps';
 import { AuthApiActions, AuthFacade } from '@lbk/auth';
+import { Unsubscriber } from '@lbk/comps';
 import { DialogRef, DialogService } from '@ngneat/dialog';
 import { Actions, ofType } from '@ngrx/effects';
 import { Observable } from 'rxjs';
@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
   templateUrl: './change-password-dialog.component.html',
 })
 export class ChangePasswordDialogComponent
-  extends UnSubscribe
+  extends Unsubscriber
   implements OnInit, OnDestroy
 {
   form!: FormGroup;

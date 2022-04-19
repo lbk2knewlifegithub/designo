@@ -8,7 +8,7 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
-import { UnSubscribe } from '@lbk/comps';
+import { Unsubscriber } from '@lbk/comps';
 import { FeedbackStatus, FeedbackSummary } from '@lbk/models';
 import { FeedbacksFacade } from '@lbk/state/feedbacks';
 import { combineLatest, fromEvent, map, Observable } from 'rxjs';
@@ -22,7 +22,7 @@ import { RoadmapFacade } from '../../state';
   styleUrls: ['./roadmap-tabs.component.scss'],
 })
 export class RoadmapTabsComponent
-  extends UnSubscribe
+  extends Unsubscriber
   implements OnInit, AfterViewInit
 {
   line$!: Observable<{ transform: string; width: string }>;
