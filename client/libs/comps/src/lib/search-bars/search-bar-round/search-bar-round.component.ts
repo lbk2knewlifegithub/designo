@@ -1,14 +1,22 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Unsubscribe } from '@lbk/shared/common';
+import { Unsubscriber } from '@lbk/comps';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { Unsubscriber } from '@lbk/shared/common';
 import { isBs3 } from 'ngx-bootstrap/utils';
 
 @Component({
   selector: 'lbk-search-bar-round',
   templateUrl: './search-bar-round.component.html',
   styleUrls: ['./search-bar-round.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchBarRoundComponent extends Unsubscribe implements OnInit {
+export class SearchBarRoundComponent extends Unsubscriber implements OnInit {
   isBs3 = isBs3();
   selected?: string;
 
@@ -63,14 +71,13 @@ export class SearchBarRoundComponent extends Unsubscribe implements OnInit {
     'Washington',
     'West Virginia',
     'Wisconsin',
-    'Wyoming'
+    'Wyoming',
   ];
 
   @Output('onSubmit')
   onSubmitEmitter = new EventEmitter();
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   // @Input('width')
   // width: string | null = null;
@@ -152,5 +159,3 @@ export class SearchBarRoundComponent extends Unsubscribe implements OnInit {
     this.selected = '';
   }
 }
-
-
