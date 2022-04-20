@@ -25,6 +25,7 @@
     "services": "libs/services",
     "state-feedbacks": "libs/state/feedbacks",
     "tokens": "libs/tokens",
+    "utils": "libs/utils",
     "validators": "libs/validators"
   }
 }

@@ -7,9 +7,9 @@ const routes: Routes = [
    * - Home Route
    */
   {
-    path: '',
+    path: 'home',
     loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
-    data: { animation: 'feedbacks' },
+    data: { animation: 'home' },
     canActivate: [TryLoginGuard],
   },
   /**
@@ -80,7 +80,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/feedbacks',
+    redirectTo: '/home',
     pathMatch: 'full',
   },
 ];

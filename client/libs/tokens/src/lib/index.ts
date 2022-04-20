@@ -18,6 +18,11 @@ export const CLIENT_AUDIOPHILE_URL = new InjectionToken<string>(
   'CLIENT_AUDIOPHILE_URL'
 );
 
+// CLIENT INVOICE_APP URL
+export const CLIENT_INVOICE_APP_URL = new InjectionToken<string>(
+  'CLIENT_INVOICE_APP_URL'
+);
+
 // DEFAULT AVATAR
 export const DEFAULT_AVATAR = new InjectionToken<string>('DEFAULT_AVATAR', {
   factory: () =>

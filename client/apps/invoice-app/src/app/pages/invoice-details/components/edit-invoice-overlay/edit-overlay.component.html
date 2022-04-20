@@ -1,0 +1,29 @@
+<lbk-overlay (closed)="onCancel()" [open]="open">
+  <lbk-invoice-form class="panel" [invoice]="invoice"></lbk-invoice-form>
+
+  <!-- Actions -->
+  <div class="flex items-center justify-end gap-2 actions">
+    <!-- Cancel Button -->
+    <button
+      [disabled]="pendingSaveAndChange"
+      (click)="onCancel()"
+      class="btn btn-basic"
+    >
+      Cancel
+    </button>
+    <!-- end Cancel Button -->
+
+    <!-- Save and Change Button -->
+    <button
+      [disabled]="pendingSaveAndChange"
+      (click)="saveChange()"
+      class="btn btn-primary"
+    >
+      <lbk-spinner [loading]="pendingSaveAndChange">
+        Save Changes
+      </lbk-spinner>
+    </button>
+    <!-- end Save and Change Button -->
+  </div>
+  <!-- Actions -->
+</lbk-overlay>

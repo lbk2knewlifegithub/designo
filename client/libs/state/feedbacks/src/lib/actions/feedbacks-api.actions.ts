@@ -138,7 +138,7 @@ export const loadCommentsSucess = createAction(
  */
 export const loadCommentsFailure = createAction(
   '[Feedbacks/API] Load Comments Failure',
-  props<{ error: any }>()
+  props<{ error: string }>()
 );
 
 /**
@@ -154,7 +154,7 @@ export const deleteCommentsSucess = createAction(
  */
 export const deleteCommentsFailure = createAction(
   '[Feedbacks/API] Delete Comments Failure',
-  props<{ error: any }>()
+  props<{ error: string }>()
 );
 
 /**
@@ -170,5 +170,5 @@ export const updateCommentSuccess = createAction(
  */
 export const updateCommentFailure = createAction(
   '[Feedbacks/API] Update Comment Failure',
-  props<{ error: any }>()
+  props<{ error: string }>()
 );

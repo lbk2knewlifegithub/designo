@@ -8,6 +8,16 @@ export interface State {
   items: Item[];
 }
 
+// export interface State extends EntityState<Item> {
+//   loaded: boolean;
+//   selectedFeedbackId: number | null;
+// }
+
+// export const adapter: EntityAdapter<Item> = createEntityAdapter<Item>({
+//   selectId: (item: Item) => item.id,
+//   sortComparer: false,
+// });
+
 const initialState: State = { items: [] };
 
 export const reducer = createReducer(

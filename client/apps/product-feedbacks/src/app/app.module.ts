@@ -3,7 +3,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthStateModule } from '@lbk/auth';
+import { AuthModule } from '@lbk/auth';
 import { JwtInterceptor } from '@lbk/interceptors';
 import { CoreHttpClientModule } from '@lbk/services';
 import { FeedbacksStateModule } from '@lbk/state/feedbacks';
@@ -21,13 +21,12 @@ import { StateModule } from './state';
     CoreModule,
     BrowserAnimationsModule,
     NxModule.forRoot(),
-
-    // Thirds Librairies
+    // Thirds Libs
     DialogModule.forRoot(),
-    // Shared Module
+    // Shared Module From Libs
     FeedbacksStateModule,
     StateModule.forRoot(),
-    AuthStateModule,
+    AuthModule.forRoot(),
     CoreHttpClientModule,
   ],
   providers: [

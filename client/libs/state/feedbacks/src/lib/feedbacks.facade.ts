@@ -78,15 +78,15 @@ export class FeedbacksFacade {
 
   /**
    * - Has Feedback In Store
-   * @param id
+   * @param feedback_id
    */
-  hasFeedbackInStore(id: number): Observable<boolean> {
+  hasFeedbackInStore(feedback_id: number): Observable<boolean> {
     return this._store.select(fromFeedbacks.selectFeedbacksEntities).pipe(
-      map((entities) => entities[id]),
+      map((entities) => entities[feedback_id]),
       map((invoice) => !!invoice),
       take(1),
       tap((result) => {
-        if (result) this.selectFeedback(id);
+        if (result) this.selectFeedback(feedback_id);
       })
     );
   }

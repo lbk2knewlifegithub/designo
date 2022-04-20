@@ -1,0 +1,59 @@
+<div [formGroup]="parent">
+  <div [formArrayName]="arrayName">
+    <div [formGroupName]="groupName" class="grid grid-cols-6 gap-y-6 gap-x-4">
+      <!-- item name -->
+      <lbk-input-array
+        [parent]="parent"
+        [groupName]="groupName"
+        [arrayName]="arrayName"
+        controlName="name"
+        placeHolder="Banner Design"
+        label="Item Name"
+        class="col-span-6"
+      ></lbk-input-array>
+
+      <!-- end item name -->
+
+      <!-- quantity -->
+      <lbk-input-array
+        [parent]="parent"
+        [groupName]="groupName"
+        [arrayName]="arrayName"
+        controlName="quantity"
+        placeHolder="1"
+        label="Qty."
+        class="col-span-1"
+      ></lbk-input-array>
+      <!-- end quantity -->
+
+      <!-- Price -->
+      <lbk-input-array
+        [parent]="parent"
+        [groupName]="groupName"
+        [arrayName]="arrayName"
+        controlName="price"
+        placeHolder="100"
+        label="Price"
+        class="col-span-2"
+      ></lbk-input-array>
+      <!-- end Price -->
+
+      <!-- Total -->
+      <div calss="col-span-2">
+        <p class="text-muted-600">Total</p>
+        <p class="mt-3 py-4 px-5 border-muted-500 rounded-[4px]">
+          {{ total$ | async | number }}
+        </p>
+      </div>
+      <!-- end Total -->
+
+      <!-- Delete Item Button -->
+      <button class="col-span-1 place-self-center" (click)="deleteItem.emit()">
+        <span
+          class="fas fa-trash text-muted-900 duration-500 text-lg hover:text-primary-900 dark:text-muted-700 hover:dark:text-primary-900"
+        ></span>
+      </button>
+      <!-- end Delete Item Button -->
+    </div>
+  </div>
+</div>

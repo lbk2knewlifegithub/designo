@@ -45,6 +45,7 @@ specifiers:
   '@types/node': 16.11.7
   '@typescript-eslint/eslint-plugin': ~5.10.0
   '@typescript-eslint/parser': ~5.10.0
+  angular-epic-spinners: ^2.0.0
   aos: ^2.3.4
   autoprefixer: ^10.4.0
   daisyui: ^2.13.5
@@ -93,6 +94,7 @@ dependencies:
   '@ngrx/store': 13.0.2_@angular+core@13.2.7+rxjs@7.4.0
   '@ngrx/store-devtools': 13.0.2_@ngrx+store@13.0.2+rxjs@7.4.0
   '@nrwl/angular': 13.9.3_3122d922b1f4124b26354f26aa47151e
+  angular-epic-spinners: 2.0.0
   aos: 2.3.4
   gsap: 3.10.3
   memo-decorator: 2.0.1
@@ -3796,6 +3798,12 @@ packages:
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
       uri-js: 4.4.1
+
+  /angular-epic-spinners/2.0.0:
+    resolution: {integrity: sha512-+OElE3Vb0A555DcRh44LpHuYxdoTKFsOkVCFubFBt4FexYLaPuyzY0qGL566C2Y/i0cFmcl+CNcKvX1SuVp0Ig==}
+    dependencies:
+      tslib: 1.14.1
+    dev: false
 
   /ansi-colors/4.1.1:
     resolution: {integrity: sha512-JoX0apGbHaUJBNl6yF+p6JAFYZ666/hhCGKN5t9QFjbJQKUU/g8MNbFDbvfrgKXvI1QpZplPOnwIo99lX/AAmA==}

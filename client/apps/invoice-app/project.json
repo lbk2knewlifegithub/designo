@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/invoice-app",
         "index": "apps/invoice-app/src/index.html",
@@ -16,9 +18,16 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/invoice-app/src/favicon.ico",
-          "apps/invoice-app/src/assets"
+          "apps/invoice-app/src/assets",
+          {
+            "input": "libs/assets/",
+            "glob": "**/*",
+            "output": "assets/"
+          }
         ],
-        "styles": ["apps/invoice-app/src/styles.scss"],
+        "styles": [
+          "apps/invoice-app/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -83,7 +92,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/invoice-app"],
+      "outputs": [
+        "coverage/apps/invoice-app"
+      ],
       "options": {
         "jestConfig": "apps/invoice-app/jest.config.js",
         "passWithNoTests": true

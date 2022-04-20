@@ -1,0 +1,12 @@
+<lbk-overlay (closed)="onDiscard()" [open]="open">
+  <lbk-invoice-form class="panel"></lbk-invoice-form>
+
+  <lbk-new-invoice-actions
+    class="actions"
+    [pendingSaveAsDraft]="pendingSaveAsDraft"
+    [pendingCreate]="pendingCreate"
+    (discard)="onDiscard()"
+    (create)="onCreate()"
+    (saveAsDraft)="onSaveAsDraft()"
+  ></lbk-new-invoice-actions>
+</lbk-overlay>

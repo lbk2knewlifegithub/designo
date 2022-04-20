@@ -1,5 +1,148 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-/* You can add global styles to this file, and also import other style files */
+@layer base {
+  :root {
+    // colors
+    --primary-900: 252, 94%, 67%;
+    --primary-800: 252, 100%, 73%;
+
+    --danger-900: 0, 80%, 63%;
+    --danger-800: 0, 100%, 80%;
+
+    --success-900: 160, 67%, 52%;
+    --warning-900: 33.6, 100%, 50%;
+
+    --text-fill-900: 228, 29.4%, 6.7%;
+    --text-fill-800: 231.4, 20.3%, 27.1%;
+
+    --text-inverted-900: 0, 0%, 100%;
+
+    --muted-900: 232, 22.6%, 61%;
+    --muted-800: 231, 20.2%, 61.2%;
+    --muted-700: 231.3, 36.5%, 62.9%;
+    --muted-600: 231, 37%, 63%;
+    --muted-500: 231, 73%, 93%;
+
+    --elements: 0, 0%, 100%;
+    --dark-900: 231.4, 20.3%, 27.1%;
+
+    --bg-fill: 240, 27%, 98%;
+
+    .dark {
+      --text-fill-900: 0, 0%, 100%;
+
+      --muted-900: 0, 0%, 100%;
+      --muted-800: 231, 75%, 93%;
+
+      --bg-fill: 233, 30%, 11%;
+      --elements: 233, 31%, 17%;
+      --dark-900: 233, 31%, 17%;
+    }
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    @apply m-0;
+    @apply font-mono;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4 {
+    @apply text-lg;
+  }
+
+  body {
+    @apply font-mono bg-fill text-fill-900 text-base font-medium;
+  }
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  //make default form look nice
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='month'],
+  [type='search'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  textarea,
+  select {
+    @apply w-full text-base bg-elements font-bold border-muted-500 rounded-[4px] shadow-sm py-4 px-5 focus:border-primary-900 focus:ring-0 disabled:text-muted-900 disabled:border-none dark:placeholder-white dark:border-elements;
+  }
+
+  [type='checkbox'] {
+    @apply h-4 w-4 rounded-sm;
+    @apply border text-primary-900 border-muted-900 mr-2 cursor-pointer;
+    @apply checked:text-primary-900 checked:bg-primary-900 focus:ring-0;
+  }
+}
+
+input.ng-invalid.ng-touched {
+  @apply border-2 border-danger-900;
+}
+
+@layer components {
+  .container-large {
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+
+  //CUSTOM APPLY HERE
+  .btn {
+    @apply duration-500 shadow-sm inline-block font-bold text-center rounded-full py-4 px-6  disabled:bg-opacity-50 hover:opacity-70;
+  }
+
+  .btn-primary {
+    @apply bg-primary-900 text-white;
+  }
+
+  .btn-danger {
+    @apply bg-danger-900 text-white;
+  }
+
+  .btn-basic {
+    @apply bg-fill text-muted-900 dark:bg-muted-500/20;
+  }
+
+  .btn-dark {
+    @apply bg-dark-900 text-muted-900;
+  }
+}

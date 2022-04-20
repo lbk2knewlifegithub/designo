@@ -1,0 +1,40 @@
+<main>
+  <div class="pt-8 md:pt-14 lg:pt-16 lg:grid lg:place-content-center">
+    <div class="container max-w-[730px] w-full md:min-w-[730px] lg:h-full">
+      <!-- Go Back Button -->
+      <lbk-go-back></lbk-go-back>
+      <!-- end Go Back Button -->
+
+      <lbk-invoice-details
+        class="block mt-8"
+        [invoice]="(invoice$ | async)!"
+        [error]="(error$ | async)!"
+        [pendingMaskAsPaid]="(pendingMaskAsPaid$ | async)!"
+        [pendingDelete]="(pendingDelete$ | async)!"
+        (showUpdateOverlay)="showUpdateOverlay()"
+        (updateInvoice)="showUpdateOverlay()"
+        (deleteInvoice)="deleteInvoice()"
+        (maskAsPaid)="maskAsPaid()"
+      ></lbk-invoice-details>
+    </div>
+
+    <lbk-invoice-details-actions
+      class="block mt-14 md:hidden"
+      [isPaid]="invoice$ | async | isPaid"
+      [error]="(error$ | async)!"
+      [pendingMaskAsPaid]="(pendingMaskAsPaid$ | async)!"
+      [pendingDelete]="(pendingDelete$ | async)!"
+      (updateInvoice)="showUpdateOverlay()"
+      (deleteInvoice)="deleteInvoice()"
+      (maskAsPaid)="maskAsPaid()"
+    ></lbk-invoice-details-actions>
+  </div>
+
+  <lbk-edit-overlay
+    [invoice]="(invoice$ | async)!"
+    [open]="(shownUpdateOverlay$ | async)!"
+    [pendingSaveAndChange]="(pendingSaveAndChange$ | async)!"
+    (cancel)="cancelUpdate()"
+    (updateInvoice)="updateInvoice($event)"
+  ></lbk-edit-overlay>
+</main>

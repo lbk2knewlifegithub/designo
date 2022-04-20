@@ -9,3 +9,5 @@ export * from './attribution.component';
 export * from './unsubscribe.component';
 export * from './image';
 export * from './scroll-to-top';
+export * from './checkbox';
+export * from './profile-button';

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthFacade } from '@lbk/auth';
+import { AuthFacade } from '../auth.facade';
 import { DialogRef } from '@ngneat/dialog';
 
 @Component({
