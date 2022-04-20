@@ -36,6 +36,7 @@
       "@lbk/services": ["libs/services/src/index.ts"],
       "@lbk/state/feedbacks": ["libs/state/feedbacks/src/index.ts"],
       "@lbk/tokens": ["libs/tokens/src/index.ts"],
+      "@lbk/utils": ["libs/utils/src/index.ts"],
       "@lbk/validators": ["libs/validators/src/index.ts"]
     }
   },

@@ -9,6 +9,7 @@ import { AuthActions, AuthApiActions } from './actions';
 import { AuthError } from './auth.reducer';
 import * as fromAuth from './auth.selectors';
 import { RequiredLoginComponent } from './dialogs';
+import { LoggedInComponent } from './dialogs/logged-in.component';
 import { AuthService, UserService } from './services';
 
 @Injectable({ providedIn: 'root' })
@@ -30,7 +31,11 @@ export class AuthFacade {
     private readonly _userService: UserService,
     private readonly _tokenService: TokenService,
     private readonly _dialogService: DialogService
-  ) {}
+  ) {
+    setTimeout(() => {
+      this._dialogService.open(LoggedInComponent, {});
+    }, 1000);
+  }
 
   /**
    *  - Change password
@@ -170,5 +175,13 @@ export class AuthFacade {
   signUp(createUserDTO: CreateUserDTO, avatar?: File) {
     this._authService.uploadFile = avatar;
     this._store.dispatch(AuthActions.signup({ createUserDTO }));
+  }
+
+  /**
+   * - Show Profile
+   */
+  showProfile() {
+    // this.checkLoggedIn(() => {
+    // });
   }
 }

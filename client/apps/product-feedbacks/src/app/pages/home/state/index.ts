@@ -1,1 +1,3 @@
-export * as HomeActions from './actions/home.actions';
+export * from './actions';
+export * from './home.reducer';
+export * from './home.effects';

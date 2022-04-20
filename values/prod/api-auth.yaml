@@ -3,7 +3,7 @@ tag: dev
 # Api Auth
 api:
   name: api-auth
-  replicaCount: 2
+  replicaCount: 1
   image: okteto.dev/api-auth
   serviceType: ClusterIP
   port: 8080

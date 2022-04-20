@@ -1,0 +1,25 @@
+<!-- title -->
+<lbk-invoice-form-title [id]="invoice?.invoice_id"></lbk-invoice-form-title>
+<!-- end title -->
+
+<form [formGroup]="form" class="mt-6 lg:mt-12">
+  <lbk-address-form
+    [parent]="form"
+    groupName="billFrom"
+    data-cy="bill-from"
+  ></lbk-address-form>
+
+  <lbk-bill-to-form
+    class="block mt-10 lg:mt-12"
+    [parent]="form"
+    groupName="billTo"
+  ></lbk-bill-to-form>
+
+  <lbk-items-form
+    arrayName="items"
+    class="block mt-16 lg:mt-8"
+    [parent]="form"
+    (deleteItem)="deleteItem($event)"
+    (addNewItem)="addNewItem()"
+  ></lbk-items-form>
+</form>

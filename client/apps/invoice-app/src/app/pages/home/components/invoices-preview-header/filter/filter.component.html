@@ -1,0 +1,39 @@
+<lbk-dropdown #dropdown>
+  <button
+    aria-label="Filter"
+    dropDownToggle
+    class="flex items-center gap-3 button"
+  >
+    <h5 class="font-bold">
+      Filter <span class="hidden md:inline">by {{ status }}</span>
+    </h5>
+
+    <!-- Arrow Icon -->
+    <img
+      [class.rotate-180]="dropdown.shown"
+      class="duration-300"
+      src="assets/icon-arrow-down.svg"
+      alt="Arrow down"
+    />
+    <!-- end Arrow Icon -->
+  </button>
+
+  <ng-template dropDownContent>
+    <!-- List InvoiceStatus -->
+    <ul
+      class="inline-grid gap-4 p-6 bg-fill rounded-md shadow-lg min-w-[192px]"
+    >
+      <li *ngFor="let s of statues">
+        <label
+          (click)="statusClick(s)"
+          class="inline-flex items-center gap-2 cursor-pointer"
+        >
+          <input type="checkbox" [checked]="s === status" />
+
+          {{ s | titlecase }}
+        </label>
+      </li>
+    </ul>
+    <!-- end List InvoiceStatus -->
+  </ng-template>
+</lbk-dropdown>

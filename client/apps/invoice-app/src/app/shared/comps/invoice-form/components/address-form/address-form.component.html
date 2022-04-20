@@ -1,0 +1,53 @@
+<div [formGroup]="parent">
+  <!-- title -->
+  <h5 [hidden]="!displayTitle" class="text-primary-900">Bill Form</h5>
+  <!-- end title -->
+
+  <div
+    [class.mt-0]="!displayTitle"
+    [formGroupName]="groupName"
+    class="grid gap-6 mt-6"
+  >
+    <!-- street address -->
+    <lbk-input
+      [parent]="parent"
+      [groupName]="groupName"
+      controlName="street"
+      placeHolder="19 Union Terrace"
+      label="Street Address"
+    ></lbk-input>
+    <!-- end street address -->
+
+    <div class="grid grid-cols-2 gap-6">
+      <!-- city input -->
+      <lbk-input
+        [parent]="parent"
+        [groupName]="groupName"
+        controlName="city"
+        placeHolder="London"
+        label="City"
+      ></lbk-input>
+      <!-- end city input -->
+
+      <!-- post code input -->
+      <lbk-input
+        [parent]="parent"
+        [groupName]="groupName"
+        controlName="postCode"
+        placeHolder="E1 3EZ"
+        label="Post Code"
+      ></lbk-input>
+      <!-- end post code input -->
+    </div>
+
+    <!-- country input -->
+    <lbk-input
+      [parent]="parent"
+      [groupName]="groupName"
+      controlName="country"
+      placeHolder="United Kingdom"
+      label="Country"
+    ></lbk-input>
+    <!-- end country input -->
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div [formGroup]="parent">
+  <!-- title -->
+  <h5 class="text-primary-900">Bill To</h5>
+  <!-- end title -->
+
+  <div [formGroupName]="groupName || null" class="grid gap-6 mt-6">
+    <!-- client Name -->
+    <lbk-input
+      [parent]="parent"
+      [groupName]="groupName"
+      controlName="clientName"
+      placeHolder="Alex Grim"
+      label="Client's Name"
+    ></lbk-input>
+    <!-- end client Name -->
+
+    <!-- client email input -->
+    <lbk-input
+      [parent]="parent"
+      [groupName]="groupName"
+      controlName="clientEmail"
+      placeHolder="alexgrim@mail.com"
+      label="Client's Email"
+    ></lbk-input>
+    <!-- end client email input -->
+
+    <lbk-address-form
+      [parent]="address"
+      groupName="clientAddress"
+      [displayTitle]="false"
+      data-cy="bill-to-address"
+    ></lbk-address-form>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      <lbk-invoice-date-input
+        [parent]="parent"
+        [groupName]="groupName"
+      ></lbk-invoice-date-input>
+
+      <lbk-payment-terms
+        [parent]="parent"
+        [groupName]="groupName"
+      ></lbk-payment-terms>
+    </div>
+
+    <!-- description -->
+    <lbk-input
+      [parent]="parent"
+      [groupName]="groupName"
+      controlName="description"
+      placeHolder="Graphic Design"
+      label="Project Description"
+    ></lbk-input>
+    <!-- end description -->
+  </div>
+</div>

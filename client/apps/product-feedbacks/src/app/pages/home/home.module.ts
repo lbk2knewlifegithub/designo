@@ -12,8 +12,8 @@ import {
 import { COMPONENTS } from './components';
 import { CONTAINERS } from './containers';
 import { HomeRoutingModule } from './home-routing.module';
-import { HomeEffects } from './state/home.effects';
-import { homeFeature } from './state/home.reducer';
+import { HomeEffects, homeFeature } from './state';
+import { ProfileButtonModule } from '@lbk/comps';
 
 @NgModule({
   imports: [
@@ -32,6 +32,7 @@ import { homeFeature } from './state/home.reducer';
     MenuOneModule,
     UpperPipeModule,
     AvatarPipeModule,
+    ProfileButtonModule,
   ],
   declarations: [COMPONENTS, CONTAINERS],
 })

@@ -1,0 +1,40 @@
+<div
+  @fadeIn
+  @fadeOut
+  *ngIf="open"
+  class="overlay fixed inset-0 top-[72px] w-full h-full md:top-[80px] z-10 bg-black/40 lg:top-0"
+>
+  <div
+    @fadeInLeft
+    @fadeOutLeft
+    class="inline-block bg-white sm:rounded-r-[20px] lg:pl-[103px] sm:pr-6 dark:bg-fill"
+  >
+    <div
+      class="h-[calc(100vh-72px)] md:h-[calc(100vh-80px)] overflow-y-scroll lg:h-screen"
+    >
+      <div class="px-6 pt-8 max-w-[616px] lg:p-14 lg:pb-4">
+        <!-- Back Button -->
+        <lbk-go-back class="lg:hidden" (click)="closed.emit()"></lbk-go-back>
+        <!-- end Back Button -->
+
+        <!-- Panel -->
+        <div class="block mt-6 lg:mt-0">
+          <ng-content select=".panel"></ng-content>
+        </div>
+        <!-- end Panel -->
+      </div>
+
+      <!-- Mask -->
+      <div
+        class="h-16 bg-gradient-to-b from-[hsla(0,0%,0%,0.001)] to-black/10 mt-6 lg:hidden"
+      ></div>
+      <!-- end Mask -->
+
+      <!-- Actions -->
+      <div class="px-6 py-5 pr-6 lg:py-8 lg:px-14">
+        <ng-content select=".actions"></ng-content>
+      </div>
+      <!-- end Actions -->
+    </div>
+  </div>
+</div>
