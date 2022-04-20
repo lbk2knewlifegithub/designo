@@ -9,9 +9,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { AuthEffects } from './auth.effects';
 import * as fromAuth from './auth.reducer';
-import { RequiredLoginComponent } from './dialogs';
+import { LoggedInComponent, RequiredLoginComponent } from './dialogs';
 
-const COMPONENTS = [RequiredLoginComponent];
+const COMPONENTS = [RequiredLoginComponent, LoggedInComponent];
 
 @NgModule({
   imports: [

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { DialogRef } from '@ngneat/dialog';
 import { AuthFacade } from '../auth.facade';
 
@@ -21,7 +21,7 @@ import { AuthFacade } from '../auth.facade';
 
           <!-- Logout Button -->
           <button
-            (click)="close()"
+            (click)="logout()"
             class="duration-100 bg-sky-500 rounded-lg text-white px-6 py-3 hover:bg-sky-600"
           >
             Logout
@@ -40,7 +40,7 @@ import { AuthFacade } from '../auth.facade';
 
           <!-- Profile Button -->
           <a
-            routerLink="/profile"
+            [routerLink]="['/profile', username]"
             (click)="close()"
             class="duration-100 bg-orange-400 rounded-lg text-white px-6 py-3 hover:bg-sky-600"
           >
@@ -52,11 +52,17 @@ import { AuthFacade } from '../auth.facade';
     </div>
   `,
 })
-export class LoggedInComponent {
+export class LoggedInComponent implements OnInit {
+  username!: string;
+
   constructor(
-    private readonly _ref: DialogRef,
+    private readonly _ref: DialogRef<string>,
     private readonly _authFacade: AuthFacade
   ) {}
+
+  ngOnInit(): void {
+    this.username = this._ref.data;
+  }
 
   close() {
     this._ref.close();
