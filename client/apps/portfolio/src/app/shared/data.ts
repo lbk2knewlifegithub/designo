@@ -1,57 +1,52 @@
-import { Link, Image } from '@lbk/models';
+import { Image } from '@lbk/models';
+import { Project } from '../shared';
 
-export const projectLinks: Link[] = [
+export const projects: Project[] = [
   //   ProductFeedbacks Project
   {
-    name: 'Product Feedbacks',
+    name: 'Fullstack Product Feedbacks',
     href: 'https://client-product-feedbacks-client-lbk2knewlifegithub.cloud.okteto.net',
-    image: {
-      desktop:
-        'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/zbq5rrhkqt63eodwcxcs.jpg',
-      alt: 'Product Feedbacks Project',
-    },
+    image:
+      'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/zbq5rrhkqt63eodwcxcs.jpg',
+    description:
+      'Rust, Actix-Web, Angular, Ngrx, Nx,TailwindCSS, Docker,Kubernetes,Okteto Cloud, YugabyteDB, DBeaver',
   },
 
   // Designo Project
   {
-    name: 'Designo',
+    name: 'Static Site Designo',
     href: 'https://client-designo-client-lbk2knewlifegithub.cloud.okteto.net',
-    image: {
-      desktop:
-        'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/y70y9zpnrnhw9pxqbenq.jpg',
-      alt: 'Designo Project',
-    },
+    image:
+      'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/y70y9zpnrnhw9pxqbenq.jpg',
+    description: '',
   },
 
   // AudioPhile Project
   {
-    name: 'Audiophile',
+    name: 'Fullstack Audiophile (Coming Soon)',
     href: 'https://client-audiophile-client-lbk2knewlifegithub.cloud.okteto.net',
-    image: {
-      desktop:
-        'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/xfevkvpujubwentbteg6.jpg',
-      alt: 'AudioPhile Project',
-    },
+    image:
+      'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/xfevkvpujubwentbteg6.jpg',
+    description:
+      'Rust, Actix-Web, Angular, Ngrx, Nx,TailwindCSS, Docker,Kubernetes,Okteto Cloud, YugabyteDB, DBeaver',
   },
   // Invoice App  Project
   {
-    name: 'Invoice App (Coming Soon)',
+    name: 'Fullstack Invoice App (Coming Soon)',
     href: 'https://client-invoice-app-client-lbk2knewlifegithub.cloud.okteto.net',
-    image: {
-      desktop:
-        'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/ael6vr3wsyatqcrzxzg1.jpg',
-      alt: 'Invoice App',
-    },
+    image:
+      'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/ael6vr3wsyatqcrzxzg1.jpg',
+    description:
+      'Rust, Actix-Web, Angular, Ngrx, Nx,TailwindCSS, Docker,Kubernetes,Okteto Cloud, YugabyteDB, DBeaver',
   },
   // FrontendMentor Clone  Project
   {
-    name: 'FrontendMentor Clone (Coming Soon)',
+    name: 'Fullstack FrontendMentor Clone (Coming Soon)',
     href: 'https://client-frontendmentor-client-lbk2knewlifegithub.cloud.okteto.net',
-    image: {
-      desktop:
-        'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/ael6vr3wsyatqcrzxzg1.jpg',
-      alt: 'FrontendMentor Clone',
-    },
+    image:
+      'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/ael6vr3wsyatqcrzxzg1.jpg',
+    description:
+      'Rust, Actix-Web, Angular, Ngrx, Nx,TailwindCSS, Docker,Kubernetes,Okteto Cloud, YugabyteDB, DBeaver',
   },
 ];
 
