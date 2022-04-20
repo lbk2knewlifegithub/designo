@@ -8,8 +8,7 @@ import { catchError, map, Observable, of, switchMap, take, tap } from 'rxjs';
 import { AuthActions, AuthApiActions } from './actions';
 import { AuthError } from './auth.reducer';
 import * as fromAuth from './auth.selectors';
-import { RequiredLoginComponent } from './dialogs';
-import { LoggedInComponent } from './dialogs/logged-in.component';
+import { LoggedInComponent, RequiredLoginComponent } from './dialogs';
 import { AuthService, UserService } from './services';
 
 @Injectable({ providedIn: 'root' })
@@ -31,11 +30,7 @@ export class AuthFacade {
     private readonly _userService: UserService,
     private readonly _tokenService: TokenService,
     private readonly _dialogService: DialogService
-  ) {
-    setTimeout(() => {
-      this._dialogService.open(LoggedInComponent, {});
-    }, 1000);
-  }
+  ) {}
 
   /**
    *  - Change password
@@ -181,7 +176,6 @@ export class AuthFacade {
    * - Show Profile
    */
   showProfile() {
-    // this.checkLoggedIn(() => {
-    // });
+    this._dialogService.open(LoggedInComponent);
   }
 }
