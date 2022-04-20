@@ -44,14 +44,19 @@ export class AuthFacade {
     this._store.dispatch(AuthActions.logout());
   }
 
-  checkLoggedIn(callback: (() => void) | null = null): void {
-    this.loggedIn$.pipe(take(1)).subscribe((loggedIn) => {
-      if (!loggedIn) {
+  /**
+   *  - Check Logged In
+   * - If User not logged in, open login dialog
+   * @param callback
+   */
+  checkLoggedIn(callback: ((user: User) => void) | null = null): void {
+    this.user$.pipe(take(1)).subscribe((user) => {
+      if (!user) {
         this._dialogService.open(RequiredLoginComponent);
         return;
       }
 
-      if (callback) callback();
+      if (callback) callback(user);
     });
   }
 
@@ -176,6 +181,11 @@ export class AuthFacade {
    * - Show Profile
    */
   showProfile() {
-    this._dialogService.open(LoggedInComponent);
+    this.user$;
+    this.checkLoggedIn((user) =>
+      this._dialogService.open(LoggedInComponent, {
+        data: user.username,
+      })
+    );
   }
 }
