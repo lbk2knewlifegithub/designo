@@ -32,8 +32,14 @@ async fn all_feedbacks(state: web::Data<FeedbacksState>, req: HttpRequest) -> Re
 async fn get_feedback_by_id(
     state: web::Data<FeedbacksState>,
     feedback_id: Path<i32>,
+    req: HttpRequest,
 ) -> Result<HttpResponse> {
-    feedback_service::get_feedback_by_id(&state, &feedback_id.into_inner())
+    let user_id = match state.jwt.authorize(&req).await {
+        Ok(user_token) => Some(user_token.user_id),
+        Err(_) => None,
+    };
+
+    feedback_service::get_feedback_by_id(&state, &user_id, &feedback_id.into_inner())
         .await
         .map(|feedback| HttpResponse::Ok().json(feedback))
         .map_err(Into::into)
@@ -49,7 +55,7 @@ async fn delete_feedback(
     let delete_feedback_token = format!("deletefeedback:{}", token);
 
     // Check DDos
-    state.ddos.medium.check(&delete_feedback_token).await?;
+    state.ddos.check(&delete_feedback_token).await?;
 
     let user_token = state.jwt.decode(&token).await?;
 
@@ -57,7 +63,7 @@ async fn delete_feedback(
 
     match feedback_service::delete_feedback(&state, &delete_feedback).await {
         Ok(_) => {
-            state.ddos.medium.remember(&delete_feedback_token).await?;
+            state.ddos.remember(&delete_feedback_token, 3).await?;
             Ok(HttpResponse::NoContent().finish())
         }
         Err(e) => Err(e),
@@ -73,7 +79,7 @@ async fn update_feedback<'a>(
 ) -> Result<HttpResponse> {
     let token = state.jwt.get_token(&req)?;
     let update_token = format!("update:{}", token);
-    state.ddos.medium.check(&update_token).await?;
+    state.ddos.check(&update_token).await?;
 
     let user_token = state.jwt.decode(&token).await?;
 
@@ -86,7 +92,7 @@ async fn update_feedback<'a>(
     .await
     {
         Ok(_) => {
-            state.ddos.medium.remember(&update_token).await?;
+            state.ddos.remember(&update_token, 2).await?;
             Ok(HttpResponse::NoContent().finish())
         }
         Err(e) => Err(e),
@@ -102,7 +108,7 @@ async fn create_feedback(
     let token = state.jwt.get_token(&req)?;
     let create_key = format!("createfeedback:{}", token);
 
-    state.ddos.high.check(&create_key).await?;
+    state.ddos.check(&create_key).await?;
 
     let user_token = state.jwt.decode(&token).await?;
 
@@ -114,7 +120,7 @@ async fn create_feedback(
     .await
     {
         Ok(feedback) => {
-            state.ddos.high.remember(&create_key).await?;
+            state.ddos.remember(&create_key, 10).await?;
             Ok(HttpResponse::Ok().json(feedback))
         }
         Err(e) => Err(e),
@@ -132,7 +138,7 @@ async fn upvote_feedback(
     let upvote_key = format!("upvote:{}:{}", token, feedback_id);
 
     // Check DDOS protection
-    state.ddos.low.check(&upvote_key).await?;
+    state.ddos.check(&upvote_key).await?;
 
     // Decode token
     let user_token = state.jwt.decode(token.as_str()).await?;
@@ -141,7 +147,7 @@ async fn upvote_feedback(
 
     match feedback_service::upvote_feedback(&state, &upvote).await {
         Ok(()) => {
-            state.ddos.low.remember(&upvote_key).await?;
+            state.ddos.remember(&upvote_key, 3).await?;
             Ok(HttpResponse::NoContent().finish())
         }
         Err(e) => Err(e),
@@ -159,7 +165,7 @@ async fn downvote_feedback(
     let downvote_key = format!("downvote:{}:{}", token, feedback_id);
 
     // Check DDOS protection
-    state.ddos.low.check(&downvote_key).await?;
+    state.ddos.check(&downvote_key).await?;
 
     // Decode token
     let user_token = state.jwt.decode(token.as_str()).await?;
@@ -168,7 +174,7 @@ async fn downvote_feedback(
 
     match feedback_service::downvote_feedback(&state, &downvote).await {
         Ok(()) => {
-            state.ddos.low.remember(&downvote_key).await?;
+            state.ddos.remember(&downvote_key, 3).await?;
             Ok(HttpResponse::NoContent().finish())
         }
         Err(e) => Err(e),
@@ -214,7 +220,7 @@ async fn add_comment_to_feedback(
 ) -> Result<HttpResponse> {
     let token = state.jwt.get_token(&req)?;
     let add_comment_ddos_token = format!("addcomment:{}", token);
-    state.ddos.medium.check(&add_comment_ddos_token).await?;
+    state.ddos.check(&add_comment_ddos_token).await?;
 
     let user_token = state.jwt.decode(&token).await?;
 
@@ -226,7 +232,7 @@ async fn add_comment_to_feedback(
 
     match comment_service::add_comment_to_feedback(&state, &new_comment).await {
         Ok(component_response) => {
-            state.ddos.medium.remember(&add_comment_ddos_token).await?;
+            state.ddos.remember(&add_comment_ddos_token, 2).await?;
             Ok(HttpResponse::Created().json(component_response))
         }
         Err(e) => Err(e),
@@ -243,7 +249,7 @@ async fn update_comment_by_id(
     let token = state.jwt.get_token(&req)?;
     let update_comment_ddos_token = format!("updatecomment:{}", token);
 
-    state.ddos.medium.check(&update_comment_ddos_token).await?;
+    state.ddos.check(&update_comment_ddos_token).await?;
 
     let user_token = state.jwt.decode(&token).await?;
 
@@ -254,11 +260,7 @@ async fn update_comment_by_id(
     );
     match comment_service::update_comment(&state, &update_comment).await {
         Ok(_) => {
-            state
-                .ddos
-                .medium
-                .remember(&update_comment_ddos_token)
-                .await?;
+            state.ddos.remember(&update_comment_ddos_token, 2).await?;
             Ok(HttpResponse::NoContent().finish())
         }
         Err(e) => Err(e),
@@ -274,17 +276,13 @@ async fn delete_comment(
     let token = state.jwt.get_token(&req)?;
     let delete_comment_ddos_token = format!("deletecomment:{}", token);
 
-    state.ddos.medium.check(&delete_comment_ddos_token).await?;
+    state.ddos.check(&delete_comment_ddos_token).await?;
 
     let user_token = state.jwt.decode(&token).await?;
 
     match comment_service::delete_comment(&state, &user_token.user_id, &comment_id).await {
         Ok(_) => {
-            state
-                .ddos
-                .medium
-                .remember(&delete_comment_ddos_token)
-                .await?;
+            state.ddos.remember(&delete_comment_ddos_token, 2).await?;
             Ok(HttpResponse::NoContent().finish())
         }
         Err(e) => Err(e),

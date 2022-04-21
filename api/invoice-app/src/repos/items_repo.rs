@@ -1,16 +1,16 @@
 use crate::dto::item_dto::CreateItemDTO;
 use prelude::{errors::AppError, Result};
 
-use deadpool_postgres::Client;
+use deadpool_postgres::Transaction;
 use tracing::error;
 
 /// Create Item
-pub async fn create_item(
-    client: &Client,
+pub async fn create_item<'a>(
+    trans: &Transaction<'a>,
     invoice_id: &i32,
     create_item_dto: &CreateItemDTO,
 ) -> Result<i32> {
-    let stmt = client
+    let stmt = trans
         .prepare(
             &r#"
     INSERT INTO invoice_app.items(
@@ -29,7 +29,7 @@ pub async fn create_item(
         price,
     } = create_item_dto;
 
-    Ok(client
+    Ok(trans
         .query(&stmt, &[name, quantity, price, invoice_id])
         .await
         .map_err(|e| {

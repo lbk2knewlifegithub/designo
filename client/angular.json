@@ -11,7 +11,7 @@
     "dto": "libs/dto",
     "effects": "libs/effects",
     "environments": "libs/environments",
-    "frontendmentor": "apps/frontendmentor",
+    "frontend-mentor": "apps/frontend-mentor",
     "interceptors": "libs/interceptors",
     "invoice-app": "apps/invoice-app",
     "models": "libs/models",

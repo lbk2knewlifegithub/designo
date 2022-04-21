@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
 import { Item } from '../../../../../models';
@@ -13,7 +7,6 @@ import { FormGroupComponent } from '../../form-helper/form-group.component';
 
 @Component({
   selector: 'lbk-invoice-item-input',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './invoice-item-input.component.html',
 })
 export class InvoiceItemInputComponent

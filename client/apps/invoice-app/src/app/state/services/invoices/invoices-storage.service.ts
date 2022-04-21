@@ -1,105 +1,126 @@
-// import { Inject, Injectable } from "@angular/core";
-// import { LOCAL_STORAGE_TOKEN } from "@frontend/constants";
-// import { CreateInvoiceDto, UpdateInvoiceDto } from "@frontend/dto";
-// import { Invoice } from "@lbk/models";
-// import * as frontStubs from "@lbk/stubs";
-// import { map, Observable, of, tap, throwError } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
+import { LOCAL_STORAGE_TOKEN } from '@lbk/tokens';
+import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
+import {
+  CreateInvoiceDTO,
+  fromData,
+  Invoice,
+  UpdateInvoiceDTO,
+} from '../../../shared';
+import { InvoicesService } from './invoices.service';
 
-// @Injectable({ providedIn: "root" })
-// export class InvoicesStorageService implements InvoicesService {
-//   private invoicesStorageKey = "invoices";
+@Injectable({ providedIn: 'root' })
+export class InvoicesStorageService extends InvoicesService {
+  private invoicesStorageKey = 'invoices';
 
-//   supported(): Observable<boolean> {
-//     return this.storage !== null
-//       ? of(true)
-//       : throwError(() => "Local Storage Not Supported");
-//   }
+  supported(): Observable<boolean> {
+    return this.storage !== null
+      ? of(true)
+      : throwError(() => 'Local Storage Not Supported');
+  }
 
-//   constructor(@Inject(LOCAL_STORAGE_TOKEN) private storage: Storage) {}
+  constructor(
+    @Inject(LOCAL_STORAGE_TOKEN) private storage: Storage,
+    _http: HttpClient
+  ) {
+    super(_http);
+  }
 
-//   getInvoices(): Observable<Invoice[]> {
-//     return this.supported().pipe(
-//       map((_) => this.storage.getItem(this.invoicesStorageKey)),
-//       map((value: string | null) =>
-//         value ? JSON.parse(value) : frontStubs.invoicesStub()
-//       )
-//     );
-//   }
+  getInvoices(): Observable<Invoice[]> {
+    return this.supported().pipe(
+      map(() => this.storage.getItem(this.invoicesStorageKey)),
+      map((value: string | null | undefined) =>
+        value ? JSON.parse(value) : fromData.invoices()
+      ),
+      catchError(() => {
+        this._clear();
+        return of(fromData.invoices());
+      }),
+      tap((invoices) => this._save(invoices))
+    );
+  }
 
-//   retrieveInvoice(id: number): Observable<Invoice> {
-//     return this.getInvoices().pipe(
-//       map((invoices) => invoices.find((invoice) => invoice.id === id)),
-//       tap((invoice) => {
-//         if (!invoice) throw new Error("Not founded");
-//       }),
-//       map((invoice) => invoice!)
-//     );
-//   }
+  retrieveInvoice(invoice_id: number): Observable<Invoice> {
+    return this.getInvoices().pipe(
+      map((invoices) => {
+        const invoice = invoices.find(
+          (invoice) => invoice.invoice_id === invoice_id
+        );
+        if (!invoice) throw new Error('Invoice not found');
+        return invoice;
+      })
+    );
+  }
 
-//   deleteInvoice(id: number): Observable<Invoice[]> {
-//     return this.getInvoices().pipe(
-//       map((invoices) => invoices.filter((invoice) => invoice.id !== id)),
-//       tap((invoices) => this.save(invoices))
-//     );
-//   }
+  deleteInvoice(invoice_id: number): Observable<void> {
+    return this.getInvoices().pipe(
+      map((invoices) =>
+        invoices.filter((invoice) => invoice.invoice_id !== invoice_id)
+      ),
+      tap((invoices) => this._save(invoices)),
+      map(() => void 0)
+    );
+  }
 
-//   maskAsPaid(id: number): Observable<Invoice[]> {
-//     return this.getInvoices().pipe(
-//       map((invoices) =>
-//         invoices.map((invoice) =>
-//           invoice.id !== id
-//             ? invoice
-//             : ({ ...invoice, status: "paid" } as Invoice)
-//         )
-//       ),
-//       tap((invoices) => this.save(invoices))
-//     );
-//   }
+  /**
+   *  - Mask As Paid
+   * @param invoice_id
+   * @returns
+   */
+  maskAsPaid(invoice_id: number): Observable<void> {
+    return this.getInvoices().pipe(
+      map((invoices) =>
+        invoices.map((invoice) =>
+          invoice.invoice_id !== invoice_id
+            ? invoice
+            : ({ ...invoice, status: 'paid' } as Invoice)
+        )
+      ),
+      tap((invoices) => this._save(invoices)),
+      map(() => void 0)
+    );
+  }
 
-//   updateInvoice(
-//     id: number,
-//     updateInvoiceDto: UpdateInvoiceDto
-//   ): Observable<Invoice[]> {
-//     return this.getInvoices().pipe(
-//       map((invoices) =>
-//         invoices.map((invoice) =>
-//           invoice.id !== id
-//             ? invoice
-//             : ({ ...invoice, ...updateInvoiceDto } as Invoice)
-//         )
-//       ),
-//       tap((invoices) => this.save(invoices))
-//     );
-//   }
-//   private createId(): Observable<number> {
-//     // const tmp = ["l", "b", "k", "b", "a", "n"];
-//     // let result = "";
+  /**
+   *  - Update Invoice
+   * @param updateInvoiceDTO
+   * @returns
+   */
+  updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO): Observable<void> {
+    const { invoice_id, ...newInvoice } = updateInvoiceDTO;
+    return this.getInvoices().pipe(
+      map((invoices) =>
+        invoices.map((invoice) =>
+          invoice.invoice_id !== invoice_id
+            ? invoice
+            : ({ invoice_id, ...newInvoice } as Invoice)
+        )
+      ),
+      tap((invoices) => this._save(invoices)),
+      map(() => void 0)
+    );
+  }
 
-//     // while (result.length !== 6) {
-//     //   if (Math.random() > 0.5) {
-//     //     result += tmp[Math.floor(Math.random() * tmp.length)];
-//     //     continue;
-//     //   }
+  createInvoice(createInvoiceDTO: CreateInvoiceDTO): Observable<Invoice> {
+    return this.getInvoices().pipe(
+      map((invoices) => [
+        {
+          ...createInvoiceDTO,
+          invoice_id: Math.floor(Math.random() * 1_000_000),
+        },
+        ...invoices,
+      ]),
+      tap((invoices) => this._save(invoices)),
+      map((invoices) => invoices[0])
+    );
+  }
 
-//     //   result += Math.floor(Math.random() * 10);
-//     // }
+  private _save(invoices: Invoice[]) {
+    this.storage.setItem(this.invoicesStorageKey, JSON.stringify(invoices));
+  }
 
-//     // return result;
-//     return this.getInvoices().pipe(map((invoices) => invoices.length));
-//   }
-
-//   createInvoice(createInvoiceDto: CreateInvoiceDto): Observable<Invoice> {
-//     return this.getInvoices().pipe(
-//       map((invoices) => [
-//         { ...createInvoiceDto, id: invoices.length },
-//         ...invoices,
-//       ]),
-//       tap((invoices) => this.save(invoices)),
-//       map((invoices) => invoices[0])
-//     );
-//   }
-
-//   private save(invoices: Invoice[]) {
-//     this.storage.setItem(this.invoicesStorageKey, JSON.stringify(invoices));
-//   }
-// }
+  private _clear() {
+    this.storage.removeItem(this.invoicesStorageKey);
+  }
+}

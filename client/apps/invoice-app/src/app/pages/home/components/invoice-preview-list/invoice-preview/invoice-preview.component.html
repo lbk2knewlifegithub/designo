@@ -22,7 +22,7 @@
   <div class="space-y-2 md:space-y-0 md:order-1">
     <!-- Payment Due -->
     <span class="text-sm block text-muted-800">
-      Due {{ invoice.paymentDue | date: 'dd-MMM-yyyy' }}
+      Due {{ invoice | paymentDue | date: 'dd-MMM-yyyy' }}
     </span>
     <!-- end Payment Due -->
 

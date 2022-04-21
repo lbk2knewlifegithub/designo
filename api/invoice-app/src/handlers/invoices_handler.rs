@@ -1,6 +1,8 @@
 use crate::{
-    dto::invoice_dto::CreateInvoiceDTO, models::invoice_model::DeleteInvoice,
-    services::invoices_service, InvoiceAppState,
+    dto::invoice_dto::CreateInvoiceDTO,
+    models::{invoice_model::DeleteInvoice, random_invoice_model::RandomInvoice},
+    services::invoices_service,
+    InvoiceAppState,
 };
 
 use actix_web::{
@@ -20,6 +22,21 @@ async fn all_invoices(state: web::Data<InvoiceAppState>, req: HttpRequest) -> Re
         .map_err(Into::into)
 }
 
+/// Random Invoice
+async fn random_invoice(
+    state: web::Data<InvoiceAppState>,
+    req: HttpRequest,
+) -> Result<HttpResponse> {
+    if let Some(val) = req.peer_addr() {
+        let random_invoice_token = format!("random_invoice:{}", val.ip());
+        state.ddos.check(&random_invoice_token).await?;
+        state.ddos.remember(&random_invoice_token, 1).await?;
+    }
+
+    let random_invoice = RandomInvoice::random();
+    Ok(HttpResponse::Ok().json(random_invoice))
+}
+
 /// Create Invoice Router
 async fn create_invoice(
     state: web::Data<InvoiceAppState>,
@@ -29,7 +46,7 @@ async fn create_invoice(
     let token = state.jwt.get_token(&req)?;
     let create_key = format!("createinvoice:{}", token);
 
-    state.ddos.high.check(&create_key).await?;
+    state.ddos.check(&create_key).await?;
 
     let user_token = state.jwt.decode(&token).await?;
 
@@ -41,7 +58,7 @@ async fn create_invoice(
     .await
     {
         Ok(invoice) => {
-            state.ddos.high.remember(&create_key).await?;
+            state.ddos.remember(&create_key, 5).await?;
             Ok(HttpResponse::Ok().json(invoice))
         }
         Err(e) => Err(e),
@@ -58,7 +75,7 @@ async fn delete_invoice(
     let delete_feedback_token = format!("delete_invoice:{}", token);
 
     // Check DDos
-    state.ddos.medium.check(&delete_feedback_token).await?;
+    state.ddos.check(&delete_feedback_token).await?;
 
     // Decode Token
     let user_token = state.jwt.decode(&token).await?;
@@ -67,7 +84,7 @@ async fn delete_invoice(
 
     match invoices_service::delete_invoice(&state, &delete_invoice).await {
         Ok(_) => {
-            state.ddos.medium.remember(&delete_feedback_token).await?;
+            state.ddos.remember(&delete_feedback_token, 3).await?;
             Ok(HttpResponse::NoContent().finish())
         }
         Err(e) => Err(e),
@@ -84,14 +101,14 @@ async fn get_invoice_by_id(
     let delete_feedback_token = format!("get_invoice_by_id:{}", token);
 
     // Check DDos
-    state.ddos.low.check(&delete_feedback_token).await?;
+    state.ddos.check(&delete_feedback_token).await?;
 
     // Decode Token
     let user_id = state.jwt.decode(&token).await?.user_id;
 
     match invoices_service::get_invoice_by_id(&state, &invoice_id.into_inner(), &user_id).await {
         Ok(invoice) => {
-            state.ddos.medium.remember(&delete_feedback_token).await?;
+            state.ddos.remember(&delete_feedback_token, 2).await?;
             Ok(HttpResponse::Ok().json(invoice))
         }
         Err(e) => Err(e),
@@ -128,6 +145,16 @@ pub fn configure(cfg: &mut web::ServiceConfig) {
                             .route(web::get().to(get_invoice_by_id))
                             // Delete Invoice
                             .route(web::delete().to(delete_invoice)),
+                    ),
+            )
+            // Random Invoice
+            .service(
+                web::scope("/random")
+                    // Random Invoice
+                    .service(
+                        web::resource("")
+                            // Random Invoice
+                            .route(web::get().to(random_invoice)),
                     ),
             ),
     );

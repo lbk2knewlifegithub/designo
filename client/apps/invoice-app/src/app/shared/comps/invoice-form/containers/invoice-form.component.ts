@@ -2,13 +2,23 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  Inject,
   Input,
   OnInit,
 } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { addDays, decimalRegex } from '@lbk/utils';
-import { Address, Invoice, InvoiceStatus, Item } from '../../../models';
-import { CreateInvoiceDTO, UpdateInvoiceDTO } from './../../../dto';
+import { finalize, Observable, switchMap, take } from 'rxjs';
+import {
+  Address,
+  CreateInvoiceDTO,
+  Invoice,
+  InvoiceStatus,
+  INVOICES_SERVICE,
+  Item,
+  UpdateInvoiceDTO,
+} from '../../../../shared';
+import { InvoicesService } from '../../../../state';
 
 @Component({
   selector: 'lbk-invoice-form',
@@ -20,13 +30,18 @@ export class InvoiceFormComponent implements OnInit {
 
   form!: FormGroup;
 
+  loading!: boolean;
+
   constructor(
     private readonly _fb: FormBuilder,
-    private readonly _cd: ChangeDetectorRef
+    private readonly _cd: ChangeDetectorRef,
+    @Inject(INVOICES_SERVICE)
+    private readonly _invoicesService: Observable<InvoicesService>
   ) {}
 
   ngOnInit(): void {
     this.initForm();
+    this.loading = false;
   }
 
   /**
@@ -213,5 +228,53 @@ export class InvoiceFormComponent implements OnInit {
         ],
       ],
     });
+  }
+
+  /**
+   * - Random Invoice
+   */
+  randomInvoice() {
+    this.loading = true;
+    this._invoicesService
+      .pipe(
+        switchMap((service) => service.randomInvoice()),
+        take(1),
+        finalize(() => {
+          this.loading = false;
+          // Add items
+          this._cd.detectChanges();
+        })
+      )
+      .subscribe((randomInvoice) => {
+        const {
+          clientAddress,
+          senderAddress,
+          clientEmail,
+          clientName,
+          description,
+          createdAt,
+          items,
+          paymentTerms,
+          status,
+        } = randomInvoice;
+
+        this.form.reset({
+          billFrom: senderAddress,
+          billTo: {
+            clientName,
+            clientEmail,
+            clientAddress,
+            createdAt,
+            paymentTerms,
+            description,
+          },
+          status,
+        });
+
+        this.items.clear();
+        items.forEach((item) => {
+          this.items.push(this.createItem(item));
+        });
+      });
   }
 }

@@ -73,6 +73,7 @@ export class NewInvoiceOverlayComponent {
   onCreate() {
     this.invoiceForm.markAllAsTouched();
 
+    console.log(this.invoiceForm.invalid);
     if (this.invoiceForm.invalid) {
       this._dialogService.error({
         title: 'Invalid form',

@@ -1,13 +1,21 @@
-<!-- title -->
-<lbk-invoice-form-title [id]="invoice?.invoice_id"></lbk-invoice-form-title>
-<!-- end title -->
+<!-- Title -->
+<nav class="flex justify-between items-center">
+  <lbk-invoice-form-title [id]="invoice?.invoice_id"></lbk-invoice-form-title>
+
+  <!-- Random Invoice Button -->
+  <button
+    [class.animate-spin]="loading"
+    aria-label="Random Invoice"
+    (click)="randomInvoice()"
+  >
+    <i class="fa-solid fa-dice text-xl"></i>
+  </button>
+  <!-- end Random Invoice Button -->
+</nav>
+<!-- end Title -->
 
 <form [formGroup]="form" class="mt-6 lg:mt-12">
-  <lbk-address-form
-    [parent]="form"
-    groupName="billFrom"
-    data-cy="bill-from"
-  ></lbk-address-form>
+  <lbk-address-form [parent]="form" groupName="billFrom"></lbk-address-form>
 
   <lbk-bill-to-form
     class="block mt-10 lg:mt-12"

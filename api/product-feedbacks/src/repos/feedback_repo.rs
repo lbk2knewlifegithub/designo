@@ -11,9 +11,7 @@ use tokio_pg_mapper::FromTokioPostgresRow;
 use tokio_postgres::error::SqlState;
 use tracing::error;
 
-/**
- *  - Get All Feedbacks
- */
+/// Get All Feedbacks
 pub async fn all_feedbacks(client: &Client, user_id: &Option<i32>) -> Result<Vec<Feedback>> {
     let stmt = client
         .prepare(
@@ -48,7 +46,11 @@ pub async fn all_feedbacks(client: &Client, user_id: &Option<i32>) -> Result<Vec
 /**
  *  - Get Feedback By id
  */
-pub async fn get_feedback_by_id(client: &Client, feedback_id: &i32) -> Result<Option<Feedback>> {
+pub async fn get_feedback_by_id(
+    client: &Client,
+    user_id: &Option<i32>,
+    feedback_id: &i32,
+) -> Result<Option<Feedback>> {
     let stmt = client
         .prepare(
             &r#"
@@ -67,13 +69,13 @@ SELECT
 FROM feedbacks f
 LEFT JOIN categories c USING(category_id)
 LEFT JOIN statuses s USING (status_id)
-WHERE f.feedback_id = $1
+WHERE f.feedback_id = $2
 ORDER BY upvotes DESC;"#,
         )
         .await?;
 
     Ok(client
-        .query(&stmt, &[feedback_id])
+        .query(&stmt, &[user_id, feedback_id])
         .await?
         .iter()
         .map(|row| Feedback::from_row_ref(row).unwrap())

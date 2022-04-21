@@ -1,7 +1,11 @@
 <div [formGroup]="parent">
   <label class="grid gap-1" [for]="controlName">
     {{ label | titlecase }}
-    <input [id]="controlName" [formControlName]="controlName" type="text" />
+    <input
+      [id]="controlName"
+      [formControlName]="controlName"
+      [type]="inputType"
+    />
   </label>
 
   <!-- Errors -->

@@ -4,7 +4,7 @@
     id="avatar"
     (click)="onClick()"
     *ngIf="loggedIn$ | async; else defaultUser"
-    class="avatar avatar-md border border-white md:avatar-lg md:border-2"
+    class="rounded-full w-10 h-10 border border-white md:border-2"
     [src]="(user$ | async)! | avatar"
     alt="Avatar"
   />

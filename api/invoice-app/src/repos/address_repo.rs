@@ -1,12 +1,15 @@
 use crate::dto::address_dto::CreateAddressDTO;
 use prelude::Result;
 
-use deadpool_postgres::Client;
+use deadpool_postgres::Transaction;
 use prelude::errors::AppError;
 
 /// Create Address  
-pub async fn crate_address(client: &Client, create_address_dto: &CreateAddressDTO) -> Result<i32> {
-    let stmt = client
+pub async fn crate_address<'a>(
+    trans: &Transaction<'a>,
+    create_address_dto: &CreateAddressDTO,
+) -> Result<i32> {
+    let stmt = trans
         .prepare(
             &r#"
                 INSERT INTO invoice_app.address(
@@ -24,13 +27,8 @@ pub async fn crate_address(client: &Client, create_address_dto: &CreateAddressDT
         country,
     } = create_address_dto;
 
-    Ok(client
-        .query(&stmt, &[street, post_code, country])
-        .await
-        .expect("Error creating address")
-        .iter()
-        .map(|row| row.get("address_id"))
-        .collect::<Vec<i32>>()
-        .pop()
-        .ok_or(AppError::IntervalServerError)?)
+    match trans.query_one(&stmt, &[street, post_code, country]).await {
+        Ok(row) => Ok(row.get::<'_, _, i32>("address_id")),
+        Err(_) => Err(AppError::IntervalServerError),
+    }
 }

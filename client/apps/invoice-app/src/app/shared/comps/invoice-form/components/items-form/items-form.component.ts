@@ -1,15 +1,9 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
 import { FormGroupComponent } from '../form-helper/form-group.component';
 
 @Component({
   selector: 'lbk-items-form',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div [formGroup]="parent">
       <div [formArrayName]="arrayName">

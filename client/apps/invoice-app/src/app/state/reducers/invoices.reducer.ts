@@ -39,8 +39,10 @@ export const reducer = createReducer(
   /**
    * - Load Invoices Success
    */
-  on(InvoicesAPIActions.loadInvoicesSuccess, (state, { invoices }) =>
-    adapter.addMany(invoices, state)
+  on(InvoicesAPIActions.loadInvoicesSuccess, (state, { invoices, override }) =>
+    override
+      ? adapter.setAll(invoices, { ...state, loaded: true })
+      : adapter.addMany(invoices, { ...state, loaded: true })
   ),
 
   /**

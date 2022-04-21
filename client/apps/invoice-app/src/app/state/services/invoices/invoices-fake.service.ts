@@ -10,7 +10,7 @@ import {
 import { InvoicesService } from './invoices.service';
 
 @Injectable({ providedIn: 'root' })
-export class InvoicesFakeService implements InvoicesService {
+export class InvoicesFakeService extends InvoicesService {
   private _invoices = [...fromData.invoices()];
   private invoice_id = this._invoices.length + 1;
 

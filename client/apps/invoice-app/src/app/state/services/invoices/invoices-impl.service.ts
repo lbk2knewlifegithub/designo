@@ -6,12 +6,14 @@ import { CreateInvoiceDTO, Invoice, UpdateInvoiceDTO } from '../../../shared';
 import { InvoicesService } from './invoices.service';
 
 @Injectable({ providedIn: 'root' })
-export class InvoicesImplService implements InvoicesService {
+export class InvoicesImplService extends InvoicesService {
   constructor(
     @Inject(API_URL)
     private readonly _apiUrl: string,
-    private readonly _http: HttpClient
-  ) {}
+    _http: HttpClient
+  ) {
+    super(_http);
+  }
 
   /**
    *  - Get Invoices
@@ -27,7 +29,9 @@ export class InvoicesImplService implements InvoicesService {
    * @returns
    */
   retrieveInvoice(invoice_id: number): Observable<Invoice> {
-    return this._http.get<Invoice>(`${this._apiUrl}/invoice/${invoice_id}`);
+    return this._http.get<Invoice>(
+      `${this._apiUrl}/invoices/invoice/${invoice_id}`
+    );
   }
 
   /**
@@ -36,7 +40,9 @@ export class InvoicesImplService implements InvoicesService {
    * @returns
    */
   deleteInvoice(invoice_id: number): Observable<void> {
-    return this._http.delete<void>(`${this._apiUrl}/invoice/${invoice_id}`);
+    return this._http.delete<void>(
+      `${this._apiUrl}/invoices/invoice/${invoice_id}`
+    );
   }
 
   /**
@@ -46,7 +52,7 @@ export class InvoicesImplService implements InvoicesService {
    */
   maskAsPaid(invoice_id: number): Observable<void> {
     return this._http.patch<void>(
-      `${this._apiUrl}/invoice/${invoice_id}/status`,
+      `${this._apiUrl}/invoices/invoice/${invoice_id}/status`,
       {}
     );
   }
@@ -58,7 +64,7 @@ export class InvoicesImplService implements InvoicesService {
   updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO): Observable<void> {
     const { invoice_id } = updateInvoiceDTO;
     return this._http.put<void>(
-      `${this._apiUrl}/invoice/${invoice_id}`,
+      `${this._apiUrl}/invoices/invoice/${invoice_id}`,
       updateInvoiceDTO
     );
   }
@@ -70,7 +76,7 @@ export class InvoicesImplService implements InvoicesService {
    */
   createInvoice(createInvoiceDTO: CreateInvoiceDTO): Observable<Invoice> {
     return this._http.post<Invoice>(
-      `${this._apiUrl}/invoice`,
+      `${this._apiUrl}/invoices/invoice`,
       createInvoiceDTO
     );
   }

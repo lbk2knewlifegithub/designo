@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   // Api
-  apiUrl: 'http://localhost:8080',
+  apiUrl: '/api',
   // Client
   clientProductFeedbacksUrl: 'http://localhost:4200',
   clientDesignoUrl: 'http://localhost:4204',

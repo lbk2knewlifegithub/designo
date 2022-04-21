@@ -129,21 +129,21 @@ impl From<std::io::Error> for AppError {
 
 impl From<PGMapperError> for AppError {
     fn from(e: PGMapperError) -> Self {
-        error!("{e}");
+        error!("PGMapperError {e}");
         AppError::IntervalServerError
     }
 }
 
 impl From<PGError> for AppError {
     fn from(e: PGError) -> Self {
-        error!("{e}");
+        error!("PGError {e}");
         AppError::IntervalServerError
     }
 }
 
 impl From<PoolError> for AppError {
     fn from(e: PoolError) -> Self {
-        error!("{e}");
+        error!("PoolError {e}");
         AppError::IntervalServerError
     }
 }

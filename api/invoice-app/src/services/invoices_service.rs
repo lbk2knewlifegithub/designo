@@ -4,15 +4,13 @@ use crate::{
     repos::{address_repo, invoices_repo, items_repo, payment_terms_repo, status_repo},
     InvoiceAppState,
 };
-use prelude::{
-    errors::{invoice_error::InvoiceError, AppError},
-    Result,
-};
+use prelude::{errors::AppError, Result};
 
 ///  All Invoice Service
 pub async fn all_invoices(state: &InvoiceAppState, user_id: &i32) -> Result<Vec<Invoice>> {
-    let client = state.db.pool.get().await?;
-    Ok(invoices_repo::all_invoices(&client, user_id).await?)
+    let mut client = state.db.pool.get().await?;
+    let trans = client.transaction().await?;
+    Ok(invoices_repo::all_invoices(&trans, user_id).await?)
 }
 
 /// Create Invoice Service
@@ -22,39 +20,28 @@ pub async fn create_invoice(
     create_invoice_dto: &CreateInvoiceDTO,
 ) -> Result<Invoice> {
     // Connect to pool
-    let client = state.db.pool.get().await?;
+    let mut client = state.db.pool.get().await?;
+    // START TRANSACTION
+    let trans = client.transaction().await?;
 
     // Check PaymentTerms Exists
-    let payment_terms = match payment_terms_repo::get_payment_terms_by_days(
-        &client,
-        &create_invoice_dto.payment_terms,
-    )
-    .await?
-    {
-        Some(category) => category,
-        None => {
-            return Err(InvoiceError::PaymentTermsNotFound(create_invoice_dto.payment_terms).into())
-        }
-    };
+    let payment_terms =
+        payment_terms_repo::get_payment_terms_by_days(&trans, &create_invoice_dto.payment_terms)
+            .await?;
 
     // Check InvoiceStatus Exists
-    let status = match status_repo::get_status_by_name(&client, &create_invoice_dto.status).await? {
-        Some(status) => status,
-        None => {
-            return Err(InvoiceError::StatusNotFound(create_invoice_dto.status.to_owned()).into())
-        }
-    };
+    let status = status_repo::get_status_by_name(&trans, &create_invoice_dto.status).await?;
 
     // Create Sender Address
     let sender_address_id = address_repo::crate_address(
-        &client,
+        &trans,
         &create_invoice_dto.sender_address.to_owned().unwrap(),
     )
     .await?;
 
     // Create Client Address
     let client_address_id = address_repo::crate_address(
-        &client,
+        &trans,
         &create_invoice_dto.client_address.to_owned().unwrap(),
     )
     .await?;
@@ -70,16 +57,21 @@ pub async fn create_invoice(
         client_email: create_invoice_dto.client_email.to_owned(),
     };
 
-    let invoice_id = invoices_repo::create_invoice(&client, &new_invoice).await?;
+    let invoice_id = invoices_repo::create_invoice(&trans, &new_invoice).await?;
 
     // Create Items
     if let Some(items) = create_invoice_dto.to_owned().items {
         for item in items {
-            items_repo::create_item(&client, &invoice_id, &item).await?;
+            items_repo::create_item(&trans, &invoice_id, &item).await?;
         }
     }
 
-    match invoices_repo::get_invoice_by_id(&client, &invoice_id, user_id).await? {
+    let invoice = invoices_repo::get_invoice_by_id(&trans, &invoice_id, user_id).await?;
+
+    // COMMIT TRANSACTION
+    trans.commit().await?;
+
+    match invoice {
         Some(invoice) => Ok(invoice),
         None => Err(AppError::RecordNotFound),
     }
@@ -87,9 +79,18 @@ pub async fn create_invoice(
 
 /// Delete Invoice Service
 pub async fn delete_invoice(state: &InvoiceAppState, delete_invoice: &DeleteInvoice) -> Result<()> {
-    let client = state.db.pool.get().await?;
+    let mut client = state.db.pool.get().await?;
+    let trans = client.transaction().await?;
 
-    let affected = invoices_repo::delete_invoice(&client, &delete_invoice).await?;
+    let affected = match invoices_repo::delete_invoice(&trans, &delete_invoice).await {
+        Ok(a) => a,
+        Err(e) => {
+            trans.rollback().await?;
+            return Err(e);
+        }
+    };
+
+    trans.commit().await?;
 
     if affected != 1 {
         return Err(AppError::RecordNotFound);
@@ -104,9 +105,11 @@ pub async fn get_invoice_by_id(
     invoice_id: &i32,
     user_id: &i32,
 ) -> Result<Invoice> {
-    let client = state.db.pool.get().await?;
+    let mut client = state.db.pool.get().await?;
+    let trans = client.transaction().await?;
+    let invoice = invoices_repo::get_invoice_by_id(&trans, invoice_id, user_id).await?;
 
-    match invoices_repo::get_invoice_by_id(&client, invoice_id, user_id).await? {
+    match invoice {
         Some(invoice) => Ok(invoice),
         None => Err(AppError::RecordNotFound),
     }

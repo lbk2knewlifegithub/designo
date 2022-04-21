@@ -1,13 +1,13 @@
 use crate::models::invoice_model::{DeleteInvoice, Invoice, NewInvoice};
 use prelude::{errors::AppError, Result};
 
-use deadpool_postgres::Client;
+use deadpool_postgres::Transaction;
 use tokio_pg_mapper::FromTokioPostgresRow;
 use tracing::{debug, error};
 
 /// Get All Invoices
-pub async fn all_invoices(client: &Client, user_id: &i32) -> Result<Vec<Invoice>> {
-    let stmt = client
+pub async fn all_invoices(trans: &Transaction<'_>, user_id: &i32) -> Result<Vec<Invoice>> {
+    let stmt = trans
         .prepare(
             &r#"
             SELECT 
@@ -29,7 +29,7 @@ pub async fn all_invoices(client: &Client, user_id: &i32) -> Result<Vec<Invoice>
         )
         .await.expect("Error preparing statement GET_ALL_INVOICES");
 
-    Ok(client
+    Ok(trans
         .query(&stmt, &[&user_id])
         .await?
         .iter()
@@ -39,11 +39,11 @@ pub async fn all_invoices(client: &Client, user_id: &i32) -> Result<Vec<Invoice>
 
 /// Get Invoice By Id
 pub async fn get_invoice_by_id(
-    client: &Client,
+    trans: &Transaction<'_>,
     invoice_id: &i32,
     user_id: &i32,
 ) -> Result<Option<Invoice>> {
-    let stmt = client
+    let stmt = trans
         .prepare(
             &r#"
             SELECT 
@@ -64,7 +64,7 @@ pub async fn get_invoice_by_id(
         )
         .await.expect("Error preparing statement GET_INVOICE_BY_ID");
 
-    match client.query_one(&stmt, &[&invoice_id, &user_id]).await {
+    match trans.query_one(&stmt, &[&invoice_id, &user_id]).await {
         Ok(row) => Ok(Some(Invoice::from_row_ref(&row).expect(
             "GET_INVOICE_BY_ID REPO Error When converting row to Invoice",
         ))),
@@ -76,8 +76,8 @@ pub async fn get_invoice_by_id(
 }
 
 /// Create Invoice
-pub async fn create_invoice(client: &Client, new_invoice: &NewInvoice) -> Result<i32> {
-    let stmt = client
+pub async fn create_invoice(trans: &Transaction<'_>, new_invoice: &NewInvoice) -> Result<i32> {
+    let stmt = trans
         .prepare(
             &r#"
 INSERT INTO invoice_app.invoices(
@@ -105,7 +105,7 @@ VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING invoice_id;"#,
         client_address_id,
     } = new_invoice;
 
-    Ok(client
+    Ok(trans
         .query(
             &stmt,
             &[
@@ -132,18 +132,20 @@ VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING invoice_id;"#,
 }
 
 /// Delete Invoice By Id
-pub async fn delete_invoice(client: &Client, delete_invoice: &DeleteInvoice) -> Result<u64> {
-    let stmt = client
+pub async fn delete_invoice(
+    trans: &Transaction<'_>,
+    delete_invoice: &DeleteInvoice,
+) -> Result<u64> {
+    let stmt = trans
         .prepare(&r#"DELETE FROM invoice_app.invoices WHERE invoice_id= $1 AND user_id = $2;"#)
-        .await
-        .expect("Error preparing statement DELETE_INVOICE");
+        .await?;
 
     let DeleteInvoice {
         invoice_id,
         user_id,
     } = delete_invoice;
 
-    let affected = client
+    let affected = trans
         .execute(&stmt, &[invoice_id, user_id])
         .await
         .map_err(|e| {

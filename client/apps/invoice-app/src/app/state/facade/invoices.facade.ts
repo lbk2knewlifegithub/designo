@@ -46,12 +46,17 @@ export class InvoicesFacade {
   ) {}
 
   /**
-   * - Load Invoices
+   * - Load All Invoices
    */
-  loadInvoices() {
+  loadAllInvoices(force = false) {
+    if (force)
+      return this._store.dispatch(
+        InvoicesActions.loadInvoices({ override: force })
+      );
+
     this.loaded$.pipe(take(1)).subscribe((loaded) => {
       if (loaded) return;
-      this._store.dispatch(InvoicesActions.loadInvoices());
+      this._store.dispatch(InvoicesActions.loadInvoices({ override: false }));
     });
   }
 

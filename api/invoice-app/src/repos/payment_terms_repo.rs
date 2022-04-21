@@ -1,15 +1,16 @@
 use crate::models::payment_terms_model::PaymentTerms;
-use prelude::Result;
+use prelude::{errors::invoice_error::InvoiceError, Result};
 
-use deadpool_postgres::Client;
+use deadpool_postgres::Transaction;
 use tokio_pg_mapper::FromTokioPostgresRow;
+use tracing::error;
 
 /// Get Payment Terms By Days
 pub async fn get_payment_terms_by_days(
-    client: &Client,
+    trans: &Transaction<'_>,
     days: &i32,
-) -> Result<Option<PaymentTerms>> {
-    let stmt = client
+) -> Result<PaymentTerms> {
+    let stmt = trans
         .prepare(
             &r#"
             SELECT 
@@ -21,11 +22,12 @@ pub async fn get_payment_terms_by_days(
         .await
         .expect("Error preparing statement GET_PAYMENT_TERMS_BY_DAYS");
 
-    Ok(client
-        .query(&stmt, &[days])
-        .await?
-        .iter()
-        .map(|row| PaymentTerms::from_row_ref(row).unwrap())
-        .collect::<Vec<PaymentTerms>>()
-        .pop())
+    match trans.query_one(&stmt, &[days]).await {
+        Ok(row) => Ok(PaymentTerms::from_row_ref(&row)
+            .expect("GET_PAYMENT_TERMS_BY_DAYS REPO Error When converting row to PaymentTerms")),
+        Err(e) => {
+            error!("GET_PAYMENT_TERMS_BY_DAYS REPO Error: {}", e);
+            Err(InvoiceError::PaymentTermsNotFound(days.to_owned()).into())
+        }
+    }
 }

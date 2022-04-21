@@ -4,7 +4,6 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 1,
     createdAt: '2021-08-18',
-    paymentDue: '2021-08-19',
     description: 'Re-branding',
     paymentTerms: 1,
     clientName: 'Jensen Huang',
@@ -33,7 +32,6 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 2,
     createdAt: '2021-08-21',
-    paymentDue: '2021-09-20',
     description: 'Graphic Design',
     paymentTerms: 30,
     clientName: 'Alex Grim',
@@ -67,7 +65,6 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 3,
     createdAt: '2021-09-24',
-    paymentDue: '2021-10-01',
     description: 'Website Redesign',
     paymentTerms: 7,
     clientName: 'John Morrison',
@@ -96,7 +93,6 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 4,
     createdAt: '2021-10-11',
-    paymentDue: '2021-10-12',
     description: 'Logo Concept',
     paymentTerms: 1,
     clientName: 'Alysa Werner',
@@ -125,7 +121,6 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 5,
     createdAt: '2021-10-7',
-    paymentDue: '2021-10-14',
     description: 'Re-branding',
     paymentTerms: 7,
     clientName: 'Mellisa Clarke',
@@ -159,7 +154,6 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 6,
     createdAt: '2021-10-01',
-    paymentDue: '2021-10-31',
     description: 'Landing Page Design',
     paymentTerms: 30,
     clientName: 'Thomas Wayne',
@@ -188,7 +182,6 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 7,
     createdAt: '2021-11-05',
-    paymentDue: '2021-11-12',
     description: 'Logo Re-design',
     paymentTerms: 7,
     clientName: 'Anita Wainwright',

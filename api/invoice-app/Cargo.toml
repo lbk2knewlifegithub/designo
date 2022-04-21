@@ -7,6 +7,10 @@ edition = "2021"
 [dependencies]
 prelude = { path = "../prelude" }
 
+# Faker
+fake = { version = "2.4", features = ['derive', 'http', 'chrono'] }
+rand = "0.8"
+
 # Actix
 actix-web = "4.0.1"
 actix-multipart = "0.4"

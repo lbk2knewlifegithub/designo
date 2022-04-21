@@ -14,7 +14,6 @@ export interface Item {
 export interface Invoice {
   invoice_id: number;
   createdAt: string;
-  paymentDue: string;
   description: string;
   paymentTerms: PaymentTerms;
   clientName: string;
@@ -36,3 +35,5 @@ export enum InvoiceStatus {
   PAID = 'paid',
   PENDING = 'pending',
 }
+
+export type RandomInvoice = Omit<Invoice, 'invoice_id'>;
