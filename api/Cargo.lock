@@ -1396,6 +1396,37 @@ dependencies = [
 ]
 
 [[package]]
+name = "invoice-app"
+version = "0.1.0"
+dependencies = [
+ "actix-cors",
+ "actix-multipart",
+ "actix-redis",
+ "actix-rt",
+ "actix-service",
+ "actix-web",
+ "actix-web-validator",
+ "chrono",
+ "deadpool-postgres",
+ "derive_more",
+ "dotenv",
+ "futures 0.3.21",
+ "jsonwebtoken",
+ "postgres-types",
+ "prelude",
+ "redis-async",
+ "serde",
+ "serde_derive",
+ "serde_json",
+ "tokio-pg-mapper",
+ "tokio-pg-mapper-derive",
+ "tokio-postgres",
+ "tracing",
+ "tracing-subscriber",
+ "validator",
+]
+
+[[package]]
 name = "itoa"
 version = "0.4.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"

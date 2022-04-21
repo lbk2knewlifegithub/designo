@@ -9,17 +9,19 @@ use tracing::error;
 
 pub mod auth_error;
 pub mod feedback_error;
+pub mod invoice_error;
 pub mod upload_error;
 
 use auth_error::AuthError;
 use feedback_error::FeedbackError;
+use invoice_error::InvoiceError;
 use upload_error::UploadError;
 
 #[derive(Debug, Display)]
 pub enum AppError {
-    /**
-     * - DDos Error
-     */
+    /// Invoice Error
+    InvoiceError(InvoiceError),
+    /// DDos Error
     DDosError,
 
     /**
@@ -90,6 +92,7 @@ impl actix_web::ResponseError for AppError {
                 FeedbackError::AlreadyUpvote => HttpResponse::Conflict(),
             },
             AppError::DDosError => HttpResponse::TooManyRequests(),
+            AppError::InvoiceError(_) => HttpResponse::BadRequest(),
         };
 
         builder.json(ErrorResponse { error })
@@ -239,5 +242,12 @@ impl From<argon2::password_hash::Error> for AppError {
         // }
 
         AuthError::Unauthorize.into()
+    }
+}
+
+impl From<InvoiceError> for AppError {
+    fn from(e: InvoiceError) -> Self {
+        error!("InvoiceError - {e}");
+        AppError::InvoiceError(e)
     }
 }

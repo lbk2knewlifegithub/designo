@@ -19,6 +19,12 @@ images-dev:
 images-prod:
 	cargo run --bin images --release
 
+invoice-app-dev:
+	cargo run --bin invoice-app	
+
+invoice-app-prod:
+	cargo run --bin invoice-app --release
+
 # YugabyteDB dev
 api-dev:
 	docker-compose up -d 
