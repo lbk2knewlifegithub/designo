@@ -79,7 +79,10 @@ pub async fn create_invoice(
         }
     }
 
-    Ok(invoices_repo::get_invoice_by_id(&client, &invoice_id, user_id).await?)
+    match invoices_repo::get_invoice_by_id(&client, &invoice_id, user_id).await? {
+        Some(invoice) => Ok(invoice),
+        None => Err(AppError::RecordNotFound),
+    }
 }
 
 /// Delete Invoice Service
@@ -93,4 +96,18 @@ pub async fn delete_invoice(state: &InvoiceAppState, delete_invoice: &DeleteInvo
     }
 
     Ok(())
+}
+
+/// Get Invoice by Id Service
+pub async fn get_invoice_by_id(
+    state: &InvoiceAppState,
+    invoice_id: &i32,
+    user_id: &i32,
+) -> Result<Invoice> {
+    let client = state.db.pool.get().await?;
+
+    match invoices_repo::get_invoice_by_id(&client, invoice_id, user_id).await? {
+        Some(invoice) => Ok(invoice),
+        None => Err(AppError::RecordNotFound),
+    }
 }

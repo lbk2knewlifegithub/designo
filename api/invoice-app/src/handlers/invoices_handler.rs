@@ -74,6 +74,30 @@ async fn delete_invoice(
     }
 }
 
+/// Get Invoice by Id Handler
+async fn get_invoice_by_id(
+    state: web::Data<InvoiceAppState>,
+    invoice_id: Path<i32>,
+    req: HttpRequest,
+) -> Result<HttpResponse> {
+    let token = state.jwt.get_token(&req)?;
+    let delete_feedback_token = format!("get_invoice_by_id:{}", token);
+
+    // Check DDos
+    state.ddos.low.check(&delete_feedback_token).await?;
+
+    // Decode Token
+    let user_id = state.jwt.decode(&token).await?.user_id;
+
+    match invoices_service::get_invoice_by_id(&state, &invoice_id.into_inner(), &user_id).await {
+        Ok(invoice) => {
+            state.ddos.medium.remember(&delete_feedback_token).await?;
+            Ok(HttpResponse::Ok().json(invoice))
+        }
+        Err(e) => Err(e),
+    }
+}
+
 /// Configure Invoices Handlers
 pub fn configure(cfg: &mut web::ServiceConfig) {
     cfg.service(
@@ -100,6 +124,8 @@ pub fn configure(cfg: &mut web::ServiceConfig) {
                     // Invoice {invoice_id}
                     .service(
                         web::resource("/{invoice_id}")
+                            // Get Invoice By Id
+                            .route(web::get().to(get_invoice_by_id))
                             // Delete Invoice
                             .route(web::delete().to(delete_invoice)),
                     ),

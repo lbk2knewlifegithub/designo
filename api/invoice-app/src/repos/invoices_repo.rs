@@ -42,7 +42,7 @@ pub async fn get_invoice_by_id(
     client: &Client,
     invoice_id: &i32,
     user_id: &i32,
-) -> Result<Invoice> {
+) -> Result<Option<Invoice>> {
     let stmt = client
         .prepare(
             &r#"
@@ -64,9 +64,15 @@ pub async fn get_invoice_by_id(
         )
         .await.expect("Error preparing statement GET_INVOICE_BY_ID");
 
-    let row = client.query_one(&stmt, &[invoice_id, user_id]).await?;
-    let invoice = Invoice::from_row_ref(&row).unwrap();
-    Ok(invoice)
+    match client.query_one(&stmt, &[&invoice_id, &user_id]).await {
+        Ok(row) => Ok(Some(Invoice::from_row_ref(&row).expect(
+            "GET_INVOICE_BY_ID REPO Error When converting row to Invoice",
+        ))),
+        Err(e) => {
+            error!("GET_INVOICE_BY_ID REPO  {e}");
+            Ok(None)
+        }
+    }
 }
 
 /// Create Invoice
