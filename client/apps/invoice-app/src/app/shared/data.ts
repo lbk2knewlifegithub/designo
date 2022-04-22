@@ -23,6 +23,7 @@ export const invoices = (): Invoice[] => [
     },
     items: [
       {
+        item_id: 28,
         name: 'Brand Guidelines',
         quantity: 1,
         price: 1800.9,
@@ -51,11 +52,13 @@ export const invoices = (): Invoice[] => [
     },
     items: [
       {
+        item_id: 85,
         name: 'Banner Design',
         quantity: 1,
         price: 156.0,
       },
       {
+        item_id: 222,
         name: 'Email Design',
         quantity: 2,
         price: 200.0,
@@ -84,6 +87,7 @@ export const invoices = (): Invoice[] => [
     },
     items: [
       {
+        item_id: 47,
         name: 'Website Redesign',
         quantity: 1,
         price: 14002.33,
@@ -112,6 +116,7 @@ export const invoices = (): Invoice[] => [
     },
     items: [
       {
+        item_id: 58,
         name: 'Logo Sketches',
         quantity: 1,
         price: 102.04,
@@ -140,11 +145,13 @@ export const invoices = (): Invoice[] => [
     },
     items: [
       {
+        item_id: 100,
         name: 'New Logo',
         quantity: 1,
         price: 1532.33,
       },
       {
+        item_id: 923,
         name: 'Brand Guidelines',
         quantity: 1,
         price: 2500.0,
@@ -173,6 +180,7 @@ export const invoices = (): Invoice[] => [
     },
     items: [
       {
+        item_id: 31,
         name: 'Web Design',
         quantity: 1,
         price: 6155.91,
@@ -201,6 +209,7 @@ export const invoices = (): Invoice[] => [
     },
     items: [
       {
+        item_id: 71,
         name: 'Logo Re-design',
         quantity: 1,
         price: 3102.04,

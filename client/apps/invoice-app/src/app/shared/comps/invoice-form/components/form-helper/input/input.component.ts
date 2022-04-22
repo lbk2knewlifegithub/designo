@@ -1,15 +1,9 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FormGroupComponent } from '../form-group.component';
 
 @Component({
   selector: 'lbk-input',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div [formGroup]="parent">
       <div [formGroupName]="groupName">

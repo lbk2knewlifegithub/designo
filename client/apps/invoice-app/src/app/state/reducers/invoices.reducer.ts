@@ -76,17 +76,18 @@ export const reducer = createReducer(
    * -Update Invoice Success
    */
   on(InvoicesAPIActions.updateInvoiceSuccess, (state, { updateInvoiceDTO }) => {
-    const { invoice_id, ...rest } = updateInvoiceDTO;
-    const invoice = state.entities[invoice_id];
-    if (!invoice) return state;
+    throw new Error('Not Implemented');
+    // const { invoice_id, ...rest } = updateInvoiceClient;
+    // const invoice = state.entities[invoice_id];
+    // if (!invoice) return state;
 
-    return adapter.updateOne(
-      {
-        id: invoice_id,
-        changes: { ...rest },
-      },
-      state
-    );
+    // return adapter.updateOne(
+    //   {
+    //     id: invoice_id,
+    //     changes: { ...rest },
+    //   },
+    //   state
+    // );
   }),
 
   /**

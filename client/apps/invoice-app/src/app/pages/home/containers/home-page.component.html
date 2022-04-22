@@ -22,15 +22,7 @@
 </main>
 
 <!-- new invoice overlay -->
-<lbk-new-invoice-overlay
-  (create)="createInvoice($event)"
-  (saveAsDraft)="createInvoice($event)"
-  (discard)="discard()"
-  [open]="(showNewInvoiceOverlay$ | async)!"
-  [pendingSaveAsDraft]="(pendingSaveAsDraft$ | async)!"
-  [pendingCreate]="(pendingCreate$ | async)!"
-  [loggedIn]="(loggedIn$ | async)!"
-></lbk-new-invoice-overlay>
+<lbk-new-invoice-overlay></lbk-new-invoice-overlay>
 <!-- end new invoice overlay -->
 
 <!-- loading -->

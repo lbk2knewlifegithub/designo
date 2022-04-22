@@ -1,3 +1,5 @@
+import { ItemsDTO } from './../../../dto/update-invoice.dto';
+import { formatDate } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -7,7 +9,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { addDays, decimalRegex } from '@lbk/utils';
+import { decimalRegex } from '@lbk/utils';
 import { finalize, Observable, switchMap, take } from 'rxjs';
 import {
   Address,
@@ -29,7 +31,6 @@ export class InvoiceFormComponent implements OnInit {
   @Input() invoice?: Invoice;
 
   form!: FormGroup;
-
   loading!: boolean;
 
   constructor(
@@ -51,16 +52,12 @@ export class InvoiceFormComponent implements OnInit {
    */
   createInvoiceDTO(newStatus: InvoiceStatus): CreateInvoiceDTO {
     const { billFrom, billTo, items } = this.form.value;
-    const { createdAt, paymentTerms } = billTo;
-
-    const createdAtFormatted = this.formatDate(createdAt);
-    const paymentDue = addDays(createdAtFormatted, paymentTerms);
+    const { createdAt } = billTo;
 
     return {
       senderAddress: billFrom,
       status: newStatus,
-      createdAt: createdAtFormatted,
-      paymentDue,
+      createdAt: new Date(createdAt).toISOString(),
       ...this.formatBillTo(billTo),
       paymentTerms: parseInt(billTo.paymentTerms),
       items: this.formatItems(items),
@@ -68,11 +65,23 @@ export class InvoiceFormComponent implements OnInit {
   }
 
   /**
-   * - Update Invoice DTO
+   * - Create Update Invoice DTO
    * @returns
    */
-  updateInvoiceDTO(): UpdateInvoiceDTO {
-    return this.form.value;
+  createUpdateInvoiceDTO(): UpdateInvoiceDTO {
+    const { billFrom, billTo, items: newItems } = this.form.value;
+    const { createdAt } = billTo;
+
+    const oldInvoice = this.invoice as Invoice;
+
+    return {
+      invoice_id: oldInvoice.invoice_id,
+      senderAddress: billFrom,
+      createdAt: new Date(createdAt).toISOString(),
+      ...this.formatBillTo(billTo),
+      paymentTerms: parseInt(billTo.paymentTerms),
+      items: this.formatItems(items),
+    };
   }
 
   initForm(maskForCheck: boolean = false) {
@@ -107,48 +116,19 @@ export class InvoiceFormComponent implements OnInit {
     }));
   }
 
-  private formatDate(date: any) {
-    if (typeof date === 'string') return date;
-    if (typeof date === 'object') return (date as Date).toISOString();
-    console.log(date);
-    return date;
-  }
-
   private _initAddress(address: Partial<Address | undefined>) {
     const { street, city, postCode, country } = address ?? {};
 
     return this._fb.group({
-      street: [
-        street ?? '',
-        [
-          Validators.required,
-          Validators.minLength(5),
-          Validators.maxLength(50),
-        ],
-      ],
-      city: [
-        city ?? '',
-        [
-          Validators.required,
-          Validators.minLength(5),
-          Validators.maxLength(50),
-        ],
-      ],
+      street: [street ?? '', [Validators.required, Validators.maxLength(100)]],
+      city: [city ?? '', [Validators.required, Validators.maxLength(100)]],
       postCode: [
         postCode ?? '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(20),
-        ],
+        [Validators.required, Validators.maxLength(100)],
       ],
       country: [
         country ?? '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(20),
-        ],
+        [Validators.required, Validators.maxLength(100)],
       ],
     });
   }
@@ -205,22 +185,25 @@ export class InvoiceFormComponent implements OnInit {
 
     return this._fb.group({
       clientName: [
-        clientName ?? '',
+        clientName || '',
         [
           Validators.required,
           Validators.minLength(5),
           Validators.maxLength(30),
         ],
       ],
-      clientEmail: [clientEmail ?? '', [Validators.required, Validators.email]],
+      clientEmail: [clientEmail || '', [Validators.required, Validators.email]],
       clientAddress: this._initAddress(this.invoice?.clientAddress),
-      createdAt: [createdAt ?? new Date().toISOString(), [Validators.required]],
+      createdAt: [
+        formatDate(createdAt || new Date(), 'yyyy-MM-dd', 'en'),
+        [Validators.required],
+      ],
       paymentTerms: [
-        paymentTerms ?? 30,
+        paymentTerms || 30,
         [Validators.required, Validators.pattern(decimalRegex)],
       ],
       description: [
-        description ?? '',
+        description || '',
         [
           Validators.required,
           Validators.minLength(5),
@@ -264,7 +247,7 @@ export class InvoiceFormComponent implements OnInit {
             clientName,
             clientEmail,
             clientAddress,
-            createdAt,
+            createdAt: formatDate(createdAt, 'yyyy-MM-dd', 'en'),
             paymentTerms,
             description,
           },
@@ -276,5 +259,11 @@ export class InvoiceFormComponent implements OnInit {
           this.items.push(this.createItem(item));
         });
       });
+  }
+
+  check() {
+    this.form.markAllAsTouched();
+    this.form.markAsDirty();
+    this._cd.detectChanges();
   }
 }

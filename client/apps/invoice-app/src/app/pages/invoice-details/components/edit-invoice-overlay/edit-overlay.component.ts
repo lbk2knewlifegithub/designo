@@ -9,11 +9,8 @@ import {
 import { FormGroup } from '@angular/forms';
 import { DialogService } from '@ngneat/dialog';
 import { take } from 'rxjs';
-import {
-  Invoice,
-  InvoiceFormComponent,
-  UpdateInvoiceDTO,
-} from '../../../../shared';
+import { Invoice, InvoiceFormComponent } from '../../../../shared';
+import { UpdateInvoiceDTO } from './../../../../shared/dto/update-invoice.dto';
 
 @Component({
   selector: 'lbk-edit-overlay',
@@ -49,9 +46,10 @@ export class EditOverlayComponent {
       return;
     }
 
-    const updateInvoiceDTO = this.invoiceFormComponent.updateInvoiceDTO();
+    const updateInvoiceDTO = this.invoiceFormComponent.createUpdateInvoiceDTO();
 
     this.updateInvoice.emit(updateInvoiceDTO);
+
     this.invoiceForm.markAsUntouched();
   }
 

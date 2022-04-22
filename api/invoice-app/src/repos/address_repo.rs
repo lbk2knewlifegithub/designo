@@ -15,8 +15,9 @@ pub async fn crate_address<'a>(
                 INSERT INTO invoice_app.address(
                     street, 
                     post_code, 
-                    country)
-                VALUES($1, $2, $3) RETURNING address_id;"#,
+                    country,
+                    city)
+                VALUES($1, $2, $3, $4) RETURNING address_id;"#,
         )
         .await
         .expect("Error preparing statement CREATE_INVOICE");
@@ -25,9 +26,13 @@ pub async fn crate_address<'a>(
         street,
         post_code,
         country,
+        city,
     } = create_address_dto;
 
-    match trans.query_one(&stmt, &[street, post_code, country]).await {
+    match trans
+        .query_one(&stmt, &[street, post_code, country, city])
+        .await
+    {
         Ok(row) => Ok(row.get::<'_, _, i32>("address_id")),
         Err(_) => Err(AppError::IntervalServerError),
     }

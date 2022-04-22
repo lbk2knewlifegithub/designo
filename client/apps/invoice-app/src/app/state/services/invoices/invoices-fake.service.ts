@@ -5,8 +5,8 @@ import {
   fromData,
   Invoice,
   InvoiceStatus,
-  UpdateInvoiceDTO,
 } from '../../../shared';
+import { UpdateInvoiceDTO } from './../../../shared/dto/update-invoice.dto';
 import { InvoicesService } from './invoices.service';
 
 @Injectable({ providedIn: 'root' })
@@ -72,14 +72,15 @@ export class InvoicesFakeService extends InvoicesService {
    * @returns
    */
   updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO): Observable<void> {
-    const { invoice_id, ...newInvoice } = updateInvoiceDTO;
-    this._invoices = this._invoices.map((invoice) =>
-      invoice.invoice_id !== invoice_id
-        ? invoice
-        : { invoice_id, ...newInvoice }
-    );
+    throw new Error('Method not implemented.');
+    // const { invoice_id, ...newInvoice } = updateInvoiceDTO;
+    // this._invoices = this._invoices.map((invoice) =>
+    //   invoice.invoice_id !== invoice_id
+    //     ? invoice
+    //     : { invoice_id, ...newInvoice }
+    // );
 
-    return of(void 0);
+    // return of(void 0);
   }
 
   /**

@@ -5,11 +5,21 @@ export interface Address {
   country: string;
 }
 
-export interface Item {
-  name: string;
-  quantity: number;
-  price: number;
+export class Item {
+  item_id!: number;
+  name!: string;
+  quantity!: number;
+  price!: number;
 }
+
+const ITEM_DEFAULT: Item = {
+  item_id: 1,
+  name: '',
+  price: 1,
+  quantity: 1,
+};
+
+export const ITEM_KEYS = Object.keys(ITEM_DEFAULT);
 
 export interface Invoice {
   invoice_id: number;

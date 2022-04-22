@@ -1,7 +1,6 @@
-use chrono::NaiveDateTime;
 use fake::faker::{
     address::en::{CityName, CountryName, PostCode, StreetName},
-    chrono::en::DateTime,
+    chrono::en::Date,
     internet::en::FreeEmail,
     lorem::en::Sentence,
     name::en::Name,
@@ -55,7 +54,7 @@ pub struct RandomInvoice {
     description: String,
 
     #[serde(rename(serialize = "createdAt"))]
-    created_at: NaiveDateTime,
+    created_at: String,
 
     #[serde(rename(serialize = "clientName"))]
     client_name: String,
@@ -82,7 +81,7 @@ impl RandomInvoice {
                 .unwrap()
                 .to_owned(),
             description: Sentence(3..6).fake(),
-            created_at: DateTime().fake(),
+            created_at: Date().fake(),
             client_name: Name().fake(),
             client_email: FreeEmail().fake(),
             status: ["pending", "draf", "paid"]

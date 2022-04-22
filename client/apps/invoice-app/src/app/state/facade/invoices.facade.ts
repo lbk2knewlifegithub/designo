@@ -2,11 +2,15 @@ import { Inject, Injectable } from '@angular/core';
 import { DialogService } from '@ngneat/dialog';
 import { Store } from '@ngrx/store';
 import { catchError, map, Observable, of, switchMap, take, tap } from 'rxjs';
-import { CreateInvoiceDTO, Invoice, INVOICES_SERVICE } from '../../shared';
+import {
+  CreateInvoiceDTO,
+  Invoice,
+  INVOICES_SERVICE,
+  UpdateInvoiceDTO,
+} from '../../shared';
 import { InvoicesActions } from '../actions';
 import { fromInvoices } from '../selectors';
 import { InvoicesService } from '../services';
-import { UpdateInvoiceDTO } from './../../shared/dto/update-invoice.dto';
 
 /**
  * - Invoice Facade
@@ -134,7 +138,6 @@ export class InvoicesFacade {
 
   /**
    * - Update Invoice
-   * @param invoice_id
    */
   updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO) {
     this._store.dispatch(InvoicesActions.updateInvoice({ updateInvoiceDTO }));

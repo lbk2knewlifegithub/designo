@@ -93,9 +93,16 @@ export class InvoicesEffects {
       concatLatestFrom(() => this._invoicesService),
       exhaustMap(([{ updateInvoiceDTO }, service]) =>
         service.updateInvoice(updateInvoiceDTO).pipe(
+          /**
+           * - Update Invoice API Success
+           */
           map(() =>
             InvoicesAPIActions.updateInvoiceSuccess({ updateInvoiceDTO })
           ),
+
+          /**
+           * - Update Invoice API Failure
+           */
           catchError((error) =>
             of(InvoicesAPIActions.updateInvoiceFailure({ error }))
           )

@@ -83,9 +83,10 @@ INSERT INTO invoice_app.invoices(
     client_name,
     client_email, 
     status, 
+    created_at,
     sender_address_id, 
     client_address_id)
-VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING invoice_id;"#,
+VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING invoice_id;"#,
         )
         .await
         .expect("Error preparing statement CREATE_INVOICE");
@@ -97,6 +98,7 @@ VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING invoice_id;"#,
         client_name,
         client_email,
         status,
+        created_at,
         sender_address_id,
         client_address_id,
     } = new_invoice;
@@ -111,6 +113,7 @@ VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING invoice_id;"#,
                 client_name,
                 client_email,
                 status,
+                created_at,
                 sender_address_id,
                 client_address_id,
             ],

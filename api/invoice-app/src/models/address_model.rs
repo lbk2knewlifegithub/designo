@@ -10,6 +10,7 @@ pub struct Address {
     pub street: String,
     #[serde(rename(serialize = "postCode"))]
     pub post_code: String,
+    pub city: String,
     pub country: String,
 }
 

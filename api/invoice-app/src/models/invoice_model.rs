@@ -79,6 +79,7 @@ pub struct NewInvoice {
     pub client_name: String,
     pub client_email: String,
     pub status: String,
+    pub created_at: NaiveDateTime,
     pub sender_address_id: i32,
     pub client_address_id: i32,
 }

@@ -43,8 +43,9 @@ pub async fn create_invoice(
         sender_address_id,
         client_address_id,
         payment_terms: create_invoice_dto.payment_terms,
-        status: create_invoice_dto.status.to_owned(),
         description: create_invoice_dto.description.to_owned(),
+        status: create_invoice_dto.status.to_owned(),
+        created_at: create_invoice_dto.created_at.to_owned(),
         client_name: create_invoice_dto.client_name.to_owned(),
         client_email: create_invoice_dto.client_email.to_owned(),
     };

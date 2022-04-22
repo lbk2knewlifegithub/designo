@@ -77,8 +77,8 @@ export class InvoiceDetailsPageComponent
 
   /**
    *  - Update Invoice
-   * @param updateInvoiceDTO
-   */
+   * @param Update Invoice
+   * */
   updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO) {
     this._invoicesFacade.updateInvoice(updateInvoiceDTO);
   }

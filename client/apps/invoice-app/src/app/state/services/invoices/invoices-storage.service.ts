@@ -88,14 +88,47 @@ export class InvoicesStorageService extends InvoicesService {
    * @returns
    */
   updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO): Observable<void> {
-    const { invoice_id, ...newInvoice } = updateInvoiceDTO;
+    const { invoice_id, items, ...rest } = updateInvoiceDTO;
+
     return this.getInvoices().pipe(
       map((invoices) =>
-        invoices.map((invoice) =>
-          invoice.invoice_id !== invoice_id
-            ? invoice
-            : ({ invoice_id, ...newInvoice } as Invoice)
-        )
+        invoices.map((invoice) => {
+          if (invoice.invoice_id !== invoice_id) return invoice;
+          let tmp = [...invoice.items];
+
+          // Delete items
+          if (items.deleted) {
+            tmp = tmp.filter((it) => items.deleted?.includes(it.item_id));
+          }
+
+          // Add Items
+          if (items.added) {
+            tmp = [
+              ...tmp,
+              ...items.added.map((it) => ({
+                ...it,
+                item_id: Math.floor(Math.random() * 1_000_000),
+              })),
+            ];
+          }
+
+          // Update Items
+          if (items.updated) {
+            tmp = tmp.map((it) => {
+              const newItem = items.updated?.find(
+                (newItem) => newItem.item_id === it.item_id
+              );
+
+              if (newItem) {
+                return { ...it, ...newItem };
+              }
+
+              return it;
+            });
+          }
+
+          return { invoice_id, ...rest, items: tmp } as Invoice;
+        })
       ),
       tap((invoices) => this._save(invoices)),
       map(() => void 0)
