@@ -94,8 +94,10 @@ export class InvoicesFacade {
     return this._invoicesService.pipe(
       switchMap((service) =>
         service.retrieveInvoice(invoice_id).pipe(
-          map((invoice) => InvoicesActions.loadInvoice({ invoice })),
-          tap((action) => this._store.dispatch(action)),
+          tap((invoice) => {
+            this._store.dispatch(InvoicesActions.loadInvoice({ invoice }));
+            this._store.dispatch(InvoicesActions.selectInvoice({ invoice_id }));
+          }),
           map(() => true),
           catchError(() => of(false))
         )

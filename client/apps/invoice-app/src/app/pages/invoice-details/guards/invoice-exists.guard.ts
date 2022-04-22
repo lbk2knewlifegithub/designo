@@ -37,7 +37,7 @@ export class InvoiceExistsGuard implements CanActivate {
   hasInvoice(invoice_id: number): Observable<boolean> {
     return this.hasInvoiceInStore(invoice_id).pipe(
       switchMap((inStore) => {
-        if (inStore) return of(inStore);
+        if (inStore) return of(true);
         return this.hasInvoiceInApi(invoice_id);
       })
     );

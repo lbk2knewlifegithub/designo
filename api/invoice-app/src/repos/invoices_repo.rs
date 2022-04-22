@@ -13,17 +13,15 @@ pub async fn all_invoices(trans: &Transaction<'_>, user_id: &i32) -> Result<Vec<
             SELECT 
                 invoice_id,
                 created_at,
-                pt.days AS payment_terms,
+                payment_terms,
                 description, 
                 client_name, 
                 client_email,
                  (SELECT json_agg(row) FROM (SELECT * FROM invoice_app.items i WHERE i.invoice_id = iov.invoice_id) AS row) AS items,
-                s.name AS status,
+                status,
                 (SELECT row_to_json(row) FROM (SELECT * FROM invoice_app.address a WHERE a.address_id = iov.sender_address_id) AS row) AS sender_address,
                 (SELECT row_to_json(row) FROM (SELECT * FROM invoice_app.address a WHERE a.address_id = iov.client_address_id) AS row) AS client_address
             FROM invoice_app.invoices iov
-            JOIN invoice_app.statuses s USING(status_id)
-            JOIN invoice_app.payment_terms pt USING(payment_terms_id)
             WHERE iov.user_id = $1;
             "#,
         )
@@ -49,17 +47,15 @@ pub async fn get_invoice_by_id(
             SELECT 
                 invoice_id,
                 created_at,
-                pt.days AS payment_terms,
+                payment_terms,
                 description, 
                 client_name, 
                 client_email,
                  (SELECT json_agg(row) FROM (SELECT * FROM invoice_app.items i WHERE i.invoice_id = iov.invoice_id) AS row) AS items,
-                s.name AS status,
+                status,
                 (SELECT row_to_json(row) FROM (SELECT * FROM invoice_app.address a WHERE a.address_id = iov.sender_address_id) AS row) AS sender_address,
                 (SELECT row_to_json(row) FROM (SELECT * FROM invoice_app.address a WHERE a.address_id = iov.client_address_id) AS row) AS client_address
             FROM invoice_app.invoices iov
-            JOIN invoice_app.statuses s USING(status_id)
-            JOIN invoice_app.payment_terms pt USING(payment_terms_id)
             WHERE iov.invoice_id = $1 AND iov.user_id = $2;"#,
         )
         .await.expect("Error preparing statement GET_INVOICE_BY_ID");
@@ -82,11 +78,11 @@ pub async fn create_invoice(trans: &Transaction<'_>, new_invoice: &NewInvoice) -
             &r#"
 INSERT INTO invoice_app.invoices(
     user_id,
-    payment_terms_id, 
+    payment_terms, 
     description, 
     client_name,
     client_email, 
-    status_id, 
+    status, 
     sender_address_id, 
     client_address_id)
 VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING invoice_id;"#,
@@ -96,11 +92,11 @@ VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING invoice_id;"#,
 
     let NewInvoice {
         user_id,
-        payment_terms_id,
+        payment_terms,
         description,
         client_name,
         client_email,
-        status_id,
+        status,
         sender_address_id,
         client_address_id,
     } = new_invoice;
@@ -110,11 +106,11 @@ VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING invoice_id;"#,
             &stmt,
             &[
                 user_id,
-                payment_terms_id,
+                payment_terms,
                 description,
                 client_name,
                 client_email,
-                status_id,
+                status,
                 sender_address_id,
                 client_address_id,
             ],
@@ -149,7 +145,23 @@ pub async fn delete_invoice(
         .execute(&stmt, &[invoice_id, user_id])
         .await
         .map_err(|e| {
-            debug!("DELETE_INVOICE REPO {e}");
+            debug!("delete_invoice REPO {e}");
+            AppError::InvalidInput
+        })?;
+    Ok(affected)
+}
+
+/// Mask As Paid Invoice Repo
+pub async fn mask_as_paid(trans: &Transaction<'_>, user_id: &i32, invoice_id: &i32) -> Result<u64> {
+    let stmt = trans
+        .prepare(&r#"UPDATE invoice_app.invoices SET status='paid' WHERE user_id = $1 AND invoice_id = $2;"#)
+        .await?;
+
+    let affected = trans
+        .execute(&stmt, &[user_id, invoice_id])
+        .await
+        .map_err(|e| {
+            debug!("mask_as_paid REPO {e}");
             AppError::InvalidInput
         })?;
     Ok(affected)

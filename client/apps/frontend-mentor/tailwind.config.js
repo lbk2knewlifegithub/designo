@@ -1,3 +1,4 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
 const { createGlobPatternsForDependencies } = require('@nrwl/angular/tailwind');
 const { join } = require('path');
 const plugin = require('tailwindcss/plugin');
@@ -11,15 +12,29 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '1.5rem',
+        DEFAULT: '.5rem',
         sm: '2rem',
         lg: '4rem',
         xl: '5rem',
         '2xl': '6rem',
       },
     },
-    extend: {},
+    fontFamily: {
+      mono: ["'Heebo'", ...defaultTheme.fontFamily.mono],
+      heading: ["'Barlow'", ...defaultTheme.fontFamily.mono],
+    },
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: "#3e54a3"
+        },
+        error: {
+          DEFAULT: "#ed2c49"
+        }
+      }
+    },
   },
+
   plugins: [
     require('@tailwindcss/forms'),
     plugin(function ({ addComponents }) {

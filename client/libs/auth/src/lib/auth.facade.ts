@@ -111,20 +111,21 @@ export class AuthFacade {
    * - Get Access Token from localStorage an try login
    * @returns true of login success
    */
-  tryLogin() {
-    combineLatest([
-      this.loggedIn$,
-      this.alreadyTryLogin$,
-      this._getAccessToken(),
-    ])
-      .pipe(take(1))
-      .subscribe(([loggedIn, alreadyTryLogin, accessToken]) => {
-        if (alreadyTryLogin) return;
+  tryLogin(): Observable<boolean> {
+    return combineLatest([this.loggedIn$, this._getAccessToken()]).pipe(
+      switchMap(([loggedIn, accessToken]) => {
+        if (loggedIn) return of(true);
+        if (!accessToken) return of(true);
 
-        if (!accessToken || loggedIn)
-          return this._store.dispatch(AuthApiActions.meFailure({ error: '' }));
-        this._store.dispatch(AuthActions.me({ accessToken }));
-      });
+        return this._authService.me(accessToken).pipe(
+          tap((user) => {
+            this._store.dispatch(AuthApiActions.meSuccess({ user }));
+          }),
+          map(() => true),
+          catchError(() => of(true))
+        );
+      })
+    );
   }
 
   private _getAccessToken(): Observable<string | undefined> {

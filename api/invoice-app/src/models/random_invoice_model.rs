@@ -3,7 +3,7 @@ use fake::faker::{
     address::en::{CityName, CountryName, PostCode, StreetName},
     chrono::en::DateTime,
     internet::en::FreeEmail,
-    lorem::en::{Sentence, Word},
+    lorem::en::Sentence,
     name::en::Name,
 };
 use fake::Fake;

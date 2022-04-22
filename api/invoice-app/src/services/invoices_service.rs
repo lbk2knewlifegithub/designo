@@ -1,7 +1,7 @@
 use crate::{
     dto::invoice_dto::CreateInvoiceDTO,
     models::invoice_model::{DeleteInvoice, Invoice, NewInvoice},
-    repos::{address_repo, invoices_repo, items_repo, payment_terms_repo, status_repo},
+    repos::{address_repo, invoices_repo, items_repo},
     InvoiceAppState,
 };
 use prelude::{errors::AppError, Result};
@@ -24,14 +24,6 @@ pub async fn create_invoice(
     // START TRANSACTION
     let trans = client.transaction().await?;
 
-    // Check PaymentTerms Exists
-    let payment_terms =
-        payment_terms_repo::get_payment_terms_by_days(&trans, &create_invoice_dto.payment_terms)
-            .await?;
-
-    // Check InvoiceStatus Exists
-    let status = status_repo::get_status_by_name(&trans, &create_invoice_dto.status).await?;
-
     // Create Sender Address
     let sender_address_id = address_repo::crate_address(
         &trans,
@@ -50,8 +42,8 @@ pub async fn create_invoice(
         user_id: user_id.to_owned(),
         sender_address_id,
         client_address_id,
-        payment_terms_id: payment_terms.payment_terms_id,
-        status_id: status.status_id,
+        payment_terms: create_invoice_dto.payment_terms,
+        status: create_invoice_dto.status.to_owned(),
         description: create_invoice_dto.description.to_owned(),
         client_name: create_invoice_dto.client_name.to_owned(),
         client_email: create_invoice_dto.client_email.to_owned(),
@@ -113,4 +105,26 @@ pub async fn get_invoice_by_id(
         Some(invoice) => Ok(invoice),
         None => Err(AppError::RecordNotFound),
     }
+}
+
+/// Mask As Paid Invoice Service
+pub async fn mask_as_paid(state: &InvoiceAppState, user_id: &i32, invoice_id: &i32) -> Result<()> {
+    let mut client = state.db.pool.get().await?;
+    let trans = client.transaction().await?;
+
+    let affected = match invoices_repo::mask_as_paid(&trans, user_id, invoice_id).await {
+        Ok(a) => a,
+        Err(e) => {
+            trans.rollback().await?;
+            return Err(e);
+        }
+    };
+
+    trans.commit().await?;
+
+    if affected != 1 {
+        return Err(AppError::RecordNotFound);
+    }
+
+    Ok(())
 }

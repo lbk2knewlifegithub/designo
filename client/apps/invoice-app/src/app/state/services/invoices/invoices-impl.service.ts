@@ -52,7 +52,7 @@ export class InvoicesImplService extends InvoicesService {
    */
   maskAsPaid(invoice_id: number): Observable<void> {
     return this._http.patch<void>(
-      `${this._apiUrl}/invoices/invoice/${invoice_id}/status`,
+      `${this._apiUrl}/invoices/invoice/${invoice_id}/mask-as-paid`,
       {}
     );
   }

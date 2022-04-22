@@ -74,11 +74,11 @@ impl<'a> FromSql<'a> for Items {
 /// New Invoice
 pub struct NewInvoice {
     pub user_id: i32,
-    pub payment_terms_id: i32,
+    pub payment_terms: i32,
     pub description: String,
     pub client_name: String,
     pub client_email: String,
-    pub status_id: i32,
+    pub status: String,
     pub sender_address_id: i32,
     pub client_address_id: i32,
 }

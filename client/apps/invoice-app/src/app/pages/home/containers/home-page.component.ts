@@ -64,6 +64,8 @@ export class HomePageComponent extends Unsubscriber implements OnInit {
       if (total === 0) return this._title.setTitle('Invoices');
       this._title.setTitle(`Invoices - ${total} invoices`);
     });
+
+    this._invoicesFacade.loadAllInvoices();
   }
 
   /**

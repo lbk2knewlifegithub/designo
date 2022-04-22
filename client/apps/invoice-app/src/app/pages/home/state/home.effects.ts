@@ -22,17 +22,13 @@ export class HomeEffects {
     }
   );
 
-  // Load Invoices
-  loadInvoices = createEffect(
+  /**
+   * - When Logout Successfully, Reset Invoices
+   */
+  logoutSuccess = createEffect(
     () =>
       this._actions$.pipe(
-        ofType(
-          AuthApiActions.meSuccess,
-          AuthApiActions.meFailure,
-          AuthApiActions.logoutSuccess,
-          AuthApiActions.loginSuccess,
-          AuthApiActions.signUpSuccess
-        ),
+        ofType(AuthApiActions.logoutSuccess),
         tap(() => {
           this._invoicesFacade.loadAllInvoices(true);
         })
