@@ -9,11 +9,8 @@ import {
 import { FormGroup } from '@angular/forms';
 import { DialogService } from '@ngneat/dialog';
 import { take } from 'rxjs';
-import {
-  Invoice,
-  InvoiceFormComponent,
-  UpdateInvoiceDTO,
-} from '../../../../shared';
+import { Invoice, InvoiceFormComponent } from '../../../../shared';
+import { UpdateInvoiceDTO } from './../../../../shared/dto/update-invoice.dto';
 
 @Component({
   selector: 'lbk-edit-overlay',
@@ -39,9 +36,18 @@ export class EditOverlayComponent {
    * @returns
    */
   saveChange() {
+    // Check Form Changes
+    if (this.invoiceFormComponent.notChanges) {
+      this._dialogService.error({
+        title: 'Notthing to Update',
+        body: "You haven't made any changes.",
+      });
+      return;
+    }
+
+    // Check Form Valid
     if (this.invoiceForm.invalid && this.invoiceForm.touched) {
       this.invoiceForm.markAllAsTouched();
-      // invalid
       this._dialogService.error({
         title: 'Form Invalid',
         body: 'Please fill out all required fields.',
@@ -49,10 +55,12 @@ export class EditOverlayComponent {
       return;
     }
 
-    const updateInvoiceDTO = this.invoiceFormComponent.updateInvoiceDTO();
+    // Create Update Invoice DTO
+    const updateInvoiceDTO = this.invoiceFormComponent.createUpdateInvoiceDTO();
 
     this.updateInvoice.emit(updateInvoiceDTO);
-    this.invoiceForm.markAsUntouched();
+
+    this.invoiceFormComponent.resetDirty();
   }
 
   onCancel() {

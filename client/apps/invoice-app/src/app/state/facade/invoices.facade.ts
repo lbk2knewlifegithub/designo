@@ -2,11 +2,15 @@ import { Inject, Injectable } from '@angular/core';
 import { DialogService } from '@ngneat/dialog';
 import { Store } from '@ngrx/store';
 import { catchError, map, Observable, of, switchMap, take, tap } from 'rxjs';
-import { CreateInvoiceDTO, Invoice, INVOICES_SERVICE } from '../../shared';
+import {
+  CreateInvoiceDTO,
+  Invoice,
+  INVOICES_SERVICE,
+  UpdateInvoiceDTO,
+} from '../../shared';
 import { InvoicesActions } from '../actions';
 import { fromInvoices } from '../selectors';
 import { InvoicesService } from '../services';
-import { UpdateInvoiceDTO } from './../../shared/dto/update-invoice.dto';
 
 /**
  * - Invoice Facade
@@ -46,12 +50,17 @@ export class InvoicesFacade {
   ) {}
 
   /**
-   * - Load Invoices
+   * - Load All Invoices
    */
-  loadInvoices() {
+  loadAllInvoices(force = false) {
+    if (force)
+      return this._store.dispatch(
+        InvoicesActions.loadInvoices({ override: force })
+      );
+
     this.loaded$.pipe(take(1)).subscribe((loaded) => {
       if (loaded) return;
-      this._store.dispatch(InvoicesActions.loadInvoices());
+      this._store.dispatch(InvoicesActions.loadInvoices({ override: false }));
     });
   }
 
@@ -89,8 +98,10 @@ export class InvoicesFacade {
     return this._invoicesService.pipe(
       switchMap((service) =>
         service.retrieveInvoice(invoice_id).pipe(
-          map((invoice) => InvoicesActions.loadInvoice({ invoice })),
-          tap((action) => this._store.dispatch(action)),
+          tap((invoice) => {
+            this._store.dispatch(InvoicesActions.loadInvoice({ invoice }));
+            this._store.dispatch(InvoicesActions.selectInvoice({ invoice_id }));
+          }),
           map(() => true),
           catchError(() => of(false))
         )
@@ -127,7 +138,6 @@ export class InvoicesFacade {
 
   /**
    * - Update Invoice
-   * @param invoice_id
    */
   updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO) {
     this._store.dispatch(InvoicesActions.updateInvoice({ updateInvoiceDTO }));

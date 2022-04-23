@@ -1,66 +1,87 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
-  Input,
-  Output,
+  OnInit,
   ViewChild,
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { AuthFacade } from '@lbk/auth';
 import { DialogService } from '@ngneat/dialog';
-import { take } from 'rxjs';
-import {
-  CreateInvoiceDTO,
-  InvoiceFormComponent,
-  InvoiceStatus,
-} from '../../../../shared';
+import { combineLatest, map, Observable, take } from 'rxjs';
+import { InvoiceFormComponent, InvoiceStatus } from '../../../../shared';
+import { InvoicesFacade } from './../../../../state';
+import { HomeFacade } from './../../state';
 
 @Component({
   selector: 'lbk-new-invoice-overlay',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './new-invoice-overlay.component.html',
 })
-export class NewInvoiceOverlayComponent {
+export class NewInvoiceOverlayComponent implements OnInit {
   @ViewChild(InvoiceFormComponent, { static: true })
   invoiceFormComponent!: InvoiceFormComponent;
+  showNewInvoiceOverlay$!: Observable<boolean>;
+  pendingSaveAsDraft$!: Observable<boolean>;
+  pendingCreate$!: Observable<boolean>;
+  loggedIn$!: Observable<boolean>;
 
-  @Input() open!: boolean;
-  @Input() pendingSaveAsDraft!: boolean;
-  @Input() pendingCreate!: boolean;
-  @Input() loggedIn!: boolean;
+  constructor(
+    private readonly _dialogService: DialogService,
+    private readonly _homeFacade: HomeFacade,
+    private readonly _invoicesFacade: InvoicesFacade,
+    private readonly _authFacade: AuthFacade
+  ) {}
 
-  @Output() discard = new EventEmitter<void>();
-  @Output() saveAsDraft = new EventEmitter<CreateInvoiceDTO>();
-  @Output() create = new EventEmitter<CreateInvoiceDTO>();
+  ngOnInit(): void {
+    this.showNewInvoiceOverlay$ = this._homeFacade.shownCreateInvoiceOverlay$;
 
-  constructor(private readonly _dialogService: DialogService) {}
+    this.pendingSaveAsDraft$ = this._homeFacade.pendingSaveAsDraft$;
+
+    this.pendingCreate$ = this._homeFacade.pendingCreate$;
+
+    this.loggedIn$ = this._authFacade.loggedIn$;
+  }
 
   get invalid() {
     return this.invoiceForm.invalid;
   }
 
-  onDiscard() {
-    if (this.pendingCreate || this.pendingSaveAsDraft) return;
+  /**
+   *
+   * @returns - On Discard
+   */
+  discard() {
+    combineLatest([this.pendingCreate$, this.pendingSaveAsDraft$])
+      .pipe(
+        map(
+          ([pendingCreate, pendingSaveAsDraft]) =>
+            pendingCreate || pendingSaveAsDraft
+        ),
+        take(1)
+      )
+      .subscribe((pending) => {
+        if (pending) return;
 
-    if (this.invoiceForm.dirty) {
-      this._dialogService
-        .confirm({
-          title: 'Are you sure you want to discard changes?',
-          body: 'All changes will be lost.',
-        })
-        .afterClosed$.pipe(take(1))
-        .subscribe((confirm) => {
-          if (confirm) {
-            this.discard.emit();
-            this.invoiceFormComponent.initForm(true);
-          }
-        });
+        if (this.invoiceForm.dirty) {
+          this._dialogService
+            .confirm({
+              title: 'Are you sure you want to discard changes?',
+              body: 'All changes will be lost.',
+            })
+            .afterClosed$.pipe(take(1))
+            .subscribe((confirm) => {
+              if (confirm) {
+                this._homeFacade.closeCreateInvoiceOverlay();
+                this.invoiceFormComponent.initForm(true);
+              }
+            });
 
-      return;
-    }
+          return;
+        }
 
-    this.discard.emit();
-    this.invoiceFormComponent.initForm(true);
+        this._homeFacade.closeCreateInvoiceOverlay();
+        this.invoiceFormComponent.initForm(true);
+      });
   }
 
   get invoiceForm(): FormGroup {
@@ -70,9 +91,8 @@ export class NewInvoiceOverlayComponent {
   /**
    * - Create Invoice
    */
-  onCreate() {
-    this.invoiceForm.markAllAsTouched();
-
+  create() {
+    this.invoiceFormComponent.check();
     if (this.invoiceForm.invalid) {
       this._dialogService.error({
         title: 'Invalid form',
@@ -81,17 +101,18 @@ export class NewInvoiceOverlayComponent {
       return;
     }
 
-    this.create.emit(
-      this.invoiceFormComponent.createInvoiceDTO(InvoiceStatus.PENDING)
+    const createInvoiceDTO = this.invoiceFormComponent.createInvoiceDTO(
+      InvoiceStatus.PENDING
     );
+    this._invoicesFacade.createInvoice(createInvoiceDTO);
     this.invoiceFormComponent.initForm(true);
   }
 
   /**
    * - Save As Draft
    */
-  onSaveAsDraft() {
-    this.invoiceForm.markAllAsTouched();
+  saveAsDraft() {
+    this.invoiceFormComponent.check();
 
     if (this.invoiceForm.invalid) {
       this._dialogService.error({
@@ -101,10 +122,11 @@ export class NewInvoiceOverlayComponent {
       return;
     }
 
-    this.create.emit(
-      this.invoiceFormComponent.createInvoiceDTO(InvoiceStatus.DRAFT)
+    const createInvoiceDTO = this.invoiceFormComponent.createInvoiceDTO(
+      InvoiceStatus.DRAFT
     );
 
+    this._invoicesFacade.createInvoice(createInvoiceDTO);
     this.invoiceFormComponent.initForm(true);
   }
 }

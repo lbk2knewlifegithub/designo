@@ -1,12 +1,11 @@
 use crate::errors::AppError;
-
 use actix_web::HttpResponse;
 
 pub mod config;
 pub mod errors;
-pub mod guards;
 pub mod models;
 pub mod services;
+pub mod utils;
 
 pub type Pool = deadpool_postgres::Pool;
 

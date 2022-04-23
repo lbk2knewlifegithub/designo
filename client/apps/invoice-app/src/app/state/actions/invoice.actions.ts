@@ -12,7 +12,10 @@ export const selectInvoice = createAction(
 /**
  * - Load Invoices
  */
-export const loadInvoices = createAction('[Invoices] Load Invoices');
+export const loadInvoices = createAction(
+  '[Invoices] Load Invoices',
+  props<{ override: boolean }>()
+);
 
 /**
  * - Load Invoice

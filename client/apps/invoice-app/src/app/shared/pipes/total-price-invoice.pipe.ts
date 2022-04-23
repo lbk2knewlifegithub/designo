@@ -11,9 +11,11 @@ export class TotalPriceInvoicePipe implements PipeTransform {
 
   @memo()
   transform({ items }: Invoice): number {
-    return items.reduce(
-      (sum, i) => sum + this._totalPriceItemPipe.transform(i),
-      0
+    return (
+      items?.reduce(
+        (sum, i) => sum + this._totalPriceItemPipe.transform(i),
+        0
+      ) || 0
     );
   }
 }

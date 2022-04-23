@@ -6,20 +6,25 @@ use serde::Serialize;
 use tokio_pg_mapper::Error as PGMapperError;
 use tokio_postgres::error::Error as PGError;
 use tracing::error;
+use validator::ValidationError;
 
 pub mod auth_error;
 pub mod feedback_error;
+pub mod invoice_error;
 pub mod upload_error;
 
 use auth_error::AuthError;
 use feedback_error::FeedbackError;
+use invoice_error::InvoiceError;
 use upload_error::UploadError;
 
 #[derive(Debug, Display)]
 pub enum AppError {
-    /**
-     * - DDos Error
-     */
+    ValidationError(ValidationError),
+
+    /// Invoice Error
+    InvoiceError(InvoiceError),
+    /// DDos Error
     DDosError,
 
     /**
@@ -90,6 +95,8 @@ impl actix_web::ResponseError for AppError {
                 FeedbackError::AlreadyUpvote => HttpResponse::Conflict(),
             },
             AppError::DDosError => HttpResponse::TooManyRequests(),
+            AppError::InvoiceError(_) => HttpResponse::BadRequest(),
+            AppError::ValidationError(_) => HttpResponse::BadRequest(),
         };
 
         builder.json(ErrorResponse { error })
@@ -126,21 +133,21 @@ impl From<std::io::Error> for AppError {
 
 impl From<PGMapperError> for AppError {
     fn from(e: PGMapperError) -> Self {
-        error!("{e}");
+        error!("PGMapperError {e}");
         AppError::IntervalServerError
     }
 }
 
 impl From<PGError> for AppError {
     fn from(e: PGError) -> Self {
-        error!("{e}");
+        error!("PGError {e}");
         AppError::IntervalServerError
     }
 }
 
 impl From<PoolError> for AppError {
     fn from(e: PoolError) -> Self {
-        error!("{e}");
+        error!("PoolError {e}");
         AppError::IntervalServerError
     }
 }
@@ -239,5 +246,19 @@ impl From<argon2::password_hash::Error> for AppError {
         // }
 
         AuthError::Unauthorize.into()
+    }
+}
+
+impl From<InvoiceError> for AppError {
+    fn from(e: InvoiceError) -> Self {
+        error!("InvoiceError - {e}");
+        AppError::InvoiceError(e)
+    }
+}
+
+impl From<ValidationError> for AppError {
+    fn from(e: ValidationError) -> Self {
+        error!("ValidationError - {e}");
+        AppError::ValidationError(e)
     }
 }

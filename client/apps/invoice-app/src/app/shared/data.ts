@@ -4,19 +4,20 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 1,
     createdAt: '2021-08-18',
-    paymentDue: '2021-08-19',
     description: 'Re-branding',
     paymentTerms: 1,
     clientName: 'Jensen Huang',
     clientEmail: 'jensenh@mail.com',
     status: InvoiceStatus.PAID,
     senderAddress: {
+      address_id: 1553770785,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
+      address_id: 565289130,
       street: '106 Kendell Street',
       city: 'Sharrington',
       postCode: 'NR24 5WQ',
@@ -24,6 +25,7 @@ export const invoices = (): Invoice[] => [
     },
     items: [
       {
+        item_id: 28,
         name: 'Brand Guidelines',
         quantity: 1,
         price: 1800.9,
@@ -33,19 +35,20 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 2,
     createdAt: '2021-08-21',
-    paymentDue: '2021-09-20',
     description: 'Graphic Design',
     paymentTerms: 30,
     clientName: 'Alex Grim',
     clientEmail: 'alexgrim@mail.com',
     status: InvoiceStatus.PENDING,
     senderAddress: {
+      address_id: 1129608917,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
+      address_id: 2564196647,
       street: '84 Church Way',
       city: 'Bradford',
       postCode: 'BD1 9PB',
@@ -53,11 +56,13 @@ export const invoices = (): Invoice[] => [
     },
     items: [
       {
+        item_id: 85,
         name: 'Banner Design',
         quantity: 1,
         price: 156.0,
       },
       {
+        item_id: 222,
         name: 'Email Design',
         quantity: 2,
         price: 200.0,
@@ -67,19 +72,20 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 3,
     createdAt: '2021-09-24',
-    paymentDue: '2021-10-01',
     description: 'Website Redesign',
     paymentTerms: 7,
     clientName: 'John Morrison',
     clientEmail: 'jm@myco.com',
     status: InvoiceStatus.PAID,
     senderAddress: {
+      address_id: 2021662605,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
+      address_id: 4013569637,
       street: '79 Dover Road',
       city: 'Westhall',
       postCode: 'IP19 3PF',
@@ -87,6 +93,7 @@ export const invoices = (): Invoice[] => [
     },
     items: [
       {
+        item_id: 47,
         name: 'Website Redesign',
         quantity: 1,
         price: 14002.33,
@@ -96,19 +103,20 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 4,
     createdAt: '2021-10-11',
-    paymentDue: '2021-10-12',
     description: 'Logo Concept',
     paymentTerms: 1,
     clientName: 'Alysa Werner',
     clientEmail: 'alysa@email.co.uk',
     status: InvoiceStatus.PENDING,
     senderAddress: {
+      address_id: 3142036337,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
+      address_id: 2435043297,
       street: '63 Warwick Road',
       city: 'Carlisle',
       postCode: 'CA20 2TG',
@@ -116,6 +124,7 @@ export const invoices = (): Invoice[] => [
     },
     items: [
       {
+        item_id: 58,
         name: 'Logo Sketches',
         quantity: 1,
         price: 102.04,
@@ -125,19 +134,20 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 5,
     createdAt: '2021-10-7',
-    paymentDue: '2021-10-14',
     description: 'Re-branding',
     paymentTerms: 7,
     clientName: 'Mellisa Clarke',
     clientEmail: 'mellisa.clarke@example.com',
     status: InvoiceStatus.PENDING,
     senderAddress: {
+      address_id: 2100055676,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
+      address_id: 1604711703,
       street: '46 Abbey Row',
       city: 'Cambridge',
       postCode: 'CB5 6EG',
@@ -145,11 +155,13 @@ export const invoices = (): Invoice[] => [
     },
     items: [
       {
+        item_id: 100,
         name: 'New Logo',
         quantity: 1,
         price: 1532.33,
       },
       {
+        item_id: 923,
         name: 'Brand Guidelines',
         quantity: 1,
         price: 2500.0,
@@ -159,19 +171,20 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 6,
     createdAt: '2021-10-01',
-    paymentDue: '2021-10-31',
     description: 'Landing Page Design',
     paymentTerms: 30,
     clientName: 'Thomas Wayne',
     clientEmail: 'thomas@dc.com',
     status: InvoiceStatus.PENDING,
     senderAddress: {
+      address_id: 1965349247,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
+      address_id: 652523350,
       street: '3964  Queens Lane',
       city: 'Gotham',
       postCode: '60457',
@@ -179,6 +192,7 @@ export const invoices = (): Invoice[] => [
     },
     items: [
       {
+        item_id: 31,
         name: 'Web Design',
         quantity: 1,
         price: 6155.91,
@@ -188,26 +202,28 @@ export const invoices = (): Invoice[] => [
   {
     invoice_id: 7,
     createdAt: '2021-11-05',
-    paymentDue: '2021-11-12',
     description: 'Logo Re-design',
     paymentTerms: 7,
     clientName: 'Anita Wainwright',
     clientEmail: '',
     status: InvoiceStatus.DRAFT,
     senderAddress: {
+      address_id: 4273692728,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
-      street: '',
-      city: '',
-      postCode: '',
-      country: '',
+      address_id: 1890620058,
+      street: '19 Union Terrace',
+      city: 'London',
+      postCode: 'E1 3EZ',
+      country: 'United Kingdom',
     },
     items: [
       {
+        item_id: 71,
         name: 'Logo Re-design',
         quantity: 1,
         price: 3102.04,

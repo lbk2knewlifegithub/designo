@@ -6,7 +6,7 @@ import { Invoice, UpdateInvoiceDTO } from '../../shared';
  */
 export const loadInvoicesSuccess = createAction(
   '[Invoices/API] Load Invoices Success',
-  props<{ invoices: Invoice[] }>()
+  props<{ invoices: Invoice[]; override: boolean }>()
 );
 
 /**
@@ -54,7 +54,7 @@ export const maskAsPaidFailure = createAction(
  */
 export const updateInvoiceSuccess = createAction(
   '[Invoices/API] Update Invoice Success',
-  props<{ updateInvoiceDTO: UpdateInvoiceDTO }>()
+  props<{ invoice: Invoice }>()
 );
 
 /**

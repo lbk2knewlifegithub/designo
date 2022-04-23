@@ -1,6 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthApiActions } from '@lbk/auth';
 import { DialogService } from '@ngneat/dialog';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map, Observable, of, tap } from 'rxjs';
@@ -15,16 +14,17 @@ export class InvoicesEffects {
    */
   loginSuccess$ = createEffect(() =>
     this._actions$.pipe(
-      ofType(AuthApiActions.loginSuccess, InvoicesActions.loadInvoices),
+      ofType(InvoicesActions.loadInvoices),
       concatLatestFrom(() => this._invoicesService),
-      exhaustMap(([, service]) => {
+      exhaustMap(([{ override }, service]) => {
         return service.getInvoices().pipe(
           map((invoices) =>
-            InvoicesAPIActions.loadInvoicesSuccess({ invoices })
+            InvoicesAPIActions.loadInvoicesSuccess({ invoices, override })
           ),
-          catchError((error) =>
-            of(InvoicesAPIActions.loadInvoicesFailure({ error }))
-          )
+          catchError((error) => {
+            console.log(error);
+            return of(InvoicesAPIActions.loadInvoicesFailure({ error }));
+          })
         );
       })
     )
@@ -93,9 +93,16 @@ export class InvoicesEffects {
       concatLatestFrom(() => this._invoicesService),
       exhaustMap(([{ updateInvoiceDTO }, service]) =>
         service.updateInvoice(updateInvoiceDTO).pipe(
-          map(() =>
-            InvoicesAPIActions.updateInvoiceSuccess({ updateInvoiceDTO })
+          /**
+           * - Update Invoice API Success
+           */
+          map((invoice) =>
+            InvoicesAPIActions.updateInvoiceSuccess({ invoice })
           ),
+
+          /**
+           * - Update Invoice API Failure
+           */
           catchError((error) =>
             of(InvoicesAPIActions.updateInvoiceFailure({ error }))
           )

@@ -39,6 +39,17 @@ import { InputComponent } from '../input/input.component';
       <!-- end Errors -->
     </div>
   `,
+  styles: [
+    `
+      input.ng-invalid.ng-touched {
+        @apply border-2 border-red-500;
+      }
+
+      .error {
+        @apply text-red-500 font-bold italic text-xs;
+      }
+    `,
+  ],
 })
 export class PasswordInputComponent extends InputComponent implements OnInit {
   shown = false;

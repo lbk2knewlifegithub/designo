@@ -15,10 +15,14 @@ pub async fn all_feedbacks(state: &FeedbacksState, user_id: &Option<i32>) -> Res
 }
 
 /// Get feedback by id Service
-pub async fn get_feedback_by_id(state: &FeedbacksState, feedback_id: &i32) -> Result<Feedback> {
+pub async fn get_feedback_by_id(
+    state: &FeedbacksState,
+    user_id: &Option<i32>,
+    feedback_id: &i32,
+) -> Result<Feedback> {
     let client = state.db.pool.get().await?;
 
-    match feedback_repo::get_feedback_by_id(&client, &feedback_id).await? {
+    match feedback_repo::get_feedback_by_id(&client, user_id, feedback_id).await? {
         Some(feedback) => Ok(feedback),
         None => Err(AppError::RecordNotFound),
     }
@@ -107,7 +111,9 @@ pub async fn create_feedback(
     };
 
     // Find feedback by id all return to client
-    match feedback_repo::get_feedback_by_id(&client, &feedback_id).await? {
+    match feedback_repo::get_feedback_by_id(&client, &Some(user_id.to_owned()), &feedback_id)
+        .await?
+    {
         Some(feedback) => Ok(feedback),
         None => Err(AppError::IntervalServerError),
     }

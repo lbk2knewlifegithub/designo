@@ -13,6 +13,7 @@ import {
   TotalPriceInvoicePipeModule,
   TotalPricePipeModule,
 } from '../../shared';
+import { PaymentDuePipeModule } from './../../shared/pipes/payment-due.pipe';
 import { COMPONENTS } from './components';
 import { InvoiceDetailsPageComponent } from './containers';
 import { ViewInvoiceRoutingModule } from './invoice-details-routing.module';
@@ -39,6 +40,7 @@ const CONTAINERS = [InvoiceDetailsPageComponent];
     TotalPriceInvoicePipeModule,
     TotalPricePipeModule,
     IsPaidPipeModule,
+    PaymentDuePipeModule,
   ],
   declarations: [COMPONENTS, CONTAINERS],
 })

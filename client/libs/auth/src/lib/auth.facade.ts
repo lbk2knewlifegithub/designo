@@ -4,7 +4,16 @@ import { Credentials, User } from '@lbk/models';
 import { TokenService } from '@lbk/services';
 import { DialogService } from '@ngneat/dialog';
 import { Store } from '@ngrx/store';
-import { catchError, map, Observable, of, switchMap, take, tap } from 'rxjs';
+import {
+  catchError,
+  combineLatest,
+  map,
+  Observable,
+  of,
+  switchMap,
+  take,
+  tap,
+} from 'rxjs';
 import { AuthActions, AuthApiActions } from './actions';
 import { AuthError } from './auth.reducer';
 import * as fromAuth from './auth.selectors';
@@ -15,6 +24,10 @@ import { AuthService, UserService } from './services';
 export class AuthFacade {
   user$: Observable<User | null> = this._store.select(fromAuth.selectUser);
   loggedIn$: Observable<boolean> = this.user$.pipe(map((user) => !!user));
+  alreadyTryLogin$: Observable<boolean> = this._store.select(
+    fromAuth.selectAlreadyTryLogin
+  );
+
   pending$: Observable<boolean> = this._store.select(fromAuth.selectPending);
   error$: Observable<AuthError | null> = this._store.select(
     fromAuth.selectError
@@ -98,13 +111,21 @@ export class AuthFacade {
    * - Get Access Token from localStorage an try login
    * @returns true of login success
    */
-  tryLogin() {
-    this._getAccessToken()
-      .pipe(take(1))
-      .subscribe((accessToken) => {
-        if (!accessToken) return;
-        this._store.dispatch(AuthActions.me({ accessToken }));
-      });
+  tryLogin(): Observable<boolean> {
+    return combineLatest([this.loggedIn$, this._getAccessToken()]).pipe(
+      switchMap(([loggedIn, accessToken]) => {
+        if (loggedIn) return of(true);
+        if (!accessToken) return of(true);
+
+        return this._authService.me(accessToken).pipe(
+          tap((user) => {
+            this._store.dispatch(AuthApiActions.meSuccess({ user }));
+          }),
+          map(() => true),
+          catchError(() => of(true))
+        );
+      })
+    );
   }
 
   private _getAccessToken(): Observable<string | undefined> {

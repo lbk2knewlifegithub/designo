@@ -14,6 +14,7 @@ export interface State {
   error: AuthError | null;
   pending: boolean;
   returnUrl: string | null;
+  alreadyTryLogin: boolean;
 }
 
 export const initialState: State = {
@@ -21,6 +22,7 @@ export const initialState: State = {
   error: null,
   pending: false,
   returnUrl: null,
+  alreadyTryLogin: false,
 };
 
 export const authFeature = createFeature({
@@ -66,17 +68,40 @@ export const authFeature = createFeature({
 
     /**
      * - Logout
+     * -
      */
     on(AuthActions.logout, (state) => ({
       ...state,
       user: null,
+      alreadyTryLogin: false,
     })),
+
+    /**
+     * - Logout
+     * - Login Success
+     * - Will Set Already Try Login To failed
+     */
+    on(AuthActions.logout, (state) => ({
+      ...state,
+      alreadyTryLogin: false,
+    })),
+
     /**
      * - Me Success
      */
     on(AuthApiActions.meSuccess, (state, { user }) => ({
       ...state,
       user,
+      alreadyTryLogin: true,
+    })),
+
+    /**
+     * - Me Failure
+     */
+    on(AuthApiActions.meFailure, (state, { error }) => ({
+      ...state,
+      error,
+      alreadyTryLogin: true,
     })),
 
     /**

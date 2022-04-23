@@ -4,7 +4,7 @@ import {
   CanActivate,
   RouterStateSnapshot,
 } from '@angular/router';
-import { AuthFacade } from '@lbk/auth';
+import { AuthFacade } from '../auth.facade';
 import { first, Observable, of, switchMap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
@@ -14,13 +14,12 @@ export class AuthGuard implements CanActivate {
   canActivate(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     route: ActivatedRouteSnapshot,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     state: RouterStateSnapshot
   ): Observable<boolean> {
     return this._authFacade.loggedIn$.pipe(
       first(),
-      switchMap((authed) => {
-        if (authed) return of(true);
+      switchMap((loggedIn) => {
+        if (loggedIn) return of(true);
         return this._authFacade.me(state.url);
       })
     );

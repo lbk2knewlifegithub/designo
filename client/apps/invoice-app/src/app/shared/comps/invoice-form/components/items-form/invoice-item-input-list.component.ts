@@ -1,24 +1,15 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormGroupComponent } from '../form-helper/form-group.component';
 
 @Component({
   selector: 'lbk-invoice-item-form-list',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div [formGroup]="parent">
       <div class="grid gap-12" [formArrayName]="arrayName">
-        <ng-container
-          *ngFor="let item of items; index as i; trackBy: identifyItem"
-        >
+        <ng-container *ngFor="let item of items; index as i">
           <lbk-invoice-item-input
-            (delete)="deleteItem.emit(i)"
+            (deleteItem)="deleteItem.emit(i)"
             [arrayName]="arrayName"
             [parent]="parent"
             [groupName]="i + ''"
@@ -45,8 +36,4 @@ export class InvoiceItemInputListComponent extends FormGroupComponent {
 
   @Output() addNewItem = new EventEmitter<void>();
   @Output() deleteItem = new EventEmitter<number>();
-
-  identifyItem(index: number, formGroup: FormGroup) {
-    return index;
-  }
 }

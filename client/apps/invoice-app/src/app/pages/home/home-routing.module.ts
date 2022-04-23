@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from './containers';
 import { TryLoginGuard } from '@lbk/auth';
-import { PendingGuard } from './guards';
+import { HomePageComponent } from './containers';
 
 const routes: Routes = [
   {
     path: '',
     component: HomePageComponent,
-    canDeactivate: [PendingGuard],
     canActivate: [TryLoginGuard],
   },
 ];

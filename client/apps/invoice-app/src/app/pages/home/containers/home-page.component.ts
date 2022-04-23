@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
 import { AuthFacade } from '@lbk/auth';
 import { Unsubscriber } from '@lbk/comps';
 import { Observable } from 'rxjs';
-import { CreateInvoiceDTO, Invoice, InvoiceStatus } from '../../../shared';
+import { Invoice, InvoiceStatus } from '../../../shared';
 import { NewInvoiceOverlayComponent } from '../components/new-invoice-overlay';
 import { HomeFacade } from '../state';
 import { InvoicesFacade } from './../../../state';
@@ -19,14 +19,10 @@ import { InvoicesFacade } from './../../../state';
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent extends Unsubscriber implements OnInit {
-  showNewInvoiceOverlay$!: Observable<boolean>;
   invoices$!: Observable<Invoice[]>;
   totalInvoices$!: Observable<number>;
   filterByStatus$!: Observable<InvoiceStatus | null>;
 
-  // new invoice overlay
-  pendingSaveAsDraft$!: Observable<boolean>;
-  pendingCreate$!: Observable<boolean>;
   loadingInvoices$!: Observable<boolean>;
 
   loggedIn$!: Observable<boolean>;
@@ -52,12 +48,6 @@ export class HomePageComponent extends Unsubscriber implements OnInit {
 
     this.filterByStatus$ = this._homeFacade.filterByStatus$;
 
-    this.showNewInvoiceOverlay$ = this._homeFacade.shownCreateInvoiceOverlay$;
-
-    this.pendingSaveAsDraft$ = this._homeFacade.pendingSaveAsDraft$;
-
-    this.pendingCreate$ = this._homeFacade.pendingCreate$;
-
     this.loadingInvoices$ = this._homeFacade.loadingInvoices$;
 
     this.appendSub = this.totalInvoices$.subscribe((total) => {
@@ -65,7 +55,7 @@ export class HomePageComponent extends Unsubscriber implements OnInit {
       this._title.setTitle(`Invoices - ${total} invoices`);
     });
 
-    this._invoicesFacade.loadInvoices();
+    this._invoicesFacade.loadAllInvoices();
   }
 
   /**
@@ -81,20 +71,5 @@ export class HomePageComponent extends Unsubscriber implements OnInit {
    */
   showCreateInvoiceOverlay() {
     this._homeFacade.showCreateInvoiceOverlay();
-  }
-
-  /**
-   * - Discard
-   */
-  discard() {
-    this._homeFacade.closeCreateInvoiceOverlay();
-  }
-
-  /**
-   *  - Create Invoice
-   * @param createInvoiceDto
-   */
-  createInvoice(createInvoiceDto: CreateInvoiceDTO) {
-    this._invoicesFacade.createInvoice(createInvoiceDto);
   }
 }

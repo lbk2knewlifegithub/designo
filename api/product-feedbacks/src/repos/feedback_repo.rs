@@ -9,11 +9,9 @@ use prelude::{
 use deadpool_postgres::Client;
 use tokio_pg_mapper::FromTokioPostgresRow;
 use tokio_postgres::error::SqlState;
-use tracing::{debug, error};
+use tracing::error;
 
-/**
- *  - Get All Feedbacks
- */
+/// Get All Feedbacks
 pub async fn all_feedbacks(client: &Client, user_id: &Option<i32>) -> Result<Vec<Feedback>> {
     let stmt = client
         .prepare(
@@ -35,7 +33,7 @@ pub async fn all_feedbacks(client: &Client, user_id: &Option<i32>) -> Result<Vec
             LEFT JOIN statuses s USING (status_id)
             ORDER BY upvotes DESC;"#,
         )
-        .await?;
+        .await.expect("Error preparing statement GET_ALL_FEEDBACKS REPO");
 
     Ok(client
         .query(&stmt, &[&user_id])
@@ -48,7 +46,11 @@ pub async fn all_feedbacks(client: &Client, user_id: &Option<i32>) -> Result<Vec
 /**
  *  - Get Feedback By id
  */
-pub async fn get_feedback_by_id(client: &Client, feedback_id: &i32) -> Result<Option<Feedback>> {
+pub async fn get_feedback_by_id(
+    client: &Client,
+    user_id: &Option<i32>,
+    feedback_id: &i32,
+) -> Result<Option<Feedback>> {
     let stmt = client
         .prepare(
             &r#"
@@ -67,13 +69,13 @@ SELECT
 FROM feedbacks f
 LEFT JOIN categories c USING(category_id)
 LEFT JOIN statuses s USING (status_id)
-WHERE f.feedback_id = $1
+WHERE f.feedback_id = $2
 ORDER BY upvotes DESC;"#,
         )
         .await?;
 
     Ok(client
-        .query(&stmt, &[feedback_id])
+        .query(&stmt, &[user_id, feedback_id])
         .await?
         .iter()
         .map(|row| Feedback::from_row_ref(row).unwrap())
@@ -81,9 +83,7 @@ ORDER BY upvotes DESC;"#,
         .pop())
 }
 
-/**
- *  - Create feedback and return feedback_id
- */
+/// Create feedback and return feedback_id
 pub async fn create_feedback(client: &Client, new_feedback: &NewFeedback) -> Result<Option<i32>> {
     let stmt = client
         .prepare(
@@ -150,8 +150,8 @@ pub async fn downvote_feedback(client: &Client, downvote: &Downvote) -> Result<i
     Ok(affected as i32)
 }
 
-/// Delete feedback By id
-pub async fn delete_feedback(client: &Client, delete_feedback: &DeleteFeedback) -> Result<i32> {
+/// Delete feedback Repo
+pub async fn delete_feedback(client: &Client, delete_feedback: &DeleteFeedback) -> Result<u64> {
     let stmt = client
         .prepare(&r#"DELETE FROM feedbacks WHERE feedback_id= $1 AND user_id = $2;"#)
         .await?;
@@ -163,14 +163,14 @@ pub async fn delete_feedback(client: &Client, delete_feedback: &DeleteFeedback) 
         )
         .await
         .map_err(|e| {
-            debug!("{e}");
+            error!("DELETE_FEEDBACK_REPO {e}");
             AppError::InvalidInput
         })?;
-    Ok(affected as i32)
+    Ok(affected)
 }
 
-/// Update feedback
-pub async fn update_feedback(client: &Client, update_feedback: &UpdateFeedback) -> Result<i32> {
+/// Update Feedback Repo
+pub async fn update_feedback(client: &Client, update_feedback: &UpdateFeedback) -> Result<u64> {
     let stmt = client
         .prepare(
             &r#"
@@ -199,7 +199,7 @@ pub async fn update_feedback(client: &Client, update_feedback: &UpdateFeedback) 
         .await
         .map_err(|_| AppError::InvalidInput)?;
 
-    Ok(affected as i32)
+    Ok(affected)
 }
 
 /**
