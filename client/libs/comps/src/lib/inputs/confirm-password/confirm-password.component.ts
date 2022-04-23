@@ -48,11 +48,24 @@ import { InputComponent } from '../input/input.component';
       <!-- end Errors -->
     </div>
   `,
+  styles: [
+    `
+      input.ng-invalid.ng-touched {
+        @apply border-2 border-red-500;
+      }
+
+      .error {
+        @apply text-red-500 font-bold italic text-xs;
+      }
+    `,
+  ],
 })
-export class ConfirmPasswordInputComponent extends InputComponent
-  implements OnInit {
-      override controlName = "confirmPassword";
-      @Input() target = "password";
+export class ConfirmPasswordInputComponent
+  extends InputComponent
+  implements OnInit
+{
+  override controlName = 'confirmPassword';
+  @Input() target = 'password';
 
   noMatches$!: Observable<boolean>;
   shown = false;

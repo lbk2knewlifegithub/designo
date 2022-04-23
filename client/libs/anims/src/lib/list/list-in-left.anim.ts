@@ -28,7 +28,7 @@ export function listInLeft(options?: ListAnimationsOpstions) {
       ':enter',
       [
         query(
-          item || 'listItem',
+          item || 'li',
           [
             style({
               opacity: 0,

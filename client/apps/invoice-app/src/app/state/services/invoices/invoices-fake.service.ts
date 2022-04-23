@@ -71,7 +71,7 @@ export class InvoicesFakeService extends InvoicesService {
    * @param invoiceDto
    * @returns
    */
-  updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO): Observable<void> {
+  updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO): Observable<Invoice> {
     throw new Error('Method not implemented.');
     // const { invoice_id, ...newInvoice } = updateInvoiceDTO;
     // this._invoices = this._invoices.map((invoice) =>

@@ -96,8 +96,8 @@ export class InvoicesEffects {
           /**
            * - Update Invoice API Success
            */
-          map(() =>
-            InvoicesAPIActions.updateInvoiceSuccess({ updateInvoiceDTO })
+          map((invoice) =>
+            InvoicesAPIActions.updateInvoiceSuccess({ invoice })
           ),
 
           /**

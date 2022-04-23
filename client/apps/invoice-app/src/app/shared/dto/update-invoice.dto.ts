@@ -30,12 +30,13 @@ export class EvaluateItems {
     const evaluatedItems: ItemsDTO = {};
 
     // Evaluate Items Added
+
     const added = EvaluateItems.evaluateAdded(newItems);
 
     if (added.length > 0) {
       evaluatedItems['added'] = added;
 
-      if (added.length === oldItems.length) {
+      if (oldItems && added.length === oldItems.length) {
         return evaluatedItems;
       }
     }

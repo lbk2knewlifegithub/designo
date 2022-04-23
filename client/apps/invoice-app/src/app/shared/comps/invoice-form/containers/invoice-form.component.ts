@@ -1,4 +1,3 @@
-import { ItemsDTO } from './../../../dto/update-invoice.dto';
 import { formatDate } from '@angular/common';
 import {
   ChangeDetectionStrategy,
@@ -6,7 +5,7 @@ import {
   Component,
   Inject,
   Input,
-  OnInit,
+  OnInit
 } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { decimalRegex } from '@lbk/utils';
@@ -14,11 +13,12 @@ import { finalize, Observable, switchMap, take } from 'rxjs';
 import {
   Address,
   CreateInvoiceDTO,
+  EvaluateItems,
   Invoice,
   InvoiceStatus,
   INVOICES_SERVICE,
   Item,
-  UpdateInvoiceDTO,
+  UpdateInvoiceDTO
 } from '../../../../shared';
 import { InvoicesService } from '../../../../state';
 
@@ -80,7 +80,8 @@ export class InvoiceFormComponent implements OnInit {
       createdAt: new Date(createdAt).toISOString(),
       ...this.formatBillTo(billTo),
       paymentTerms: parseInt(billTo.paymentTerms),
-      items: this.formatItems(items),
+      status: oldInvoice.status,
+      items: EvaluateItems.evaluate(newItems || [], oldInvoice.items || []),
     };
   }
 
@@ -117,9 +118,10 @@ export class InvoiceFormComponent implements OnInit {
   }
 
   private _initAddress(address: Partial<Address | undefined>) {
-    const { street, city, postCode, country } = address ?? {};
+    const { street, city, postCode, country, address_id } = address ?? {};
 
     return this._fb.group({
+      address_id: [address_id],
       street: [street ?? '', [Validators.required, Validators.maxLength(100)]],
       city: [city ?? '', [Validators.required, Validators.maxLength(100)]],
       postCode: [
@@ -135,7 +137,15 @@ export class InvoiceFormComponent implements OnInit {
 
   private createItem(item: Partial<Item>) {
     const { name, quantity, price } = item;
+
+    const itemConfig: { [key: string]: unknown } = {};
+
+    if (item.item_id) {
+      itemConfig['item_id'] = item.item_id;
+    }
+
     return this._fb.group({
+      ...itemConfig,
       name: [
         name ?? '',
         [
@@ -241,12 +251,19 @@ export class InvoiceFormComponent implements OnInit {
           status,
         } = randomInvoice;
 
+        const {
+          billFrom: { address_id: sender_address_id },
+          billTo: {
+            clientAddress: { address_id: client_address_id },
+          },
+        } = this.form.value;
+
         this.form.reset({
-          billFrom: senderAddress,
+          billFrom: { ...senderAddress, address_id: sender_address_id },
           billTo: {
             clientName,
             clientEmail,
-            clientAddress,
+            clientAddress: { ...clientAddress, address_id: client_address_id },
             createdAt: formatDate(createdAt, 'yyyy-MM-dd', 'en'),
             paymentTerms,
             description,
@@ -255,7 +272,7 @@ export class InvoiceFormComponent implements OnInit {
         });
 
         this.items.clear();
-        items.forEach((item) => {
+        items?.forEach((item) => {
           this.items.push(this.createItem(item));
         });
       });
@@ -265,5 +282,18 @@ export class InvoiceFormComponent implements OnInit {
     this.form.markAllAsTouched();
     this.form.markAsDirty();
     this._cd.detectChanges();
+  }
+
+  /**
+   * - Not Changes
+   * @returns
+   */
+  get notChanges(): boolean {
+    if (!this.invoice) return false;
+    return JSON.stringify(this.form.value) === JSON.stringify(this.invoice);
+  }
+
+  resetDirty() {
+    return this.form.reset(this.form.value);
   }
 }

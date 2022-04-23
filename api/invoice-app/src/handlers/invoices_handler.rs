@@ -1,6 +1,6 @@
 use crate::{
-    dto::invoice_dto::CreateInvoiceDTO,
-    models::{invoice_model::DeleteInvoice, random_invoice_model::RandomInvoice},
+    dto::invoice_dto::{CreateInvoiceDTO, UpdateInvoiceDTO},
+    models::random_invoice_model::RandomInvoice,
     services::invoices_service,
     InvoiceAppState,
 };
@@ -73,11 +73,9 @@ async fn delete_invoice(
     state.ddos.check(&delete_feedback_token).await?;
 
     // Decode Token
-    let user_token = state.jwt.decode(&token).await?;
+    let user_id = state.jwt.decode(&token).await?.user_id;
 
-    let delete_invoice = DeleteInvoice::new(invoice_id.into_inner(), user_token.user_id);
-
-    match invoices_service::delete_invoice(&state, &delete_invoice).await {
+    match invoices_service::delete_invoice(&state, &user_id, &invoice_id.into_inner()).await {
         Ok(_) => {
             state.ddos.remember(&delete_feedback_token, 3).await?;
             Ok(HttpResponse::NoContent().finish())
@@ -134,6 +132,36 @@ async fn get_invoice_by_id(
     }
 }
 
+/// Update Invoice
+async fn update_invoice(
+    state: web::Data<InvoiceAppState>,
+    update_invoice_dto: Json<UpdateInvoiceDTO>,
+    req: HttpRequest,
+    invoice_id: Path<i32>,
+) -> Result<HttpResponse> {
+    let token = state.jwt.get_token(&req)?;
+    let create_key = format!("invoice_app:update_invoice:{}", token);
+
+    state.ddos.check(&create_key).await?;
+
+    let user_id = state.jwt.decode(&token).await?.user_id;
+
+    match invoices_service::update_invoice(
+        &state,
+        &invoice_id.into_inner(),
+        &user_id,
+        &update_invoice_dto.into_inner(),
+    )
+    .await
+    {
+        Ok(invoice) => {
+            state.ddos.remember(&create_key, 5).await?;
+            Ok(HttpResponse::Ok().json(invoice))
+        }
+        Err(e) => Err(e),
+    }
+}
+
 /// Configure Invoices Handlers
 pub fn configure(cfg: &mut web::ServiceConfig) {
     cfg.service(
@@ -166,7 +194,8 @@ pub fn configure(cfg: &mut web::ServiceConfig) {
                                     // Get Invoice By Id
                                     .route(web::get().to(get_invoice_by_id))
                                     // Delete Invoice
-                                    .route(web::delete().to(delete_invoice)),
+                                    .route(web::delete().to(delete_invoice))
+                                    .route(web::put().to(update_invoice)),
                             )
                             .service(
                                 web::resource("/mask-as-paid")

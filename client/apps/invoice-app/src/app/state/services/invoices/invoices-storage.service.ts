@@ -87,14 +87,14 @@ export class InvoicesStorageService extends InvoicesService {
    * @param updateInvoiceDTO
    * @returns
    */
-  updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO): Observable<void> {
+  updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO): Observable<Invoice> {
     const { invoice_id, items, ...rest } = updateInvoiceDTO;
 
     return this.getInvoices().pipe(
       map((invoices) =>
         invoices.map((invoice) => {
           if (invoice.invoice_id !== invoice_id) return invoice;
-          let tmp = [...invoice.items];
+          let tmp = invoice.items ? [...invoice.items] : [];
 
           // Delete items
           if (items.deleted) {
@@ -107,7 +107,7 @@ export class InvoicesStorageService extends InvoicesService {
               ...tmp,
               ...items.added.map((it) => ({
                 ...it,
-                item_id: Math.floor(Math.random() * 1_000_000),
+                item_id: Math.floor(Math.random() * 1000000),
               })),
             ];
           }
@@ -131,7 +131,17 @@ export class InvoicesStorageService extends InvoicesService {
         })
       ),
       tap((invoices) => this._save(invoices)),
-      map(() => void 0)
+      map((invoices) => {
+        const founded = invoices.find(
+          (f) => f.invoice_id === updateInvoiceDTO.invoice_id
+        );
+
+        if (!founded) {
+          throw new Error('Invoice not found');
+        }
+
+        return founded;
+      })
     );
   }
 

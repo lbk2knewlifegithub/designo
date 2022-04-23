@@ -1470,6 +1470,7 @@ dependencies = [
  "actix-service",
  "actix-web",
  "actix-web-validator",
+ "async-trait",
  "chrono",
  "deadpool-postgres",
  "derive_more",
@@ -2172,6 +2173,7 @@ dependencies = [
  "actix-redis",
  "actix-web",
  "argon2",
+ "chrono",
  "deadpool",
  "deadpool-postgres",
  "derive_more",
@@ -2191,6 +2193,7 @@ dependencies = [
  "tokio-stream",
  "tracing",
  "tracing-subscriber",
+ "validator",
 ]
 
 [[package]]

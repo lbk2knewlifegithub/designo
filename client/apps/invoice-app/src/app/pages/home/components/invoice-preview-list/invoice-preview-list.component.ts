@@ -1,25 +1,25 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { fadeOutLeft, listInLeft } from '@lbk/anims';
 import { Invoice } from '../../../../shared';
 
 @Component({
   selector: 'lbk-invoice-preview-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <!-- @listIn  -->
-    <ul class="grid gap-4">
+    <ul @listInLeft class="grid gap-4">
       <ng-container *ngFor="let invoice of invoices; trackBy: identifyInvoice">
-        <li>
-          <!-- @slideInLeftOnEnter
-          @fadeOutRightOnLeave -->
+        <li @fadeOutLeft>
           <lbk-invoice-preview [invoice]="invoice"></lbk-invoice-preview>
         </li>
       </ng-container>
     </ul>
   `,
   animations: [
-    // listInLeft({ staggerDuration: 80, duration: 200 }),
+    listInLeft({
+      item: 'lbk-invoice-preview',
+    }),
     // slideInLeftOnEnterAnimation({ delay: 300 }),
-    // fadeOutRightOnLeaveAnimation({ delay: 200 }),
+    fadeOutLeft({ delay: 200 }),
   ],
 })
 export class InvoicePreviewListComponent {

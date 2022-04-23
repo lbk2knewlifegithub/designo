@@ -70,30 +70,3 @@ impl<'a> FromSql<'a> for Items {
         false
     }
 }
-
-/// New Invoice
-pub struct NewInvoice {
-    pub user_id: i32,
-    pub payment_terms: i32,
-    pub description: String,
-    pub client_name: String,
-    pub client_email: String,
-    pub status: String,
-    pub created_at: NaiveDateTime,
-    pub sender_address_id: i32,
-    pub client_address_id: i32,
-}
-
-pub struct DeleteInvoice {
-    pub invoice_id: i32,
-    pub user_id: i32,
-}
-
-impl DeleteInvoice {
-    pub fn new(invoice_id: i32, user_id: i32) -> Self {
-        Self {
-            invoice_id,
-            user_id,
-        }
-    }
-}

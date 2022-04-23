@@ -61,9 +61,9 @@ export class InvoicesImplService extends InvoicesService {
    *  - Update Invoice
    * @returns
    */
-  updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO): Observable<void> {
+  updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO): Observable<Invoice> {
     const { invoice_id } = updateInvoiceDTO;
-    return this._http.put<void>(
+    return this._http.put<Invoice>(
       `${this._apiUrl}/invoices/invoice/${invoice_id}`,
       updateInvoiceDTO
     );

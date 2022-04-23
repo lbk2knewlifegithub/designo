@@ -1,6 +1,6 @@
 use crate::{
-    dto::invoice_dto::CreateInvoiceDTO,
-    models::invoice_model::{DeleteInvoice, Invoice, NewInvoice},
+    dto::invoice_dto::{CreateInvoiceDTO, UpdateInvoiceDTO},
+    models::invoice_model::Invoice,
     repos::{address_repo, invoices_repo, items_repo},
     InvoiceAppState,
 };
@@ -25,32 +25,22 @@ pub async fn create_invoice(
     let trans = client.transaction().await?;
 
     // Create Sender Address
-    let sender_address_id = address_repo::crate_address(
-        &trans,
-        &create_invoice_dto.sender_address.to_owned().unwrap(),
-    )
-    .await?;
+    let sender_address_id =
+        address_repo::create_address(&trans, &create_invoice_dto.sender_address).await?;
 
     // Create Client Address
-    let client_address_id = address_repo::crate_address(
+    let client_address_id =
+        address_repo::create_address(&trans, &create_invoice_dto.client_address).await?;
+
+    // Invoice Id
+    let invoice_id = invoices_repo::create_invoice(
         &trans,
-        &create_invoice_dto.client_address.to_owned().unwrap(),
+        user_id,
+        &sender_address_id,
+        &client_address_id,
+        &create_invoice_dto,
     )
     .await?;
-
-    let new_invoice = NewInvoice {
-        user_id: user_id.to_owned(),
-        sender_address_id,
-        client_address_id,
-        payment_terms: create_invoice_dto.payment_terms,
-        description: create_invoice_dto.description.to_owned(),
-        status: create_invoice_dto.status.to_owned(),
-        created_at: create_invoice_dto.created_at.to_owned(),
-        client_name: create_invoice_dto.client_name.to_owned(),
-        client_email: create_invoice_dto.client_email.to_owned(),
-    };
-
-    let invoice_id = invoices_repo::create_invoice(&trans, &new_invoice).await?;
 
     // Create Items
     if let Some(items) = create_invoice_dto.to_owned().items {
@@ -59,7 +49,7 @@ pub async fn create_invoice(
         }
     }
 
-    let invoice = invoices_repo::get_invoice_by_id(&trans, &invoice_id, user_id).await?;
+    let invoice = invoices_repo::get_invoice_by_id(&trans, user_id, &invoice_id).await?;
 
     // COMMIT TRANSACTION
     trans.commit().await?;
@@ -71,11 +61,15 @@ pub async fn create_invoice(
 }
 
 /// Delete Invoice Service
-pub async fn delete_invoice(state: &InvoiceAppState, delete_invoice: &DeleteInvoice) -> Result<()> {
+pub async fn delete_invoice(
+    state: &InvoiceAppState,
+    user_id: &i32,
+    invoice_id: &i32,
+) -> Result<()> {
     let mut client = state.db.pool.get().await?;
     let trans = client.transaction().await?;
 
-    let affected = match invoices_repo::delete_invoice(&trans, &delete_invoice).await {
+    let affected = match invoices_repo::delete_invoice(&trans, user_id, invoice_id).await {
         Ok(a) => a,
         Err(e) => {
             trans.rollback().await?;
@@ -100,7 +94,7 @@ pub async fn get_invoice_by_id(
 ) -> Result<Invoice> {
     let mut client = state.db.pool.get().await?;
     let trans = client.transaction().await?;
-    let invoice = invoices_repo::get_invoice_by_id(&trans, invoice_id, user_id).await?;
+    let invoice = invoices_repo::get_invoice_by_id(&trans, user_id, invoice_id).await?;
 
     match invoice {
         Some(invoice) => Ok(invoice),
@@ -128,4 +122,86 @@ pub async fn mask_as_paid(state: &InvoiceAppState, user_id: &i32, invoice_id: &i
     }
 
     Ok(())
+}
+
+/// Update Invoice Service
+pub async fn update_invoice(
+    state: &InvoiceAppState,
+    invoice_id: &i32,
+    user_id: &i32,
+    update_invoice_dto: &UpdateInvoiceDTO,
+) -> Result<Invoice> {
+    // Connect to pool
+    let mut client = state.db.pool.get().await?;
+    // START TRANSACTION
+    let trans = client.transaction().await?;
+
+    // Update Sender Address
+    let affected =
+        address_repo::update_sender_address(&trans, invoice_id, &update_invoice_dto.sender_address)
+            .await?;
+
+    if affected == 0 {
+        return Err(AppError::InvalidInput);
+    }
+
+    // Update Client Address
+    let affected =
+        address_repo::update_client_address(&trans, invoice_id, &update_invoice_dto.client_address)
+            .await?;
+
+    if affected == 0 {
+        return Err(AppError::InvalidInput);
+    }
+
+    // Update Invoice
+    let affected =
+        invoices_repo::update_invoice(&trans, user_id, invoice_id, &update_invoice_dto).await?;
+    if affected == 0 {
+        return Err(AppError::InvalidInput);
+    }
+
+    let items_dto = update_invoice_dto.to_owned().items;
+
+    // Create Items
+    if let Some(added) = items_dto.added {
+        for item in added {
+            let affected = items_repo::create_item(&trans, invoice_id, &item).await?;
+
+            if affected == 0 {
+                return Err(AppError::InvalidInput);
+            }
+        }
+    }
+
+    // Delete Items
+    if let Some(deleted) = items_dto.deleted {
+        for item_id in deleted {
+            let affected = items_repo::delete_item(&trans, invoice_id, &item_id).await?;
+            if affected == 0 {
+                return Err(AppError::InvalidInput);
+            }
+        }
+    }
+
+    // Update Items
+    if let Some(updated) = items_dto.updated {
+        for item in updated {
+            let affected = items_repo::update_item(&trans, invoice_id, &item).await?;
+            if affected == 0 {
+                return Err(AppError::InvalidInput);
+            }
+        }
+    }
+
+    // Get Invoice After Updated
+    let invoice = invoices_repo::get_invoice_by_id(&trans, user_id, &invoice_id).await?;
+
+    // COMMIT TRANSACTION
+    trans.commit().await?;
+
+    match invoice {
+        Some(invoice) => Ok(invoice),
+        None => Err(AppError::RecordNotFound),
+    }
 }

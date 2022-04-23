@@ -1,11 +1,14 @@
-use crate::models::invoice_model::{DeleteInvoice, Invoice, NewInvoice};
+use crate::{
+    dto::invoice_dto::{CreateInvoiceDTO, UpdateInvoiceDTO},
+    models::invoice_model::Invoice,
+};
 use prelude::{errors::AppError, Result};
 
 use deadpool_postgres::Transaction;
 use tokio_pg_mapper::FromTokioPostgresRow;
 use tracing::{debug, error};
 
-/// Get All Invoices
+/// Get All Invoices REPO
 pub async fn all_invoices(trans: &Transaction<'_>, user_id: &i32) -> Result<Vec<Invoice>> {
     let stmt = trans
         .prepare(
@@ -38,8 +41,8 @@ pub async fn all_invoices(trans: &Transaction<'_>, user_id: &i32) -> Result<Vec<
 /// Get Invoice By Id
 pub async fn get_invoice_by_id(
     trans: &Transaction<'_>,
-    invoice_id: &i32,
     user_id: &i32,
+    invoice_id: &i32,
 ) -> Result<Option<Invoice>> {
     let stmt = trans
         .prepare(
@@ -71,78 +74,15 @@ pub async fn get_invoice_by_id(
     }
 }
 
-/// Create Invoice
-pub async fn create_invoice(trans: &Transaction<'_>, new_invoice: &NewInvoice) -> Result<i32> {
-    let stmt = trans
-        .prepare(
-            &r#"
-INSERT INTO invoice_app.invoices(
-    user_id,
-    payment_terms, 
-    description, 
-    client_name,
-    client_email, 
-    status, 
-    created_at,
-    sender_address_id, 
-    client_address_id)
-VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING invoice_id;"#,
-        )
-        .await
-        .expect("Error preparing statement CREATE_INVOICE");
-
-    let NewInvoice {
-        user_id,
-        payment_terms,
-        description,
-        client_name,
-        client_email,
-        status,
-        created_at,
-        sender_address_id,
-        client_address_id,
-    } = new_invoice;
-
-    Ok(trans
-        .query(
-            &stmt,
-            &[
-                user_id,
-                payment_terms,
-                description,
-                client_name,
-                client_email,
-                status,
-                created_at,
-                sender_address_id,
-                client_address_id,
-            ],
-        )
-        .await
-        .map_err(|e| {
-            error!("{}", e);
-            AppError::InvalidInput
-        })?
-        .iter()
-        .map(|row| row.get("invoice_id"))
-        .collect::<Vec<i32>>()
-        .pop()
-        .ok_or(AppError::IntervalServerError)?)
-}
-
-/// Delete Invoice By Id
+/// Delete Invoice REPO
 pub async fn delete_invoice(
     trans: &Transaction<'_>,
-    delete_invoice: &DeleteInvoice,
+    user_id: &i32,
+    invoice_id: &i32,
 ) -> Result<u64> {
     let stmt = trans
         .prepare(&r#"DELETE FROM invoice_app.invoices WHERE invoice_id= $1 AND user_id = $2;"#)
         .await?;
-
-    let DeleteInvoice {
-        invoice_id,
-        user_id,
-    } = delete_invoice;
 
     let affected = trans
         .execute(&stmt, &[invoice_id, user_id])
@@ -154,7 +94,7 @@ pub async fn delete_invoice(
     Ok(affected)
 }
 
-/// Mask As Paid Invoice Repo
+/// Mask As Paid REPO
 pub async fn mask_as_paid(trans: &Transaction<'_>, user_id: &i32, invoice_id: &i32) -> Result<u64> {
     let stmt = trans
         .prepare(&r#"UPDATE invoice_app.invoices SET status='paid' WHERE user_id = $1 AND invoice_id = $2;"#)
@@ -167,5 +107,96 @@ pub async fn mask_as_paid(trans: &Transaction<'_>, user_id: &i32, invoice_id: &i
             debug!("mask_as_paid REPO {e}");
             AppError::InvalidInput
         })?;
+    Ok(affected)
+}
+
+/// Create Invoice REPO
+pub async fn create_invoice(
+    trans: &Transaction<'_>,
+    user_id: &i32,
+    sender_address_id: &i32,
+    client_address_id: &i32,
+    create_invoice_dto: &CreateInvoiceDTO,
+) -> Result<i32> {
+    let stmt = trans
+        .prepare(
+            &r#"
+                INSERT INTO invoice_app.invoices(
+                    user_id,
+                    payment_terms, 
+                    description, 
+                    client_name,
+                    client_email, 
+                    status, 
+                    created_at,
+                    sender_address_id, 
+                    client_address_id)
+                VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING invoice_id;"#,
+        )
+        .await
+        .expect("Error preparing statement CREATE_INVOICE");
+
+    match trans
+        .query_one(
+            &stmt,
+            &[
+                user_id,
+                &create_invoice_dto.payment_terms,
+                &create_invoice_dto.description,
+                &create_invoice_dto.client_name,
+                &create_invoice_dto.client_email,
+                &create_invoice_dto.status,
+                &create_invoice_dto.created_at,
+                sender_address_id,
+                client_address_id,
+            ],
+        )
+        .await
+    {
+        Ok(row) => Ok(row.get(0)),
+        Err(_) => Err(AppError::IntervalServerError),
+    }
+}
+
+/// Update Invoice REPO
+pub async fn update_invoice(
+    trans: &Transaction<'_>,
+    user_id: &i32,
+    invoice_id: &i32,
+    update_invoice_dto: &UpdateInvoiceDTO,
+) -> Result<u64> {
+    let stmt = trans
+        .prepare(
+            &r#"
+                UPDATE invoice_app.invoices
+                SET
+                    payment_terms = $1, 
+                    description = $2, 
+                    client_name = $3,
+                    client_email = $4, 
+                    status = $5, 
+                    created_at = $6
+                WHERE invoice_id = $7 AND user_id = $8;"#,
+        )
+        .await
+        .expect("Error preparing statement UPDATE_INVOICE");
+
+    let affected = trans
+        .execute(
+            &stmt,
+            &[
+                &update_invoice_dto.payment_terms,
+                &update_invoice_dto.description,
+                &update_invoice_dto.client_name,
+                &update_invoice_dto.client_email,
+                &update_invoice_dto.status,
+                &update_invoice_dto.created_at,
+                invoice_id,
+                user_id,
+            ],
+        )
+        .await
+        .map_err(|_| AppError::InvalidInput)?;
+
     Ok(affected)
 }

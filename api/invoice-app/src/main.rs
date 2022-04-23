@@ -14,6 +14,7 @@ mod handlers;
 mod models;
 mod repos;
 mod services;
+mod validators;
 
 #[derive(Clone)]
 pub struct InvoiceAppState {

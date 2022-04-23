@@ -5,6 +5,7 @@ pub mod config;
 pub mod errors;
 pub mod models;
 pub mod services;
+pub mod utils;
 
 pub type Pool = deadpool_postgres::Pool;
 

@@ -10,6 +10,17 @@ export interface LengthError {
 @Component({
   selector: 'lbk-input',
   templateUrl: './input.component.html',
+  styles: [
+    `
+      input.ng-invalid.ng-touched {
+        @apply border-2 border-red-500;
+      }
+
+      .error {
+        @apply text-red-500 font-bold italic text-xs;
+      }
+    `,
+  ],
 })
 export class InputComponent {
   @Input() parent!: FormGroup;

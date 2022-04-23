@@ -1,15 +1,16 @@
 export interface Address {
+  address_id: number;
   street: string;
   city: string;
   postCode: string;
   country: string;
 }
 
-export class Item {
-  item_id!: number;
-  name!: string;
-  quantity!: number;
-  price!: number;
+export interface Item {
+  item_id: number;
+  name: string;
+  quantity: number;
+  price: number;
 }
 
 const ITEM_DEFAULT: Item = {
@@ -31,7 +32,7 @@ export interface Invoice {
   status: InvoiceStatus;
   senderAddress: Address;
   clientAddress: Address;
-  items: Item[];
+  items?: Item[];
 }
 
 export enum PaymentTerms {

@@ -11,6 +11,7 @@ actix = "0.12"
 actix-redis = "0.10"
 actix-web = "4.0.1"
 actix-multipart = "0.4"
+validator = { version = "0.14.0", features = ["derive"] }
 
 jsonwebtoken = "8.0.1"
 serde = "1.0"
@@ -52,3 +53,6 @@ rand_core = { version = "0.6", features = ["std"] }
 redis-async = { version = "0.8", default_features = false, features = [
     "tokio10",
 ] }
+
+
+chrono = { version = "0.4.10", features = ["serde"] }

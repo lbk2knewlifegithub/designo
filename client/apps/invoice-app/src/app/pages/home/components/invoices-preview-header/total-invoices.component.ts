@@ -9,7 +9,7 @@ import { InvoiceStatus } from './../../../../shared';
       <h1 class="text-2xl md:text-3xl">Invoices</h1>
 
       <div class="text-muted-700 dark:text-muted-800">
-        <p [hidden]="!noInvoices">No invoices</p>
+        <p [hidden]="!noInvoices">No invoices {{ status }}</p>
         <p [hidden]="noInvoices">
           <span class="hidden md:inline">There are </span>{{ total }} invoices
           {{ status }}

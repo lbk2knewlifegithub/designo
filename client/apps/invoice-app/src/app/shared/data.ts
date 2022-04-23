@@ -10,12 +10,14 @@ export const invoices = (): Invoice[] => [
     clientEmail: 'jensenh@mail.com',
     status: InvoiceStatus.PAID,
     senderAddress: {
+      address_id: 1553770785,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
+      address_id: 565289130,
       street: '106 Kendell Street',
       city: 'Sharrington',
       postCode: 'NR24 5WQ',
@@ -39,12 +41,14 @@ export const invoices = (): Invoice[] => [
     clientEmail: 'alexgrim@mail.com',
     status: InvoiceStatus.PENDING,
     senderAddress: {
+      address_id: 1129608917,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
+      address_id: 2564196647,
       street: '84 Church Way',
       city: 'Bradford',
       postCode: 'BD1 9PB',
@@ -74,12 +78,14 @@ export const invoices = (): Invoice[] => [
     clientEmail: 'jm@myco.com',
     status: InvoiceStatus.PAID,
     senderAddress: {
+      address_id: 2021662605,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
+      address_id: 4013569637,
       street: '79 Dover Road',
       city: 'Westhall',
       postCode: 'IP19 3PF',
@@ -103,12 +109,14 @@ export const invoices = (): Invoice[] => [
     clientEmail: 'alysa@email.co.uk',
     status: InvoiceStatus.PENDING,
     senderAddress: {
+      address_id: 3142036337,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
+      address_id: 2435043297,
       street: '63 Warwick Road',
       city: 'Carlisle',
       postCode: 'CA20 2TG',
@@ -132,12 +140,14 @@ export const invoices = (): Invoice[] => [
     clientEmail: 'mellisa.clarke@example.com',
     status: InvoiceStatus.PENDING,
     senderAddress: {
+      address_id: 2100055676,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
+      address_id: 1604711703,
       street: '46 Abbey Row',
       city: 'Cambridge',
       postCode: 'CB5 6EG',
@@ -167,12 +177,14 @@ export const invoices = (): Invoice[] => [
     clientEmail: 'thomas@dc.com',
     status: InvoiceStatus.PENDING,
     senderAddress: {
+      address_id: 1965349247,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
+      address_id: 652523350,
       street: '3964  Queens Lane',
       city: 'Gotham',
       postCode: '60457',
@@ -196,16 +208,18 @@ export const invoices = (): Invoice[] => [
     clientEmail: '',
     status: InvoiceStatus.DRAFT,
     senderAddress: {
+      address_id: 4273692728,
       street: '19 Union Terrace',
       city: 'London',
       postCode: 'E1 3EZ',
       country: 'United Kingdom',
     },
     clientAddress: {
-      street: '',
-      city: '',
-      postCode: '',
-      country: '',
+      address_id: 1890620058,
+      street: '19 Union Terrace',
+      city: 'London',
+      postCode: 'E1 3EZ',
+      country: 'United Kingdom',
     },
     items: [
       {

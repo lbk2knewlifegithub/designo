@@ -36,7 +36,9 @@ export abstract class InvoicesService {
    * @param invoice_id
    * @param updateInvoiceDTO
    */
-  abstract updateInvoice(updateInvoiceDTO: UpdateInvoiceDTO): Observable<void>;
+  abstract updateInvoice(
+    updateInvoiceDTO: UpdateInvoiceDTO
+  ): Observable<Invoice>;
 
   /**
    * @param invoice_id

@@ -4,7 +4,7 @@ import { Project } from '../shared';
 export const projects: Project[] = [
   //   ProductFeedbacks Project
   {
-    name: 'Fullstack Product Feedbacks',
+    name: 'Fullstack Product Feedbacks Rust Angular',
     href: 'https://client-product-feedbacks-client-lbk2knewlifegithub.cloud.okteto.net',
     image:
       'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/zbq5rrhkqt63eodwcxcs.jpg',
@@ -32,7 +32,7 @@ export const projects: Project[] = [
   },
   // Invoice App  Project
   {
-    name: 'Fullstack Invoice App (Coming Soon)',
+    name: 'Fullstack Invoice App Rust, Angular',
     href: 'https://client-invoice-app-client-lbk2knewlifegithub.cloud.okteto.net',
     image:
       'https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/ael6vr3wsyatqcrzxzg1.jpg',

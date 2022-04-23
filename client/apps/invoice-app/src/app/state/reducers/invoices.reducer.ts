@@ -14,8 +14,9 @@ export interface State extends EntityState<Invoice> {
 export const adapter: EntityAdapter<Invoice> = createEntityAdapter<Invoice>({
   selectId: (invoice: Invoice) => invoice.invoice_id,
   sortComparer: (invoice1, invoice2) =>
-    new Date(invoice1.createdAt).getTime() -
-    new Date(invoice2.createdAt).getTime(),
+    invoice1.invoice_id - invoice2.invoice_id,
+  // new Date(invoice1.createdAt).getTime() -
+  // new Date(invoice2.createdAt).getTime(),
 });
 
 export const initialState: State = adapter.getInitialState({
@@ -75,19 +76,14 @@ export const reducer = createReducer(
   /**
    * -Update Invoice Success
    */
-  on(InvoicesAPIActions.updateInvoiceSuccess, (state, { updateInvoiceDTO }) => {
-    throw new Error('Not Implemented');
-    // const { invoice_id, ...rest } = updateInvoiceClient;
-    // const invoice = state.entities[invoice_id];
-    // if (!invoice) return state;
-
-    // return adapter.updateOne(
-    //   {
-    //     id: invoice_id,
-    //     changes: { ...rest },
-    //   },
-    //   state
-    // );
+  on(InvoicesAPIActions.updateInvoiceSuccess, (state, { invoice }) => {
+    return adapter.updateOne(
+      {
+        id: invoice.invoice_id,
+        changes: invoice,
+      },
+      state
+    );
   }),
 
   /**

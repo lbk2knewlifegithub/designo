@@ -6,6 +6,7 @@ use serde::Serialize;
 use tokio_pg_mapper::Error as PGMapperError;
 use tokio_postgres::error::Error as PGError;
 use tracing::error;
+use validator::ValidationError;
 
 pub mod auth_error;
 pub mod feedback_error;
@@ -19,6 +20,8 @@ use upload_error::UploadError;
 
 #[derive(Debug, Display)]
 pub enum AppError {
+    ValidationError(ValidationError),
+
     /// Invoice Error
     InvoiceError(InvoiceError),
     /// DDos Error
@@ -93,6 +96,7 @@ impl actix_web::ResponseError for AppError {
             },
             AppError::DDosError => HttpResponse::TooManyRequests(),
             AppError::InvoiceError(_) => HttpResponse::BadRequest(),
+            AppError::ValidationError(_) => HttpResponse::BadRequest(),
         };
 
         builder.json(ErrorResponse { error })
@@ -249,5 +253,12 @@ impl From<InvoiceError> for AppError {
     fn from(e: InvoiceError) -> Self {
         error!("InvoiceError - {e}");
         AppError::InvoiceError(e)
+    }
+}
+
+impl From<ValidationError> for AppError {
+    fn from(e: ValidationError) -> Self {
+        error!("ValidationError - {e}");
+        AppError::ValidationError(e)
     }
 }
