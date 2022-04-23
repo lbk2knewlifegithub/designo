@@ -1,0 +1,7 @@
+deploy:
+  # Go to client namespace and build client image
+  - okteto ns use client-lbk2knewlifegithub && okteto kubeconfig
+
+  # Build CLIENT Designo PRODUCTION
+  - okteto build -t okteto.dev/client-designo:${OKTETO_GIT_COMMIT} client -f client/designo.Dockerfile
+  - helm upgrade -i client-designo charts/client -n client-lbk2knewlifegithub -f values/prod/client-designo.yaml --set tag=${OKTETO_GIT_COMMIT}

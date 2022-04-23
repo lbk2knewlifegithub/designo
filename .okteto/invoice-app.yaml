@@ -1,0 +1,19 @@
+deploy:
+  - okteto ns use lbk2knewlifegithub && okteto kubeconfig
+  - envsubst < config-template.yaml > config.yaml
+  - kubectl apply -f config.yaml
+  - rm config.yaml
+
+  # Build api invoice-app PRODUCTION
+  - okteto build -t okteto.dev/api-invoice-app:${OKTETO_GIT_COMMIT} api -f api/invoice-app.Dockerfile
+  - helm upgrade -i api-invoice-app charts/api -n lbk2knewlifegithub -f values/prod/api-invoice-app.yaml --set tag=${OKTETO_GIT_COMMIT}
+
+  # Apply ingress API
+  - kubectl apply -f ingress/api-prod.yaml
+
+  # Go to client namespace and build client image
+  - okteto ns use client-lbk2knewlifegithub && okteto kubeconfig
+
+  # Build CLIENT InvoiceApp PRODUCTION
+  - okteto build -t okteto.dev/client-invoice-app:${OKTETO_GIT_COMMIT} client -f client/invoice-app.Dockerfile
+  - helm upgrade -i client-invoice-app charts/client -n client-lbk2knewlifegithub -f values/prod/client-invoice-app.yaml --set tag=${OKTETO_GIT_COMMIT}

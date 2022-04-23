@@ -3,10 +3,10 @@ on:
   pull_request:
     branches:
       - master
-name: deploy-prod
+name: auth
 
 jobs:
-  deploy-prod:
+  auth:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -21,3 +21,4 @@ jobs:
         uses: okteto/pipeline@latest
         with:
           name: deploy-prod
+          filename: ./okteto/auth.yaml

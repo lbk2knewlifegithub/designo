@@ -1,0 +1,7 @@
+deploy:
+  # Go to client namespace and build client image
+  - okteto ns use client-lbk2knewlifegithub && okteto kubeconfig
+
+  # Build CLIENT Audiophile PRODUCTION
+  - okteto build -t okteto.dev/client-audiophile:${OKTETO_GIT_COMMIT} client -f client/audiophile.Dockerfile
+  - helm upgrade -i client-audiophile charts/client -n client-lbk2knewlifegithub -f values/prod/client-audiophile.yaml --set tag=${OKTETO_GIT_COMMIT}

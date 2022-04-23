@@ -1,0 +1,7 @@
+deploy:
+  # Go to client namespace and build client image
+  - okteto ns use client-lbk2knewlifegithub && okteto kubeconfig
+
+  # Build CLIENT InvoiceApp PRODUCTION
+  - okteto build -t okteto.dev/client-invoice-app:${OKTETO_GIT_COMMIT} client -f client/invoice-app.Dockerfile
+  - helm upgrade -i client-invoice-app charts/client -n client-lbk2knewlifegithub -f values/prod/client-invoice-app.yaml --set tag=${OKTETO_GIT_COMMIT}

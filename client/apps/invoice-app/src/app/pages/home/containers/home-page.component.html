@@ -7,26 +7,26 @@
       [total]="(totalInvoices$ | async)!"
     ></lbk-invoices-preview-header>
 
-    <ng-container *ngIf="invoices$ | async as invoices">
-      <lbk-invoice-preview-list
-        class="block mt-8 md:mt-14 lg:mt-16"
-        *ngIf="invoices.length > 0; else noInvoices"
-        [invoices]="invoices"
-      ></lbk-invoice-preview-list>
+    <div [ngClass]="{ 'flex justify-center mt-20': loading$ | async }">
+      <lbk-spinner [radius]="50" [loading]="(loading$ | async)!">
+        <ng-container *ngIf="invoices$ | async as invoices">
+          <lbk-invoice-preview-list
+            class="block mt-8 md:mt-14 lg:mt-16"
+            *ngIf="invoices.length > 0; else noInvoices"
+            [invoices]="invoices"
+          ></lbk-invoice-preview-list>
 
-      <ng-template #noInvoices>
-        <lbk-no-invoices class="block mt-[102px] lg:mt-36"></lbk-no-invoices>
-      </ng-template>
-    </ng-container>
+          <ng-template #noInvoices>
+            <lbk-no-invoices
+              class="block mt-[102px] lg:mt-36"
+            ></lbk-no-invoices>
+          </ng-template>
+        </ng-container>
+      </lbk-spinner>
+    </div>
   </div>
 </main>
 
 <!-- new invoice overlay -->
 <lbk-new-invoice-overlay></lbk-new-invoice-overlay>
 <!-- end new invoice overlay -->
-
-<!-- loading -->
-<lbk-invoices-preview-page-loading
-  *ngIf="(loadingInvoices$ | async)!"
-></lbk-invoices-preview-page-loading>
-<!-- end loading -->

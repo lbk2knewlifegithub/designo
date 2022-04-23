@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { LOCAL_STORAGE_TOKEN } from '@lbk/tokens';
+import { API_URL, LOCAL_STORAGE_TOKEN } from '@lbk/tokens';
 import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
 import {
   CreateInvoiceDTO,
@@ -22,9 +22,11 @@ export class InvoicesStorageService extends InvoicesService {
 
   constructor(
     @Inject(LOCAL_STORAGE_TOKEN) private storage: Storage,
+    @Inject(API_URL)
+    _apiUrl: string,
     _http: HttpClient
   ) {
-    super(_http);
+    super(_http, _apiUrl);
   }
 
   getInvoices(): Observable<Invoice[]> {

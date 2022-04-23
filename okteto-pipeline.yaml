@@ -16,6 +16,10 @@ deploy:
   - okteto build -t okteto.dev/api-product-feedbacks:${OKTETO_GIT_COMMIT} api -f api/product-feedbacks.Dockerfile
   - helm upgrade -i api-product-feedbacks charts/api -n lbk2knewlifegithub -f values/prod/api-product-feedbacks.yaml --set tag=${OKTETO_GIT_COMMIT}
 
+  # Build api invoice-app PRODUCTION
+  - okteto build -t okteto.dev/api-invoice-app:${OKTETO_GIT_COMMIT} api -f api/invoice-app.Dockerfile
+  - helm upgrade -i api-invoice-app charts/api -n lbk2knewlifegithub -f values/prod/api-invoice-app.yaml --set tag=${OKTETO_GIT_COMMIT}
+
   # Apply ingress API
   - kubectl apply -f ingress/api-prod.yaml
 

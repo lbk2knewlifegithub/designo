@@ -12,7 +12,8 @@ import {
   template: `
     <svg
       *ngIf="loading; else loaded"
-      class="animate-spin  text-sky-600 block"
+      class="animate-spin  block"
+      style="color: rgba(0, 0, 255, 0.8);"
       [style]="{
         width: radius + 'px',
         height: radius + 'px'
@@ -31,7 +32,7 @@ import {
       ></circle>
       <path
         class="opacity-75"
-        fill="currentColor"
+        fill="#e6e6e6"
         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
       ></path>
     </svg>
