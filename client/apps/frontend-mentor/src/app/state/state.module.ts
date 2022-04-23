@@ -10,6 +10,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../environments/environment';
+import { ChallengesEffects } from './effects';
 import { metaReducers, ROOT_REDUCERS } from './reducers';
 
 @NgModule({
@@ -25,7 +26,7 @@ import { metaReducers, ROOT_REDUCERS } from './reducers';
         strictActionWithinNgZone: true,
       },
     }),
-    EffectsModule.forRoot([TitleEffects]),
+    EffectsModule.forRoot([TitleEffects, ChallengesEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

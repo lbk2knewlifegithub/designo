@@ -1,0 +1,25 @@
+<section>
+  <h2 class="font-bold text-center tracking-[0.2rem]">HOW IT WORKS</h2>
+
+  <ul class="text-center mt-10 grid gap-16">
+    <!-- Choose Your Challenge -->
+    <li
+      *ngFor="let how of howItWorks; trackBy: identifyHowItWorks"
+      class="flex flex-col items-center"
+    >
+      <!-- Image -->
+      <img [src]="how.image" [alt]="how.title" />
+
+      <!-- end Image -->
+
+      <!-- Title -->
+      <h3 class="text-xl mt-3 font-medium">{{ how.title }}</h3>
+      <!-- end Title -->
+
+      <!-- Description -->
+      <p class="text-sm mt-4">{{ how.description }}</p>
+      <!-- end Description -->
+    </li>
+    <!-- end Choose Your Challenge -->
+  </ul>
+</section>

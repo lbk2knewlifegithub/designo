@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ScrollToModule } from '@lbk/directives';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { COMPONENTS } from './components';
@@ -13,6 +14,9 @@ const CONTAINERS = [HomePageComponent];
   imports: [
     CommonModule,
     HomeRoutingModule,
+    // Shared Directives From Libs
+    ScrollToModule,
+
     // Stores
     StoreModule.forFeature(homeFeature),
     EffectsModule.forFeature([HomeEffects]),

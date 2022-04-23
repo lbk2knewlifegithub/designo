@@ -1,3 +1,14 @@
 <main class="container">
-  <lbk-hero class="block mt-9"></lbk-hero>
+  <lbk-hero></lbk-hero>
+
+  <lbk-how-it-works></lbk-how-it-works>
+
+  <lbk-latest-challenges
+    class="block mt-36"
+    [challenges]="(latestChallenges$ | async)!"
+  ></lbk-latest-challenges>
+
+  <lbk-slack class="block mt-28"></lbk-slack>
+
+  <lbk-newletter></lbk-newletter>
 </main>
