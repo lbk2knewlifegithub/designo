@@ -1,4 +1,6 @@
 import { HttpClient } from '@angular/common/http';
+import { Inject } from '@angular/core';
+import { API_URL } from '@lbk/tokens';
 import { Observable, shareReplay } from 'rxjs';
 import {
   CreateInvoiceDTO,
@@ -8,7 +10,11 @@ import {
 } from '../../../shared';
 
 export abstract class InvoicesService {
-  constructor(protected readonly _http: HttpClient) {}
+  constructor(
+    protected readonly _http: HttpClient,
+    @Inject(API_URL)
+    protected readonly _apiUrl: string
+  ) {}
   /**
    * - Get Invoices
    */
@@ -53,7 +59,7 @@ export abstract class InvoicesService {
    */
   randomInvoice(): Observable<RandomInvoice> {
     return this._http
-      .get<RandomInvoice>('/api/invoices/random')
+      .get<RandomInvoice>(`${this._apiUrl}/invoices/random`)
       .pipe(shareReplay(1));
   }
 }

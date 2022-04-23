@@ -60,9 +60,9 @@ export const homeFeature = createFeature({
     })),
 
     /**
-     * - Login Success
+     * - Load Invoices
      */
-    on(AuthApiActions.loginSuccess, (state) => ({
+    on(InvoicesActions.loadInvoices, (state) => ({
       ...state,
       loadingInvoices: true,
     })),
@@ -71,6 +71,13 @@ export const homeFeature = createFeature({
      * - Load Invoices Success
      */
     on(InvoicesAPIActions.loadInvoicesSuccess, (state) => ({
+      ...state,
+      loadingInvoices: false,
+    })),
+    /**
+     * - Load Invoices Failures
+     */
+    on(InvoicesAPIActions.loadInvoicesFailure, (state) => ({
       ...state,
       loadingInvoices: false,
     })),

@@ -1,10 +1,8 @@
-import { PaymentDuePipeModule } from './../../shared/pipes/payment-due.pipe';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { CheckboxModule, DropDownModule, SpinnerModule } from '@lbk/comps';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { FingerprintSpinnerModule } from 'angular-epic-spinners';
 import {
   InvoiceFormModule,
   InvoiceStatusModule,
@@ -13,6 +11,7 @@ import {
   TotalPriceInvoicePipeModule,
   TotalPricePipeModule,
 } from '../../shared';
+import { PaymentDuePipeModule } from './../../shared/pipes/payment-due.pipe';
 import { COMPONENTS } from './components';
 import { HomePageComponent } from './containers';
 import { HomeRoutingModule } from './home-routing.module';
@@ -32,9 +31,6 @@ const CONTAINERS = [HomePageComponent];
     CheckboxModule,
     DropDownModule,
     SpinnerModule,
-
-    // Thirds Libs
-    FingerprintSpinnerModule,
 
     // Shared Pipes From Invoices
     TotalPriceInvoicePipeModule,

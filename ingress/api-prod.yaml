@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: api-prod
+  namespace: lbk2knewlifegithub
   annotations:
     dev.okteto.com/generate-host: "true"
     nginx.ingress.kubernetes.io/use-regex: "true"
@@ -31,3 +32,10 @@ spec:
                 name: api-product-feedbacks
                 port:
                   number: 8082
+          - path: /api/invoices/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: api-invoice-app
+                port:
+                  number: 8083

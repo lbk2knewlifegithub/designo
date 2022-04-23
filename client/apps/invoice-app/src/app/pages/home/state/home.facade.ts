@@ -31,7 +31,7 @@ export class HomeFacade {
   /**
    * - Loading Invoices
    */
-  loadingInvoices$ = this._store.select(fromHome.selectLoadingInvoices);
+  loading$ = this._store.select(fromHome.selectLoadingInvoices);
 
   /**
    * - Filter By Status

@@ -23,7 +23,7 @@ export class HomePageComponent extends Unsubscriber implements OnInit {
   totalInvoices$!: Observable<number>;
   filterByStatus$!: Observable<InvoiceStatus | null>;
 
-  loadingInvoices$!: Observable<boolean>;
+  loading$!: Observable<boolean>;
 
   loggedIn$!: Observable<boolean>;
 
@@ -48,7 +48,7 @@ export class HomePageComponent extends Unsubscriber implements OnInit {
 
     this.filterByStatus$ = this._homeFacade.filterByStatus$;
 
-    this.loadingInvoices$ = this._homeFacade.loadingInvoices$;
+    this.loading$ = this._homeFacade.loading$;
 
     this.appendSub = this.totalInvoices$.subscribe((total) => {
       if (total === 0) return this._title.setTitle('Invoices');
