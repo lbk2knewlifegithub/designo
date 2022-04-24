@@ -8,7 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <h2 class="text-3xl text-center">Portfolio (Coming Soon)</h2>
 
       <!-- <lbk-skills></lbk-skills> -->
-
       <lbk-project-preview-list class="block mt-8"></lbk-project-preview-list>
     </main>
   `,
