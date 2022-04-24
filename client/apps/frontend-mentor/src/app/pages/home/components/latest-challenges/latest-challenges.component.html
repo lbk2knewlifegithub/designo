@@ -1,4 +1,4 @@
-<section class="container" class="">
+<section class="container">
   <div class="bg-primary z-[-1] rounded-t-lg">
     <h2
       class="text-white text-center text-sm font-bold tracking-[0.2rem] min-h-[300px] overflow-hidden pt-16"
@@ -7,14 +7,16 @@
     </h2>
   </div>
 
-  <ul class="grid gap-6 place-items-center -mt-[150px] px-2">
+  <ul
+    class="grid gap-6 justify-items-center -mt-[150px] px-2 md:grid-cols-2 md:px-4"
+  >
     <li
-      class="shadow-md rounded-md overflow-hidden"
+      class="shadow-md rounded-md overflow-hidden max-w-[395px]"
       *ngFor="let challenge of challenges; trackBy: identifyChallenge"
     >
       <!-- Challenge Image -->
       <img
-        class="w-full h-[236px]"
+        class="w-full h-[236px] sm:h-[288px]"
         [src]="challenge.image"
         [alt]="challenge.name"
       />
@@ -34,7 +36,7 @@
         <h3 class="text-xl font-medium font-heading">{{ challenge.name }}</h3>
         <!-- end Name -->
 
-        <div class="flex justify-between items-end mt-1">
+        <div class="flex justify-between items-end mt-1 sm:mt-2">
           <!-- Tech Stacks -->
           <ul class="flex gap-2">
             <li *ngFor="let tech of challenge.techStack">
@@ -59,7 +61,7 @@
   </ul>
 
   <!-- View All Challenges -->
-  <div class="flex justify-center mt-20">
+  <div class="flex justify-center mt-20 sm:mt-16 md:mt-12">
     <a
       href="/"
       class="block text-center font-bold text-secondary text-xs underline decoration-solid decoration-primary decoration-[.15rem] underline-offset-2"

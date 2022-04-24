@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <h2 class="text-xs font-bold">EXPLORE</h2>
 
-    <ul class="mt-4 text-sm grid gap-2">
+    <ul class="mt-4 text-sm grid gap-2 min-w-[240px]">
       <li>
         <a routerLink="/challenges">Challenges</a>
       </li>

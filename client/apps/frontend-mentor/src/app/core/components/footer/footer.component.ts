@@ -4,28 +4,40 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-footer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <footer scrollTo class="container pt-16 border-t-4">
-      <h2 class="text-xs font-bold">FRONTEND MENTOR</h2>
+    <footer class="container pt-16 border-t-4 sm:border-t sm:border-black ">
+      <ul class="flex flex-col gap-10 md:justify-between md:flex-row">
+        <li class="text-xs md:text-sm md:min-w-[200px]">
+          <h2 class="font-bold">FRONTEND MENTOR</h2>
 
-      <p class="text-xs mt-4">
-        Gain real experience of building websites and providing code reviews.
-        Build your portfolio and help others achieve their goals.
-      </p>
+          <p class="mt-4 max-w-md md:text-xs md:leading-5 md:max-w-[150px]">
+            Gain real experience of building websites and providing code
+            reviews. Build your portfolio and help others achieve their goals.
+          </p>
+        </li>
 
-      <!-- Explore -->
-      <lbk-explore class="block mt-10"></lbk-explore>
-      <!-- end Explore -->
+        <ul class="grid gap-10 md:grid-cols-2 md:grow">
+          <!-- Explore -->
+          <li>
+            <lbk-explore></lbk-explore>
+          </li>
+          <!-- end Explore -->
 
-      <!-- Community -->
-      <lbk-community class="block mt-10"></lbk-community>
-      <!-- end Community -->
+          <!-- Community -->
+          <li>
+            <lbk-community></lbk-community>
+          </li>
+          <!-- end Community -->
+        </ul>
 
-      <!-- Socials -->
-      <lbk-socials class="block mt-10"></lbk-socials>
-      <!-- end Socials -->
+        <!-- Socials -->
+        <li>
+          <lbk-socials></lbk-socials>
+        </li>
+        <!-- end Socials -->
+      </ul>
 
       <!-- Copyright -->
-      <lbk-copyright class="block mt-16"></lbk-copyright>
+      <lbk-copyright class="block mt-16 md:mt-32"></lbk-copyright>
       <!-- end Copyright -->
     </footer>
   `,
