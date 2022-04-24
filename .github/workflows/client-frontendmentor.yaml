@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - client-frontendmentor
-name: okteto
+name: client-frontendmentor
 
 jobs:
   client-frontendmentor:
@@ -20,4 +20,5 @@ jobs:
       - name: "Trigger the pipeline"
         uses: okteto/pipeline@latest
         with:
-          name: .okteto/client-frontendmentor.yaml
+          name: client-frontendmentor
+          filename: .okteto/client-frontendmentor.yaml
