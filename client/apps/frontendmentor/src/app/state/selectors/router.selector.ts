@@ -1,4 +1,4 @@
-import * as fromRouter from "@ngrx/router-store";
+import * as fromRouter from '@ngrx/router-store';
 
 /**
  * Router selector

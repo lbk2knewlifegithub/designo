@@ -27,28 +27,28 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#3e54a3"
+          DEFAULT: '#3e54a3',
         },
         error: {
-          DEFAULT: "#ed2c49"
+          DEFAULT: '#ed2c49',
         },
         accent: {
-          DEFAULT: "#6abecd"
+          DEFAULT: '#6abecd',
         },
         success: {
-          DEFAULT: "#aad742"
+          DEFAULT: '#aad742',
         },
         warning: {
-          DEFAULT: "#f1b604",
-          '50': "#f48925"
+          DEFAULT: '#f1b604',
+          50: '#f48925',
         },
         purple: {
-          DEFAULT: "#cf6390"
+          DEFAULT: '#cf6390',
         },
         secondary: {
-          DEFAULT: "#737373"
+          DEFAULT: '#737373',
         },
-      }
+      },
     },
   },
 

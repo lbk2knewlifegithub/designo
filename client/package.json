@@ -27,9 +27,9 @@
     "sandbox:dev": "nx serve sandbox -- --port=4205 --proxy-config proxy.conf.json",
     "sandbox:build": "nx build sandbox",
     "sandbox:sourceMap": "nx build sandbox --sourceMap",
-    "frontendmentor:dev": "nx serve frontend-mentor -- --port=4206 --proxy-config proxy.conf.json",
-    "frontendmentor:build": "nx build frontend-mentor",
-    "frontendmentor:sourceMap": "nx build frontend-mentor --sourceMap"
+    "frontendmentor:dev": "nx serve frontendmentor -- --port=4206 --proxy-config proxy.conf.json",
+    "frontendmentor:build": "nx build frontendmentor",
+    "frontendmentor:sourceMap": "nx build frontendmentor --sourceMap"
   },
   "private": true,
   "dependencies": {
