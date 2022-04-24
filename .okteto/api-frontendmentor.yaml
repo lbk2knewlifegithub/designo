@@ -1,0 +1,12 @@
+deploy:
+  - okteto ns use lbk2knewlifegithub && okteto kubeconfig
+  - envsubst < config-template.yaml > config.yaml
+  - kubectl apply -f config.yaml
+  - rm config.yaml
+
+  # Build api frontendmentor PRODUCTION
+  - okteto build -t okteto.dev/api-frontendmentor:${OKTETO_GIT_COMMIT} api -f api/frontendmentor.Dockerfile
+  - helm upgrade -i api-frontendmentor charts/api -n lbk2knewlifegithub -f values/prod/api-frontendmentor.yaml --set tag=${OKTETO_GIT_COMMIT}
+
+  # Apply ingress API
+  - kubectl apply -f ingress/api-prod.yaml

@@ -1,0 +1,7 @@
+deploy:
+  # Go to client namespace and build client image
+  - okteto ns use client-lbk2knewlifegithub && okteto kubeconfig
+
+  # Build client Frontendmentor PRODUCTION
+  - okteto build -t okteto.dev/client-frontendmentor:${OKTETO_GIT_COMMIT} client -f client/frontendmentor.Dockerfile
+  - helm upgrade -i client-frontendmentor charts/client -n client-lbk2knewlifegithub -f values/prod/client-frontendmentor.yaml --set tag=${OKTETO_GIT_COMMIT}
