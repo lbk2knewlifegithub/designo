@@ -1,7 +1,7 @@
-<section>
+<section class="container">
   <h2 class="font-bold text-center tracking-[0.2rem]">HOW IT WORKS</h2>
 
-  <ul class="text-center mt-10 grid gap-16 sm:mt-16">
+  <ul class="text-center mt-10 grid gap-16 sm:mt-16 md:mt-20">
     <!-- Choose Your Challenge -->
     <li
       *ngFor="let how of howItWorks; trackBy: identifyHowItWorks"
@@ -17,7 +17,7 @@
       <!-- end Title -->
 
       <!-- Description -->
-      <p class="text-sm mt-4 max-w-xs">{{ how.description }}</p>
+      <p class="text-sm mt-4 max-w-[435px]">{{ how.description }}</p>
       <!-- end Description -->
     </li>
     <!-- end Choose Your Challenge -->

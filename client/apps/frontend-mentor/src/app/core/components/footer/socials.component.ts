@@ -32,7 +32,7 @@ import { Component } from '@angular/core';
   styles: [
     `
       ul {
-        @apply flex gap-2;
+        @apply flex gap-2 md:gap-4;
         li {
           a {
             @apply inline-block h-12 w-12 rounded-full;
