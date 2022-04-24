@@ -39,3 +39,10 @@ spec:
                 name: api-invoice-app
                 port:
                   number: 8083
+          - path: /api/frontendmentor/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: api-frontendmentor
+                port:
+                  number: 8084
