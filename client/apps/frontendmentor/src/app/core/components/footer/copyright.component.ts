@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'lbk-copyright',
   template: `
     <section
-      class="container flex flex-col gap-3 text-xs text-secondary pt-6 border-t-4 pb-4 sm:border-t sm:border-black sm:flex-row sm:justify-between sm:items-center sm:py-4 md:py-5 lg:py-6 2xl:px-28"
+      class="container flex flex-col gap-3 text-xs text-secondary pt-6  pb-4  sm:flex-row sm:justify-between sm:items-center sm:py-4 md:py-5 lg:py-6 2xl:px-28"
     >
       <p>© Frontend Mentor 2019 - 2022</p>
 

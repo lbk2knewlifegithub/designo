@@ -47,8 +47,7 @@ export const accountQuestions: Question[] = [
   },
 
   {
-    title:
-      'Go to Settings > Account > Delete Account. Be aware that clicking "Delete Account" will delete all your data, including associated data, like solutions, comments, etc., and cannot be undone.',
+    title: 'How do I delete my account?',
     answer: `Go to Settings > Account > Delete Account. Be aware that clicking "Delete Account" will delete all your data, including associated data, like solutions, comments, etc., and cannot be undone.`,
   },
 ];
