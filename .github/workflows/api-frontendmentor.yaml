@@ -20,4 +20,5 @@ jobs:
       - name: "Trigger the pipeline"
         uses: okteto/pipeline@latest
         with:
-          name: .okteto/api-frontendmentor.yaml
+          name: api-frontendmentor
+          filename: .okteto/api-frontendmentor.yaml
