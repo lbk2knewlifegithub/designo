@@ -1,0 +1,8 @@
+tag: dev
+
+client:
+  name: client-frontendmentor
+  replicaCount: 1
+  image: okteto.dev/client-frontendmentor
+  serviceType: LoadBalancer
+  port: 80
