@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 
     <ul class="mt-4 text-sm grid gap-2">
       <li>
-        <a routerLink="/challenges">Contact Us</a>
+        <a routerLink="/contact">Contact Us</a>
       </li>
 
       <li>

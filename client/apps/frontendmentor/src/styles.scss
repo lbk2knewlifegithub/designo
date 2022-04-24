@@ -31,6 +31,12 @@
   .badge-error {
     @apply bg-error text-white;
   }
+
+  .link-primary {
+    @apply block text-center font-bold text-secondary text-xs;
+    @apply underline decoration-solid decoration-primary decoration-[.15rem] underline-offset-2;
+    @apply lg:text-sm;
+  }
 }
 @layer components {
 }

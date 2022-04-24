@@ -30,10 +30,10 @@ import { Question, identifyQuestion } from '../models';
           <button
             zippyToggle
             [style.aria-label]="question.title"
-            class="w-full flex items-center  border px-3 py-2 gap-2 focus:border-dotted focus:border-accent focus:border-4 focus:rounded-none md:py-4 md:px-8"
+            class="bg-white w-full px-6 py-3 flex items-center border gap-2 focus:border-dotted focus:border-accent focus:border-4 focus:rounded-none md:py-4 md:px-8"
           >
             <!-- Question Title -->
-            <h4 class="grow font-bold text-left">
+            <h4 class="grow font-medium text-left">
               {{ question.title }}
             </h4>
             <!-- end Question Title -->
@@ -42,7 +42,7 @@ import { Question, identifyQuestion } from '../models';
             <i
               [class.fa-minus]="zippy.expanded"
               [class.fa-plus]="!zippy.expanded"
-              class="fa-solid text-2xl"
+              class="fa-solid text-xl"
             ></i>
             <!-- end Minus Or Plus Icon -->
           </button>
@@ -50,7 +50,7 @@ import { Question, identifyQuestion } from '../models';
           <!-- Answer -->
           <p
             *zippyContent
-            class="text-sm text-left text-secondary py-2 px-3 border border-t-0 md:px-8 md:py-6"
+            class="bg-white text-sm text-left text-secondary p-6 border border-t-0 md:px-8 md:py-6"
           >
             {{ question.answer }}
           </p>

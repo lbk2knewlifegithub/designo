@@ -143,3 +143,56 @@ export const licensingQuestions: Question[] = [
     answer: `We do offer commercial licenses. So if you'd like to use our challenges in a commercial project with no need for attribution, please get in touch at hi@frontendmentor.io for more information.`,
   },
 ];
+
+/**
+ * - Contact Questions
+ */
+export const contactQuestions: Question[] = [
+  {
+    title: ' What does this platform do, and how will it help me?  ',
+    answer:
+      " We provide front-end challenges that include professional web designs. These allow you to practice building websites in a realistic workflow. Taking these challenges will help you improve your skills, gain experience creating websites, and build up an incredible project portfolio. We also have a large community of developers, so it's a great way to meet other devs!  ",
+  },
+
+  {
+    title: 'Is it free?',
+    answer:
+      "The majority of our challenges are free, yes. We do have some that are premium and require a PRO subscription to access. It will say on each challenge whether they are free or premium, so it's easy to tell the difference.",
+  },
+
+  {
+    title: 'Can I use these projects in my portfolio?',
+    answer:
+      'Definitely! Please do feel free to use whatever you build in your portfolio. Helping developers add professional-looking projects to their portfolio was one of the reasons we created this platform!',
+  },
+
+  {
+    title: 'What are points for, and how does the points system work?',
+    answer:
+      'Your "Mentor Score" is a rough gauge of your reputation on the platform. Earning more points can boost your exposure within the community and get you on the Wall of Fame. Click "Learn about our Wall of Fame" on the Wall of Fame for all the information.',
+  },
+
+  {
+    title:
+      'Can I use these challenges within my own free or commercial content/tutorials/projects?',
+    answer:
+      "Please visit our License page to learn more about how our challenges can be used within your own content. If you're unsure about anything, please feel free to contact us at hi@frontendmentor.io and we'll be more than happy to answer your questions.",
+  },
+
+  {
+    title: "How can I get help if I'm stuck on a challenge?",
+    answer:
+      "The best (and quickest) way to get help on a challenge is in our Slack community. There are thousands of other developers in there, so it's a great place to ask questions. We even have a dedicated “help” channel! If you haven't joined yet, you can get an invite to our Slack community here.",
+  },
+
+  {
+    title: 'How do I submit my solution?',
+    answer:
+      "We'd recommend reading our complete guide to submitting solutions . If you get stuck and need help, please feel free to ask questions in our Slack community, and we'll help you submit your project.",
+  },
+
+  {
+    title: 'How do I edit my solution?',
+    answer: `Go to "My Challenges" in your dashboard and click the challenge. This will take you through to the challenge hub. From there, click "Update Solution" in the menu at the top, and you'll then be able to update your solution details.`,
+  },
+];

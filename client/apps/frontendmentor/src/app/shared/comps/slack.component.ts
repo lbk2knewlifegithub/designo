@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 
 @Component({
   selector: 'lbk-slack',
@@ -63,3 +63,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
 })
 export class SlackComponent {}
+
+@NgModule({
+  exports: [SlackComponent],
+  declarations: [SlackComponent],
+})
+export class SlackModule {}

@@ -8,6 +8,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
   },
 
+  // Contact Page
+  {
+    path: 'contact',
+    loadChildren: () => import('./pages/contact').then((m) => m.ContactModule),
+  },
+
   // FAQ Page
   {
     path: 'faq',
