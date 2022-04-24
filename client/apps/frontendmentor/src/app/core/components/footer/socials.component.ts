@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <ul>
       <!-- Twitter -->
       <li>
-        <a aria-label="Twitter" href="/">
+        <a class="!border-[#1da0f2]" aria-label="Twitter" href="/">
           <img src="assets/images/twitter.svg" alt="Twitter" />
         </a>
       </li>

@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styles: [
     `
       :host {
-        @apply font-bold text-sm;
+        @apply font-bold text-sm lg:text-base;
       }
 
       :host-context(.HTML) {

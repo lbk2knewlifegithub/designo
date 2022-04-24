@@ -15,6 +15,22 @@
   body {
     @apply font-mono bg-[#fafafa];
   }
+
+  // Badge
+  .badge {
+    @apply text-xs font-bold py-1 px-3 tracking-wider rounded-full;
+  }
+  .badge-secondary {
+    @apply bg-[#e7ebf9] text-primary;
+  }
+
+  .badge-primary {
+    @apply bg-primary text-white;
+  }
+
+  .badge-error {
+    @apply bg-error text-white;
+  }
 }
 @layer components {
 }

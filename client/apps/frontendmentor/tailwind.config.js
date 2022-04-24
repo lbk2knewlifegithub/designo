@@ -15,9 +15,9 @@ module.exports = {
         DEFAULT: '.5rem',
         sm: '1rem',
         md: '1rem',
-        lg: '4rem',
-        xl: '5rem',
-        '2xl': '6rem',
+        lg: '1.5rem',
+        xl: '1.5rem',
+        '2xl': '0rem',
       },
     },
     fontFamily: {
@@ -48,6 +48,9 @@ module.exports = {
         secondary: {
           DEFAULT: '#737373',
         },
+        dark: {
+          DEFAULT: '#24292e',
+        },
       },
     },
   },
@@ -59,7 +62,7 @@ module.exports = {
         '.container': {
           maxWidth: '100%',
           '@screen 2xl': {
-            maxWidth: '1440px',
+            maxWidth: '1400px',
           },
         },
       });

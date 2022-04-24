@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section
-      class="relative container overflow-hidden pt-16 pr-10 z-10 md:pt-24 md:grid md:grid-cols-2 md:gap-10 md:place-items-end"
+      class="relative container overflow-hidden pt-16 pb-20 pr-10 z-10 md:pt-24 md:flex md:justify-between md:gap-10 md:items-end lg:py-32 lg:gap-6 lg:px-12 xl:px-32 2xl:px-40"
     >
       <!-- Pattern Mobile-->
       <img
@@ -17,25 +17,41 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
       <!-- Pattern Tablet-->
       <img
-        class="hidden z-[-1] absolute top-[-20px] -right-[20%] opacity-30 md:block"
+        class="hidden z-[-1] absolute top-[-20px] -right-[20%] opacity-30 md:block lg:hidden"
         src="assets/images/bg-pattern-newletter.svg"
         alt="Pattern"
       />
       <!-- end Pattern Table-->
 
+      <!-- Pattern Desktop One-->
+      <img
+        class="hidden z-[-1] absolute scale-150 top-[-20px] left-0 opacity-50 lg:block"
+        src="assets/images/bg-pattern-desktop-1.svg"
+        alt="Pattern"
+      />
+      <!-- end Pattern Desktop One-->
+
+      <!-- Pattern Desktop Two-->
+      <img
+        class="hidden z-[-1] absolute scale-200 top-[-20px] right-0 opacity-50 lg:block"
+        src="assets/images/bg-pattern-desktop-2.svg"
+        alt="Pattern"
+      />
+      <!-- end Pattern Desktop Two-->
+
       <div>
-        <h2 class="text-sm font-bold tracking-[2px]">
+        <h2 class="text-sm font-bold tracking-[2px] lg:text-base">
           SUBSCRIBE TO OUR NEWSLETTER
         </h2>
 
         <p
-          class="text-2xl font-heading font-medium leading-8 mt-4 max-w-xl md:mt-6"
+          class="text-2xl font-heading font-medium leading-8 mt-4 max-w-xl md:mt-6 lg:mt-8 lg:text-3xl"
         >
           Stay up-to-date with new challenges, featured solutions, selected
           articles and Frontend Mentor latest news
         </p>
 
-        <form class="mt-4 max-w-md md:mt-6">
+        <form class="mt-4 max-w-md md:mt-6 lg:mt-10 lg:max-w-lg">
           <!-- Agree to receive emails from us -->
           <div class="inline-flex items-center gap-3 text-sm">
             <input
@@ -48,27 +64,35 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
           <!-- end Agree to receive emails from us -->
 
           <!-- Email Input -->
-          <div class="mt-4">
+          <div
+            class="mt-4 flex flex-col md:gap-1 lg:flex-row lg:gap-4 lg:mt-6 "
+          >
             <input
-              class="border w-full"
+              class="border lg:grow"
               type="email"
               placeholder="example@example.com"
             />
-          </div>
-          <!-- end Email Input -->
+            <!-- end Email Input -->
 
-          <!-- Submit Button -->
-          <button
-            class="bg-error  py-2 px-6 text-white text-sm tracking-wide italic font-medium rounded-full md:mt-1"
-          >
-            SUBSCRIBE
-          </button>
-          <!-- end Submit Button -->
+            <!-- Submit Button -->
+            <div>
+              <button
+                class="bg-error  py-2 px-6 text-white text-sm tracking-wide italic font-medium rounded-full"
+              >
+                SUBSCRIBE
+              </button>
+            </div>
+            <!-- end Submit Button -->
+          </div>
         </form>
       </div>
 
       <!-- Illustration -->
-      <img src="assets/images/illustration-desk.svg" alt="Illustration Desk" />
+      <img
+        class="hidden lg:block"
+        src="assets/images/illustration-desk.svg"
+        alt="Illustration Desk"
+      />
       <!-- end Illustration -->
     </section>
   `,

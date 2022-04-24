@@ -1,23 +1,31 @@
 <section class="container">
   <h2 class="font-bold text-center tracking-[0.2rem]">HOW IT WORKS</h2>
 
-  <ul class="text-center mt-10 grid gap-16 sm:mt-16 md:mt-20">
+  <ul
+    class="text-center mt-10 grid gap-16 sm:mt-16 md:mt-20 lg:grid-cols-4 lg:gap-12"
+  >
     <!-- Choose Your Challenge -->
     <li
       *ngFor="let how of howItWorks; trackBy: identifyHowItWorks"
       class="flex flex-col items-center"
     >
       <!-- Image -->
-      <img [src]="how.image" [alt]="how.title" />
+      <div class="lg:min-h-[60px]">
+        <img [src]="how.image" [alt]="how.title" />
+      </div>
 
       <!-- end Image -->
 
       <!-- Title -->
-      <h3 class="text-xl mt-3 font-medium">{{ how.title }}</h3>
+      <h3 class="text-xl mt-3 font-medium lg:text-2xl lg:mt-4">
+        {{ how.title }}
+      </h3>
       <!-- end Title -->
 
       <!-- Description -->
-      <p class="text-sm mt-4 max-w-[435px]">{{ how.description }}</p>
+      <p class="text-sm mt-4 max-w-[435px] lg:text-base lg:mt-6">
+        {{ how.description }}
+      </p>
       <!-- end Description -->
     </li>
     <!-- end Choose Your Challenge -->
