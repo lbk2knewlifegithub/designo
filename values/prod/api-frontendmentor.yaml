@@ -1,0 +1,15 @@
+tag: dev
+
+# Api Frontendmentor
+api:
+  name: api-frontendmentor
+  replicaCount: 1
+  image: okteto.dev/api-frontendmentor
+  serviceType: ClusterIP
+  port: 8084
+  ysql:
+    host: yb-tserver-service.db-lbk2knewlifegithub.svc.cluster.local
+  redis:
+    host:
+      read: redis-replicas.banana-lbk2knewlifegithub.svc.cluster.local
+      write: redis-master.banana-lbk2knewlifegithub.svc.cluster.local
