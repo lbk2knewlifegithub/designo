@@ -1,4 +1,4 @@
-import { Challenge } from './models';
+import { Challenge } from '../models';
 
 export const challenges: Challenge[] = [
   {

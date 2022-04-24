@@ -1,3 +1,4 @@
 export * from './models';
-export * as fromData from './data';
+export * from './comps';
 export * from './tokens';
+export * as fromData from './data';

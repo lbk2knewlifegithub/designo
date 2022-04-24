@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-footer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <footer scrollTo>
+    <footer>
       <div
         class="container pt-16 border-t-4 sm:border-t sm:border-black 2xl:px-28"
       >
