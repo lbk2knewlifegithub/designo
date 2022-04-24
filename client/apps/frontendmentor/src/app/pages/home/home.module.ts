@@ -1,3 +1,4 @@
+import { ZigZagModule } from './../../shared/comps/zig-zag.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScrollToModule } from '@lbk/directives';
@@ -20,6 +21,7 @@ const CONTAINERS = [HomePageComponent];
 
     // Shared Components From FrontendMentor
     SlackModule,
+    ZigZagModule,
 
     // Stores
     StoreModule.forFeature(homeFeature),

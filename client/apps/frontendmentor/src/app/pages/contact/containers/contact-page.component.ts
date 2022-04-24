@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { fromData, Question } from '../../../shared';
 
 @Component({
-  selector: 'lbk-contact',
+  selector: 'lbk-contact-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './contact-page.component.html',
 })

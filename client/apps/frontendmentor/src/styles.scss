@@ -16,7 +16,23 @@
     @apply font-mono bg-[#fafafa] text-dark;
   }
 
+  // Button
+  .btn {
+    @apply shadow-sm rounded-full;
+    @apply font-medium text-center leading-6 text-sm;
+    @apply py-3 px-5;
+  }
+
+  .btn-error {
+    @apply bg-error text-white;
+  }
+
+  .btn-white {
+    @apply bg-white italic text-primary;
+  }
+
   // Badge
+
   .badge {
     @apply text-xs font-bold py-1 px-3 tracking-wider rounded-full;
   }

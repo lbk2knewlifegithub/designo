@@ -77,7 +77,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
             <!-- Submit Button -->
             <div>
               <button
-                class="bg-error  py-2 px-6 text-white text-sm tracking-wide italic font-medium rounded-full"
+                class="bg-error py-2 px-6 text-white text-sm tracking-wide italic font-medium rounded-full"
               >
                 SUBSCRIBE
               </button>

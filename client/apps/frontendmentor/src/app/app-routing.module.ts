@@ -14,6 +14,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/contact').then((m) => m.ContactModule),
   },
 
+  // Hiring Page
+  {
+    path: 'hiring',
+    loadChildren: () => import('./pages/hiring').then((m) => m.HiringModule),
+  },
+
   // FAQ Page
   {
     path: 'faq',

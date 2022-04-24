@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'lbk-hero',
+  selector: 'lbk-hiring-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './hero.component.html',
+  templateUrl: './hiring-page.component.html',
 })
-export class HeroComponent {}
+export class HiringPageComponent {}
