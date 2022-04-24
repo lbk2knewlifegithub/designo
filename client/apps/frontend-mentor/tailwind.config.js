@@ -30,7 +30,23 @@ module.exports = {
         },
         error: {
           DEFAULT: "#ed2c49"
-        }
+        },
+        accent: {
+          DEFAULT: "#6abecd"
+        },
+        success: {
+          DEFAULT: "#aad742"
+        },
+        warning: {
+          DEFAULT: "#f1b604",
+          '50': "#f48925"
+        },
+        purple: {
+          DEFAULT: "#cf6390"
+        },
+        secondary: {
+          DEFAULT: "#737373"
+        },
       }
     },
   },

@@ -7,8 +7,10 @@ import {
   MetaReducer,
 } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
+import * as fromChallenges from './challenges.reducer';
 
 export interface State {
+  [fromChallenges.challengesFeatureKey]: fromChallenges.State;
   router: fromRouter.RouterReducerState<any>;
 }
 
@@ -16,6 +18,7 @@ export const ROOT_REDUCERS = new InjectionToken<
   ActionReducerMap<State, Action>
 >('Root reducers token', {
   factory: () => ({
+    [fromChallenges.challengesFeatureKey]: fromChallenges.reducer,
     router: fromRouter.routerReducer,
   }),
 });

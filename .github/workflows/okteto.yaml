@@ -3,10 +3,10 @@ on:
   pull_request:
     branches:
       - master
-name: auth
+name: okteto
 
 jobs:
-  auth:
+  okteto:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -20,5 +20,4 @@ jobs:
       - name: "Trigger the pipeline"
         uses: okteto/pipeline@latest
         with:
-          name: deploy-prod
-          filename: ./okteto/auth.yaml
+          name: okteto
