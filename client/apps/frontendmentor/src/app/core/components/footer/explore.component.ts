@@ -23,7 +23,7 @@ import { Component } from '@angular/core';
       </li>
 
       <li>
-        <a routerLink="/hire-developer">Hire Developer</a>
+        <a routerLink="/hiring">Hire Developer</a>
       </li>
     </ul>
   `,
