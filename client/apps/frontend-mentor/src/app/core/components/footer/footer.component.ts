@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     <footer scrollTo class="container pt-16 border-t-4">
       <h2 class="text-xs font-bold">FRONTEND MENTOR</h2>
 
-      <p class="text-xs mt-4">
+      <p class="text-xs mt-4 max-w-md">
         Gain real experience of building websites and providing code reviews.
         Build your portfolio and help others achieve their goals.
       </p>

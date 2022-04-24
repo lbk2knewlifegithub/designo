@@ -48,8 +48,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       section {
         background-image: url('/assets/images/bg-pattern.svg');
         background-repeat: no-repeat;
-        background-position: 105% 0;
-        background-opacity: 50%;
+        background-position: 105% -20px;
       }
     `,
   ],

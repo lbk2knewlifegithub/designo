@@ -3,7 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'lbk-copyright',
   template: `
-    <div class="text-xs text-secondary pt-6 border-t-4 pb-4">
+    <section
+      class="flex flex-col gap-3 text-xs text-secondary pt-6 border-t-4 pb-4 sm:border-t sm:border-black sm:flex-row sm:justify-between sm:items-center sm:py-4"
+    >
       <p>© Frontend Mentor 2019 - 2022</p>
 
       <ul class="flex gap-4 mt-3">
@@ -23,7 +25,7 @@ import { Component } from '@angular/core';
           <a href=""> License </a>
         </li>
       </ul>
-    </div>
+    </section>
   `,
 })
 export class CopyrightComponent {}

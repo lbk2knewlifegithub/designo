@@ -16,7 +16,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- end Logo Slack -->
 
       <div class="mt-6 text-center">
-        <h3 class="font-heading font-medium text-sm tracking-widest">
+        <h3 class="font-heading font-bold text-sm tracking-widest">
           JOIN OUR SLACK COMMUNITY
         </h3>
 
