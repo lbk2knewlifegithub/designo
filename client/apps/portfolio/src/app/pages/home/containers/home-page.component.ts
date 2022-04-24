@@ -4,7 +4,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-home-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <h1>Test</h1>
     <main class="container mt-20">
       <h2 class="text-3xl text-center">Portfolio (Coming Soon)</h2>
 
