@@ -1,3 +1,10 @@
 [workspace]
 
-members = ["auth", "product-feedbacks", "images", "prelude", "invoice-app"]
+members = [
+    "auth",
+    "product-feedbacks",
+    "images",
+    "prelude",
+    "invoice-app",
+    "frontendmentor",
+]
