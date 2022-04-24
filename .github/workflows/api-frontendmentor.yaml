@@ -1,6 +1,6 @@
 # WORKFLOW PRODUCTION
 on:
-  pull_request:
+  push:
     branches:
       - api-frontendmentor
 name: okteto
