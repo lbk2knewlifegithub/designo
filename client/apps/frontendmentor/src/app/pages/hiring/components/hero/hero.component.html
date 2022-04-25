@@ -1,5 +1,5 @@
 <section
-  class="relative container pt-9 pb-[70px] sm:pb-24 md:pt-14 overflow-hidden md:mt-12 lg:flex lg:items-center lg:justify-between xl:px-14 2xl:px-28 2xl:pt-20"
+  class="relative max-w-[1200px] container pt-9 pb-[70px] sm:pb-24 md:pt-14 md:mt-12 lg:flex lg:items-center lg:justify-between xl:px-0 lg:gap-12 2xl:pt-20"
 >
   <!-- Bg Pattern Mobile -->
   <img
@@ -11,7 +11,7 @@
 
   <!-- Bg Pattern Desktop One -->
   <img
-    class="hidden z-[-1] absolute left-1/2 -translate-x-1/2 h-full lg:block"
+    class="hidden z-[-1] absolute left-0 -translate-x-1/2 h-full lg:block"
     src="/assets/images/bg-pattern-desktop-1.svg"
     alt="Pattern"
   />
@@ -26,17 +26,17 @@
   <!-- end Bg Pattern Desktop Two -->
 
   <div
-    class="text-center grid place-items-center max-w-[470px] mx-auto md:mx-0 md:text-left md:max-w-[625px] md:place-items-start"
+    class="text-center grid place-items-center max-w-[470px] mx-auto md:mx-0 md:text-left md:max-w-[680px] md:place-items-start lg:min-w-[640px] xl:min-w-0"
   >
     <h1
-      class="font-medium text-primary text-[30px] leading-10 md:text-5xl md:leading-[65px]"
+      class="font-medium text-primary text-[30px] leading-10 md:text-5xl md:leading-[65px] xl:text-[52px]"
     >
       <lbk-zig-zag>Discover</lbk-zig-zag>
       junior front-end developers with hands-on experience building projects
     </h1>
 
     <p
-      class="mt-[18px] text-center text-[18px] leading-[26px] break-words md:text-left lg:leading-8"
+      class="mt-[18px] text-center text-[18px] leading-[26px] break-words md:text-left lg:leading-8 lg:mt-7"
     >
       Frontend Mentor Hiring will help you connect with the thousands of
       developers in our community who are actively looking for work.
@@ -45,15 +45,19 @@
     <!-- Login With Github -->
     <a
       routerLink="/"
-      class="btn btn-error font-bold mt-7 items-center inline-flex italic px-8 py-2 gap-2"
+      class="btn btn-error font-bold mt-7 items-center inline-flex italic px-8 py-2 gap-2 lg:py-3 lg:px-9 lg:mt-8"
       >JOIN OUR WAITLIST
     </a>
     <!-- end Login With Github -->
   </div>
 
-  <!-- Hero Image -->
-  <div class="min-w-[390px] max-w-[480px] hidden lg:block">
-    <img src="assets/images/homepage-hero.jpeg" alt="Hero Image" />
+  <!-- Hiring Hero -->
+  <div class="max-w-[445px] hidden lg:block">
+    <img
+      class="min-h-[540px] object-cover rounded-xl"
+      src="assets/images/hiring/hiring-hero.jpeg"
+      alt="Hiring Hero"
+    />
   </div>
-  <!-- end Hero Image -->
+  <!-- end Hiring Hero -->
 </section>

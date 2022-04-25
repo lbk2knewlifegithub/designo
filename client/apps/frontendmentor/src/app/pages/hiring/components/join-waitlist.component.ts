@@ -4,8 +4,16 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-join-waitlist',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="container">
-      <div class="text-center max-w-[736px]">
+    <section class="relative container lg:max-w-[800px] lg:px-0">
+      <!-- Pattern One -->
+      <img
+        class="z-[-1] absolute top-0 right-0 -rotate-90"
+        src="assets/images/bg-pattern-desktop-1.svg"
+        alt="Pattern One"
+      />
+      <!-- end Pattern One -->
+
+      <div class="text-center max-w-[736px] mx-auto">
         <h2 class="text-5xl text-primary">Join our waitlist</h2>
 
         <p class="mt-4 md:mt-7">
@@ -17,7 +25,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       </div>
 
       <form
-        class="grid gap-4 bg-primary text-white px-5 py-6 rounded-xl mt-10 md:mt-16 md:gap-6 md:p-7"
+        class="grid gap-4 bg-primary text-white px-5 py-6 rounded-xl mt-10 md:mt-16 md:gap-6 md:p-7 lg:gap-8 lg:p-9"
       >
         <div class="grid gap-4 md:grid-cols-2 md:gap-6">
           <!-- Full Name -->
@@ -64,7 +72,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         </div>
 
         <!-- Agree to receive emails from us -->
-        <div class="inline-flex items-center gap-3 text-sm">
+        <div class="inline-flex items-center gap-3 text-sm lg:text-base">
           <input
             class="w-6 h-6 border-[3px] border-white bg-transparent"
             type="checkbox"
@@ -75,7 +83,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         <!-- end Agree to receive emails from us -->
 
         <div class="flex justify-end">
-          <button class="btn btn-white py-2 px-9 sm:px-10">
+          <button
+            class="btn btn-white py-2 px-9 sm:px-10 lg:text-base lg:tracking-wider  lg:font-black lg:px-16 lg:py-3"
+          >
             JOIN WAITLIST
           </button>
         </div>

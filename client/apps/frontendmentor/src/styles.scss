@@ -54,6 +54,10 @@
     @apply underline decoration-solid decoration-primary decoration-[.15rem] underline-offset-2;
     @apply lg:text-sm;
   }
+
+  .container-poll {
+    @apply container max-w-[1200px] xl:px-0;
+  }
 }
 @layer components {
 }

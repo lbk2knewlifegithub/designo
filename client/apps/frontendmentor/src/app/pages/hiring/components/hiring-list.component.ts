@@ -10,8 +10,8 @@ interface Hiring {
   selector: 'lbk-hiring-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="container">
-      <ul class="grid gap-28 md:gap-20">
+    <section class="container-poll">
+      <ul class="grid gap-28 md:gap-20 lg:gap-16">
         <ng-container *ngFor="let hiring of hiringList; index as i">
           <li
             class="grid grid-cols-2 place-items-center gap-16 md:grid-col-2 md:gap-10"
@@ -36,7 +36,7 @@ interface Hiring {
               <!-- end Index -->
 
               <!-- Hiring Title -->
-              <h2 class="text-3xl text-[36px] font-medium">
+              <h2 class="text-3xl text-[36px] font-medium lg:text-[42px]">
                 {{ hiring.title }}
               </h2>
               <!-- end Hiring Title -->
@@ -57,6 +57,7 @@ export class HiringListComponent implements OnInit {
   ngOnInit(): void {
     this._initHiringList();
   }
+
   private _initHiringList() {
     this.hiringList = [
       {

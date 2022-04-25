@@ -8,11 +8,13 @@ interface RightFit {
   selector: 'lbk-right-fit',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="container">
+    <section class="container-poll">
       <div
-        class="rounded-lg overflow-hidden border bg-white p-4 pt-12 pb-10 md:px-7 md:pt-14 "
+        class="rounded-lg overflow-hidden border bg-white p-4 pt-12 pb-10 md:px-7 md:pt-14 lg:px-20 lg:pt-28 lg:pb-20"
       >
-        <h3 class="font-black text-center text-sm tracking-widest">
+        <h3
+          class="font-black text-center text-sm tracking-widest lg:tracking-[0.15rem]"
+        >
           ARE WE THE RIGHT FIT?
         </h3>
 
@@ -20,10 +22,12 @@ interface RightFit {
           <ng-container *ngFor="let rightFit of rightFitList; index as i">
             <li
               [ngClass]="{ 'border-t': i !== 0 }"
-              class="border-t pt-8 grid gap-4 md:grid-cols-3 md:pt-12"
+              class="border-t pt-8 grid gap-4 md:grid-cols-3 md:pt-12 lg:pt-16"
             >
               <!-- Hiring Title -->
-              <h2 class="text-2xl font-medium">{{ rightFit.title }}</h2>
+              <h2 class="text-2xl font-medium lg:text-3xl">
+                {{ rightFit.title }}
+              </h2>
               <!-- end Hiring Title -->
 
               <!-- Description -->
