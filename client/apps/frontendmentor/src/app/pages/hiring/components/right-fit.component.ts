@@ -9,20 +9,25 @@ interface RightFit {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="container">
-      <div class="rounded-md overflow-hidden border bg-white p-4 pt-14 pb-10">
-        <h3 class="font-bold text-center text-sm tracking-widest">
+      <div
+        class="rounded-lg overflow-hidden border bg-white p-4 pt-12 pb-10 md:px-7 md:pt-14 "
+      >
+        <h3 class="font-black text-center text-sm tracking-widest">
           ARE WE THE RIGHT FIT?
         </h3>
 
-        <ul class="grid gap-14 mt-10">
+        <ul class="w-full grid gap-12 mt-6 md:gap-20">
           <ng-container *ngFor="let rightFit of rightFitList; index as i">
-            <li [ngClass]="{ 'border-t': i !== 0 }" class="border-t pt-8">
+            <li
+              [ngClass]="{ 'border-t': i !== 0 }"
+              class="border-t pt-8 grid gap-4 md:grid-cols-3 md:pt-12"
+            >
               <!-- Hiring Title -->
               <h2 class="text-2xl font-medium">{{ rightFit.title }}</h2>
               <!-- end Hiring Title -->
 
               <!-- Description -->
-              <p class="mt-4" [innerHtml]="rightFit.description"></p>
+              <p class="md:col-span-2" [innerHtml]="rightFit.description"></p>
               <!-- end Description -->
             </li>
           </ng-container>

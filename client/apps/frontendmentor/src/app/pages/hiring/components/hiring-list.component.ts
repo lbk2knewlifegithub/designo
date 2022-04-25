@@ -11,29 +11,42 @@ interface Hiring {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="container">
-      <ul class="grid gap-36">
-        <li *ngFor="let hiring of hiringList; index as i">
-          <!-- Hiring Illustration -->
-          <img [src]="hiring.image" [alt]="hiring.title" />
-          <!-- end Hiring Illustration -->
-
-          <div class="relative text-center mt-16">
-            <!-- Index -->
-            <span
-              class="absolute z-[-1] opacity-40 font-bold font-heading text-[7.5rem] text-secondary top-0 left-1/2 -translate-y-1/2  -translate-x-1/2"
-              >{{ i + 1 }}</span
+      <ul class="grid gap-28 md:gap-20">
+        <ng-container *ngFor="let hiring of hiringList; index as i">
+          <li
+            class="grid grid-cols-2 place-items-center gap-16 md:grid-col-2 md:gap-10"
+          >
+            <!-- Hiring Illustration -->
+            <div
+              [ngClass]="{ 'md:order-last': i % 2 !== 0 }"
+              class="max-w-[396px] md:max-w-[560px]"
             >
-            <!-- end Index -->
+              <img [src]="hiring.image" [alt]="hiring.title" />
+            </div>
+            <!-- end Hiring Illustration -->
 
-            <!-- Hiring Title -->
-            <h2 class="text-3xl font-medium">{{ hiring.title }}</h2>
-            <!-- end Hiring Title -->
+            <div
+              class="max-w-[475px] relative text-center md:min-w-[350px] md:text-left md:!w-full"
+            >
+              <!-- Index -->
+              <span
+                class="absolute z-[-1] opacity-40 font-bold font-heading text-[7.5rem] text-secondary top-0 left-1/2 -translate-y-1/2  -translate-x-1/2 md:left-[30%]"
+                >{{ i + 1 }}</span
+              >
+              <!-- end Index -->
 
-            <!-- Description -->
-            <p class="mt-4 text-secondary">{{ hiring.description }}</p>
-            <!-- end Description -->
-          </div>
-        </li>
+              <!-- Hiring Title -->
+              <h2 class="text-3xl text-[36px] font-medium">
+                {{ hiring.title }}
+              </h2>
+              <!-- end Hiring Title -->
+
+              <!-- Description -->
+              <p class="mt-4 md:text-lg md:mt-8">{{ hiring.description }}</p>
+              <!-- end Description -->
+            </div>
+          </li>
+        </ng-container>
       </ul>
     </section>
   `,
