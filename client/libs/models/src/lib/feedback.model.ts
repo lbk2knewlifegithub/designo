@@ -45,14 +45,12 @@ const COLORS: { [key: string]: string } = {
 export const createSummaryFeedback = (
   status: FeedbackStatus,
   feedbacks: Feedback[]
-): FeedbackSummary => {
-  return {
-    status,
-    description: DESCRIPTIONS[status],
-    color: COLORS[status],
-    feedbacks: feedbacks.filter((f) => f.status === status),
-  };
-};
+): FeedbackSummary => ({
+  status,
+  description: DESCRIPTIONS[status],
+  color: COLORS[status],
+  feedbacks,
+});
 
 /**
  * - Feedback

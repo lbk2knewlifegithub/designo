@@ -8,8 +8,19 @@ import {
   FeedbackSummary,
 } from '@lbk/models';
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
-import { catchError, map, take, tap } from 'rxjs/operators';
+import { Observable, of, zip } from 'rxjs';
+import {
+  catchError,
+  concatAll,
+  filter,
+  groupBy,
+  map,
+  mergeMap,
+  switchMap,
+  take,
+  tap,
+  toArray,
+} from 'rxjs/operators';
 import { FeedbacksActions, FeedbacksApiActions } from './actions';
 import * as fromFeedbacks from './feedbacks.selectors';
 import { FEEDBACKS_SERVICE } from './feedbacks.token';
@@ -35,28 +46,51 @@ export class FeedbacksFacade {
   /**
    * - Summaries
    */
-  // summaries$: Observable<FeedbackSummary[]> = this.allFeedbacks$.pipe(
-  //   first(),
-  //   concatAll(),
-  //   groupBy((f) => f.status),
-  //   mergeMap((group) => zip(of(group.key), group.pipe(toArray()))),
-  //   filter((array) => array[0] !== FeedbackStatus.SUGGESTION),
-  //   map((array) => createSummaryFeedback(array[0], array[1])),
-  //   toArray()
-  // );
   summaries$: Observable<FeedbackSummary[]> = this.allFeedbacks$.pipe(
-    map((feedbacks) => {
-      return [
-        // Planned
-        createSummaryFeedback(FeedbackStatus.PLANNED, feedbacks),
+    switchMap((feedbacks) =>
+      of(feedbacks).pipe(
+        concatAll(),
+        groupBy((f) => f.status),
+        mergeMap((group) => zip(of(group.key), group.pipe(toArray()))),
+        filter((array) => array[0] !== FeedbackStatus.SUGGESTION),
+        map((array) => createSummaryFeedback(array[0], array[1])),
+        toArray(),
+        map((summaries) => {
+          let result: FeedbackSummary[] = summaries;
+          // Check In-Progress Exists
+          const inProgress = summaries.find(
+            (s) => s.status === FeedbackStatus.IN_PROGRESS
+          );
+          if (!inProgress) {
+            result = [
+              createSummaryFeedback(FeedbackStatus.IN_PROGRESS, []),
+              ...result,
+            ];
+          }
 
-        // In-Progress
-        createSummaryFeedback(FeedbackStatus.IN_PROGRESS, feedbacks),
+          // Check Planned Exists
+          const planned = summaries.find(
+            (s) => s.status === FeedbackStatus.PLANNED
+          );
+          if (!planned) {
+            result = [
+              createSummaryFeedback(FeedbackStatus.PLANNED, []),
+              ...result,
+            ];
+          }
 
-        // Live
-        createSummaryFeedback(FeedbackStatus.LIVE, feedbacks),
-      ];
-    })
+          // Check Live Exists
+          const live = summaries.find((s) => s.status === FeedbackStatus.LIVE);
+          if (!live) {
+            result = [
+              createSummaryFeedback(FeedbackStatus.LIVE, []),
+              ...result,
+            ];
+          }
+          return result;
+        })
+      )
+    )
   );
 
   /**
