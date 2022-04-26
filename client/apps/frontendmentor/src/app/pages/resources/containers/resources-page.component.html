@@ -1,0 +1,34 @@
+<lbk-sub-header title="Resources"></lbk-sub-header>
+<main class="container mb-20 pt-20">
+  <!-- List Summary -->
+  <ul>
+    <li
+      *ngFor="
+        let summary of resourceSummaries$ | async;
+        trackBy: identifyResourceSummary
+      "
+    >
+      <h1 class="font-bold tracking-widest text-center">{{ summary.group }}</h1>
+
+      <!-- List Types -->
+      <ul class="mt-10 grid gap-6">
+        <li *ngFor="let type of summary.types">
+          <div class="flex items-center gap-4 mt-10">
+            <h2 class="font-medium text-xl">{{ type.name }}</h2>
+            <span class="h-[1px] bg-dark/20 grow"></span>
+          </div>
+
+          <!-- List Resource -->
+          <ul>
+            <li *ngFor="let resource of type.resources">
+              <lbk-resource [resource]="resource"></lbk-resource>
+            </li>
+          </ul>
+          <!-- end List Resource -->
+        </li>
+      </ul>
+      <!-- end List Types -->
+    </li>
+  </ul>
+  <!-- end List Summary -->
+</main>

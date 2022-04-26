@@ -1,13 +1,13 @@
 export type ChallengeLevel = 'Newbie' | 'Junior' | 'Intermediate' | 'Advanced';
 
-export type TechStack = 'HTML' | 'CSS' | 'JS' | 'API' | 'GENERAL';
+export type Tech = 'HTML' | 'CSS' | 'JS' | 'API' | 'GENERAL';
 
 export interface Challenge {
   challenge_id: number;
   name: string;
   level: ChallengeLevel;
   description: string;
-  techStack: TechStack[];
+  techStacks: Tech[];
   image: string;
   isFree?: boolean;
   isNew?: boolean;

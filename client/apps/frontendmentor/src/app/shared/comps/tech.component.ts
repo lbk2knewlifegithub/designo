@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 
 @Component({
-  selector: 'lbk-tech-stack',
+  selector: 'lbk-tech',
   changeDetection: ChangeDetectionStrategy.Default,
   template: ` <ng-content></ng-content> `,
   styles: [
@@ -32,4 +32,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     `,
   ],
 })
-export class TechStackComponent {}
+export class TechComponent {}
+
+@NgModule({
+  exports: [TechComponent],
+  declarations: [TechComponent],
+})
+export class TechModule {}

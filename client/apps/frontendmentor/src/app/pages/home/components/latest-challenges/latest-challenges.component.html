@@ -59,8 +59,8 @@
         <div class="flex justify-between items-end mt-1 sm:mt-2 lg:mt-4">
           <!-- Tech Stacks -->
           <ul class="flex gap-2">
-            <li *ngFor="let tech of challenge.techStack">
-              <lbk-tech-stack [classList]="tech">{{ tech }}</lbk-tech-stack>
+            <li *ngFor="let tech of challenge.techStacks">
+              <lbk-tech [classList]="tech">{{ tech }}</lbk-tech>
             </li>
           </ul>
           <!-- end Tech Stacks -->
@@ -84,11 +84,7 @@
 
   <!-- View All Challenges -->
   <div class="flex justify-center mt-20 sm:mt-16 md:mt-20 lg:mt-16">
-    <a
-      href="/"
-      class="link-primary"
-      >View all Challenges</a
-    >
+    <a href="/" class="link-primary">View all Challenges</a>
   </div>
   <!-- end View All Challenges -->
 </section>

@@ -53,6 +53,14 @@
     @apply bg-primary text-white;
   }
 
+  .badge-primary-outline {
+    @apply border text-primary px-3 rounded-md;
+  }
+
+  .badge-accent-outline {
+    @apply border text-accent px-3 rounded-md;
+  }
+
   .badge-error {
     @apply bg-error text-white;
   }

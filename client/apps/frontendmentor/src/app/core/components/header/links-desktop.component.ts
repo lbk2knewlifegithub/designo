@@ -7,19 +7,19 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     <ul class="italic font-bold flex gap-4 text-sm">
       <!-- Challenges -->
       <li>
-        <a href="">CHALLENGES</a>
+        <a routerLink="/">CHALLENGES</a>
       </li>
       <!-- end Challenges -->
 
       <!-- Solutions -->
       <li>
-        <a href="">SOLUTIONS</a>
+        <a routerLink="">SOLUTIONS</a>
       </li>
       <!-- end Solutions -->
 
       <!-- Resources -->
       <li>
-        <a href="">RESOURCES</a>
+        <a routerLink="/resources">RESOURCES</a>
       </li>
       <!-- end Resources -->
 

@@ -1,10 +1,9 @@
-import { ZigZagModule } from './../../shared/comps/zig-zag.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScrollToModule } from '@lbk/directives';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { SlackModule } from '../../shared';
+import { SlackModule, TechModule, ZigZagModule } from './../../shared';
 import { COMPONENTS } from './components';
 import { HomePageComponent } from './containers';
 import { HomeRoutingModule } from './home-routing.module';
@@ -22,6 +21,7 @@ const CONTAINERS = [HomePageComponent];
     // Shared Components From FrontendMentor
     SlackModule,
     ZigZagModule,
+    TechModule,
 
     // Stores
     StoreModule.forFeature(homeFeature),

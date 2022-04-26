@@ -20,6 +20,12 @@ const routes: Routes = [
     path: 'contact',
     loadChildren: () => import('./pages/contact').then((m) => m.ContactModule),
   },
+  // Resources
+  {
+    path: 'resources',
+    loadChildren: () =>
+      import('./pages/resources').then((m) => m.ResourcesModule),
+  },
 
   // Hiring Page
   {
