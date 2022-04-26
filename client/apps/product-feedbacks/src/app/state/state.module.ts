@@ -4,6 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TitleEffects } from '@lbk/effects';
 import { ROOT_REDUCERS, metaReducers } from './reducers';
+import { FeedbackEffects } from './feedbacks.effects';
 import {
   ModuleWithProviders,
   NgModule,
@@ -37,7 +38,7 @@ import {
      *
      * See: https://ngrx.io/guide/effects#registering-root-effects
      */
-    EffectsModule.forRoot([TitleEffects]),
+    EffectsModule.forRoot([TitleEffects, FeedbackEffects]),
     /**
      * Store devtools instrument the store retaining past versions of state
      * and recalculating new states. This enables powerful time-travel

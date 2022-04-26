@@ -24,13 +24,9 @@
 </div>
 
 <!-- Category -->
-<a
-  [routerLink]="['/']"
-  [queryParams]="{ category: feedback.category }"
-  class="btn btn-secondary mt-3 md:mt-4"
->
+<button (click)="categoryClick()" class="btn btn-secondary mt-3 md:mt-4">
   {{ feedback.category | upper: 2 }}
-</a>
+</button>
 <!-- end Category -->
 
 <div class="flex items-center justify-between mt-4">

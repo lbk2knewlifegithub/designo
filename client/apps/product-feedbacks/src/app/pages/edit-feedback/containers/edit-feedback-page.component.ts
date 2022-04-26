@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UpdateFeedbackDTO } from '@lbk/dto';
 import { Feedback } from '@lbk/models';
-import { FeedbacksFacade } from '@lbk/state/feedbacks';
+import { FeedbacksFacade } from '../../../state';
 import { Observable } from 'rxjs';
 import { EditFeedbackPageFacade } from '../state';
 

@@ -5,14 +5,14 @@ import {
   OnInit,
 } from '@angular/core';
 import { collapseOut, expandIn } from '@lbk/anims';
+import { AuthFacade } from '@lbk/auth';
 import { AddCommentDTO } from '@lbk/dto';
 import { Comment, User, UserComment } from '@lbk/models';
-import { AuthFacade } from '@lbk/auth';
-import { FeedbacksFacade } from '@lbk/state/feedbacks';
 import { DialogService } from '@ngneat/dialog';
-import { combineLatest, map, Observable, take, switchMap, of } from 'rxjs';
+import { combineLatest, map, Observable, of, switchMap } from 'rxjs';
+import { FeedbacksFacade } from '../../../../state';
 import { ConfirmDeleteCommentComponent } from '../confirm-delete-comment.component';
-import { ViewFeedbacksFacade } from './../../state/view-feedback.facade';
+import { ViewFeedbacksFacade } from './../../state';
 
 @Component({
   selector: 'lbk-comment',

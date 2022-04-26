@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FeedbackSummary } from '@lbk/models';
 import { RoadmapFacade } from '../state';
-import { FeedbacksFacade } from '@lbk/state/feedbacks';
+import { FeedbacksFacade } from '../../../state';
 
 @Component({
   selector: 'lbk-roadmap-page',

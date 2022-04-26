@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Feedback, FeedbackCategory, FeedbackStatus } from '@lbk/models';
-import { FeedbacksFacade } from '@lbk/state/feedbacks';
+import { FeedbacksFacade } from '../../../state';
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
@@ -162,6 +162,8 @@ export class HomeFacade {
    * - Set Category
    */
   setCategory(category: FeedbackCategory | undefined) {
+    console.log('set category', category);
+
     this.category$.pipe(take(1)).subscribe((old) => {
       if (old === category) return;
       console.log('old ' + old);

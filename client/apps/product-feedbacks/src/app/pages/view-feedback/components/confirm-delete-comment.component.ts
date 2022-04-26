@@ -4,7 +4,7 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { FeedbacksFacade } from '@lbk/state/feedbacks';
+import { FeedbacksFacade } from '../../../state';
 import { DialogRef } from '@ngneat/dialog';
 import { Observable, Subscription } from 'rxjs';
 import { ViewFeedbacksFacade } from './../state/view-feedback.facade';

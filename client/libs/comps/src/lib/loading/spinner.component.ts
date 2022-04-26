@@ -12,9 +12,9 @@ import {
   template: `
     <svg
       *ngIf="loading; else loaded"
-      class="animate-spin  block"
-      style="color: rgba(0, 0, 255, 0.8);"
-      [style]="{
+      class="animate-spin block"
+      style="color: rgba(0, 0, 255) !important;"
+      [ngStyle]="{
         width: radius + 'px',
         height: radius + 'px'
       }"

@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Feedback } from '@lbk/models';
-import { FeedbacksFacade } from '@lbk/state/feedbacks';
+import { HomeFacade } from '../../../pages/home/state';
+import { FeedbacksFacade } from '../../../state';
 
 @Component({
   selector: 'lbk-feedback-preview',
@@ -21,7 +23,11 @@ export class FeedbackPreviewComponent {
   @Input()
   isShownStatus = false;
 
-  constructor(private readonly _feedbacksFacade: FeedbacksFacade) {}
+  constructor(
+    private readonly _feedbacksFacade: FeedbacksFacade,
+    private readonly _homeFacade: HomeFacade,
+    private readonly _router: Router
+  ) {}
 
   get commentsAmount() {
     return this.feedback.comments ? this.feedback.comments.length : 0;
@@ -39,5 +45,14 @@ export class FeedbackPreviewComponent {
 
     // Upvote
     this._feedbacksFacade.upvote(this.feedback.feedback_id);
+  }
+
+  /**
+   *  - Category Click
+   * @param category
+   */
+  categoryClick() {
+    this._homeFacade.setCategory(this.feedback.category);
+    this._router.navigateByUrl('/');
   }
 }
