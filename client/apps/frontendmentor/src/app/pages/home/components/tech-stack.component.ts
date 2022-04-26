@@ -25,6 +25,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       :host-context(.API) {
         @apply text-success;
       }
+
+      :host-context(.GENERAL) {
+        @apply text-warning-50;
+      }
     `,
   ],
 })

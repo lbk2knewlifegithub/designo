@@ -4,12 +4,17 @@ import { ExploreComponent } from './footer/explore.component';
 import { FooterComponent } from './footer/footer.component';
 import { SocialsComponent } from './footer/socials.component';
 import { HeaderComponent } from './header/header.component';
+import { LinksDesktopComponent } from './header/links-desktop.component';
 
 export const COMPONENTS = [
+  // Footer
   FooterComponent,
-  HeaderComponent,
   ExploreComponent,
   CommunityComponent,
   SocialsComponent,
   CopyrightComponent,
+
+  // Header
+  HeaderComponent,
+  LinksDesktopComponent,
 ];

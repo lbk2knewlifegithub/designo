@@ -21,16 +21,16 @@ import { Question, identifyQuestion } from '../models';
     </h3>
     <!-- end Title -->
 
-    <ul class="grid place-items-center gap-1 mt-4 md:gap-2 lg:gap-4 lg:mt-8">
+    <ul class="grid place-items-center gap-2 mt-8 md:gap-4 lg:mt-10">
       <li
-        class="shadow-sm rounded-lg overflow-hidden max-w-[650px]"
+        class="shadow-sm max-w-[650px]"
         *ngFor="let question of questions; trackBy: identifyQuestion"
       >
         <lbk-zippy #zippy>
           <button
             zippyToggle
             [style.aria-label]="question.title"
-            class="bg-white w-full px-6 py-3 flex items-center border gap-2 focus:border-dotted focus:border-accent focus:border-4 focus:rounded-none md:py-4 md:px-8"
+            class="bg-white w-full px-6 py-3 flex items-center gap-2 border rounded-lg focus:outline-dotted focus:outline-accent focus:outline-4 md:py-4 md:px-8"
           >
             <!-- Question Title -->
             <h4 class="grow font-medium text-left">
@@ -50,7 +50,7 @@ import { Question, identifyQuestion } from '../models';
           <!-- Answer -->
           <p
             *zippyContent
-            class="bg-white text-sm text-left text-secondary p-6 border border-t-0 md:px-8 md:py-6"
+            class="bg-white text-sm text-left text-secondary p-6 rounded-b-xl border border-t-0 md:px-8 md:py-6"
           >
             {{ question.answer }}
           </p>

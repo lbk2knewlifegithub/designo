@@ -8,6 +8,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
   },
 
+  // Unlock Pro
+  {
+    path: 'unlock-pro',
+    loadChildren: () =>
+      import('./pages/unlock-pro').then((m) => m.UnlockProModule),
+  },
+
   // Contact Page
   {
     path: 'contact',

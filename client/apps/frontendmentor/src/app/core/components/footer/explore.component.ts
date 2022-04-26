@@ -19,7 +19,7 @@ import { Component } from '@angular/core';
       </li>
 
       <li>
-        <a routerLink="/unlock-prod">Unlock PRO</a>
+        <a routerLink="/unlock-pro">Unlock PRO</a>
       </li>
 
       <li>

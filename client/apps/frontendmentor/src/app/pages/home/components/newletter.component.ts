@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- Pattern Mobile-->
       <img
         class="z-[-1] absolute top-[-20px] -right-[5%] md:hidden"
-        src="assets/images/bg-pattern.svg"
+        src="assets/images/shared/bg-pattern.svg"
         alt="Pattern"
       />
       <!-- end Pattern Mobile-->
@@ -18,7 +18,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- Pattern Tablet-->
       <img
         class="hidden z-[-1] absolute top-[-20px] -right-[20%] opacity-30 md:block lg:hidden"
-        src="assets/images/bg-pattern-newletter.svg"
+        src="assets/images/home/bg-pattern-newletter.svg"
         alt="Pattern"
       />
       <!-- end Pattern Table-->
@@ -26,7 +26,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- Pattern Desktop One-->
       <img
         class="hidden z-[-1] absolute scale-150 top-[-20px] left-0 opacity-50 lg:block"
-        src="assets/images/bg-pattern-desktop-1.svg"
+        src="assets/images/shared/bg-pattern-1.svg"
         alt="Pattern"
       />
       <!-- end Pattern Desktop One-->
@@ -34,7 +34,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- Pattern Desktop Two-->
       <img
         class="hidden z-[-1] absolute scale-200 top-[-20px] right-0 opacity-50 lg:block"
-        src="assets/images/bg-pattern-desktop-2.svg"
+        src="assets/images/shared/bg-pattern-2.svg"
         alt="Pattern"
       />
       <!-- end Pattern Desktop Two-->
@@ -90,7 +90,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- Illustration -->
       <img
         class="hidden lg:block"
-        src="assets/images/illustration-desk.svg"
+        src="assets/images/home/illustration-desk.svg"
         alt="Illustration Desk"
       />
       <!-- end Illustration -->

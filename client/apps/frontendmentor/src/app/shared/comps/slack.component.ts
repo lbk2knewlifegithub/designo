@@ -11,7 +11,7 @@ import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
         <!-- Logo Slack -->
         <img
           class="max-w-[175px] lg:max-w-[200px]"
-          src="assets/images/logo-slack.svg"
+          src="assets/images/shared/logo-slack.svg"
           alt="Slack"
         />
         <!-- end Logo Slack -->
@@ -54,7 +54,7 @@ import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
         <!-- Slack Pattern  -->
         <img
           class="absolute bottom-0 right-0 scale-[250%] translate-x-[25%] translate-y-[25%] opacity-10 z-[-1] md:translate-x-[10%] md:translate-y-[10%] lg:scale-[290%] lg:translate-x-0"
-          src="assets/images/slack-pattern.svg"
+          src="assets/images/shared/slack-pattern.svg"
           alt="Slack Pattern"
         />
         <!-- end Slack Pattern  -->

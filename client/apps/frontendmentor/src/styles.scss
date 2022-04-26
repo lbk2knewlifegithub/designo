@@ -23,8 +23,16 @@
     @apply py-3 px-5;
   }
 
+  .btn-icon {
+    @apply inline-flex justify-center items-center gap-2;
+  }
+
   .btn-error {
     @apply bg-error text-white;
+  }
+
+  .btn-error-outline {
+    @apply bg-transparent text-error border-error border;
   }
 
   .btn-white {

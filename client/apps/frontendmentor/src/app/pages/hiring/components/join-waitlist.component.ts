@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- Pattern One -->
       <img
         class="z-[-1] absolute top-0 right-0 -rotate-90"
-        src="assets/images/bg-pattern-desktop-1.svg"
+        src="assets/images/shared/bg-pattern-1.svg"
         alt="Pattern One"
       />
       <!-- end Pattern One -->

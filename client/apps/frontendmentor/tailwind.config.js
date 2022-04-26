@@ -15,7 +15,7 @@ module.exports = {
         DEFAULT: '.5rem',
         sm: '1rem',
         md: '1rem',
-        lg: '1.5rem',
+        lg: '2rem',
         xl: '1.5rem',
         '2xl': '0rem',
       },
@@ -47,6 +47,7 @@ module.exports = {
         },
         secondary: {
           DEFAULT: '#737373',
+          '50': '#F0F4F4',
         },
         dark: {
           DEFAULT: '#24292e',

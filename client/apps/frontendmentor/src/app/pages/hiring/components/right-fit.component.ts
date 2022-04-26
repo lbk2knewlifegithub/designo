@@ -10,7 +10,7 @@ interface RightFit {
   template: `
     <section class="container-poll">
       <div
-        class="rounded-lg overflow-hidden border bg-white p-4 pt-12 pb-10 md:px-7 md:pt-14 lg:px-20 lg:pt-28 lg:pb-20"
+        class="rounded-lg overflow-hidden border bg-white p-4 pt-12 pb-10 md:px-7 md:pt-14 lg:px-20 lg:pt-20 lg:pb-20 2xl:px-44"
       >
         <h3
           class="font-black text-center text-sm tracking-widest lg:tracking-[0.15rem]"

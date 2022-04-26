@@ -9,7 +9,7 @@ import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
       :host {
         background-repeat: no-repeat;
         background-position: 0 105%;
-        background-image: url('/assets/images/zig-zag-underline.svg');
+        background-image: url('/assets/images/shared/zig-zag-underline.svg');
       }
     `,
   ],

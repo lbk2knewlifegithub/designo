@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
       <!-- Twitter -->
       <li>
         <a class="!border-[#1da0f2]" aria-label="Twitter" href="/">
-          <img src="assets/images/twitter.svg" alt="Twitter" />
+          <img src="assets/images/shared/twitter.svg" alt="Twitter" />
         </a>
       </li>
       <!-- end Twitter -->
@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
       <!-- LinkedIn -->
       <li>
         <a aria-label="LinkedIn" href="/">
-          <img src="assets/images/linkedin.svg" alt="LinkedIn" />
+          <img src="assets/images/shared/linkedin.svg" alt="LinkedIn" />
         </a>
       </li>
       <!-- end Linked -->
@@ -23,7 +23,7 @@ import { Component } from '@angular/core';
       <!-- Facebook -->
       <li>
         <a aria-label="Facebook" href="/">
-          <img src="assets/images/facebook.svg" alt="Facebook" />
+          <img src="assets/images/shared/facebook.svg" alt="Facebook" />
         </a>
       </li>
       <!-- end Facebook -->

@@ -5,7 +5,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section
-      scrollTo
       class="z-10 overflow-hidden relative  container bg-secondary/10 text-center rounded-xl py-10 md:py-16 lg:py-20"
     >
       <!-- Pattern  One-->

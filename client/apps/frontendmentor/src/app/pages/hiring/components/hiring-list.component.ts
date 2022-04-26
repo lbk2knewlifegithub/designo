@@ -11,11 +11,9 @@ interface Hiring {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="container-poll">
-      <ul class="grid gap-28 md:gap-20 lg:gap-16">
+      <ul class="grid gap-28  md:gap-20 lg:gap-16">
         <ng-container *ngFor="let hiring of hiringList; index as i">
-          <li
-            class="grid grid-cols-2 place-items-center gap-16 md:grid-col-2 md:gap-10"
-          >
+          <li class="grid place-items-center gap-16 md:grid-cols-2 md:gap-10">
             <!-- Hiring Illustration -->
             <div
               [ngClass]="{ 'md:order-last': i % 2 !== 0 }"
