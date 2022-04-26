@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - client-product-feedbacks
+name: client-product-feedbacks
+
+jobs:
+  client-product-feedbacks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: context
+        uses: okteto/context@latest
+        with:
+          token: ${{ secrets.OKTETO_TOKEN }}
+
+      - name: "Trigger the pipeline"
+        uses: okteto/pipeline@latest
+        with:
+          name: client-product-feedbacks
+          filename: .okteto/client-product-feedbacks.yaml
