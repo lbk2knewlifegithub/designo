@@ -1,0 +1,13 @@
+<lbk-sub-header title="Challenges">
+  <ul></ul>
+</lbk-sub-header>
+<main>
+  <lbk-challenge-list
+    class="block mt-36 sm:mt-40 lg:mt-[120px] 2xl:mt-[144px]"
+    [challenges]="(challenges$ | async)!"
+  ></lbk-challenge-list>
+
+  <lbk-slack class="block mt-28 lg:mt-[120px] 2xl:mt-[124px]"></lbk-slack>
+
+  <lbk-newletter class="block mt-20 xl:mt-32"></lbk-newletter>
+</main>
