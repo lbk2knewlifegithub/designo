@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ImageModule, SpinnerModule } from '@lbk/comps';
-import { ScrollToModule } from '@lbk/directives';
+import { ScrollToModule, ClickOutsideModule } from '@lbk/directives';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import {
   LatestChallengesModule,
   NewLetterModule,
   SlackModule,
+  SocialsModule,
   TechModule,
 } from '../../shared';
-import { SocialsModule } from '../../shared/comps/socials/socials.component';
 import { COMPONENTS } from './components';
 import { ResourcesPageComponent } from './containers';
 import { ResourcesRoutingModule } from './resources-routing.module';
@@ -31,6 +31,7 @@ import { ResourcesEffects, resourcesFeature } from './state';
     SlackModule,
     LatestChallengesModule,
     SpinnerModule,
+    ClickOutsideModule,
 
     // Shared Directives From FrontendMentor
     TechModule,

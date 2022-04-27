@@ -21,6 +21,7 @@ interface Group {
 
         <!-- Dropdown -->
         <button
+          id="go-to-sections"
           (click)="toggle()"
           class="flex gap-2 items-center text-xs italic font-bold px-4 border-x"
         >
@@ -36,6 +37,8 @@ interface Group {
       <ng-container *ngIf="shown">
         <ul
           @fadeIn
+          (clickOutside)="close()"
+          skip="#go-to-sections"
           class="absolute z-30 bg-white shadow-md w-full bottom-0 translate-y-full grid md:right-0 md:overflow-y-scroll md:max-h-[700px] md:max-w-[250px]"
         >
           <li *ngFor="let group of groups">
