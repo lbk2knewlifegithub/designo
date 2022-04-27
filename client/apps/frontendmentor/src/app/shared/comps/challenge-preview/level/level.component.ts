@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ChallengeLevel } from '../../../../shared';
+import { ChallengeLevel } from '../../../models';
 
 @Component({
   selector: 'lbk-level',

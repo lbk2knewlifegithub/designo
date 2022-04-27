@@ -162,11 +162,8 @@ export class HomeFacade {
    * - Set Category
    */
   setCategory(category: FeedbackCategory | undefined) {
-    console.log('set category', category);
-
     this.category$.pipe(take(1)).subscribe((old) => {
       if (old === category) return;
-      console.log('old ' + old);
       this._store.dispatch(HomeActions.setCategory({ category }));
     });
   }

@@ -1,9 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ImageModule, SpinnerModule } from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { SubHeaderModule, TechModule } from '../../shared';
+import {
+  LatestChallengesModule,
+  NewLetterModule,
+  SlackModule,
+  TechModule,
+} from '../../shared';
+import { SocialsModule } from '../../shared/comps/socials/socials.component';
 import { COMPONENTS } from './components';
 import { ResourcesPageComponent } from './containers';
 import { ResourcesRoutingModule } from './resources-routing.module';
@@ -19,10 +26,15 @@ import { ResourcesEffects, resourcesFeature } from './state';
 
     // Shared Directives From Libs
     ScrollToModule,
+    ImageModule,
+    NewLetterModule,
+    SlackModule,
+    LatestChallengesModule,
+    SpinnerModule,
 
     // Shared Directives From FrontendMentor
-    SubHeaderModule,
     TechModule,
+    SocialsModule,
   ],
   declarations: [COMPONENTS, ResourcesPageComponent],
 })

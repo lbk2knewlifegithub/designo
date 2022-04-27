@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AttributionModule, MenuOneModule } from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
+import { SocialsModule } from '../shared';
 import { COMPONENTS } from './components';
 import { AppComponent } from './containers';
 
@@ -10,6 +11,8 @@ import { AppComponent } from './containers';
   imports: [
     CommonModule,
     RouterModule,
+    // Shared Components from Frontend Mentor
+    SocialsModule,
     // Shared Components from Libs
     AttributionModule,
     ScrollToModule,

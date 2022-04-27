@@ -3,7 +3,13 @@ import { NgModule } from '@angular/core';
 import { ScrollToModule } from '@lbk/directives';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { SlackModule, TechModule, ZigZagModule } from './../../shared';
+import {
+  LatestChallengesModule,
+  NewLetterModule,
+  SlackModule,
+  TechModule,
+  ZigZagModule,
+} from './../../shared';
 import { COMPONENTS } from './components';
 import { HomePageComponent } from './containers';
 import { HomeRoutingModule } from './home-routing.module';
@@ -22,6 +28,8 @@ const CONTAINERS = [HomePageComponent];
     SlackModule,
     ZigZagModule,
     TechModule,
+    NewLetterModule,
+    LatestChallengesModule,
 
     // Stores
     StoreModule.forFeature(homeFeature),

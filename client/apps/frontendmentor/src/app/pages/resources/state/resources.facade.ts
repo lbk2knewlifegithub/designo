@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import {
   concatAll,
   groupBy,
+  map,
   mergeMap,
   Observable,
   of,
@@ -11,7 +12,7 @@ import {
   toArray,
   zip,
 } from 'rxjs';
-import { Resource } from './../../../shared';
+import { Resource, ResourceGroup } from './../../../shared';
 import { ResourcesActions } from './actions';
 import * as fromResources from './resources.selectors';
 
@@ -28,18 +29,28 @@ export class ResourcesFacade {
   );
 
   /**
-   * - Resoucre Summaries
+   * - Resoucres Groups
    */
-  resourceSummaries$: Observable<any> = this.allResources$.pipe(
-    // map((resources) => {
-    //   return [];
-    // })
+  resourcesGroups$: Observable<ResourceGroup[]> = this.allResources$.pipe(
     switchMap((resources) =>
       of(resources).pipe(
         concatAll(),
-        groupBy((r) => r.resourceGroup),
-        mergeMap((group) => zip(of(group.key), group.pipe(toArray()))),
-        // map((array) => createSummaryFeedback(array[0], array[1])),
+        groupBy((r1) => r1.resourceGroup),
+        mergeMap((g1) =>
+          zip(
+            of(g1.key),
+
+            g1.pipe(
+              groupBy((r2) => r2.resourceType),
+              mergeMap((g2) => zip(of(g2.key), g2.pipe(toArray()))),
+              toArray()
+            )
+          )
+        ),
+        map((ar1) => ({
+          name: ar1[0],
+          types: ar1[1].map((ar2) => ({ name: ar2[0], resources: ar2[1] })),
+        })),
         toArray()
       )
     )
@@ -50,9 +61,14 @@ export class ResourcesFacade {
    */
   loaded$: Observable<boolean> = this._store.select(fromResources.selectLoaded);
 
-  constructor(private readonly _store: Store) {
-    this.resourceSummaries$.subscribe(console.log);
-  }
+  /**
+   * - Select Loading
+   */
+  loading$: Observable<boolean> = this._store.select(
+    fromResources.selectLoading
+  );
+
+  constructor(private readonly _store: Store) {}
 
   /**
    * - Load All Resources

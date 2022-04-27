@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import {
-  identifyResourceSummary,
-  ResourceSummary,
+  Challenge,
+  ResourceGroupName,
   ResourceGroup,
-  ResourceType,
+  ResourceTypeName,
 } from '../../../shared';
+import { ChallengesFacade } from '../../../state';
 import { ResourcesFacade } from '../state';
 
 @Component({
@@ -14,20 +15,28 @@ import { ResourcesFacade } from '../state';
   templateUrl: `./resources-page.component.html`,
 })
 export class ResourcesPageComponent implements OnInit {
-  resourceSummaries$!: Observable<ResourceSummary[]>;
-  identifyResourceSummary = identifyResourceSummary;
+  resourcesGroups$!: Observable<ResourceGroup[]>;
+  latestChallenges$!: Observable<Challenge[]>;
 
-  groups!: ResourceGroup[];
-  types!: ResourceType[];
+  groups!: ResourceGroupName[];
+  types!: ResourceTypeName[];
 
-  constructor(private readonly _resourcesFacade: ResourcesFacade) {}
+  loading$!: Observable<boolean>;
+
+  constructor(
+    private readonly _resourcesFacade: ResourcesFacade,
+    private readonly _challengesFacade: ChallengesFacade
+  ) {}
 
   ngOnInit(): void {
-    this.groups = Object.values(ResourceGroup);
-    this.types = Object.values(ResourceType);
+    this.groups = Object.values(ResourceGroupName);
+    this.types = Object.values(ResourceTypeName);
 
-    this.resourceSummaries$ = this._resourcesFacade.resourceSummaries$;
+    this.loading$ = this._resourcesFacade.loading$;
+    this.resourcesGroups$ = this._resourcesFacade.resourcesGroups$;
+    this.latestChallenges$ = this._challengesFacade.challenges$;
 
     this._resourcesFacade.loadAllResources();
+    this._challengesFacade.loadChallenges();
   }
 }

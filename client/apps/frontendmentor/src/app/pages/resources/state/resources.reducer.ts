@@ -1,35 +1,45 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { Resource, ResourceGroup, ResourceType } from '../../../shared';
-import { ResourcesAPIActions } from './actions';
+import { Resource } from '../../../shared';
+import { ResourcesAPIActions, ResourcesActions } from './actions';
 
 export const resourcesFeatureKey = 'resources';
 
 export interface State {
-  resourcesGroup: { loaded: boolean; group: ResourceGroup }[];
-  resourcesType: { loaded: boolean; type: ResourceType }[];
+  // resourcesGroup: { loaded: boolean; group: ResourceGroupName }[];
+  // resourcesType: { loaded: boolean; type: ResourceTypeName }[];
   resources: Resource[];
   loaded: boolean;
   error: string;
+  loading: boolean;
 }
 
 export const initialState: State = {
-  resourcesGroup: Object.values(ResourceGroup).map((group) => ({
-    loaded: false,
-    group,
-  })),
-  resourcesType: Object.values(ResourceType).map((type) => ({
-    loaded: false,
-    type,
-  })),
+  // resourcesGroup: Object.values(ResourceGroupName).map((group) => ({
+  //   loaded: false,
+  //   group,
+  // })),
+  // resourcesType: Object.values(ResourceTypeName).map((type) => ({
+  //   loaded: false,
+  //   type,
+  // })),
   resources: [],
   loaded: false,
   error: '',
+  loading: false,
 };
 
 export const resourcesFeature = createFeature({
   name: resourcesFeatureKey,
   reducer: createReducer(
     initialState,
+
+    /**
+     * - Load Resources
+     */
+    on(ResourcesActions.loadAllResources, (state) => ({
+      ...state,
+      loading: false,
+    })),
 
     /**
      * - Load Resources Success
@@ -39,6 +49,7 @@ export const resourcesFeature = createFeature({
       loaded: true,
       resources,
       error: '',
+      loading: false,
     })),
 
     /**
@@ -47,6 +58,7 @@ export const resourcesFeature = createFeature({
     on(ResourcesAPIActions.loadResourcesFailure, (state, { error }) => ({
       ...state,
       error,
+      loading: false,
     }))
   ),
 });

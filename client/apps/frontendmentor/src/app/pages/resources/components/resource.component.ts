@@ -10,13 +10,14 @@ import { Resource } from '../../../shared';
       [href]="resource.href"
       target="_blank"
       aria-label="freeCodeCamp"
-      class="block w-full max-h-[236px] sm:max-h-[288px]"
+      class="block overflow-hidden w-full max-h-[464px]"
     >
-      <img
-        class="duration-300 hover:scale-110"
-        [src]="resource.image"
+      <lbk-image
+        classImage="duration-300 hover:scale-110"
+        [singleImage]="resource.image"
         [alt]="resource.name"
-      />
+      >
+      </lbk-image>
     </a>
     <!-- end Resource Image -->
 
@@ -72,7 +73,7 @@ import { Resource } from '../../../shared';
   styles: [
     `
       :host {
-        @apply relative shadow-md rounded-lg overflow-hidden max-w-[395px];
+        @apply block relative shadow-md rounded-lg overflow-hidden max-w-[490px];
       }
     `,
   ],

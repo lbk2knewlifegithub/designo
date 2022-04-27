@@ -1,34 +1,37 @@
-<lbk-sub-header title="Resources"></lbk-sub-header>
-<main class="container mb-20 pt-20">
-  <!-- List Summary -->
-  <ul>
-    <li
-      *ngFor="
-        let summary of resourceSummaries$ | async;
-        trackBy: identifyResourceSummary
-      "
-    >
-      <h1 class="font-bold tracking-widest text-center">{{ summary.group }}</h1>
+<lbk-sub-header></lbk-sub-header>
 
-      <!-- List Types -->
-      <ul class="mt-10 grid gap-6">
-        <li *ngFor="let type of summary.types">
-          <div class="flex items-center gap-4 mt-10">
-            <h2 class="font-medium text-xl">{{ type.name }}</h2>
-            <span class="h-[1px] bg-dark/20 grow"></span>
-          </div>
+<main class="mb-20 pt-20">
+  <section class="container-poll">
+    <div [ngClass]="{ 'flex justify-center mt-20': loading$ | async }">
+      <lbk-spinner [loading]="(loading$ | async)!">
+        <!-- Resource Group List -->
+        <lbk-resource-group-list
+          [resourcesGroups]="(resourcesGroups$ | async)!"
+        ></lbk-resource-group-list>
+        <!-- end Resource Group List -->
+      </lbk-spinner>
+    </div>
 
-          <!-- List Resource -->
-          <ul>
-            <li *ngFor="let resource of type.resources">
-              <lbk-resource [resource]="resource"></lbk-resource>
-            </li>
-          </ul>
-          <!-- end List Resource -->
-        </li>
-      </ul>
-      <!-- end List Types -->
-    </li>
-  </ul>
-  <!-- end List Summary -->
+    <p class="mt-32 text-secondary max-w-[600px] text-sm">
+      * If you visit one of our affiliate resources and make a purchase,
+      Frontend Mentor may receive a commission. This comes at no extra cost to
+      you and helps support the site.<br /><br />
+      ** If you visit a resource using a referral link and make a purchase,
+      Frontend Mentor may receive credits for the selected service. It doesn’t
+      cost you any extra. We use these services too, so it helps reduce our
+      costs.
+    </p>
+  </section>
+
+  <!-- Spread The Love -->
+  <lbk-spread-the-love class="block my-32"></lbk-spread-the-love>
+  <!-- end Spread The Love -->
+
+  <lbk-latest-challenges
+    class="block mt-36 sm:mt-40 lg:mt-[120px] 2xl:mt-[144px]"
+    [challenges]="(latestChallenges$ | async)!"
+  ></lbk-latest-challenges>
+
+  <lbk-slack class="block mt-28 lg:mt-[120px] 2xl:mt-[124px]"></lbk-slack>
+  <lbk-newletter class="block mt-20 xl:mt-32"></lbk-newletter>
 </main>

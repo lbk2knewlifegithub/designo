@@ -1,12 +1,12 @@
 import { Tech } from './challenge.model';
 
-export enum ResourceGroup {
+export enum ResourceGroupName {
   LEARNING = 'Learning',
   WORKFLOW = 'Workflow',
-  LAUNCHING = 'LAUNCHING',
+  LAUNCHING = 'Launching',
 }
 
-export enum ResourceType {
+export enum ResourceTypeName {
   ONLINE_COURSES = 'Online Courses',
   INTERACTIVE_TUTORIALS = 'Interactive Tutorials',
   PROBLEM_SOLVING = 'Problem Solving',
@@ -28,18 +28,20 @@ export enum ResourceType {
   REPORTING = 'Reporting',
 }
 
-export interface ResourceSummary {
-  group: ResourceGroup;
-  types: {
-    name: ResourceType;
-    resources: Resource[];
-  }[];
+export interface ResourceGroup {
+  name: ResourceGroupName;
+  types: ResourceType[];
+}
+
+export interface ResourceType {
+  name: ResourceTypeName;
+  resources: Resource[];
 }
 
 export interface Resource {
   resouce_id: number;
-  resourceType: ResourceType;
-  resourceGroup: ResourceGroup;
+  resourceType: ResourceTypeName;
+  resourceGroup: ResourceGroupName;
   name: string;
   description: string;
   price?: string;
@@ -53,9 +55,10 @@ export const identifyResource = (index: number, resource: Resource) => {
   return resource.resouce_id;
 };
 
-export const identifyResourceSummary = (
-  index: number,
-  summary: ResourceSummary
-) => {
-  return summary.group;
+export const identifyResourceGroup = (index: number, group: ResourceGroup) => {
+  return group.name;
+};
+
+export const identifyResourceType = (index: number, type: ResourceType) => {
+  return type.name;
 };

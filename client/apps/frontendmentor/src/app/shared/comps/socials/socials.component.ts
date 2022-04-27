@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 
 @Component({
   selector: 'lbk-socials',
   template: `
     <ul>
       <!-- Twitter -->
-      <li>
+      <li class="twitter">
         <a class="!border-[#1da0f2]" aria-label="Twitter" href="/">
           <img src="assets/images/shared/twitter.svg" alt="Twitter" />
         </a>
@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
       <!-- end Twitter -->
 
       <!-- LinkedIn -->
-      <li>
+      <li class="linkedin">
         <a aria-label="LinkedIn" href="/">
           <img src="assets/images/shared/linkedin.svg" alt="LinkedIn" />
         </a>
@@ -21,7 +21,7 @@ import { Component } from '@angular/core';
       <!-- end Linked -->
 
       <!-- Facebook -->
-      <li>
+      <li class="facebook">
         <a aria-label="Facebook" href="/">
           <img src="assets/images/shared/facebook.svg" alt="Facebook" />
         </a>
@@ -29,21 +29,12 @@ import { Component } from '@angular/core';
       <!-- end Facebook -->
     </ul>
   `,
-  styles: [
-    `
-      ul {
-        @apply flex gap-2 md:gap-4;
-        li {
-          a {
-            @apply inline-block h-12 w-12 rounded-full;
-            @apply grid place-content-center border-2 border-primary;
-            img {
-              @apply w-5 h-5;
-            }
-          }
-        }
-      }
-    `,
-  ],
+  styleUrls: ['./socials.component.scss'],
 })
 export class SocialsComponent {}
+
+@NgModule({
+  exports: [SocialsComponent],
+  declarations: [SocialsComponent],
+})
+export class SocialsModule {}

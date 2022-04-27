@@ -1,0 +1,27 @@
+<section class="container">
+  <!-- Title -->
+  <div class="bg-primary z-[-1] rounded-t-lg">
+    <h2
+      class="text-white text-center text-sm font-bold tracking-[0.2rem] min-h-[300px] overflow-hidden pt-16 lg:text-lg"
+    >
+      LATEST CHALENGES
+    </h2>
+  </div>
+  <!-- end Title -->
+
+  <!-- Challenge List -->
+  <ul
+    class="grid gap-6 justify-items-center -mt-[150px] px-2 md:grid-cols-2 md:px-4 lg:grid-cols-3 2xl:px-28 2xl:-mt-[125px]"
+  >
+    <li *ngFor="let challenge of challenges; trackBy: identifyChallenge">
+      <lbk-challenge-preview [challenge]="challenge"></lbk-challenge-preview>
+    </li>
+  </ul>
+  <!-- end Challenge List -->
+
+  <!-- View All Challenges -->
+  <div class="flex justify-center mt-20 sm:mt-16 md:mt-20 lg:mt-16">
+    <a href="/" class="link-primary">View all Challenges</a>
+  </div>
+  <!-- end View All Challenges -->
+</section>
