@@ -7,19 +7,19 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     <section class="relative container-poll md:flex lg:grid lg:grid-cols-2">
       <!-- Pattern Three Curcly Brackets -->
       <img
-        class="hiden absolute top-0 left-0 z-10 -translate-y-1/2 md:block"
+        class="hidden absolute top-0 left-0 z-20 -translate-y-1/2 md:block"
         src="assets/images/shared/pattern-three-curly-brackets.svg"
         alt="Pattern Three Curly Bracket"
       />
       <!-- end Pattern Three Curly Brackets -->
 
-      <!-- Pattern Square Bracket -->
+      <!-- Pattern Dots -->
       <img
-        class="hidden absolute bottom-0 left-[30%] z-10 translate-y-1/2 md:block"
+        class="hidden absolute bottom-0 left-[30%] z-20 translate-y-1/2 md:block"
         src="assets/images/shared/pattern-dots.svg"
         alt="Pattern Dots"
       />
-      <!-- end Pattern Square Bracket -->
+      <!-- end Pattern Dots -->
 
       <!-- Image -->
       <div class="md:order-last">

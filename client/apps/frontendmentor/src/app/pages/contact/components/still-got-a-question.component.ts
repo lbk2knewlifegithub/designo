@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- Pattern  One-->
       <img
         class="hidden z-[-1] absolute top-0 left-0 md:block"
-        src="assets/images/bg-pattern-desktop-2.svg"
+        src="assets/images/shared/bg-pattern-2.svg"
         alt="Pattern One"
       />
       <!-- end Pattern  One-->
@@ -18,7 +18,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- Pattern  Two-->
       <img
         class="hidden z-[-1] absolute bottom-0 translate-x-[40%] right-0 rotate-90 md:block"
-        src="assets/images/bg-pattern-desktop-1.svg"
+        src="assets/images/shared/bg-pattern-1.svg"
         alt="Pattern Two"
       />
       <!-- end Pattern  Two-->
