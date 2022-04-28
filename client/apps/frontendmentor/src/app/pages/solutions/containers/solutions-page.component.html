@@ -1,0 +1,33 @@
+<main class="mb-44">
+  <!-- Links -->
+  <section class="container-poll mt-2 sm:mt-4 md:mt-6">
+    <ul class="inline-flex gap-4 border-b-2 text-sm font-medium text-secondary">
+      <li>
+        <a
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="active"
+          routerLink="/shell/solutions"
+          >Feedback requested</a
+        >
+      </li>
+
+      <li>
+        <a
+          routerLinkActive="active"
+          [queryParams]="{ tab: 'all' }"
+          routerLink="/shell/solutions"
+          >All solutions</a
+        >
+      </li>
+    </ul>
+  </section>
+  <!-- end Links -->
+
+  <section class="container-poll mt-8">
+    <ul class="grid gap-6 justify-items-center md:grid-cols-2 lg:grid-cols-3">
+      <li *ngFor="let item of [1, 2, 3, 4, 5, 6]">
+        <lbk-solution-preview></lbk-solution-preview>
+      </li>
+    </ul>
+  </section>
+</main>

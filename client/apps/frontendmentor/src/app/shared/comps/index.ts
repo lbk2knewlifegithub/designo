@@ -7,3 +7,6 @@ export * from './newletter/newletter.component';
 export * from './challenge-preview/challenge-preview.module';
 export * from './latest-challenges/latest-challenges.component';
 export * from './socials/socials.component';
+export * from './number-of.component';
+export * from './vote.component';
+export * from './mask-as-helpful.component';

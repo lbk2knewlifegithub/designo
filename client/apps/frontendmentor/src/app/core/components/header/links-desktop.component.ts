@@ -13,7 +13,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
       <!-- Solutions -->
       <li>
-        <a routerLink="">SOLUTIONS</a>
+        <a routerLink="/shell/solutions">SOLUTIONS</a>
       </li>
       <!-- end Solutions -->
 

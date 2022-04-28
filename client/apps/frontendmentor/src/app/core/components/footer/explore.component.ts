@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
       </li>
 
       <li>
-        <a routerLink="/solutions">Solutions</a>
+        <a routerLink="/shell/solutions">Solutions</a>
       </li>
 
       <li>

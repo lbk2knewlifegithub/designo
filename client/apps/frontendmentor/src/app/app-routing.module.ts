@@ -1,11 +1,42 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ShellComponent } from './core';
 
 const routes: Routes = [
   // Home Page
   {
     path: 'home',
     loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
+  },
+
+  {
+    path: 'shell',
+    component: ShellComponent,
+    children: [
+      // Solutions
+      {
+        path: 'solutions',
+        loadChildren: () =>
+          import('./pages/solutions').then((m) => m.SolutionsModule),
+      },
+      // Activities
+      {
+        path: 'activity',
+        loadChildren: () =>
+          import('./pages/activity').then((m) => m.ActivityModule),
+      },
+      // Wall of Fame
+      {
+        path: 'wall-of-fame',
+        loadChildren: () =>
+          import('./pages/wall-of-fame').then((m) => m.WallOfFameModule),
+      },
+      {
+        path: '',
+        redirectTo: '/shell/solutions',
+        pathMatch: 'full',
+      },
+    ],
   },
 
   // Challenges
@@ -55,6 +86,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
       useHash: true,
       relativeLinkResolution: 'legacy',
       scrollPositionRestoration: 'top',

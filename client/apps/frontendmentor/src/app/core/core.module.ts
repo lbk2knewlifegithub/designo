@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AttributionModule, MenuOneModule } from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
-import { SocialsModule } from '../shared';
+import { SocialsModule, SubHeaderModule } from '../shared';
 import { COMPONENTS } from './components';
-import { AppComponent } from './containers';
+import { AppComponent, ShellComponent } from './containers';
+
+const CONTAINERS = [AppComponent, ShellComponent];
 
 @NgModule({
   imports: [
@@ -13,11 +15,12 @@ import { AppComponent } from './containers';
     RouterModule,
     // Shared Components from Frontend Mentor
     SocialsModule,
+    SubHeaderModule,
     // Shared Components from Libs
     AttributionModule,
     ScrollToModule,
     MenuOneModule,
   ],
-  declarations: [COMPONENTS, AppComponent],
+  declarations: [COMPONENTS, CONTAINERS],
 })
 export class CoreModule {}
