@@ -7,7 +7,7 @@ import {
   LatestChallengesModule,
   NewLetterModule,
   SlackModule,
-  TechModule,
+  LanguageModule,
   ZigZagModule,
 } from './../../shared';
 import { COMPONENTS } from './components';
@@ -27,7 +27,7 @@ const CONTAINERS = [HomePageComponent];
     // Shared Components From FrontendMentor
     SlackModule,
     ZigZagModule,
-    TechModule,
+    LanguageModule,
     NewLetterModule,
     LatestChallengesModule,
 

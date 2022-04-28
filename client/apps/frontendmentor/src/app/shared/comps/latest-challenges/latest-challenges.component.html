@@ -13,7 +13,9 @@
   <ul
     class="grid gap-6 justify-items-center -mt-[150px] px-2 md:grid-cols-2 md:px-4 lg:grid-cols-3 2xl:px-28 2xl:-mt-[125px]"
   >
-    <li *ngFor="let challenge of challenges; trackBy: identifyChallenge">
+    <li
+      *ngFor="let challenge of challenges$ | async; trackBy: identifyChallenge"
+    >
       <lbk-challenge-preview [challenge]="challenge"></lbk-challenge-preview>
     </li>
   </ul>
@@ -21,7 +23,7 @@
 
   <!-- View All Challenges -->
   <div class="flex justify-center mt-20 sm:mt-16 md:mt-20 lg:mt-16">
-    <a href="/" class="link-primary">View all Challenges</a>
+    <a routerLink="/challenges" class="link-primary">View all Challenges</a>
   </div>
   <!-- end View All Challenges -->
 </section>

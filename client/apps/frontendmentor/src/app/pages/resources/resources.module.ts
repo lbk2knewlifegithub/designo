@@ -9,7 +9,7 @@ import {
   NewLetterModule,
   SlackModule,
   SocialsModule,
-  TechModule,
+  LanguageModule,
 } from '../../shared';
 import { COMPONENTS } from './components';
 import { ResourcesPageComponent } from './containers';
@@ -34,7 +34,7 @@ import { ResourcesEffects, resourcesFeature } from './state';
     ClickOutsideModule,
 
     // Shared Directives From FrontendMentor
-    TechModule,
+    LanguageModule,
     SocialsModule,
   ],
   declarations: [COMPONENTS, ResourcesPageComponent],

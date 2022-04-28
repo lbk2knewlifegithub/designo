@@ -1,41 +1,41 @@
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 
 @Component({
-  selector: 'lbk-tech',
+  selector: 'lbk-language',
   changeDetection: ChangeDetectionStrategy.Default,
   template: ` <ng-content></ng-content> `,
   styles: [
     `
       :host {
-        @apply font-bold text-sm lg:text-base;
+        @apply font-bold uppercase text-sm lg:text-base;
       }
 
-      :host-context(.HTML) {
+      :host-context(.html) {
         @apply text-accent;
       }
 
-      :host-context(.JS) {
+      :host-context(.js) {
         @apply text-purple;
       }
 
-      :host-context(.CSS) {
+      :host-context(.css) {
         @apply text-primary;
       }
 
-      :host-context(.API) {
+      :host-context(.api) {
         @apply text-success;
       }
 
-      :host-context(.GENERAL) {
+      :host-context(.general) {
         @apply text-warning-50;
       }
     `,
   ],
 })
-export class TechComponent {}
+export class LanguageComponent {}
 
 @NgModule({
-  exports: [TechComponent],
-  declarations: [TechComponent],
+  exports: [LanguageComponent],
+  declarations: [LanguageComponent],
 })
-export class TechModule {}
+export class LanguageModule {}

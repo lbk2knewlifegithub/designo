@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import {
-  Challenge,
-  ResourceGroupName,
   ResourceGroup,
+  ResourceGroupName,
   ResourceTypeName,
 } from '../../../shared';
 import { ChallengesFacade } from '../../../state';
@@ -16,7 +15,6 @@ import { ResourcesFacade } from '../state';
 })
 export class ResourcesPageComponent implements OnInit {
   resourcesGroups$!: Observable<ResourceGroup[]>;
-  latestChallenges$!: Observable<Challenge[]>;
 
   groups!: ResourceGroupName[];
   types!: ResourceTypeName[];
@@ -34,7 +32,6 @@ export class ResourcesPageComponent implements OnInit {
 
     this.loading$ = this._resourcesFacade.loading$;
     this.resourcesGroups$ = this._resourcesFacade.resourcesGroups$;
-    this.latestChallenges$ = this._challengesFacade.challenges$;
 
     this._resourcesFacade.loadAllResources();
     this._challengesFacade.loadChallenges();

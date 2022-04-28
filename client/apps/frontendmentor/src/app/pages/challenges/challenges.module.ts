@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ScrollToModule } from '@lbk/directives';
+import { ClickOutsideModule, ScrollToModule } from '@lbk/directives';
+import { ObjectKeysPipeModule } from '@lbk/pipes';
 import {
-  LatestChallengesModule,
+  ChallengePreviewModule,
   NewLetterModule,
   SlackModule,
   SubHeaderModule,
@@ -17,14 +18,18 @@ const CONTAINERS = [ChallengesPageComponent];
   imports: [
     CommonModule,
     ChallengesRoutingModule,
+    // Shared Pipes From Libs
+    ObjectKeysPipeModule,
+
     // Shared Directives From Libs
     ScrollToModule,
+    ClickOutsideModule,
 
     // Shared Components From FrontendMentor
     SlackModule,
     SubHeaderModule,
     NewLetterModule,
-    LatestChallengesModule,
+    ChallengePreviewModule,
   ],
   declarations: [COMPONENTS, CONTAINERS],
 })

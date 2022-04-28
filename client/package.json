@@ -29,7 +29,7 @@
     "sandbox:sourceMap": "rm -rf dist && nx build sandbox --sourceMap",
     "frontendmentor:dev": "rm -rf dist && nx serve frontendmentor -- --port=4206 --proxy-config proxy.conf.json",
     "frontendmentor:build": "rm -rf dist && nx build frontendmentor",
-    "frontendmentor:sourceMap": "rm -rf nx build frontendmentor --sourceMap"
+    "frontendmentor:sourceMap": "nx build frontendmentor -- --sourceMap"
   },
   "private": true,
   "dependencies": {

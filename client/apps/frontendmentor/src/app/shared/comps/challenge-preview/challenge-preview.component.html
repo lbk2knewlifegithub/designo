@@ -17,13 +17,13 @@
   <!-- end Is New -->
 
   <!-- Is Free  -->
-  <li *ngIf="challenge.isFree">
+  <li *ngIf="challenge.type === 'free'">
     <span class="badge badge-secondary"> FREE </span>
   </li>
   <!-- end Is Free  -->
 
   <!-- Is Premium -->
-  <li *ngIf="challenge.isPremium">
+  <li *ngIf="challenge.type === 'premium'">
     <span class="badge badge-primary"> PREMIUM </span>
   </li>
   <!-- end Is Premium -->
@@ -42,18 +42,18 @@
   <div class="flex justify-between items-end mt-1 sm:mt-2 lg:mt-4">
     <!-- Tech Stacks -->
     <ul class="flex gap-2">
-      <li *ngFor="let tech of challenge.techStacks">
-        <lbk-tech [classList]="tech">{{ tech }}</lbk-tech>
+      <li *ngFor="let language of challenge.languages">
+        <lbk-language [classList]="language">{{ language }}</lbk-language>
       </li>
     </ul>
     <!-- end Tech Stacks -->
 
-    <!-- Level -->
-    <lbk-level
-      [classList]="challenge.level"
-      [level]="challenge.level"
-    ></lbk-level>
-    <!-- end Level -->
+    <!-- Difficulty -->
+    <lbk-difficulty
+      [classList]="challenge.difficulty"
+      [difficulty]="challenge.difficulty"
+    ></lbk-difficulty>
+    <!-- end Difficulty -->
   </div>
 
   <!-- Description -->

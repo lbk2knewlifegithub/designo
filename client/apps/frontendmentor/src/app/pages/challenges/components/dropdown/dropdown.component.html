@@ -1,0 +1,31 @@
+<nav class="relative flex justify-center sm:flex">
+  <!-- Sort By -->
+  <button class="fancy-border" (click)="toggleSortBy()" id="sort-by">
+    SORT BY
+    <i
+      [class.rotate-180]="shownSortBy$ | async"
+      class="fa-solid fa-angle-down"
+    ></i>
+  </button>
+  <!-- end Sort By -->
+
+  <!-- Filter By -->
+  <button class="fancy-border" (click)="toggleFilterBy()" id="filter-by">
+    FILTER BY
+    <i
+      [class.rotate-180]="shownFilterBy$ | async"
+      class="fa-solid fa-angle-down"
+    ></i>
+  </button>
+  <!-- end Filter By -->
+
+  <!-- Dropdown Content -->
+  <div class="absolute z-20 w-full left-0 bottom-0 translate-y-full">
+    <lbk-content-sort-by *ngIf="shownSortBy$ | async"></lbk-content-sort-by>
+
+    <lbk-content-filter-by
+      *ngIf="shownFilterBy$ | async"
+    ></lbk-content-filter-by>
+  </div>
+  <!-- end Dropdown Content -->
+</nav>

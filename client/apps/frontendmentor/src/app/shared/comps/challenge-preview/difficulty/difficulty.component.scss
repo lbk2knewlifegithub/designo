@@ -1,9 +1,9 @@
 :host {
-  @apply uppercase text-xs;
+  @apply uppercase text-xs font-bold;
   @apply inline-flex border rounded-md;
 }
 
-:host-context(.Newbie) {
+:host-context(.newbie) {
   @apply border-accent;
   .name {
     @apply text-accent border-accent;
@@ -14,7 +14,7 @@
   }
 }
 
-:host-context(.Junior) {
+:host-context(.junior) {
   @apply border-success;
   .name {
     @apply text-success border-success;
@@ -25,7 +25,7 @@
   }
 }
 
-:host-context(.Intermediate) {
+:host-context(.intermediate) {
   @apply border-warning;
   .name {
     @apply text-warning border-warning;
@@ -36,7 +36,7 @@
   }
 }
 
-:host-context(.Advanced) {
+:host-context(.advanced) {
   @apply border-warning-50;
   .name {
     @apply text-warning-50 border-warning-50;

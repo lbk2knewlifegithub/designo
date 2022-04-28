@@ -1,4 +1,4 @@
-import { Tech } from './challenge.model';
+import { Language } from './challenge.model';
 
 export enum ResourceGroupName {
   LEARNING = 'Learning',
@@ -45,7 +45,7 @@ export interface Resource {
   name: string;
   description: string;
   price?: string;
-  techStacks: Tech[];
+  techStacks: Language[];
   href: string;
   image: string;
   isAffiliate?: boolean;

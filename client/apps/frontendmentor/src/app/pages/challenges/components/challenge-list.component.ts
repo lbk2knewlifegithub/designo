@@ -1,20 +1,22 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Challenge } from './../../../shared';
+import { Challenge, identifyChallenge } from './../../../shared';
 
 @Component({
   selector: 'lbk-challenge-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <ul>
-      <li>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
-        doloremque, dolor, ut impedit qui corrupti minima illo ipsam accusamus
-        error minus odit fugit libero magni dolore adipisci. Veritatis, quos
-        maiores!
-      </li>
-    </ul>
+    <section class="container">
+      <ul class="grid gap-6 justify-items-center md:grid-cols-2 lg:grid-cols-3">
+        <li *ngFor="let challenge of challenges; trackBy: identifyChallenge">
+          <lbk-challenge-preview
+            [challenge]="challenge"
+          ></lbk-challenge-preview>
+        </li>
+      </ul>
+    </section>
   `,
 })
 export class ChallengeListComponent {
   @Input() challenges!: Challenge[];
+  identifyChallenge = identifyChallenge;
 }

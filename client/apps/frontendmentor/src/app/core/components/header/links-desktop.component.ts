@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     <ul class="italic font-bold flex gap-4 text-sm">
       <!-- Challenges -->
       <li>
-        <a routerLink="/">CHALLENGES</a>
+        <a routerLink="/challenges">CHALLENGES</a>
       </li>
       <!-- end Challenges -->
 

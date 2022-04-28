@@ -45,6 +45,10 @@
     @apply text-xs font-bold py-1 px-3 tracking-wider rounded-full;
   }
 
+  .badge-xs {
+    @apply py-[2.5px] px-2 text-xs;
+  }
+
   .badge-secondary {
     @apply bg-[#e7ebf9] text-primary;
   }
@@ -61,6 +65,10 @@
     @apply border text-accent px-3 rounded-md;
   }
 
+  .badge-warning {
+    @apply bg-warning-50 text-white;
+  }
+
   .badge-error {
     @apply bg-error text-white;
   }
@@ -74,9 +82,18 @@
   .container-poll {
     @apply container max-w-[1200px] xl:px-0;
   }
+
+  // Checkout
+  input[type='checkbox'] {
+    @apply w-6 h-6 border-[3px] border-primary focus:bg-primary;
+  }
 }
+
 @layer components {
 }
 
 @layer utilities {
+  .fancy-border {
+    @apply focus:outline-dotted focus:outline-accent focus:outline-4;
+  }
 }

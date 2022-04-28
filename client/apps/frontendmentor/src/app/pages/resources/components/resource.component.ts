@@ -40,7 +40,7 @@ import { Resource } from '../../../shared';
         <!-- Tech Stacks -->
         <ul class="flex gap-2">
           <li *ngFor="let tech of resource.techStacks">
-            <lbk-tech [classList]="tech">{{ tech }}</lbk-tech>
+            <lbk-language [classList]="tech">{{ tech }}</lbk-language>
           </li>
         </ul>
         <!-- end Tech Stacks -->
