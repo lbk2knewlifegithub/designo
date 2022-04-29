@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { LightBoxModule } from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
 import { ObjectKeysPipeModule, WhiteSpacePipeModule } from '@lbk/pipes';
 import {
+  ChallengeTypeModule,
   DifficultyModule,
   FeatureModule,
-  LanguageModule,
+  LanguageListModule,
   NewLetterModule,
   QuestionListModule,
   SlackModule,
@@ -22,18 +24,21 @@ import { ChallengeDetailsPageComponent } from './containers';
     // Shared Directives From Libs
     ScrollToModule,
 
+    // Shared Components From Libs
+    LightBoxModule,
     // Shared Pipes From Libs
     ObjectKeysPipeModule,
     WhiteSpacePipeModule,
 
     // Shared Components From FrontendMentor
     SubHeaderModule,
-    LanguageModule,
+    LanguageListModule,
     DifficultyModule,
     FeatureModule,
     QuestionListModule,
     SlackModule,
     NewLetterModule,
+    ChallengeTypeModule,
   ],
   declarations: [COMPONENTS, ChallengeDetailsPageComponent],
 })

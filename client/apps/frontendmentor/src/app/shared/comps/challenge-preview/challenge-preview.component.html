@@ -8,28 +8,10 @@
 </a>
 <!-- end Challenge Image -->
 
-<ul class="absolute inline-flex gap-2 right-3 top-3">
-  <!-- Is New -->
-  <li *ngIf="challenge.isNew">
-    <span class="badge badge-error inline-flex gap-1 items-center">
-      <i class="fa-solid fa-asterisk"></i>
-      NEW
-    </span>
-  </li>
-  <!-- end Is New -->
-
-  <!-- Is Free  -->
-  <li *ngIf="challenge.type === 'free'">
-    <span class="badge badge-secondary"> FREE </span>
-  </li>
-  <!-- end Is Free  -->
-
-  <!-- Is Premium -->
-  <li *ngIf="challenge.type === 'premium'">
-    <span class="badge badge-primary"> PREMIUM </span>
-  </li>
-  <!-- end Is Premium -->
-</ul>
+<lbk-challenge-type
+  class="absolute right-3 top-3"
+  [challenge]="challenge"
+></lbk-challenge-type>
 
 <div class="p-6">
   <!-- Name -->
@@ -42,13 +24,9 @@
   <!-- end Name -->
 
   <div class="flex justify-between items-end mt-1 sm:mt-2 lg:mt-4">
-    <!-- Tech Stacks -->
-    <ul class="flex gap-2">
-      <li *ngFor="let language of challenge.languages">
-        <lbk-language [classList]="language">{{ language }}</lbk-language>
-      </li>
-    </ul>
-    <!-- end Tech Stacks -->
+    <!-- Language List -->
+    <lbk-language-list [languages]="challenge.languages"></lbk-language-list>
+    <!-- end Language List -->
 
     <!-- Difficulty -->
     <lbk-difficulty [difficulty]="challenge.difficulty"></lbk-difficulty>

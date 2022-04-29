@@ -13,7 +13,7 @@ import {
     <nav class="relative border-b">
       <div class="container  flex justify-between">
         <h2
-          class="uppercase inline-block font-bold text-sm p-4 border-x ml-3 lg:ml-0 lg:px-6"
+          class="uppercase inline-block font-bold text-sm p-4 border-x ml-3 lg:ml-0 lg:text-lg lg:px-8"
         >
           {{ title }}
         </h2>

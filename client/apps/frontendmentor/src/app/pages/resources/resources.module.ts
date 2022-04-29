@@ -1,15 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ImageModule, SpinnerModule } from '@lbk/comps';
-import { ScrollToModule, ClickOutsideModule } from '@lbk/directives';
+import { ClickOutsideModule, ScrollToModule } from '@lbk/directives';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import {
-  LatestChallengesModule,
+  LanguageListModule, LatestChallengesModule,
   NewLetterModule,
   SlackModule,
-  SocialsModule,
-  LanguageModule,
+  SocialsModule
 } from '../../shared';
 import { COMPONENTS } from './components';
 import { ResourcesPageComponent } from './containers';
@@ -34,7 +33,7 @@ import { ResourcesEffects, resourcesFeature } from './state';
     ClickOutsideModule,
 
     // Shared Directives From FrontendMentor
-    LanguageModule,
+    LanguageListModule,
     SocialsModule,
   ],
   declarations: [COMPONENTS, ResourcesPageComponent],

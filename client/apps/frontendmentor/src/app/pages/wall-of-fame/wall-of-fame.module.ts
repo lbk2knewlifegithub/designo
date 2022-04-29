@@ -5,7 +5,7 @@ import { ScrollToModule } from '@lbk/directives';
 import { LongNumberPipeModule } from '@lbk/pipes';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { LanguageModule, NewLetterModule, SlackModule } from '../../shared';
+import { NewLetterModule, SlackModule } from '../../shared';
 import { COMPONENTS } from './components';
 import { WallOfFamePageComponent } from './containers';
 import { FamesEffects } from './effects';
@@ -23,7 +23,6 @@ import { WallOfFameRoutingModule } from './wall-of-fame-routing.module';
     EffectsModule.forFeature([FamesEffects]),
 
     // Shared Components From FrontendMentor
-    LanguageModule,
     SlackModule,
     NewLetterModule,
 

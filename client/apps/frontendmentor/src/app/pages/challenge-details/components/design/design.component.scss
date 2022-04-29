@@ -1,0 +1,13 @@
+:host {
+  @apply lg:min-w-[627px];
+}
+
+ul {
+  li {
+    button {
+      &.active {
+        @apply bg-primary text-white;
+      }
+    }
+  }
+}

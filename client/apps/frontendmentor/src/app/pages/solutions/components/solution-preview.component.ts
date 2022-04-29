@@ -24,11 +24,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
       <div class="flex justify-between items-end mt-1 sm:mt-2 lg:mt-4">
         <!-- Languages -->
-        <ul class="flex gap-2">
-          <li *ngFor="let language of ['html', 'css']">
-            <lbk-language [classList]="language">{{ language }}</lbk-language>
-          </li>
-        </ul>
+        <lbk-language-list [languages]="['html', 'css']"></lbk-language-list>
         <!-- end Languages -->
 
         <ul class="inline-flex gap-4">

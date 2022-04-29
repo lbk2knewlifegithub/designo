@@ -4,10 +4,10 @@ import { ScrollToModule } from '@lbk/directives';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import {
+  LanguageListModule,
   LatestChallengesModule,
   NewLetterModule,
   SlackModule,
-  LanguageModule,
   ZigZagModule,
 } from './../../shared';
 import { COMPONENTS } from './components';
@@ -27,7 +27,7 @@ const CONTAINERS = [HomePageComponent];
     // Shared Components From FrontendMentor
     SlackModule,
     ZigZagModule,
-    LanguageModule,
+    LanguageListModule,
     NewLetterModule,
     LatestChallengesModule,
 

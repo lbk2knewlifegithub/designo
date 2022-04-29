@@ -4,9 +4,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-brief',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <h2 class="text-dark font-bold text-2xl">Brief</h2>
+    <h2 class="text-dark font-bold text-2xl lg:text-3xl">Brief</h2>
 
-    <ul class="grid gap-4 mt-4 text-sm">
+    <ul class="grid gap-4 mt-4 text-sm lg:text-base lg:mt-6">
       <li>
         Your challenge is to build out this intro section with dropdown
         navigation and get it looking as close to the design as possible.
@@ -18,9 +18,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       </li>
     </ul>
 
-    <span class="block my-4 text-sm"> Your users should be able to: </span>
+    <span class="block my-4 text-sm lg:text-base">
+      Your users should be able to:
+    </span>
 
-    <ul class="grid gap-4 text-sm mt-4 list-inside list-disc">
+    <ul class="grid gap-4 text-sm mt-4 list-inside list-disc lg:text-base">
       <li>
         View the relevant dropdown menus on desktop and mobile when interacting
         with the navigation links

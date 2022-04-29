@@ -4,9 +4,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-get-started',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <h2 class="text-dark font-bold text-2xl">Getting started</h2>
+    <h2 class="text-dark font-bold text-2xl lg:text-3xl">Getting started</h2>
 
-    <ul class="mt-4 grid gap-2 text-sm list-inside list-decimal">
+    <ul
+      class="mt-4 grid gap-2 text-sm list-inside list-decimal lg:text-base lg:mt-6"
+    >
       <li>Download the starter code</li>
 
       <li>Set up the project with version control (e.g. Git)</li>

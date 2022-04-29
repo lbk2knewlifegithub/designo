@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'lbk-language',
@@ -33,9 +33,3 @@ import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
   ],
 })
 export class LanguageComponent {}
-
-@NgModule({
-  exports: [LanguageComponent],
-  declarations: [LanguageComponent],
-})
-export class LanguageModule {}

@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
   template: `
     <section class="container">
       <div
-        class="z-10 bg-primary relative grid place-items-center text-white bg-primary rounded-md pt-9 px-8 pb-16 overflow-hidden md:pb-32 lg:pt-20 lg:pb-44 2xl:rounded-lg 2xl:max-h-[570px]"
+        class="z-10 bg-primary relative grid place-items-center text-white bg-primary rounded-md pt-9 px-8 pb-16 overflow-hidden md:px-20 md:pb-32 lg:pt-20 lg:px-32 lg:pb-44 2xl:rounded-lg 2xl:max-h-[570px]"
       >
         <!-- Logo Slack -->
         <img

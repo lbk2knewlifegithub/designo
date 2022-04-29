@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
   styles: [
     `
       :host {
-        @apply flex gap-4 items-center text-sm font-medium text-secondary;
+        @apply flex gap-4 items-center text-sm font-medium text-secondary lg:text-lg;
       }
     `,
   ],

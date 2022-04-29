@@ -4,9 +4,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-test-yourself',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <h2 class="text-dark font-bold text-2xl">Ideas to test yourself</h2>
+    <h2 class="text-dark font-bold text-2xl lg:text-3xl">
+      Ideas to test yourself
+    </h2>
 
-    <ul scrollTo="center" class="mt-4 grid gap-2 text-sm list-inside list-disc">
+    <ul
+      class="mt-4 grid gap-2 text-sm list-inside list-disc lg:text-base lg:mt-6"
+    >
       <li>
         Write your styles using a pre-processor, such as
         <a href="https://sass-lang.com/" class="underline">Sass</a> ,

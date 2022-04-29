@@ -2,7 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ImageModule } from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
-import { LanguageModule, NumberOfModule, SubHeaderModule } from '../../shared';
+import {
+  LanguageListModule,
+  NumberOfModule,
+  SubHeaderModule,
+} from '../../shared';
 import { COMPONENTS } from './components';
 import { SolutionsPageComponent } from './containers';
 import { SolutionsRoutingModule } from './solutions-routing.module';
@@ -13,7 +17,7 @@ import { SolutionsRoutingModule } from './solutions-routing.module';
     SolutionsRoutingModule,
     // Shared Components From FrontendMentor
     SubHeaderModule,
-    LanguageModule,
+    LanguageListModule,
     NumberOfModule,
     // Shared Directives From Libs
     ScrollToModule,

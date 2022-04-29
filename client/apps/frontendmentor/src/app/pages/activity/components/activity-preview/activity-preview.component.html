@@ -11,11 +11,7 @@
 
   <div class="grow">
     <!-- Languages -->
-    <ul class="flex gap-2">
-      <li *ngFor="let language of ['html', 'css']">
-        <lbk-language [classList]="language">{{ language }}</lbk-language>
-      </li>
-    </ul>
+    <lbk-language-list [languages]="['html', 'css', 'js']"></lbk-language-list>
     <!-- end Languages -->
 
     <div class="space-y-2 md:mt-1">
