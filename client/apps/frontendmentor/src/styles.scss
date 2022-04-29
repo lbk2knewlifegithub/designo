@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply font-mono bg-[#fafafa] text-dark;
+  }
+
   h1,
   h2,
   h3,
@@ -12,8 +16,8 @@
     @apply font-heading font-medium;
   }
 
-  body {
-    @apply font-mono bg-[#fafafa] text-dark;
+  a {
+    @apply duration-300 hover:underline;
   }
 
   // Button

@@ -34,10 +34,10 @@ export interface UserLinks {
 
 export interface User {
   user_id: number;
-  name: number;
+  name: string;
   email: string;
   location: string;
-  image: number;
+  image: string;
   isPremium?: boolean;
   isHireMe?: boolean;
   points: number;

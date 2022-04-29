@@ -38,6 +38,8 @@ module.exports = {
 
         success: {
           DEFAULT: '#aad742',
+          '50': "#6FDD9B",
+          '100': "#5BA3AE"
         },
         warning: {
           DEFAULT: '#f1b604',

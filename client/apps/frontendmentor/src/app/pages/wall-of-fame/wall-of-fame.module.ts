@@ -1,7 +1,6 @@
-import { SpinnerModule } from './../../../../../../libs/comps/src/lib/loading/spinner.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ImageModule } from '@lbk/comps';
+import { ImageModule, SpinnerModule } from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
 import { LongNumberPipeModule } from '@lbk/pipes';
 import { EffectsModule } from '@ngrx/effects';

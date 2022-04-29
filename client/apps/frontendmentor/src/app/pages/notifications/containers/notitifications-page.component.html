@@ -1,0 +1,20 @@
+<lbk-sub-header title="Notifications"></lbk-sub-header>
+
+<main class="mt-10 mb-20">
+  <!-- Notification List -->
+  <section class="container">
+    <lbk-spinner class="center" [loading]="loading$ | async">
+      <lbk-notification-list
+        *ngIf="notifications$ | async as notifications"
+        [notifications]="notifications"
+      ></lbk-notification-list>
+    </lbk-spinner>
+  </section>
+  <!-- end Notification List -->
+
+  <!-- Load More -->
+  <section scrollTo="center" class="flex justify-center mt-10">
+    <button class="border-b-2 border-b-error text-xs">Load More</button>
+  </section>
+  <!-- end Load More -->
+</main>

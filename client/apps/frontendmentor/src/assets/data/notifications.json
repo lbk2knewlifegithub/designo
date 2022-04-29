@@ -1,0 +1,152 @@
+[
+    {
+        "notification_id": 3879733052,
+        "createdAt": "2022-08-31T10:43:41+07:00",
+        "user": {
+            "name": "Wallas9_3",
+            "username": "wallas9_3",
+            "image": "https://avatars.githubusercontent.com/u/33827350?v=4"
+        },
+        "type": "like",
+        "solution": {
+            "solution_id": 1,
+            "name": "Product feedback app solution"
+        }
+    },
+    {
+        "notification_id": 1093527451,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 2,
+            "name": "3-column preview card component"
+        }
+    },
+    {
+        "notification_id": 1563305323,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 3,
+            "name": "Qr-code-component"
+        }
+    },
+    {
+        "notification_id": 3054046281,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 3,
+            "name": "inter"
+        }
+    },
+    {
+        "notification_id": 1555758248,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Catherine Is Online",
+            "username": "catherineisonline",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/gwnmrcaojmjhidue2tzi.jpg"
+        },
+        "type": "like",
+        "solution": {
+            "solution_id": 4,
+            "name": "Designo multi-page website solution!"
+        }
+    },
+    {
+        "notification_id": 2855064687,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Aghware Mitchellin",
+            "username": "aghwaremitchellin",
+            "image": "https://avatars.githubusercontent.com/u/96637672?v=4"
+        },
+        "type": "follow"
+    },
+    {
+        "notification_id": 1541283347,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "mention",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Scissors game"
+        }
+    },
+    {
+        "notification_id": 2410168920,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "comment",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Siccosrs game"
+        }
+    },
+    {
+        "notification_id": 1927510448,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "bookmark",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Siccosrs game"
+        }
+    },
+    {
+        "notification_id": 2553224972,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Lawrence Caudle",
+            "username": "lawrencecaudle",
+            "image": "https://avatars.githubusercontent.com/u/82593781?v=4"
+        },
+        "type": "upvote",
+        "solution": {
+            "solution_id": 323,
+            "name": "Stats preview card component"
+        }
+    },
+    {
+        "notification_id": 1306172194,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Lawrence Caudle",
+            "username": "lawrencecaudle",
+            "image": "https://avatars.githubusercontent.com/u/82593781?v=4"
+        },
+        "type": "reply",
+        "solution": {
+            "solution_id": 323,
+            "name": "Stats preview card component"
+        }
+    }
+]

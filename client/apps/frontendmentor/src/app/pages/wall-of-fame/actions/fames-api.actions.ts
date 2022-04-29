@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Fame } from '../../../shared';
+import { Fame } from '../models';
 
 /**
  * - Load Fames Week Success
