@@ -42,5 +42,5 @@ export interface User {
   isHireMe?: boolean;
   points: number;
   links?: UserLinks;
-  solutions: Loadable<Solution[] | undefined>;
+  solutions: Loadable<Solution[] | undefined, undefined>;
 }

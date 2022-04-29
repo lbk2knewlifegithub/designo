@@ -1,6 +1,37 @@
-<main>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, dolorum
-  aspernatur! Modi distinctio, sint saepe, aperiam itaque molestias quaerat id
-  neque cupiditate corporis consectetur, sed optio totam? Quas, temporibus
-  corporis?
+<main class="mb-44">
+  <!-- Links -->
+  <section
+    class="container flex flex-col gap-4 mt-4 sm:flex-row sm:justify-between sm:items-center md:mt-6"
+  >
+    <lbk-tabs></lbk-tabs>
+
+    <!-- Learn About Out Wall Of Fame -->
+    <button
+      (click)="learnAboutWallOfFame()"
+      aria-label="Learn About Challenge"
+      class="text-center"
+    >
+      <span class="font-medium text-xs">
+        Learn about our Wall of Fame
+      </span>
+      <i class="fa-solid fa-exclamation-circle text-accent"></i>
+    </button>
+    <!-- end Learn About Out Wall Of Fame -->
+  </section>
+  <!-- end Links -->
+
+  <!-- Wall of Fame List -->
+  <section class="container mt-8">
+    <lbk-spinner class="center" [radius]="50" [loading]="loading$ | async">
+      <lbk-fame-list
+        *ngIf="fames$ | async as fames"
+        [fames]="fames"
+      ></lbk-fame-list>
+    </lbk-spinner>
+  </section>
+  <!-- end Wall of Fame List -->
+
+  <lbk-slack class="block mt-28 lg:mt-[120px] 2xl:mt-[124px]"></lbk-slack>
+
+  <lbk-newletter class="block mt-20 xl:mt-32"></lbk-newletter>
 </main>

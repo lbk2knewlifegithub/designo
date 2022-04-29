@@ -35,6 +35,7 @@ module.exports = {
         accent: {
           DEFAULT: '#6abecd',
         },
+
         success: {
           DEFAULT: '#aad742',
         },
