@@ -10,3 +10,5 @@ export * from './socials/socials.component';
 export * from './number-of.component';
 export * from './vote.component';
 export * from './mask-as-helpful.component';
+export * from './difficulty/difficulty.component';
+export * from './feature.component';

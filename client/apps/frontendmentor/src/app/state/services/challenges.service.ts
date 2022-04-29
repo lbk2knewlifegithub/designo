@@ -6,4 +6,9 @@ export interface ChallengesService {
    * - Get All Challenges
    */
   getAllChallenges(): Observable<Challenge[]>;
+
+  /**
+   * - Retrieve a Challenge
+   */
+  retrieveChallenge(challenge_id: number): Observable<Challenge>;
 }

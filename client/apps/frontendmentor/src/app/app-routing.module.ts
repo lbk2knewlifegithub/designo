@@ -46,6 +46,13 @@ const routes: Routes = [
       import('./pages/challenges').then((m) => m.ChallengesModule),
   },
 
+  // Challenge Details
+  {
+    path: 'challenge',
+    loadChildren: () =>
+      import('./pages/challenge-details').then((m) => m.ChallengeDetailsModule),
+  },
+
   // Notifications
   {
     path: 'notifications',

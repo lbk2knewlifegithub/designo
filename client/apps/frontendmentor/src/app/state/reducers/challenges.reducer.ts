@@ -1,7 +1,7 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 import { Challenge } from '../../shared';
-import { ChallengesAPIActions } from '../actions';
+import { ChallengesActions, ChallengesAPIActions } from '../actions';
 
 export const challengesFeatureKey = 'challenges';
 
@@ -30,7 +30,22 @@ export const reducer = createReducer(
    */
   on(ChallengesAPIActions.loadChallengesSuccess, (state, { challenges }) =>
     adapter.addMany(challenges, { ...state, loaded: true })
-  )
+  ),
+
+  /**
+   * - Load Challenge
+   */
+  on(ChallengesActions.loadChallenge, (state, { challenge }) =>
+    adapter.addOne(challenge, { ...state })
+  ),
+
+  /**
+   * - Select Challenge Id
+   */
+  on(ChallengesActions.selectChallenge, (state, { challenge_id }) => ({
+    ...state,
+    selectedChallengeId: challenge_id,
+  }))
 );
 
 // Gets

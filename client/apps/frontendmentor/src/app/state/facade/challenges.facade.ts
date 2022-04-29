@@ -1,10 +1,25 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BehaviorSubject, combineLatest, map, Observable, take } from 'rxjs';
-import { Challenge } from '../../shared';
+import {
+  BehaviorSubject,
+  catchError,
+  combineLatest,
+  map,
+  Observable,
+  of,
+  take,
+  tap,
+} from 'rxjs';
+import {
+  Challenge,
+  ChallengeQuery,
+  ChallengeSort,
+  CHALLENGES_SERVICE,
+  DIFFICULTIES,
+} from '../../shared';
 import { ChallengesActions } from '../actions';
 import * as fromChallanges from '../selectors/challenges.selectors';
-import { ChallengeQuery, ChallengeSort, DIFFICULTIES } from './../../shared';
+import { ChallengesService } from '../services';
 
 /**
  * - Challenges Facade
@@ -108,7 +123,11 @@ export class ChallengesFacade {
   selectedChallenge$: Observable<Challenge | null | undefined | 0> =
     this._store.select(fromChallanges.selectSelectedChallange);
 
-  constructor(private readonly _store: Store) {}
+  constructor(
+    private readonly _store: Store,
+    @Inject(CHALLENGES_SERVICE)
+    private readonly _challengesService: ChallengesService
+  ) {}
 
   /**
    * - Load Challenges
@@ -120,5 +139,45 @@ export class ChallengesFacade {
         (loaded) =>
           !loaded && this._store.dispatch(ChallengesActions.loadChallenges())
       );
+  }
+
+  /**
+   * - Has Challenge In Store
+   * @param challenge_id
+   */
+  hasChallengeInStore(challenge_id: number): Observable<boolean> {
+    return this._store.select(fromChallanges.selectChallangeEntities).pipe(
+      map((entities) => entities[challenge_id]),
+      map((invoice) => !!invoice),
+      take(1),
+      tap((result) => {
+        if (result) this.selectChallenge(challenge_id);
+      })
+    );
+  }
+
+  /**
+   * - Select Challenge
+   * @param challenge_id
+   */
+  selectChallenge(challenge_id: number | null) {
+    this._store.dispatch(ChallengesActions.selectChallenge({ challenge_id }));
+  }
+
+  /**
+   * - Has Challenge In Api
+   * @param challenge_id
+   */
+  hasChallengeInAPI(challenge_id: number): Observable<boolean> {
+    return this._challengesService.retrieveChallenge(challenge_id).pipe(
+      tap((challenge) => {
+        if (challenge) {
+          this._store.dispatch(ChallengesActions.loadChallenge({ challenge }));
+          this.selectChallenge(challenge.challenge_id);
+        }
+      }),
+      map(() => true),
+      catchError(() => of(false))
+    );
   }
 }

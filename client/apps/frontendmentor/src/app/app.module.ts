@@ -7,10 +7,12 @@ import { DDosInterceptor, JwtInterceptor } from '@lbk/interceptors';
 import { API_URL } from '@lbk/tokens';
 import { DialogModule } from '@ngneat/dialog';
 import { NxModule } from '@nrwl/angular';
-import { environment } from '../environments/environment';
+import { environment as env, environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, CoreModule } from './core';
+import { CHALLENGES_SERVICE } from './shared';
 import { StateModule } from './state';
+import { ChallengesFakeService, ChallengesImplService } from './state';
 
 @NgModule({
   imports: [
@@ -31,11 +33,14 @@ import { StateModule } from './state';
       useValue: environment.apiUrl,
     },
     {
+      provide: CHALLENGES_SERVICE,
+      useClass: env.production ? ChallengesImplService : ChallengesFakeService,
+    },
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: DDosInterceptor,
       multi: true,
     },
-
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

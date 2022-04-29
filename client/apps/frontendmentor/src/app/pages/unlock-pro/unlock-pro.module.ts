@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScrollToModule } from '@lbk/directives';
-import { QuestionListModule, SlackModule } from '../../shared';
+import { FeatureModule, QuestionListModule, SlackModule } from '../../shared';
 import { COMPONENTS } from './components';
 import { UnlockProPageComponent } from './containers';
 import { UnlockProRoutingModule } from './unlock-pro-routing.module';
@@ -16,6 +16,7 @@ import { UnlockProRoutingModule } from './unlock-pro-routing.module';
     // Shared Components From FrontendMentor
     QuestionListModule,
     SlackModule,
+    FeatureModule,
   ],
   declarations: [COMPONENTS, UnlockProPageComponent],
 })

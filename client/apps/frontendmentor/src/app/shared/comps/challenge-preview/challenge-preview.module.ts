@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ImageModule } from '@lbk/comps';
+import { DifficultyModule } from '../difficulty/difficulty.component';
 import { LanguageModule } from '../language.component';
 import { ChallengePreviewComponent } from './challenge-preview.component';
-import { DifficultyComponent } from './difficulty/difficulty.component';
 
 @NgModule({
   imports: [
@@ -13,8 +13,9 @@ import { DifficultyComponent } from './difficulty/difficulty.component';
     // Shared Components From FrontendMentor
     LanguageModule,
     ImageModule,
+    DifficultyModule,
   ],
-  exports: [ChallengePreviewComponent, DifficultyComponent],
-  declarations: [ChallengePreviewComponent, DifficultyComponent],
+  exports: [ChallengePreviewComponent],
+  declarations: [ChallengePreviewComponent],
 })
 export class ChallengePreviewModule {}

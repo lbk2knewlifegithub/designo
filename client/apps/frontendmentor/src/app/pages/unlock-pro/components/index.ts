@@ -1,13 +1,12 @@
 import { AspiringDeveloperComponent } from './aspiring-developer.component';
 import { HeroComponent } from './hero.component';
 import { FileAccessComponent } from './more/file-access.component';
+import { HireMeButtonComponent } from './more/hire-me-button.component';
 import { MoreComponent } from './more/more.component';
 import { PrivateSolutionsComponent } from './more/private-solutions.component';
 import { UnlimitedScreenshotsComponent } from './more/unlimited-screenshots.component';
-import { HireMeButtonComponent } from './more/hire-me-button.component';
 import { PaymentsComponent } from './payments.component';
 import { PremiumChallengesComponent } from './premium-challenges.component';
-import { FeatureComponent } from './pricing/feature.component';
 import { FreeComponent } from './pricing/free.component';
 import { MonthlyComponent } from './pricing/monthly.component';
 import { PricingComponent } from './pricing/pricing.component';
@@ -34,7 +33,6 @@ export const COMPONENTS = [
   // Pricing
   PricingComponent,
   FreeComponent,
-  FeatureComponent,
   YearlyComponent,
   MonthlyComponent,
 

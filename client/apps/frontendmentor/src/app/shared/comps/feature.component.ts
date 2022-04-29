@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, NgModule, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lbk-feature',
@@ -30,3 +30,9 @@ export class FeatureComponent implements OnInit {
     this.alt = this.unlock ? 'Check' : 'Cross';
   }
 }
+
+@NgModule({
+  exports: [FeatureComponent],
+  declarations: [FeatureComponent],
+})
+export class FeatureModule {}

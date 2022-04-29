@@ -16,10 +16,6 @@
     @apply font-heading font-medium;
   }
 
-  a {
-    @apply duration-300 hover:underline;
-  }
-
   // Button
   .btn {
     @apply shadow-sm rounded-full;
@@ -33,6 +29,10 @@
 
   .btn-error {
     @apply bg-error text-white;
+  }
+
+  .btn-primary {
+    @apply text-white bg-primary;
   }
 
   .btn-error-outline {

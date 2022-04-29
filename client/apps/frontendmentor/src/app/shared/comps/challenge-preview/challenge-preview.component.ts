@@ -8,7 +8,8 @@ import { Challenge } from '../../models';
   styles: [
     `
       :host {
-        @apply h-full block relative shadow-md rounded-lg overflow-hidden max-w-[395px];
+        @apply overflow-hidden max-w-[395px] rounded-lg;
+        @apply block h-full relative shadow-md;
       }
     `,
   ],

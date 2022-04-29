@@ -1,9 +1,11 @@
 <!-- Challenge Image -->
-<lbk-image
-  classImage="duration-300 w-full max-h-[236px] sm:max-h-[288px] hover:scale-110"
-  [alt]="challenge.name"
-  [singleImage]="challenge.image"
-></lbk-image>
+<a class="block" [routerLink]="['/challenge', challenge.challenge_id]">
+  <lbk-image
+    classImage="duration-300 w-full max-h-[236px] sm:max-h-[288px] hover:scale-110"
+    [alt]="challenge.name"
+    [singleImage]="challenge.image"
+  ></lbk-image>
+</a>
 <!-- end Challenge Image -->
 
 <ul class="absolute inline-flex gap-2 right-3 top-3">
@@ -32,7 +34,7 @@
 <div class="p-6">
   <!-- Name -->
   <a
-    routerLink="/"
+    [routerLink]="['/challenge', challenge.challenge_id]"
     class="text-xl font-medium font-heading lg:text-2xl hover:underline"
   >
     {{ challenge.name }}
@@ -49,10 +51,7 @@
     <!-- end Tech Stacks -->
 
     <!-- Difficulty -->
-    <lbk-difficulty
-      [classList]="challenge.difficulty"
-      [difficulty]="challenge.difficulty"
-    ></lbk-difficulty>
+    <lbk-difficulty [difficulty]="challenge.difficulty"></lbk-difficulty>
     <!-- end Difficulty -->
   </div>
 
