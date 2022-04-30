@@ -1,3 +1,4 @@
+import { AddCommentInputComponentModule } from '../../../../../../shared/comps/add-comment-input/add-comment-input.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { SwitchModule } from '@lbk/comps';
@@ -23,6 +24,7 @@ import { SubmitSolutionRoutingModule } from './submit-solution-routing.module';
     SwitchModule,
     SlackModule,
     NewLetterModule,
+    AddCommentInputComponentModule,
   ],
   declarations: [COMPONENTS, SubmitSolutionPageComponent],
 })

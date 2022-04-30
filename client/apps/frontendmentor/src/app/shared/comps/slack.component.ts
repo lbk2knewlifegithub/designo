@@ -43,7 +43,7 @@ import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 
           <!-- Submit Button -->
           <button
-            class="bg-white py-2 px-6 rounded-full font-medium italic text-primary text-sm md:mt-1 lg:py-3 lg:font-bold"
+            class="btn bg-white py-2 px-6 rounded-full font-medium italic text-primary text-sm md:mt-1 lg:py-3 lg:font-bold"
           >
             REQUEST INVITE
           </button>

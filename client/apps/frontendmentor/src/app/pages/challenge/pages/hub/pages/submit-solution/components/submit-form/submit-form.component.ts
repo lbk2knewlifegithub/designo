@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { DialogService } from '@ngneat/dialog';
 import { AboutPrivateSolutionsComponent } from '../about-private-solution.component';
-import { MarkdownGuideComponent } from '../markdown-guide/markdown-guide.component';
+import { MarkdownGuideComponent } from '../../../../../../../../shared/comps/add-comment-input/markdown-guide/markdown-guide.component';
 
 @Component({
   selector: 'lbk-submit-form',

@@ -8,6 +8,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
   },
 
+  // Solution
+  {
+    path: 'solution',
+    loadChildren: () =>
+      import('./pages/solution').then((m) => m.SolutionModule),
+  },
+
   // Shell
   {
     path: 'shell',

@@ -7,3 +7,4 @@ export * from './object-values.pipe';
 export * from './long-number.pipe';
 export * from './time-ago.pipe';
 export * from './white-space.pipe';
+export * from './pixel.pipe';

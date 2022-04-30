@@ -15,3 +15,4 @@ export * from './feature.component';
 export * from './challenge-type.component';
 export * from './brief.component';
 export * from './get-started.component';
+export * from './add-comment-input/add-comment-input.component';

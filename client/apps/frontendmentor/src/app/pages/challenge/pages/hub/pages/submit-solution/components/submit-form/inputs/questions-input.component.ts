@@ -1,6 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { DialogService } from '@ngneat/dialog';
-import { MarkdownGuideComponent } from '../../markdown-guide/markdown-guide.component';
 
 @Component({
   selector: 'lbk-questions-input',
@@ -23,30 +21,8 @@ import { MarkdownGuideComponent } from '../../markdown-guide/markdown-guide.comp
         </ul>
       </div>
 
-      <div class="relative">
-        <!-- Open markdown guide -->
-        <button
-          type="button"
-          (click)="showMarkdownGuide()"
-          class="absolute top-0 right-0 -translate-y-[70%]"
-          aria-label="Open markdown syntax helper guide"
-        >
-          <i class="fa-solid fa-keyboard text-lg"></i>
-        </button>
-        <!-- end Open markdown guide -->
-
-        <textarea class="w-full p-4 mt-2" rows="10"></textarea>
-      </div>
+      <lbk-add-comment-input></lbk-add-comment-input>
     </label>
   `,
 })
-export class QuestionsInputComponent {
-  constructor(private readonly _dialogService: DialogService) {}
-
-  /**
-   * - Show Markdown Guide
-   */
-  showMarkdownGuide() {
-    this._dialogService.open(MarkdownGuideComponent);
-  }
-}
+export class QuestionsInputComponent {}

@@ -15,7 +15,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     <div class="p-6">
       <!-- Name -->
       <a
-        routerLink="/"
+        [routerLink]="['/solution', 10]"
         class="text-2xl font-medium font-heading lg:text-2xl hover:underline"
       >
         huddle-landing-page-with-single-introductory-section-master Flexbox

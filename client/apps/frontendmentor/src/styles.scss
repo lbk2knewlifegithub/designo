@@ -18,9 +18,9 @@
 
   // Button
   .btn {
-    @apply shadow-sm rounded-full;
+    @apply shadow-sm rounded-full duration-300;
     @apply font-medium text-center leading-6 text-sm;
-    @apply py-3 px-5;
+    @apply py-3 px-5 hover:scale-105 hover:shadow-2xl active:scale-95;
   }
 
   .btn-icon {
