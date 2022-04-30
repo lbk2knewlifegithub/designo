@@ -5,9 +5,9 @@ import { AttributionModule, MenuOneModule } from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
 import { SocialsModule, SubHeaderModule } from '../shared';
 import { COMPONENTS } from './components';
-import { AppComponent, ShellComponent } from './containers';
+import { AppComponent } from './containers';
 
-const CONTAINERS = [AppComponent, ShellComponent];
+const CONTAINERS = [AppComponent];
 
 @NgModule({
   imports: [

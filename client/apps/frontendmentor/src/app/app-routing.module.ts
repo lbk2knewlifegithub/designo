@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { ShellComponent } from './core';
 
 const routes: Routes = [
   // Home Page
@@ -9,34 +8,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
   },
 
+  // Shell
   {
     path: 'shell',
-    component: ShellComponent,
-    children: [
-      // Solutions
-      {
-        path: 'solutions',
-        loadChildren: () =>
-          import('./pages/solutions').then((m) => m.SolutionsModule),
-      },
-      // Activities
-      {
-        path: 'activity',
-        loadChildren: () =>
-          import('./pages/activity').then((m) => m.ActivityModule),
-      },
-      // Wall of Fame
-      {
-        path: 'wall-of-fame',
-        loadChildren: () =>
-          import('./pages/wall-of-fame').then((m) => m.WallOfFameModule),
-      },
-      {
-        path: '',
-        redirectTo: '/shell/solutions',
-        pathMatch: 'full',
-      },
-    ],
+    loadChildren: () => import('./pages/shell').then((m) => m.ShellModule),
   },
 
   // Challenges
@@ -50,7 +25,7 @@ const routes: Routes = [
   {
     path: 'challenge',
     loadChildren: () =>
-      import('./pages/challenge-details').then((m) => m.ChallengeDetailsModule),
+      import('./pages/challenge').then((m) => m.ChallengeModule),
   },
 
   // Notifications

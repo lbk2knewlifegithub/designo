@@ -28,6 +28,7 @@ module.exports = {
       colors: {
         primary: {
           DEFAULT: '#3e54a3',
+          '50': '#2F4183',
         },
         error: {
           DEFAULT: '#ed2c49',
@@ -51,6 +52,8 @@ module.exports = {
         secondary: {
           DEFAULT: '#737373',
           '50': '#F0F4F4',
+          '100': '#737373',
+          '200': '#D6D6D6',
         },
         dark: {
           DEFAULT: '#24292e',

@@ -1,4 +1,4 @@
-export * from './question-list.component.ts';
+export * from './question-list/question-list.component';
 export * from './sub-header.component';
 export * from './slack.component';
 export * from './zig-zag.component';
@@ -13,3 +13,5 @@ export * from './mask-as-helpful.component';
 export * from './difficulty/difficulty.component';
 export * from './feature.component';
 export * from './challenge-type.component';
+export * from './brief.component';
+export * from './get-started.component';

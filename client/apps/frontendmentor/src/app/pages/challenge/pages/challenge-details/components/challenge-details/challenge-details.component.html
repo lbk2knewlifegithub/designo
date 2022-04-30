@@ -1,0 +1,107 @@
+<section class="container-poll">
+  <div class="flex flex-col gap-10 md:flex-row lg:gap-14">
+    <!-- Design -->
+    <lbk-design-component [challenge]="challenge"></lbk-design-component>
+    <!-- end Design -->
+
+    <div>
+      <div class="flex justify-between items-center">
+        <div class="flex items-center gap-4">
+          <lbk-challenge-type [challenge]="challenge"></lbk-challenge-type>
+          <!-- Languages -->
+          <lbk-language-list
+            [languages]="challenge.languages"
+          ></lbk-language-list>
+          <!-- end Languages -->
+        </div>
+
+        <!-- Difficulty -->
+        <lbk-difficulty [difficulty]="challenge.difficulty"></lbk-difficulty>
+        <!-- end Difficulty -->
+      </div>
+
+      <!-- Name -->
+      <h1
+        [routerLink]="['/challenge', challenge.challenge_id]"
+        class="text-2xl font-medium font-heading mt-2 lg:text-4xl lg:mt-4"
+      >
+        {{ challenge.name }}
+      </h1>
+      <!-- end Name -->
+
+      <!-- Description -->
+      <p class="text-sm text-secondary mt-4 text-base lg:mt-10">
+        {{ challenge.description }}
+      </p>
+      <!-- end Description -->
+
+      <lbk-assets-provided class="block mt-10"></lbk-assets-provided>
+
+      <div
+        class="mt-8 flex flex-wrap gap-8 sm:items-center sm:flex-row sm:justify-between lg:gap-14"
+      >
+        <lbk-stared-challenge></lbk-stared-challenge>
+
+        <!-- Visit Challenge Hub -->
+        <div>
+          <a
+            [routerLink]="['/challenge/hub', challenge.challenge_id]"
+            class="btn btn-primary italic px-6 font-bold tracking-widest md:px-10"
+            >VISIT CHALLENGE HUB</a
+          >
+        </div>
+        <!-- end Visit Challenge Hub -->
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-24 md:mt-32">
+    <h2
+      class="font-bold tracking-widest text-center lg:tracking-[.2rem] lg:text-xl"
+    >
+      CHALLENGE
+    </h2>
+
+    <ul class="grid gap-24 mt-20 md:grid-cols-2 lg:mt-28">
+      <li>
+        <lbk-brief></lbk-brief>
+      </li>
+
+      <li>
+        <ul class="grid gap-10">
+          <li>
+            <lbk-get-started></lbk-get-started>
+          </li>
+
+          <li>
+            <lbk-test-yourself></lbk-test-yourself>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Start Challenge -->
+    <div class="mt-10 md:mt-14">
+      <button
+        class="btn btn-icon btn-error font-bold gap-4 px-12 italic md:px-16"
+      >
+        START CHALLENGE (FREE)
+        <svg width="11" height="12" xmlns="http://www.w3.org/2000/svg">
+          <g
+            stroke="#FFF"
+            stroke-width="2"
+            fill="none"
+            fill-rule="evenodd"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M1 10.922h9M2.508 1.264C3.492 5.661 4.475 7.86 5.457 7.86c.982 0 1.963-2.199 2.943-6.596"
+            ></path>
+          </g>
+        </svg>
+      </button>
+      <!-- end Start Challenge -->
+    </div>
+  </div>
+</section>
