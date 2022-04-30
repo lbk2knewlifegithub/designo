@@ -1,7 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScrollToModule } from '@lbk/directives';
-import { QuestionListModule } from '../../../../../../shared';
+import {
+  NewLetterModule,
+  QuestionListModule,
+  SlackModule,
+} from '@lbk/fm/shared';
 import { COMPONENTS } from './components';
 import { SolutionsPageComponent } from './containers';
 import { SolutionsRoutingModule } from './solutions-routing.module';
@@ -15,6 +19,8 @@ import { SolutionsRoutingModule } from './solutions-routing.module';
 
     // Shared Components From FrontendMentor
     QuestionListModule,
+    SlackModule,
+    NewLetterModule,
   ],
   declarations: [COMPONENTS, SolutionsPageComponent],
 })

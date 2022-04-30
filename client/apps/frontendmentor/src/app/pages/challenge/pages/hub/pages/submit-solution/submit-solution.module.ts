@@ -1,7 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { SwitchModule } from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
-import { QuestionListModule } from '../../../../../../shared';
+import {
+  NewLetterModule,
+  QuestionListModule,
+  SlackModule,
+} from '@lbk/fm/shared';
 import { COMPONENTS } from './components';
 import { SubmitSolutionPageComponent } from './containers';
 import { SubmitSolutionRoutingModule } from './submit-solution-routing.module';
@@ -15,6 +20,9 @@ import { SubmitSolutionRoutingModule } from './submit-solution-routing.module';
 
     // Shared Components From FrontendMentor
     QuestionListModule,
+    SwitchModule,
+    SlackModule,
+    NewLetterModule,
   ],
   declarations: [COMPONENTS, SubmitSolutionPageComponent],
 })

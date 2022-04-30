@@ -8,7 +8,7 @@ const routes: Routes = [
     component: HubPageComponent,
     children: [
       {
-        path: '',
+        path: 'overview',
         loadChildren: () =>
           import('./pages/overview').then((m) => m.OverviewModule),
       },
