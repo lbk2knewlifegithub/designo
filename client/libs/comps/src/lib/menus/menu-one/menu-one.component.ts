@@ -31,7 +31,7 @@ export class MenuOneComponent implements OnInit {
   }
 
   toggleOverlay() {
-    this.shown = !this.shown;
+    this.shownChange.emit(!this.shown);
   }
 }
 

@@ -1,8 +1,24 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { fadeIn, fadeOut } from '@lbk/anims';
 
 @Component({
   selector: 'lbk-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './header.component.html',
+  animations: [fadeIn(), fadeOut()],
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  shown = true;
+
+  toggle() {
+    this.shown = !this.shown;
+  }
+
+  close() {
+    this.shown = false;
+  }
+
+  open() {
+    this.shown = true;
+  }
+}
