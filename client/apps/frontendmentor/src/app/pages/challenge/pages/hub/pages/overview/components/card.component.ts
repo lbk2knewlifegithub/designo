@@ -16,7 +16,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
       }
 
       :host {
-        @apply block relative bg-secondary-50 rounded-lg;
+        @apply block relative bg-secondary-50 rounded-lg md:rounded-xl;
         @apply pt-10 pl-8 pb-6 pr-8;
       }
 

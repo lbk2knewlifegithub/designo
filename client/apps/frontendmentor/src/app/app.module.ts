@@ -2,7 +2,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthModule } from '@lbk/auth';
 import { DDosInterceptor, JwtInterceptor } from '@lbk/interceptors';
 import { API_URL } from '@lbk/tokens';
 import { DialogModule } from '@ngneat/dialog';
@@ -11,8 +10,11 @@ import { environment as env, environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, CoreModule } from './core';
 import { CHALLENGES_SERVICE } from './shared';
-import { StateModule } from './state';
-import { ChallengesFakeService, ChallengesImplService } from './state';
+import {
+  ChallengesFakeService,
+  ChallengesImplService,
+  StateModule,
+} from './state';
 
 @NgModule({
   imports: [
@@ -25,7 +27,6 @@ import { ChallengesFakeService, ChallengesImplService } from './state';
     HttpClientModule,
     // Thirds Libs
     DialogModule.forRoot(),
-    AuthModule.forRoot(),
   ],
   providers: [
     {
