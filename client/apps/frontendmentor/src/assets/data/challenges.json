@@ -279,5 +279,82 @@
       "js"
     ],
     "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/hxkpctp6cd1meeytfdl2.jpg"
+  },
+  {
+    "challenge_id": 21,
+    "name": "Product feedback app",
+    "type": "premium",
+    "description": "This will be a perfect portfolio piece! You'll be working with JSON, managing state, and building like a real-world app. You can even create it as a full-stack project!",
+    "difficulty": "guru",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/zbq5rrhkqt63eodwcxcs.jpg"
+  },
+  {
+    "challenge_id": 22,
+    "name": "Sunnyside agency landing page",
+    "type": "premium",
+    "description": "This challenge will be a perfect test of your layout and responsive skills. There's a tiny bit of JS for the mobile menu, but the focus is HTML & CSS.",
+    "difficulty": "junior",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/pigotdvhcch2b3wp9uuc.jpg"
+  },
+  {
+    "challenge_id": 23,
+    "name": "Planets fact site",
+    "type": "premium",
+    "description": "In this challenge, you'll be building out an 8-page fact site for all planets in our solar system. This project will make an incredible portfolio piece when completed!",
+    "difficulty": "intermediate",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/wrljilk72cxhipdjyhpa.jpg"
+  },
+  {
+    "challenge_id": 24,
+    "name": "Calculator app",
+    "type": "free",
+    "description": "This calculator app will be a great test of your CSS and JS skills especially. If you're wanting to practice using Grid, this challenge will be perfect for you!",
+    "difficulty": "intermediate",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/bz3taijsat3rhsocodym.jpg"
+  },
+  {
+    "challenge_id": 25,
+    "name": "Audiophile e-commerce website",
+    "type": "premium",
+    "description": "This huge e-commerce challenge will provide an incredible test for your front-end skills. Once you're done, you'll have an amazing project to add to your portfolio!",
+    "difficulty": "guru",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/xfevkvpujubwentbteg6.jpg"
+  },
+  {
+    "challenge_id": 26,
+    "name": "Stats preview card component",
+    "type": "free",
+    "description": "This is a great small challenge to help get you used to building to a design. There's no JS in this project, so you'll be able to focus on your HTML & CSS skills.",
+    "difficulty": "guru",
+    "languages": [
+      "html",
+      "css"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/sucvvhutd4codsxpzvw7.jpg"
   }
 ]

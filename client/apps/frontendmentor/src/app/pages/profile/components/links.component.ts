@@ -15,14 +15,18 @@ import { Component } from '@angular/core';
     <!-- Solutions -->
     <a class="gap-1" routerLinkActive="active" routerLink="/profile/solutions">
       Solutions
-      <span class="badge badge-secondary text-xs py-[1px] px-[2px]">57</span>
+      <span class="badge badge-primary text-xs rounded-lg py-[1px] px-[2px]"
+        >57</span
+      >
     </a>
     <!-- end Solutions -->
 
     <!-- Comments -->
     <a class="gap-1" routerLinkActive="active" routerLink="/profile/comments"
       >Comments
-      <span class="badge badge-secondary text-xs py-[1px] px-[2px]">1</span>
+      <span class="badge badge-primary text-xs rounded-lg py-[1px] px-[2px]"
+        >1</span
+      >
     </a>
     <!-- end Comments -->
   `,

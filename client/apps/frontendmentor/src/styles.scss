@@ -80,10 +80,34 @@
   .badge-error {
     @apply bg-error text-white;
   }
+
   .link {
-    @apply block text-center font-bold  text-xs;
-    @apply underline decoration-solid decoration-[.15rem] underline-offset-2;
+    @apply relative inline-block text-center font-bold  text-xs;
+    // @apply underline decoration-solid decoration-[.15rem] underline-offset-2;
     @apply md:text-sm;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 51%;
+      height: 3px;
+      transition: 300ms width ease-in-out;
+    }
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      right: 0;
+    }
+
+    &:hover:before,
+    &:hover:after {
+      width: 0;
+    }
   }
 
   .link-primary {
@@ -92,6 +116,11 @@
 
   .link-error {
     @apply text-secondary decoration-error;
+
+    &:before,
+    &:after {
+      @apply bg-error;
+    }
   }
 
   .container-poll {

@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
         </ul>
 
         <!-- View All Solutions -->
-        <div class="mt-10">
+        <div class="mt-10 flex justify-center">
           <a routerLink="/profile/solutions" class="link link-error"
             >View All</a
           >
@@ -41,7 +41,7 @@ import { Component } from '@angular/core';
           </ul>
 
           <!-- View All Solutions -->
-          <div class="mt-10">
+          <div class="mt-10 flex justify-center">
             <a routerLink="/profile/comments" class="link link-error"
               >View All</a
             >

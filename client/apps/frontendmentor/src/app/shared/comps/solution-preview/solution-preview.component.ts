@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   template: `
     <!-- Challenge Image -->
     <lbk-image
-      classImage="duration-300 w-full max-h-[236px] sm:max-h-[288px] hover:scale-110"
+      classImage="duration-300 w-full hover:scale-110"
       alt="challenge.name"
       singleImage="https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Screenshots/kjo672l6ggxxqkml6oan.jpg"
     ></lbk-image>
@@ -96,7 +96,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   styles: [
     `
       :host {
-        @apply h-full block relative shadow-md rounded-lg overflow-hidden max-w-[395px];
+        @apply h-full block relative shadow-md rounded-lg overflow-hidden lg:max-w-[395px];
       }
     `,
   ],
