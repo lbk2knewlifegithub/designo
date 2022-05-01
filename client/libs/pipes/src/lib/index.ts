@@ -8,3 +8,4 @@ export * from './long-number.pipe';
 export * from './time-ago.pipe';
 export * from './white-space.pipe';
 export * from './pixel.pipe';
+export * from './length.pipe';

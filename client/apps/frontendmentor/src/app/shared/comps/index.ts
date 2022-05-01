@@ -16,3 +16,5 @@ export * from './challenge-type.component';
 export * from './brief.component';
 export * from './get-started.component';
 export * from './add-comment-input/add-comment-input.component';
+export * from './challenge-preview-list/challenge-preview-list.module';
+export * from './solution-preview/solution-preview.module';

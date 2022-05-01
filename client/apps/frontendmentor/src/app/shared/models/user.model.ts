@@ -1,6 +1,9 @@
 import { Loadable } from '@lbk/models';
 import { Solution } from './solution.model';
 
+/**
+ * - Email Notification
+ */
 export interface EmailNotification {
   email_notification_id: number;
   comment_on_my_solution?: boolean;
@@ -9,6 +12,9 @@ export interface EmailNotification {
   earn_an_archievement?: boolean;
 }
 
+/**
+ * - Bio
+ */
 export interface Bio {
   bio_id: number;
   website: string;
@@ -16,6 +22,9 @@ export interface Bio {
   currentLearning: string;
 }
 
+/**
+ * - UserLinks
+ */
 export interface UserLinks {
   user_links_id: number;
   githubURL?: string;
@@ -32,9 +41,13 @@ export interface UserLinks {
   codewarsURL?: string;
 }
 
+/**
+ * - User
+ */
 export interface User {
   user_id: number;
   name: string;
+  username: string;
   email: string;
   location: string;
   image: string;
@@ -44,3 +57,20 @@ export interface User {
   links?: UserLinks;
   solutions: Loadable<Solution[] | undefined, undefined>;
 }
+
+/**
+ * - User Minimal
+ */
+export type UserMinimal = Pick<
+  User,
+  'name' | 'username' | 'image' | 'points' | 'isPremium'
+>;
+
+/**
+ * - Identify User Minimal
+ * @param index
+ * @param userMinimal
+ * @returns
+ */
+export const identifyUserMinimal = (index: number, userMinimal: UserMinimal) =>
+  userMinimal.username;

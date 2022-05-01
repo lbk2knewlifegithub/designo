@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'lbk-solution-preview',
@@ -37,13 +37,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
           <!-- end Number of Likes -->
 
           <!-- Number Of Bookmark -->
-          <lbk-number-of of="bookmarks">1</lbk-number-of>
+          <lbk-number-of [bold]="true" of="bookmarks">1</lbk-number-of>
           <!-- end Number of Bookmark -->
         </ul>
       </div>
 
       <!-- User -->
-      <div class="flex items-center gap-3 py-3 border-y mt-2">
+      <div class="flex items-center gap-3 py-3 border-t mt-2">
         <!-- User Image -->
         <img
           class="w-12 h-12 rounded-full"
@@ -79,7 +79,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- end User -->
 
       <!-- Questions -->
-      <p class="text-sm text-secondary mt-2 lg:text-base lg:mt-5">
+      <p
+        *ngIf="shownQuestions"
+        class="text-sm text-secondary pt-3 border-t mt-3 lg:text-base lg:mt-5"
+      >
         I had problems adjusting the width on bigger size screens. I tried
         everything I could to no avail, thus finally gave up. *There are lots of
         parts of my code I'm unsure of. In my html, I used sections instead of
@@ -98,4 +101,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     `,
   ],
 })
-export class SolutionPreviewComponent {}
+export class SolutionPreviewComponent {
+  @Input() shownQuestions?: boolean;
+}

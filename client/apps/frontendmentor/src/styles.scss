@@ -76,11 +76,18 @@
   .badge-error {
     @apply bg-error text-white;
   }
+  .link {
+    @apply block text-center font-bold  text-xs;
+    @apply underline decoration-solid decoration-[.15rem] underline-offset-2;
+    @apply md:text-sm;
+  }
 
   .link-primary {
-    @apply block text-center font-bold text-secondary text-xs;
-    @apply underline decoration-solid decoration-primary decoration-[.15rem] underline-offset-2;
-    @apply lg:text-sm;
+    @apply text-secondary decoration-primary;
+  }
+
+  .link-error {
+    @apply text-secondary decoration-error;
   }
 
   .container-poll {

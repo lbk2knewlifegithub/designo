@@ -55,6 +55,8 @@ export enum ChallengeSort {
   DIFFICULTY_ASC = 'difficulty|asc',
 }
 
+export type ChallengeStatus = 'in-progress' | 'completed';
+
 /**
  * - Challenge
  */
@@ -69,6 +71,7 @@ export interface Challenge {
   isNew?: boolean;
   type: ChallengeType;
   design: Design;
+  status?: ChallengeStatus;
 }
 
 /**

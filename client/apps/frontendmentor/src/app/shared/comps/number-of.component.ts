@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  HostBinding,
   Input,
   NgModule,
   OnInit,
@@ -18,6 +19,17 @@ import {
       :host {
         @apply inline-flex gap-1 items-center;
       }
+
+      :host-context(.bold) {
+        &.bookmarks,
+        &.comment {
+          @apply text-primary;
+        }
+
+        &.likes {
+          @apply text-error;
+        }
+      }
     `,
   ],
 })
@@ -28,11 +40,25 @@ export class NumberOfComponent implements OnInit {
     bookmarks: 'fa-regular fa-bookmark',
   };
 
+  static ICONS_SOLID = {
+    comment: 'fa-solid fa-message',
+    likes: 'fa-solid fa-heart',
+    bookmarks: 'fa-solid fa-bookmark',
+  };
+
+  @Input() class!: string;
   @Input() of!: 'comment' | 'likes' | 'bookmarks';
+  @Input() bold?: boolean;
+
+  @HostBinding('class') get myClass() {
+    return `${this.class ?? ''} ${this.of} ${this.bold ? 'bold' : ''}`;
+  }
   icon!: string;
 
   ngOnInit(): void {
-    this.icon = NumberOfComponent.ICONS[this.of];
+    this.icon = this.bold
+      ? NumberOfComponent.ICONS_SOLID[this.of]
+      : NumberOfComponent.ICONS[this.of];
   }
 }
 

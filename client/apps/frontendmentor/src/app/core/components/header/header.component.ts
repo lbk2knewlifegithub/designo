@@ -8,7 +8,7 @@ import { fadeIn, fadeOut } from '@lbk/anims';
   animations: [fadeIn(), fadeOut()],
 })
 export class HeaderComponent {
-  shown = true;
+  shown = false;
 
   toggle() {
     this.shown = !this.shown;

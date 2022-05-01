@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ClickOutsideModule, ScrollToModule } from '@lbk/directives';
 import { ObjectKeysPipeModule } from '@lbk/pipes';
 import {
-  ChallengePreviewModule,
+  ChallengePreviewListModule,
   NewLetterModule,
   SlackModule,
   SubHeaderModule,
@@ -29,7 +29,7 @@ const CONTAINERS = [ChallengesPageComponent];
     SlackModule,
     SubHeaderModule,
     NewLetterModule,
-    ChallengePreviewModule,
+    ChallengePreviewListModule,
   ],
   declarations: [COMPONENTS, CONTAINERS],
 })

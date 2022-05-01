@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ImageModule, SpinnerModule } from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { NewLetterModule, SlackModule } from '@lbk/fm/shared';
 import { LongNumberPipeModule } from '@lbk/pipes';
 import { EffectsModule } from '@ngrx/effects';

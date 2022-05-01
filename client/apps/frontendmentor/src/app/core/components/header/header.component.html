@@ -45,11 +45,13 @@
 
   <!-- Nav Mobile -->
   <lbk-nav-mobile
-    *ngIf="shown"
     [(shown)]="shown"
+    *ngIf="shown"
+    (clickOutside)="close()"
+    skip="lbk-menu-one"
     @fadeIn
     @fadeOut
-    class="absolute w-full top-0 bottom-0 translate-y-full z-50 md:translate-y-[130%] md:w-auto md:right-8 lg:hidden"
+    class="absolute w-full top-0 bottom-0 translate-y-full z-50 md:border md:translate-y-[130%] md:w-auto md:right-8 lg:hidden"
   ></lbk-nav-mobile>
   <!-- end Nav Mobile -->
 </header>
