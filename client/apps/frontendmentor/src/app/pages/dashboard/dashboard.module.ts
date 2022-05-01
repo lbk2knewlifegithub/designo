@@ -17,6 +17,7 @@ import {
   MyBookmarksPageComponent,
   MyChallengesPageComponent,
   MyNetworkPageComponent,
+  ShellDashboardPageComponent,
 } from './containers';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardEffects } from './effects';
@@ -29,6 +30,7 @@ export const CONTAINERS = [
   MyBookmarksPageComponent,
   MyChallengesPageComponent,
   MyNetworkPageComponent,
+  ShellDashboardPageComponent,
 ];
 
 @NgModule({

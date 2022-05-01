@@ -20,8 +20,6 @@ export class MyBookmarksPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._dashboardFacade.loadDashboard();
-
     this.loading$ = this._dashboardFacade.loading$;
     this.bookmarks$ = this._dashboardFacade.bookmarks$;
   }

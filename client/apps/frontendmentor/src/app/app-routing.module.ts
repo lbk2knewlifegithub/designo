@@ -28,6 +28,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/shell').then((m) => m.ShellModule),
   },
 
+  // Settings
+  {
+    path: 'settings',
+    loadChildren: () =>
+      import('./pages/settings').then((m) => m.SettingsModule),
+  },
+
   // Challenges
   {
     path: 'challenges',

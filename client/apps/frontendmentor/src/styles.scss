@@ -35,6 +35,10 @@
     @apply text-white bg-primary;
   }
 
+  .btn-primary-outline {
+    @apply text-primary border font-bold italic border-primary;
+  }
+
   .btn-error-outline {
     @apply bg-transparent text-error border-error border;
   }

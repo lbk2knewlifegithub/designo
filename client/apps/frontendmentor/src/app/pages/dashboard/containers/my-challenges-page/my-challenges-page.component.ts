@@ -23,8 +23,6 @@ export class MyChallengesPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._dashboardFacade.loadDashboard();
-
     this.loading$ = this._dashboardFacade.loading$;
     this.inProgressChallenges$ = this._dashboardFacade.inProgressChallenges$;
     this.completedChallenges$ = this._dashboardFacade.completedChallenges$;

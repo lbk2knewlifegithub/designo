@@ -10,4 +10,5 @@ export const {
   selectError,
   selectBookmarks,
   selectTags,
+  selectTitle,
 } = dashboardFeature;

@@ -23,8 +23,6 @@ export class MyNetworkPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._dashboardFacade.loadDashboard();
-
     this.loading$ = this._dashboardFacade.loading$;
     this.followers$ = this._dashboardFacade.followers$;
     this.following$ = this._dashboardFacade.following$;

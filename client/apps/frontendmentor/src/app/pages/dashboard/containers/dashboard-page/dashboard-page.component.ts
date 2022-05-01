@@ -16,7 +16,5 @@ export class DashboardPageComponent implements OnInit {
   ngOnInit(): void {
     this.loading$ = this._dashboardFacade.loading$;
     this.error$ = this._dashboardFacade.error$;
-
-    this._dashboardFacade.loadDashboard();
   }
 }

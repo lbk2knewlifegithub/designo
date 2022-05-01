@@ -1,6 +1,8 @@
 import { Inject, Injectable } from '@angular/core';
 import { DialogService } from '@ngneat/dialog';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
+import { getSelectors, routerNavigatedAction } from '@ngrx/router-store';
+import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map, tap } from 'rxjs/operators';
 import { DashboardActions, DashboardAPIActions } from '../actions';
@@ -44,10 +46,27 @@ export class DashboardEffects {
     )
   );
 
+  /**
+   * - Update Title
+   */
+  updateTitle$ = createEffect(() =>
+    this._actions$.pipe(
+      ofType(routerNavigatedAction),
+      concatLatestFrom(() =>
+        this._store.select(getSelectors().selectRouteData)
+      ),
+      map(([, data]) => data['title']),
+      map((title) => {
+        return DashboardActions.setTitle({ title });
+      })
+    )
+  );
+
   constructor(
     private readonly _actions$: Actions,
     @Inject(DASHBOARD_SERVICE)
     private readonly _dashboardService: DashboardService,
-    private readonly _dialogService: DialogService
+    private readonly _dialogService: DialogService,
+    private readonly _store: Store
   ) {}
 }

@@ -6,23 +6,42 @@ import {
   MyChallengesPageComponent,
   MyNetworkPageComponent,
 } from './containers';
+import { ShellDashboardPageComponent } from './containers/shell.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardPageComponent,
-  },
-  {
-    path: 'my-challenges',
-    component: MyChallengesPageComponent,
-  },
-  {
-    path: 'my-network',
-    component: MyNetworkPageComponent,
-  },
-  {
-    path: 'my-bookmarks',
-    component: MyBookmarksPageComponent,
+    component: ShellDashboardPageComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardPageComponent,
+        data: {
+          title: 'DASHBOARD',
+        },
+      },
+      {
+        path: 'my-challenges',
+        component: MyChallengesPageComponent,
+        data: {
+          title: 'MY CHALLENGES',
+        },
+      },
+      {
+        path: 'my-network',
+        component: MyNetworkPageComponent,
+        data: {
+          title: 'MY NETWORK',
+        },
+      },
+      {
+        path: 'my-bookmarks',
+        component: MyBookmarksPageComponent,
+        data: {
+          title: 'MY BOOKMARKS',
+        },
+      },
+    ],
   },
 ];
 

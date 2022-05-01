@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Challenge, SolutionMinimal, Tags, UserMinimal } from '@lbk/fm/shared';
+import { Actions } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { map, Observable, take } from 'rxjs';
 import { DashboardActions } from '../actions';
@@ -87,7 +88,15 @@ export class DashboardFacade {
    */
   tags$: Observable<Tags[]> = this._store.select(fromDashboard.selectTags);
 
-  constructor(private readonly _store: Store) {}
+  /**
+   * - Title
+   */
+  title$: Observable<string> = this._store.select(fromDashboard.selectTitle);
+
+  constructor(
+    private readonly _store: Store,
+    private readonly _actions$: Actions
+  ) {}
 
   /**
    * - Load Dashboard
