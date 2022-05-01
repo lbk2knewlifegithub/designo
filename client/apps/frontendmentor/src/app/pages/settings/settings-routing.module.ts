@@ -23,6 +23,14 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/account').then((m) => m.AccountModule),
       },
+      /**
+       * - Billing Module
+       */
+      {
+        path: 'billing',
+        loadChildren: () =>
+          import('./pages/billing').then((m) => m.BillingModule),
+      },
     ],
   },
 ];
