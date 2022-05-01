@@ -1,0 +1,35 @@
+<main [class.pb-64]="loading$ | async" class="mt-10 mb-32">
+  <lbk-spinner [radius]="50" class="center" [loading]="loading$ | async">
+    <ul class="grid gap-4 md:gap-6">
+      <!-- My Credits -->
+      <li>
+        <lbk-my-credits></lbk-my-credits>
+      </li>
+      <!-- end My Credits -->
+
+      <!-- My Challenges -->
+      <li>
+        <lbk-my-challenges></lbk-my-challenges>
+      </li>
+      <!-- end My Challenges -->
+
+      <!-- My Network -->
+      <li>
+        <lbk-my-network></lbk-my-network>
+      </li>
+      <!-- end My Network -->
+
+      <!-- My Bookmarks -->
+      <li>
+        <lbk-my-bookmarks></lbk-my-bookmarks>
+      </li>
+      <!-- end My Networks -->
+
+      <!-- My Tags -->
+      <li>
+        <lbk-my-tags></lbk-my-tags>
+      </li>
+      <!-- end My Tags -->
+    </ul>
+  </lbk-spinner>
+</main>

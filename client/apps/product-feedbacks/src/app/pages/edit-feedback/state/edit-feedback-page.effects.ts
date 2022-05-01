@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { FeedbacksApiActions } from '@lbk/state/feedbacks';
+import { FeedbacksApiActions } from '../../../state';
 import { DialogService } from '@ngneat/dialog';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { take, tap } from 'rxjs';

@@ -3,14 +3,16 @@ import {
   state,
   style,
   transition,
-  trigger,
+  trigger
 } from '@angular/animations';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ContentChild,
+  EventEmitter,
   Input,
+  Output
 } from '@angular/core';
 import { ZippyContentDirective } from './zippy-content.directive';
 
@@ -20,7 +22,7 @@ import { ZippyContentDirective } from './zippy-content.directive';
   template: `
     <ng-content></ng-content>
 
-    <div [@content]="expanded ? 'expand' : 'collapse'" [id]="contentId">
+    <div [@content]="expanded ? 'expand' : 'collapse'" [id]="zippyId">
       <ng-template [ngTemplateOutlet]="content.templateRef"></ng-template>
     </div>
   `,
@@ -41,14 +43,29 @@ import { ZippyContentDirective } from './zippy-content.directive';
 export class ZippyComponent {
   static nextId = 0;
 
-  contentId = `zippy-${++ZippyComponent.nextId}`;
+  zippyId = `zippy-${++ZippyComponent.nextId}`;
   @Input() expanded = false;
+  @Output() expand = new EventEmitter<ZippyComponent>();
 
   @ContentChild(ZippyContentDirective) content!: ZippyContentDirective;
 
   constructor(private readonly _cd: ChangeDetectorRef) {}
 
-  maskForCheck() {
-    this._cd.markForCheck();
+  detectChanges() {
+    this._cd.detectChanges();
+  }
+
+  close() {
+    this.expanded = false;
+    this.detectChanges();
+  }
+
+  toggle() {
+    this.expanded = !this.expanded;
+    this.detectChanges();
+
+    if (this.expanded) {
+      this.expand.emit(this);
+    }
   }
 }

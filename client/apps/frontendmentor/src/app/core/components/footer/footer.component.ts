@@ -4,10 +4,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-footer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <footer scrollTo>
-      <div
-        class="container pt-16 border-t-4 sm:border-t sm:border-black 2xl:px-28"
-      >
+    <footer class="border-t border-dark/20">
+      <div class="container pt-16 2xl:px-28">
         <ul
           class="flex flex-col gap-10 md:justify-between md:flex-row lg:gap-24"
         >
@@ -49,7 +47,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       </div>
 
       <!-- Copyright -->
-      <lbk-copyright class="block mt-16 md:mt-32 lg:mt-24"></lbk-copyright>
+      <lbk-copyright
+        class="block border-t-4 sm:border-t sm:border-black/20 mt-16 md:mt-32 lg:mt-24"
+      ></lbk-copyright>
       <!-- end Copyright -->
     </footer>
   `,

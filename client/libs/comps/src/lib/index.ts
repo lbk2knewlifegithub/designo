@@ -11,3 +11,5 @@ export * from './image';
 export * from './scroll-to-top';
 export * from './checkbox';
 export * from './profile-button';
+export * from './lightbox.component';
+export * from './switch/switch.component';

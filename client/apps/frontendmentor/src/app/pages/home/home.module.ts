@@ -3,6 +3,13 @@ import { NgModule } from '@angular/core';
 import { ScrollToModule } from '@lbk/directives';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import {
+  LanguageListModule,
+  LatestChallengesModule,
+  NewLetterModule,
+  SlackModule,
+  ZigZagModule,
+} from './../../shared';
 import { COMPONENTS } from './components';
 import { HomePageComponent } from './containers';
 import { HomeRoutingModule } from './home-routing.module';
@@ -16,6 +23,13 @@ const CONTAINERS = [HomePageComponent];
     HomeRoutingModule,
     // Shared Directives From Libs
     ScrollToModule,
+
+    // Shared Components From FrontendMentor
+    SlackModule,
+    ZigZagModule,
+    LanguageListModule,
+    NewLetterModule,
+    LatestChallengesModule,
 
     // Stores
     StoreModule.forFeature(homeFeature),

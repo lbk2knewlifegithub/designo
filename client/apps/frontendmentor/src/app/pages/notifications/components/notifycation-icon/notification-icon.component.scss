@@ -1,0 +1,53 @@
+:host-context(.like) {
+  @apply text-error;
+}
+
+:host-context(.follow) {
+  @apply text-success-100;
+}
+
+:host-context(.mention) {
+  @apply text-purple;
+}
+
+:host-context(.comment) {
+  @apply text-success;
+}
+
+:host-context(.upload, .bookmark, .reply) {
+  @apply text-primary;
+}
+
+:host-context(.upvote) {
+  @apply text-warning-50;
+}
+
+:host-context(.lg) {
+  @apply w-10 h-10 grid rounded-full place-content-center;
+
+  &.like {
+    @apply bg-error/30;
+  }
+
+  &.follow {
+    @apply bg-success-100/30;
+  }
+
+  &.mention {
+    @apply bg-purple/30;
+  }
+
+  &.comment {
+    @apply bg-success-50/30;
+  }
+
+  &.upload,
+  &.bookmark,
+  &.reply {
+    @apply bg-primary/30;
+  }
+
+  &.upvote {
+    @apply bg-warning-50/30;
+  }
+}

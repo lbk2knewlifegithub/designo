@@ -22,7 +22,6 @@ export class InvoicesEffects {
             InvoicesAPIActions.loadInvoicesSuccess({ invoices, override })
           ),
           catchError((error) => {
-            console.log(error);
             return of(InvoicesAPIActions.loadInvoicesFailure({ error }));
           })
         );

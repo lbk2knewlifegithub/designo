@@ -5,6 +5,7 @@ export interface Link {
   name: string;
   image?: Image;
   icon?: string;
+  queryParams?: { [key: string]: string };
 }
 
 export const identifyLink = (index: number, link: Link) => {

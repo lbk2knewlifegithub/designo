@@ -1,0 +1,360 @@
+[
+  {
+    "challenge_id": 1,
+    "name": "Intro section with dropdown navigation",
+    "slug": "intro-section-with-dropdown-navigation",
+    "isNew": true,
+    "type": "free",
+    "description": "This challenge will test your ability to create dropdown navigation menus, a common pattern on larger sites. It will also provide some nice basic layout challenges.",
+    "difficulty": "junior",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/rlaxdjplmeul4qe1qvh6.jpg",
+    "design": {
+      "desktopDesign": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:good,w_900/Challenges/zp74vhrxan0bpg43z2uu.jpg",
+      "activeStates": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:good,w_900/Challenges/x35fo4g0mcmxbl9ht02l.jpg",
+      "mobileDesign": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:good,w_900/Challenges/kjo17v5edphajeppxyix.jpg"
+    }
+  },
+  {
+    "challenge_id": 2,
+    "name": "In-browser markdown editor",
+    "slug": "in-browser-markdown-editor",
+    "type": "premium",
+    "description": "In this project, you'll build a fully-functional in-browser markdown editor application with a light/dark mode toggle. It's also perfect to build as a full-stack app!",
+    "difficulty": "intermediate",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/r2w3h15oximza3p1baqt.jpg"
+  },
+  {
+    "challenge_id": 3,
+    "type": "free",
+    "name": "Interactive rating component",
+    "slug": "interactive-rating-component",
+    "description": "This is a nice, small project to practice handling user interactions and updating the DOM. Perfect for anyone who has learned the basics of JavaScript!",
+    "difficulty": "newbie",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/hxx2bhmtmeelt0a98zos.jpg"
+  },
+  {
+    "challenge_id": 4,
+    "type": "premium",
+    "name": "Entertainment web app",
+    "slug": "entertainment-web-app",
+    "description": "This multi-page entertainment web app will have you working with json data, routing, state management, and search functionality.",
+    "difficulty": "advanced",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/maz79cid0jllq0js0qyi.jpg"
+  },
+  {
+    "challenge_id": 5,
+    "type": "free",
+    "name": "Advice generator app",
+    "slug": "advice-generator-app",
+    "description": "The perfect project if you're learning how to interact with 3rd-party APIs. This challenge uses the Advice Slip API to generate random quotes of advice.",
+    "difficulty": "junior",
+    "languages": [
+      "html",
+      "css",
+      "js",
+      "api"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/sfl8uqvq75wnnr559ksp.jpg"
+  },
+  {
+    "challenge_id": 6,
+    "name": "Suite landing page",
+    "slug": "suite-landing-page",
+    "type": "premium",
+    "description": "This small-ish html and css only landing page includes some interesting layout decisions. perfect if you want to put your layout and responsive skills to the test!",
+    "difficulty": "junior",
+    "languages": [
+      "html",
+      "css"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/mflwrbyf8kjvqvpxq9uj.jpg"
+  },
+  {
+    "challenge_id": 7,
+    "name": "QR code component",
+    "slug": "qr-code-component",
+    "type": "free",
+    "description": "A perfect first challenge if you're new to HTML and CSS. The card layout doesn't shift, so it's ideal if you haven't learned about building responsive layouts yet.",
+    "difficulty": "newbie",
+    "languages": [
+      "html",
+      "css"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/qh97gysgjrzqyqlig2al.jpg"
+  },
+  {
+    "challenge_id": 8,
+    "name": "Tic Tac Toe game",
+    "slug": "tic-tac-toe-game",
+    "type": "premium",
+    "description": "This classic practice project for web developers is a great exercise to complete. It will test your HTML semantics, your grid layout skill, as well as your JS logic.",
+    "difficulty": "intermediate",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/cfr9ssywcgjpcg7or928.jpg"
+  },
+  {
+    "challenge_id": 9,
+    "name": "Interactive comments section",
+    "slug": "interactive-comments-section",
+    "type": "free",
+    "description": "This is project will put your JavaScript skills to the test. We provide a JSON file to pull the data, but it's also a perfect project to build as a full-stack CRUD app!",
+    "difficulty": "intermediate",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/i8zblmqsbqixz1tbhc0v.jpg"
+  },
+  {
+    "challenge_id": 10,
+    "name": "Art Gallery website",
+    "slug": "art-gallery-website",
+    "type": "premium",
+    "description": "This two-page art gallery project will be perfect if you're ready to branch out beyond single landing pages. There are some particularly interesting layout challenges!",
+    "difficulty": "junior",
+    "languages": [
+      "html",
+      "css"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/bg8nbm2pzsg3hpuqqmmv.jpg"
+  },
+  {
+    "challenge_id": 11,
+    "name": "NFT preview card component",
+    "slug": "nft-preview-card-component",
+    "type": "free",
+    "description": "This HTML & CSS only challenge is perfect for anyone just starting out or anyone wanting a small project to play around with.",
+    "difficulty": "newbie",
+    "languages": [
+      "html",
+      "css"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/rinokvkluq95madbvtmk.jpg"
+  },
+  {
+    "challenge_id": 12,
+    "name": "Equalizer landing page",
+    "slug": "equalizer-landing-page",
+    "type": "premium",
+    "description": "This challenge will be a perfect test of your HTML & CSS skills. If you're starting to get comfortable building smaller projects, this will be a great step up.",
+    "difficulty": "newbie",
+    "languages": [
+      "html",
+      "css"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/hfqgixemrcybrmoomqsz.jpg"
+  },
+  {
+    "challenge_id": 13,
+    "name": "Space tourism multi-page website",
+    "slug": "space-tourism-multi-page-website",
+    "type": "free+",
+    "description": "This project is a fun collaboration with Scrimba and Kevin Powell! If you like, you can follow along and watch Kevin complete the project on Scrimba. Lots to learn!",
+    "difficulty": "intermediate",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/bbbbk7sghmqsg4zhqdo6.jpg"
+  },
+  {
+    "challenge_id": 14,
+    "name": "E-commerce product page",
+    "slug": "e-commerce-product-page",
+    "type": "free",
+    "description": "In this challenge, you'll build a beautiful product page. We'll be putting your JS skills to the test with a lightbox product gallery and cart functionality!",
+    "difficulty": "intermediate",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/fhzpdnabrek50hvhftnl.jpg"
+  },
+  {
+    "challenge_id": 15,
+    "name": "Memory game",
+    "slug": "memory-game",
+    "type": "premium",
+    "description": "This project will be an excellent test for your HTML, CSS, and JS skills! You'll be building a fun memory game where players try to match pairs.",
+    "difficulty": "advanced",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/lphd7s3gcbcgcxmfjt19.jpg"
+  },
+  {
+    "challenge_id": 16,
+    "name": "Time tracking dashboard",
+    "slug": "time-tracking-dashboard",
+    "type": "free",
+    "description": "A perfect opportunity to practice your CSS Grid skills. For anyone wanting to take it up a notch, we provide a JSON data file to practice working with data.",
+    "difficulty": "junior",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/j1ocp59n25odoftocgpi.jpg"
+  },
+  {
+    "challenge_id": 17,
+    "name": "Github user search app",
+    "slug": "github-user-search-app",
+    "type": "premium",
+    "description": "In this project, you'll use the GitHub users API to pull profile data and display it. It's a great challenge if you're looking to practice working with a 3rd-party API.",
+    "difficulty": "junior",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/nr37our6z7faztmhwj9r.jpg"
+  },
+  {
+    "challenge_id": 18,
+    "name": "Order summary component",
+    "slug": "order-summary-component",
+    "type": "free",
+    "description": "A perfect project for newbies who are starting to build confidence with layouts!",
+    "difficulty": "newbie",
+    "languages": [
+      "html",
+      "css"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/ouobx6tvyduidzio7wr7.jpg"
+  },
+  {
+    "challenge_id": 19,
+    "name": "Galleria sideshow site",
+    "slug": "galleria-sideshow-site",
+    "type": "premium",
+    "description": "This art gallery slideshow project will be a great test for your layout and JS skills. With the masonry layout, slideshow logic, and lightbox view there's a lot to build!",
+    "difficulty": "intermediate",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/nlvtx70nqb7vj1xfwj22.jpg"
+  },
+  {
+    "challenge_id": 20,
+    "name": "Tip calculator app",
+    "slug": "tip-calculator-app",
+    "type": "free",
+    "description": "This small app is perfect for anyone starting to get to grips with JavaScript. The calculator functionality will be a nice test!",
+    "difficulty": "junior",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/hxkpctp6cd1meeytfdl2.jpg"
+  },
+  {
+    "challenge_id": 21,
+    "name": "Product feedback app",
+    "type": "premium",
+    "description": "This will be a perfect portfolio piece! You'll be working with JSON, managing state, and building like a real-world app. You can even create it as a full-stack project!",
+    "difficulty": "guru",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/zbq5rrhkqt63eodwcxcs.jpg"
+  },
+  {
+    "challenge_id": 22,
+    "name": "Sunnyside agency landing page",
+    "type": "premium",
+    "description": "This challenge will be a perfect test of your layout and responsive skills. There's a tiny bit of JS for the mobile menu, but the focus is HTML & CSS.",
+    "difficulty": "junior",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/pigotdvhcch2b3wp9uuc.jpg"
+  },
+  {
+    "challenge_id": 23,
+    "name": "Planets fact site",
+    "type": "premium",
+    "description": "In this challenge, you'll be building out an 8-page fact site for all planets in our solar system. This project will make an incredible portfolio piece when completed!",
+    "difficulty": "intermediate",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/wrljilk72cxhipdjyhpa.jpg"
+  },
+  {
+    "challenge_id": 24,
+    "name": "Calculator app",
+    "type": "free",
+    "description": "This calculator app will be a great test of your CSS and JS skills especially. If you're wanting to practice using Grid, this challenge will be perfect for you!",
+    "difficulty": "intermediate",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/bz3taijsat3rhsocodym.jpg"
+  },
+  {
+    "challenge_id": 25,
+    "name": "Audiophile e-commerce website",
+    "type": "premium",
+    "description": "This huge e-commerce challenge will provide an incredible test for your front-end skills. Once you're done, you'll have an amazing project to add to your portfolio!",
+    "difficulty": "guru",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/xfevkvpujubwentbteg6.jpg"
+  },
+  {
+    "challenge_id": 26,
+    "name": "Stats preview card component",
+    "type": "free",
+    "description": "This is a great small challenge to help get you used to building to a design. There's no JS in this project, so you'll be able to focus on your HTML & CSS skills.",
+    "difficulty": "guru",
+    "languages": [
+      "html",
+      "css"
+    ],
+    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/sucvvhutd4codsxpzvw7.jpg"
+  }
+]

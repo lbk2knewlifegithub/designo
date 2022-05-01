@@ -1,0 +1,30 @@
+<main class="container-poll mt-6 mb-20">
+  <lbk-spinner [radius]="50" class="center" [loading]="loading$ | async">
+    <!-- Back To Dashboard -->
+    <lbk-back-dashboard></lbk-back-dashboard>
+    <!-- end Back To Dashboard -->
+
+    <!-- Links -->
+    <ul class="links">
+      <li>
+        <a
+          routerLink="/dashboard/my-bookmarks"
+          routerLinkActive="active"
+          class="opticy-50"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Solutions ({{ bookmarks$ | async | length }})
+        </a>
+      </li>
+    </ul>
+    <!-- end Links -->
+
+    <ul
+      class="min-h-[450px] mt-6 grid gap-6 justify-items-center md:grid-cols-2 lg:grid-cols-3 lg:mt-8"
+    >
+      <li *ngFor="let solution of bookmarks$ | async | slice: 0:3">
+        <lbk-solution-preview [shownQuestions]="false"></lbk-solution-preview>
+      </li>
+    </ul>
+  </lbk-spinner>
+</main>

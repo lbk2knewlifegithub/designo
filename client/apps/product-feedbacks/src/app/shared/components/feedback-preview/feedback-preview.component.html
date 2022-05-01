@@ -35,13 +35,9 @@
 
   <!-- Category -->
   <div class="mt-2 xl:mt-4">
-    <a
-      [routerLink]="['/']"
-      [queryParams]="{ category: feedback.category }"
-      class="btn btn-secondary"
-    >
+    <button (click)="categoryClick()" class="btn btn-secondary">
       {{ feedback.category | upper: 2 }}
-    </a>
+    </button>
   </div>
   <!-- end Category -->
 

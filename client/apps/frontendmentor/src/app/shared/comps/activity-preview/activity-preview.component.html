@@ -1,0 +1,135 @@
+<div class="border-b flex gap-3 items-center px-6 py-8 md:px-9">
+  <!-- Challenge Image -->
+  <div class="min-w-[154px] sm:max-w-[176px]">
+    <lbk-image
+      classImage="object-cover  rounded-lg duration-300  hover:scale-110"
+      alt="challenge.name"
+      singleImage="https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Screenshots/kjo672l6ggxxqkml6oan.jpg"
+    ></lbk-image>
+  </div>
+  <!-- end Challenge Image -->
+
+  <div class="grow">
+    <!-- Languages -->
+    <lbk-language-list [languages]="['html', 'css', 'js']"></lbk-language-list>
+    <!-- end Languages -->
+
+    <div class="space-y-2 md:mt-1">
+      <!-- Name -->
+      <a
+        routerLink="/"
+        class="line-clamp-1 text-sm font-medium font-heading md:text-base hover:underline"
+      >
+        huddle-landing-page-with-single-introductory-section-master Flexbox
+      </a>
+      <!-- end Name -->
+
+      <ul class="inline-flex flex-wrap gap-y-1 gap-x-3 md:gap-x-4">
+        <!-- Number Of Comments -->
+        <lbk-number-of of="comment">10</lbk-number-of>
+        <!-- end Number of Comments -->
+
+        <!-- Number Of Likes -->
+        <lbk-number-of of="likes">10</lbk-number-of>
+        <!-- end Number of Likes -->
+
+        <!-- Number Of Bookmark -->
+        <lbk-number-of of="bookmarks">1</lbk-number-of>
+        <!-- end Number of Bookmark -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- Arrow Right Desktop -->
+  <button
+    class="duration-300 hidden mx-6 md:block hover:translate-x-3"
+    aria-label="See Solution"
+  >
+    <i class="fa-solid fa-angle-right text-2xl text-secondary"></i>
+  </button>
+  <!-- end Arrow Right Desktop -->
+</div>
+<div class="p-6 md:px-9 md:pb-10">
+  <!-- User -->
+  <div class="flex items-center gap-3 py-3">
+    <!-- User Image -->
+    <img
+      class="w-12 h-12 border-2 rounded-full"
+      src="https://avatars.githubusercontent.com/u/94619653?v=4"
+      alt=""
+    />
+    <!-- end User Image -->
+
+    <div>
+      <div class="flex flex-wrap items-center gap-x-4">
+        <!-- User Name -->
+        <a
+          class="font-medium text-sm inline-flex items-center gap-2"
+          routerLink="/"
+          >Kratos012</a
+        >
+        <!-- end User Name -->
+        <div class="flex gap-2 text-xs italic font-medium">
+          <!-- Point -->
+          50
+          <!-- end Point -->
+
+          <!-- Pipe -->
+          <span class="h-4 w-[2px] bg-dark/40"></span>
+          <!-- end Pipe -->
+
+          <!-- Github Username -->
+          Posted 32 minutes ago
+          <!-- end Github Username -->
+        </div>
+      </div>
+
+      <!-- Long  Tablet -->
+      <span class="hidden md:block text-xs text-secondary"
+        >commented on cive's "Huddle landing page with a single introductory
+        section" solution</span
+      >
+      <!-- end Long Tablet -->
+    </div>
+  </div>
+  <!-- end User -->
+
+  <div class="mt-2 lg:mt-5 md:flex md:items-start md:gap-6">
+    <div class="vertical hidden md:block">
+      <lbk-vote>10</lbk-vote>
+    </div>
+
+    <div class="grid gap-4">
+      <!-- Questions -->
+      <p class="text-sm lg:text-base">
+        I had problems adjusting the width on bigger size screens. I tried
+        everything I could to no avail, thus finally gave up. *There are lots of
+        parts of my code I'm unsure of. In my html, I used sections instead of
+        divs. That was intentional, but don't know if it's right. My css is a
+        mess i think, coz I had issues with view port as mentioned earlier. Any
+        help will be highly appreciated.
+      </p>
+      <!-- end Questions -->
+
+      <!-- Mask As helpful -->
+      <lbk-mask-as-helpful
+        class="block md:place-self-end"
+      ></lbk-mask-as-helpful>
+      <!-- end Mask As helpful -->
+
+      <!-- Replies Tablet -->
+      <lbk-replies class="hidden md:block mt-4"></lbk-replies>
+      <!-- end Replies Tablet -->
+    </div>
+  </div>
+
+  <!-- Vote  -->
+  <div class="block mt-4 md:hidden">
+    <lbk-vote>10</lbk-vote>
+  </div>
+  <!-- end Vote  -->
+
+  <!-- Replies Mobile -->
+  <lbk-replies class="md:hidden block mt-4"></lbk-replies>
+  <!-- end Replies Mobile -->
+</div>

@@ -26,7 +26,6 @@ export class ChallengesEffects {
            * - Load Challenges Failure
            */
           catchError((error) => {
-            console.log(error);
             return of(ChallengesAPIActions.loadChallengesFailure({ error }));
           })
         );

@@ -1,14 +1,16 @@
 import { InjectionToken } from '@angular/core';
 import * as fromRouter from '@ngrx/router-store';
-import { environment } from '../../../environments/environment';
 import {
   Action,
   ActionReducer,
   ActionReducerMap,
   MetaReducer,
 } from '@ngrx/store';
+import { environment } from '../../../environments/environment';
+import * as fromFeedbacks from './feedbacks.reducer';
 
 export interface State {
+  [fromFeedbacks.feedbacksFeatureKey]: fromFeedbacks.State;
   router: fromRouter.RouterReducerState<any>;
 }
 
@@ -16,6 +18,7 @@ export const ROOT_REDUCERS = new InjectionToken<
   ActionReducerMap<State, Action>
 >('Root reducers token', {
   factory: () => ({
+    [fromFeedbacks.feedbacksFeatureKey]: fromFeedbacks.reducer,
     router: fromRouter.routerReducer,
   }),
 });

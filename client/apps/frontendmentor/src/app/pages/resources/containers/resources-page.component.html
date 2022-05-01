@@ -1,0 +1,36 @@
+<lbk-sub-header></lbk-sub-header>
+
+<main class="mb-20 pt-20">
+  <section class="container-poll">
+    <div [ngClass]="{ 'flex justify-center mt-20': loading$ | async }">
+      <lbk-spinner [loading]="(loading$ | async)!">
+        <!-- Resource Group List -->
+        <lbk-resource-group-list
+          [resourcesGroups]="(resourcesGroups$ | async)!"
+        ></lbk-resource-group-list>
+        <!-- end Resource Group List -->
+      </lbk-spinner>
+    </div>
+
+    <p class="mt-32 text-secondary max-w-[600px] text-sm">
+      * If you visit one of our affiliate resources and make a purchase,
+      Frontend Mentor may receive a commission. This comes at no extra cost to
+      you and helps support the site.<br /><br />
+      ** If you visit a resource using a referral link and make a purchase,
+      Frontend Mentor may receive credits for the selected service. It doesn’t
+      cost you any extra. We use these services too, so it helps reduce our
+      costs.
+    </p>
+  </section>
+
+  <!-- Spread The Love -->
+  <lbk-spread-the-love class="block my-32"></lbk-spread-the-love>
+  <!-- end Spread The Love -->
+
+  <lbk-latest-challenges
+    class="block mt-36 sm:mt-40 lg:mt-[120px] 2xl:mt-[144px]"
+  ></lbk-latest-challenges>
+
+  <lbk-slack class="block mt-28 lg:mt-[120px] 2xl:mt-[124px]"></lbk-slack>
+  <lbk-newletter class="block mt-20 xl:mt-32"></lbk-newletter>
+</main>

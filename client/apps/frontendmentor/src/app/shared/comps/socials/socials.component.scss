@@ -1,0 +1,33 @@
+ul {
+  @apply flex gap-2 md:gap-4;
+  li {
+    a {
+      @apply inline-block h-12 w-12 rounded-full;
+      @apply grid place-content-center border-2 border-primary;
+      img {
+        @apply w-5 h-5;
+      }
+    }
+  }
+}
+
+:host-context(.skip-linkedin) {
+  .linkedin {
+    display: none;
+  }
+}
+
+:host-context(.lg) {
+  ul {
+    @apply gap-4;
+    li {
+      a {
+        @apply h-16 w-16;
+      }
+
+      img {
+        @apply h-6 w-6;
+      }
+    }
+  }
+}

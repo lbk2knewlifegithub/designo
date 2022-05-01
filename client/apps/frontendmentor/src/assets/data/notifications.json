@@ -1,0 +1,602 @@
+[
+    {
+        "notification_id": 3984607497,
+        "createdAt": "2022-08-31T10:43:41+07:00",
+        "user": {
+            "name": "Wallas9_3",
+            "username": "wallas9_3",
+            "image": "https://avatars.githubusercontent.com/u/33827350?v=4"
+        },
+        "type": "like",
+        "solution": {
+            "solution_id": 1,
+            "name": "Product feedback app solution"
+        }
+    },
+    {
+        "notification_id": 2303348528,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 2,
+            "name": "3-column preview card component"
+        }
+    },
+    {
+        "notification_id": 1749121661,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 3,
+            "name": "Qr-code-component"
+        }
+    },
+    {
+        "notification_id": 417633952,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 3,
+            "name": "inter"
+        }
+    },
+    {
+        "notification_id": 580594508,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Catherine Is Online",
+            "username": "catherineisonline",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/gwnmrcaojmjhidue2tzi.jpg"
+        },
+        "type": "like",
+        "solution": {
+            "solution_id": 4,
+            "name": "Designo multi-page website solution!"
+        }
+    },
+    {
+        "notification_id": 692145598,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Aghware Mitchellin",
+            "username": "aghwaremitchellin",
+            "image": "https://avatars.githubusercontent.com/u/96637672?v=4"
+        },
+        "type": "follow"
+    },
+    {
+        "notification_id": 547124830,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "mention",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Scissors game"
+        }
+    },
+    {
+        "notification_id": 3733172021,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "comment",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Siccosrs game"
+        }
+    },
+    {
+        "notification_id": 1318819853,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "bookmark",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Siccosrs game"
+        }
+    },
+    {
+        "notification_id": 239614146,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Lawrence Caudle",
+            "username": "lawrencecaudle",
+            "image": "https://avatars.githubusercontent.com/u/82593781?v=4"
+        },
+        "type": "upvote",
+        "solution": {
+            "solution_id": 323,
+            "name": "Stats preview card component"
+        }
+    },
+    {
+        "notification_id": 1471341785,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Lawrence Caudle",
+            "username": "lawrencecaudle",
+            "image": "https://avatars.githubusercontent.com/u/82593781?v=4"
+        },
+        "type": "reply",
+        "solution": {
+            "solution_id": 323,
+            "name": "Stats preview card component"
+        }
+    },
+    {
+        "notification_id": 759906911,
+        "createdAt": "2022-08-31T10:43:41+07:00",
+        "user": {
+            "name": "Wallas9_3",
+            "username": "wallas9_3",
+            "image": "https://avatars.githubusercontent.com/u/33827350?v=4"
+        },
+        "type": "like",
+        "solution": {
+            "solution_id": 1,
+            "name": "Product feedback app solution"
+        }
+    },
+    {
+        "notification_id": 2021033867,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 2,
+            "name": "3-column preview card component"
+        }
+    },
+    {
+        "notification_id": 4254678218,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 3,
+            "name": "Qr-code-component"
+        }
+    },
+    {
+        "notification_id": 1936360219,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 3,
+            "name": "inter"
+        }
+    },
+    {
+        "notification_id": 1533417376,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Catherine Is Online",
+            "username": "catherineisonline",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/gwnmrcaojmjhidue2tzi.jpg"
+        },
+        "type": "like",
+        "solution": {
+            "solution_id": 4,
+            "name": "Designo multi-page website solution!"
+        }
+    },
+    {
+        "notification_id": 2547543566,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Aghware Mitchellin",
+            "username": "aghwaremitchellin",
+            "image": "https://avatars.githubusercontent.com/u/96637672?v=4"
+        },
+        "type": "follow"
+    },
+    {
+        "notification_id": 2701040245,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "mention",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Scissors game"
+        }
+    },
+    {
+        "notification_id": 720387945,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "comment",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Siccosrs game"
+        }
+    },
+    {
+        "notification_id": 1902810913,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "bookmark",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Siccosrs game"
+        }
+    },
+    {
+        "notification_id": 3423355592,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Lawrence Caudle",
+            "username": "lawrencecaudle",
+            "image": "https://avatars.githubusercontent.com/u/82593781?v=4"
+        },
+        "type": "upvote",
+        "solution": {
+            "solution_id": 323,
+            "name": "Stats preview card component"
+        }
+    },
+    {
+        "notification_id": 1594194511,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Lawrence Caudle",
+            "username": "lawrencecaudle",
+            "image": "https://avatars.githubusercontent.com/u/82593781?v=4"
+        },
+        "type": "reply",
+        "solution": {
+            "solution_id": 323,
+            "name": "Stats preview card component"
+        }
+    },
+    {
+        "notification_id": 3941107355,
+        "createdAt": "2022-08-31T10:43:41+07:00",
+        "user": {
+            "name": "Wallas9_3",
+            "username": "wallas9_3",
+            "image": "https://avatars.githubusercontent.com/u/33827350?v=4"
+        },
+        "type": "like",
+        "solution": {
+            "solution_id": 1,
+            "name": "Product feedback app solution"
+        }
+    },
+    {
+        "notification_id": 1356178291,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 2,
+            "name": "3-column preview card component"
+        }
+    },
+    {
+        "notification_id": 3485049358,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 3,
+            "name": "Qr-code-component"
+        }
+    },
+    {
+        "notification_id": 948611216,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 3,
+            "name": "inter"
+        }
+    },
+    {
+        "notification_id": 2815393748,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Catherine Is Online",
+            "username": "catherineisonline",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/gwnmrcaojmjhidue2tzi.jpg"
+        },
+        "type": "like",
+        "solution": {
+            "solution_id": 4,
+            "name": "Designo multi-page website solution!"
+        }
+    },
+    {
+        "notification_id": 2688179245,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Aghware Mitchellin",
+            "username": "aghwaremitchellin",
+            "image": "https://avatars.githubusercontent.com/u/96637672?v=4"
+        },
+        "type": "follow"
+    },
+    {
+        "notification_id": 1708011620,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "mention",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Scissors game"
+        }
+    },
+    {
+        "notification_id": 4050456051,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "comment",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Siccosrs game"
+        }
+    },
+    {
+        "notification_id": 1013476445,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "bookmark",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Siccosrs game"
+        }
+    },
+    {
+        "notification_id": 4165159822,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Lawrence Caudle",
+            "username": "lawrencecaudle",
+            "image": "https://avatars.githubusercontent.com/u/82593781?v=4"
+        },
+        "type": "upvote",
+        "solution": {
+            "solution_id": 323,
+            "name": "Stats preview card component"
+        }
+    },
+    {
+        "notification_id": 2728626438,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Lawrence Caudle",
+            "username": "lawrencecaudle",
+            "image": "https://avatars.githubusercontent.com/u/82593781?v=4"
+        },
+        "type": "reply",
+        "solution": {
+            "solution_id": 323,
+            "name": "Stats preview card component"
+        }
+    },
+    {
+        "notification_id": 1925397711,
+        "createdAt": "2022-08-31T10:43:41+07:00",
+        "user": {
+            "name": "Wallas9_3",
+            "username": "wallas9_3",
+            "image": "https://avatars.githubusercontent.com/u/33827350?v=4"
+        },
+        "type": "like",
+        "solution": {
+            "solution_id": 1,
+            "name": "Product feedback app solution"
+        }
+    },
+    {
+        "notification_id": 2833116805,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 2,
+            "name": "3-column preview card component"
+        }
+    },
+    {
+        "notification_id": 1472133341,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 3,
+            "name": "Qr-code-component"
+        }
+    },
+    {
+        "notification_id": 4268957768,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "akinsyi philip",
+            "username": "Akinsuyiphilip",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/k1dc7vrk6ymgblpy3dta.jpg"
+        },
+        "type": "upload",
+        "solution": {
+            "solution_id": 3,
+            "name": "inter"
+        }
+    },
+    {
+        "notification_id": 1346063574,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Catherine Is Online",
+            "username": "catherineisonline",
+            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_240,h_240,c_fill/Avatars/gwnmrcaojmjhidue2tzi.jpg"
+        },
+        "type": "like",
+        "solution": {
+            "solution_id": 4,
+            "name": "Designo multi-page website solution!"
+        }
+    },
+    {
+        "notification_id": 80392755,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Aghware Mitchellin",
+            "username": "aghwaremitchellin",
+            "image": "https://avatars.githubusercontent.com/u/96637672?v=4"
+        },
+        "type": "follow"
+    },
+    {
+        "notification_id": 2068045712,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "mention",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Scissors game"
+        }
+    },
+    {
+        "notification_id": 872070859,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "comment",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Siccosrs game"
+        }
+    },
+    {
+        "notification_id": 3884334510,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Ediongsenyene",
+            "username": "ediongsenyene",
+            "image": "https://avatars.githubusercontent.com/u/81180771?v=4"
+        },
+        "type": "bookmark",
+        "solution": {
+            "solution_id": 323,
+            "name": "Rock, Paper, Siccosrs game"
+        }
+    },
+    {
+        "notification_id": 140242891,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Lawrence Caudle",
+            "username": "lawrencecaudle",
+            "image": "https://avatars.githubusercontent.com/u/82593781?v=4"
+        },
+        "type": "upvote",
+        "solution": {
+            "solution_id": 323,
+            "name": "Stats preview card component"
+        }
+    },
+    {
+        "notification_id": 508370568,
+        "createdAt": "2022-11-01T05:43:40+07:00",
+        "user": {
+            "name": "Lawrence Caudle",
+            "username": "lawrencecaudle",
+            "image": "https://avatars.githubusercontent.com/u/82593781?v=4"
+        },
+        "type": "reply",
+        "solution": {
+            "solution_id": 323,
+            "name": "Stats preview card component"
+        }
+    }
+]

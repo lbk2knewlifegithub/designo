@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { Unsubscriber } from '@lbk/comps';
 import { FeedbackStatus, FeedbackSummary } from '@lbk/models';
-import { FeedbacksFacade } from '@lbk/state/feedbacks';
+import { FeedbacksFacade } from '../../../../state';
 import { combineLatest, fromEvent, map, Observable } from 'rxjs';
 import { take, throttleTime } from 'rxjs/operators';
 import { RoadmapFacade } from '../../state';

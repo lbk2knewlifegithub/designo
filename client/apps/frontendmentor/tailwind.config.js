@@ -15,7 +15,7 @@ module.exports = {
         DEFAULT: '.5rem',
         sm: '1rem',
         md: '1rem',
-        lg: '1.5rem',
+        lg: '2rem',
         xl: '1.5rem',
         '2xl': '0rem',
       },
@@ -28,6 +28,7 @@ module.exports = {
       colors: {
         primary: {
           DEFAULT: '#3e54a3',
+          '50': '#2F4183',
         },
         error: {
           DEFAULT: '#ed2c49',
@@ -35,8 +36,11 @@ module.exports = {
         accent: {
           DEFAULT: '#6abecd',
         },
+
         success: {
           DEFAULT: '#aad742',
+          '50': "#6FDD9B",
+          '100': "#5BA3AE"
         },
         warning: {
           DEFAULT: '#f1b604',
@@ -47,6 +51,9 @@ module.exports = {
         },
         secondary: {
           DEFAULT: '#737373',
+          '50': '#F0F4F4',
+          '100': '#737373',
+          '200': '#D6D6D6',
         },
         dark: {
           DEFAULT: '#24292e',
@@ -57,6 +64,7 @@ module.exports = {
 
   plugins: [
     require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
     plugin(function ({ addComponents }) {
       addComponents({
         '.container': {

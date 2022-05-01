@@ -27,6 +27,7 @@ export class InputComponent {
   @Input() controlName!: string;
   @Input() label!: string;
   @Input() inputType = 'text';
+  @Input() placeholder = '';
 
   get formControl(): FormControl {
     return this.parent.get(this.controlName) as FormControl;

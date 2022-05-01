@@ -1,0 +1,57 @@
+<header class="relative border-b">
+  <nav class="container flex justify-between items-center pr-5 lg:py-1">
+    <a aria-label="Logo" routerLink="/">
+      <!-- Logo Mobile -->
+      <img
+        class="p-[17px] border-r md:hidden"
+        src="assets/images/shared/logo-mobile.svg"
+        alt="Logo Mobile"
+      />
+      <!-- end Logo Mobile -->
+
+      <!-- Logo Tablet -->
+      <img
+        class="hidden min-w-[196px] py-[17px] pl-[17px] md:block lg:pl-0"
+        src="assets/images/shared/logo-desktop.svg"
+        alt="Logo Mobile"
+      />
+      <!-- end Logo Tablet -->
+    </a>
+
+    <div class="hidden gap-8 items-center lg:flex">
+      <!-- Link Desktop -->
+      <lbk-links-desktop></lbk-links-desktop>
+      <!-- end Link Desktop -->
+
+      <!-- Login With Github -->
+      <a
+        class="btn inline-flex items-center font-medium text-heading text-sm gap-2 py-2 px-5 bg-dark text-white rounded-full"
+        href="#"
+      >
+        Login with Github
+        <i class="fa-brands fa-github text-lg"></i>
+      </a>
+      <!-- end Login With Github -->
+    </div>
+
+    <!-- Hamburger  -->
+    <lbk-menu-one
+      [(shown)]="shown"
+      class="lg:hidden"
+      color="black"
+    ></lbk-menu-one>
+    <!-- end Hamburger  -->
+  </nav>
+
+  <!-- Nav Mobile -->
+  <lbk-nav-mobile
+    [(shown)]="shown"
+    *ngIf="shown"
+    (clickOutside)="close()"
+    skip="lbk-menu-one"
+    @fadeIn
+    @fadeOut
+    class="absolute w-full top-0 bottom-0 translate-y-full z-50 md:border md:translate-y-[130%] md:w-auto md:right-8 lg:hidden"
+  ></lbk-nav-mobile>
+  <!-- end Nav Mobile -->
+</header>

@@ -1,0 +1,38 @@
+<main class="container-poll mt-6 mb-20">
+  <lbk-spinner [radius]="50" class="center" [loading]="loading$ | async">
+    <!-- Back To Dashboard -->
+    <lbk-back-dashboard></lbk-back-dashboard>
+    <!-- end Back To Dashboard -->
+
+    <!-- Links -->
+    <ul class="links">
+      <li>
+        <a
+          routerLink="/dashboard/my-challenges"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          In progress ({{ inProgressChallenges$ | async | length }})
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/dashboard/my-challenges"
+          [queryParams]="{ status: 'completed' }"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Completed ({{ completedChallenges$ | async | length }})
+        </a>
+      </li>
+    </ul>
+    <!-- end Links -->
+
+    <!-- Challenge List -->
+    <lbk-challenge-preview-list
+      class="block mt-6 lg:mt-8"
+      [challenges]="(challenges$ | async)!"
+    ></lbk-challenge-preview-list>
+    <!-- end Challenge List -->
+  </lbk-spinner>
+</main>

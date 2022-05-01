@@ -1,0 +1,46 @@
+<div class="flex items-center gap-3 sm:gap-6">
+  <!-- User Image -->
+  <div>
+    <img
+      class="w-[45px] aspect-square rounded-full sm:w-[55px]"
+      [src]="notification.user.image"
+      [alt]="notification.user.name"
+    />
+  </div>
+  <!-- end User Image -->
+
+  <div class="w-full">
+    <p class="text-sm">
+      <!-- User Name -->
+      <a class="font-bold" routerLink="/notifications">
+        {{ notification.user.name }}
+      </a>
+      <!-- end User Name -->
+
+      <span [innerHtml]="notification.type | notifySentence"></span>
+      <a class="font-bold" routerLink="/notifications">
+        {{ notification | solutionNotifyName }}
+      </a>
+    </p>
+
+    <div class="flex items-center justify-between mt-1">
+      <span class="text-xs text-secondary">{{
+        notification.createdAt | timeAgo
+      }}</span>
+
+      <!-- Notification Icon Mobile-->
+      <div class="sm:hidden">
+        <lbk-notification-icon
+          [type]="notification.type"
+        ></lbk-notification-icon>
+      </div>
+      <!-- end Notification Icon Mobile-->
+    </div>
+  </div>
+
+  <!-- end Notification Icon Tablet-->
+  <div class="hidden lg sm:block">
+    <lbk-notification-icon [type]="notification.type"></lbk-notification-icon>
+  </div>
+  <!-- end Notification Icon Tablet-->
+</div>

@@ -1,0 +1,13 @@
+.links {
+  @apply flex font-medium text-sm mt-4 sm:mt-5 lg:mt-8;
+
+  li {
+    a {
+      @apply px-4 border-b-4;
+
+      &.active {
+        @apply border-primary font-bold;
+      }
+    }
+  }
+}

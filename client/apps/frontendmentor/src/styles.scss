@@ -3,23 +3,60 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply font-mono bg-[#fafafa] text-dark;
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-heading;
+    @apply font-heading font-medium;
   }
 
-  body {
-    @apply font-mono bg-[#fafafa];
+  // Button
+  .btn {
+    @apply shadow-sm rounded-full duration-300;
+    @apply font-medium text-center leading-6 text-sm;
+    @apply py-3 px-5 hover:scale-105 hover:shadow-2xl active:scale-95;
+  }
+
+  .btn-icon {
+    @apply inline-flex justify-center items-center gap-2;
+  }
+
+  .btn-error {
+    @apply bg-error text-white;
+  }
+
+  .btn-primary {
+    @apply text-white bg-primary;
+  }
+
+  .btn-primary-outline {
+    @apply text-primary border font-bold italic border-primary;
+  }
+
+  .btn-error-outline {
+    @apply bg-transparent text-error border-error border;
+  }
+
+  .btn-white {
+    @apply bg-white italic text-primary;
   }
 
   // Badge
+
   .badge {
     @apply text-xs font-bold py-1 px-3 tracking-wider rounded-full;
   }
+
+  .badge-xs {
+    @apply py-[2.5px] px-2 text-xs;
+  }
+
   .badge-secondary {
     @apply bg-[#e7ebf9] text-primary;
   }
@@ -28,12 +65,79 @@
     @apply bg-primary text-white;
   }
 
+  .badge-primary-outline {
+    @apply border text-primary px-3 rounded-md;
+  }
+
+  .badge-accent-outline {
+    @apply border text-accent px-3 rounded-md;
+  }
+
+  .badge-warning {
+    @apply bg-warning-50 text-white;
+  }
+
   .badge-error {
     @apply bg-error text-white;
   }
+
+  .link {
+    @apply relative inline-block text-center font-bold  text-xs;
+    // @apply underline decoration-solid decoration-[.15rem] underline-offset-2;
+    @apply md:text-sm;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 51%;
+      height: 3px;
+      transition: 300ms width ease-in-out;
+    }
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      right: 0;
+    }
+
+    &:hover:before,
+    &:hover:after {
+      width: 0;
+    }
+  }
+
+  .link-primary {
+    @apply text-secondary decoration-primary;
+  }
+
+  .link-error {
+    @apply text-secondary decoration-error;
+
+    &:before,
+    &:after {
+      @apply bg-error;
+    }
+  }
+
+  .container-poll {
+    @apply container max-w-[1200px] xl:px-0;
+  }
+
+  // Checkout
+  input[type='checkbox'] {
+    @apply w-6 h-6 border-[3px] border-primary focus:bg-primary;
+  }
 }
+
 @layer components {
 }
 
 @layer utilities {
+  .fancy-border {
+    @apply focus:outline-dotted focus:outline-accent focus:outline-4;
+  }
 }

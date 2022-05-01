@@ -1,0 +1,32 @@
+<main class="mb-20">
+  <!-- Hero -->
+  <lbk-hero></lbk-hero>
+  <!-- end Hero -->
+  <lbk-cards></lbk-cards>
+
+  <section
+    class="container-poll flex flex-col mt-4 md:flex-row md:gap-8 lg:gap-14 lg:mt-10"
+  >
+    <div class="grid grow gap-8">
+      <lbk-my-challenge-status class="block mt-4"></lbk-my-challenge-status>
+      <lbk-brief></lbk-brief>
+
+      <lbk-get-started></lbk-get-started>
+    </div>
+
+    <div class="md:h-0">
+      <lbk-stats class="block mt-4 min-w-[232px]"></lbk-stats>
+    </div>
+  </section>
+
+  <!-- Challenge FAQS -->
+  <lbk-question-list
+    class="block mt-16 md:mt-28"
+    type="challenges"
+  ></lbk-question-list>
+  <!-- end Challenge FAQS -->
+
+  <lbk-slack class="block mt-28 lg:mt-[120px] 2xl:mt-[124px]"></lbk-slack>
+
+  <lbk-newletter class="block mt-20 xl:mt-32"></lbk-newletter>
+</main>

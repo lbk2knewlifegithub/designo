@@ -1,5 +1,5 @@
 import { FeedbackCategory } from '@lbk/models';
-import { FeedbacksActions, FeedbacksApiActions } from '@lbk/state/feedbacks';
+import { FeedbacksActions, FeedbacksApiActions } from '../../../state';
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { HomeActions } from './actions';
 

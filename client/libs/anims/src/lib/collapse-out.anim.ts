@@ -32,7 +32,7 @@ export function collapseOut(
           animation([
             animate(
               '{{duration}}ms {{delay}}ms {{easing}}',
-              style({ height: '0' })
+              style({ height: 0 })
             ),
           ]),
           options

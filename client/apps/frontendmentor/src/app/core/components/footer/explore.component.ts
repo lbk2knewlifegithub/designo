@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Link } from '@lbk/models';
 
 @Component({
   selector: 'lbk-explore',
@@ -6,33 +7,45 @@ import { Component } from '@angular/core';
     <h2 class="text-xs font-bold">EXPLORE</h2>
 
     <ul class="mt-4 text-sm grid gap-2">
-      <li>
-        <a routerLink="/challenges">Challenges</a>
-      </li>
 
-      <li>
-        <a routerLink="/solutions">Solutions</a>
-      </li>
+      <li *ngFor="let link of links">
+        <a class="link link-error" [routerLink]="[link.href]">{{
+          link.name
+        }}</a>
 
-      <li>
-        <a routerLink="/resources">Resources</a>
-      </li>
-
-      <li>
-        <a routerLink="/unlock-prod">Unlock PRO</a>
-      </li>
-
-      <li>
-        <a routerLink="/hiring">Hire Developer</a>
       </li>
     </ul>
   `,
-  styles: [
-    `
-      a {
-        @apply inline-block border-b-[3px] border-red-500;
-      }
-    `,
-  ],
 })
-export class ExploreComponent {}
+export class ExploreComponent implements OnInit {
+  links!: Link[];
+
+  ngOnInit(): void {
+    this._initLinks();
+  }
+
+  private _initLinks() {
+    this.links = [
+      {
+        href: '/challenges',
+        name: 'Challenges',
+      },
+      {
+        href: '/solutions',
+        name: 'Solutions',
+      },
+      {
+        href: '/resources',
+        name: 'Resources',
+      },
+      {
+        href: '/unlock-pro',
+        name: 'Unlock PRO',
+      },
+      {
+        href: '/hiring',
+        name: 'Hire Developer',
+      },
+    ];
+  }
+}

@@ -1,0 +1,38 @@
+<main class="container-poll mt-6 mb-20">
+  <lbk-spinner [radius]="50" class="center" [loading]="loading$ | async">
+    <!-- Back To Dashboard -->
+    <lbk-back-dashboard></lbk-back-dashboard>
+    <!-- end Back To Dashboard -->
+
+    <!-- Links -->
+    <ul class="links">
+      <li>
+        <a
+          routerLink="/dashboard/my-network"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Followers ({{ followers$ | async | length }})
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/dashboard/my-network"
+          [queryParams]="{ tab: 'following' }"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Following ({{ following$ | async | length }})
+        </a>
+      </li>
+    </ul>
+    <!-- end Links -->
+
+    <!-- User List -->
+    <lbk-user-list
+      class="block min-h-[450px] mt-6 lg:mt-8"
+      [users]="(users$ | async | slice: 0:8)!"
+    ></lbk-user-list>
+    <!-- end User List -->
+  </lbk-spinner>
+</main>
