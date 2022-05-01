@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DashboardFacade } from './../facade';
+import { DashboardFacade } from './../../facade';
 
 @Component({
   selector: 'lbk-dashboard-page',

@@ -3,7 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  NgModule
+  NgModule,
 } from '@angular/core';
 
 @Component({
@@ -46,7 +46,7 @@ import {
 
       :host-context(.center) {
         .loading-wrapper {
-          @apply w-full flex justify-center mt-20 mb-32;
+          @apply w-full flex justify-center mt-20 mb-[500px];
         }
       }
     `,

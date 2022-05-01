@@ -26,9 +26,13 @@ import { DashboardFacade } from '../facade';
             </li>
           </ul>
 
-          <!-- View All  -->
-          <a class="block mt-10 link link-error">View all</a>
-          <!-- end View All  -->
+          <!-- View All Bookmarks-->
+          <a
+            routerLink="/dashboard/my-bookmarks"
+            class="block mt-10 link link-error"
+            >View all</a
+          >
+          <!-- end View All Bookmarks-->
         </div>
       </div>
     </section>

@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Tags } from '@lbk/fm/shared';
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { Observable } from 'rxjs';
 import { DashboardFacade } from '../facade';
 
@@ -8,8 +7,8 @@ import { DashboardFacade } from '../facade';
   selector: 'lbk-my-tags',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section [delay]="1100" scrollTo="center" class="container-poll">
-      <div class="bg-white rounded-lg border p-6">
+    <section class="container-poll">
+      <div class="bg-white rounded-lg border p-6 lg:py-8">
         <h1 class="font-medium text-3xl">My Tags</h1>
 
         <form class="mt-3 flex flex-col gap-1 sm:flex-row sm:gap-2 sm:mt-5">
@@ -20,15 +19,17 @@ import { DashboardFacade } from '../facade';
             <option value="audi">Audi</option>
           </select>
 
+          <!-- Follow Button -->
           <button
-            class="btn btn-error italic font-bold w-full py-2 sm:w-auto sm:px-12"
+            class="btn btn-error italic font-bold w-full py-2 sm:w-auto sm:px-12 lg:text-base"
           >
             FOLLOW
           </button>
+          <!-- end Follow Button -->
         </form>
 
         <ul
-          class="mt-3 grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+          class="mt-3 grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:mt-4"
         >
           <li
             *ngFor="let i of [1, 2, 3, 4, 5, 5, 6, 6]"

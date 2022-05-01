@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { UserMinimal } from '@lbk/fm/shared';
 import { Observable } from 'rxjs';
 import { DashboardFacade } from '../../facade';
@@ -8,7 +7,7 @@ import { DashboardFacade } from '../../facade';
   selector: 'lbk-my-network',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section  class="container-poll ">
+    <section class="container-poll ">
       <div class="bg-white rounded-lg border p-6">
         <h1 class="font-medium text-3xl">My Network</h1>
         <ul class="mt-3 grid gap-10">
@@ -20,9 +19,11 @@ import { DashboardFacade } from '../../facade';
               [users]="(followers$ | async | slice: 0:8)!"
             ></lbk-user-list>
 
-            <!-- View All  -->
-            <a class="mt-2 link link-error">View all</a>
-            <!-- end View All  -->
+            <!-- View All Followers-->
+            <a routerLink="/dashboard/my-network" class="mt-2 link link-error"
+              >View all</a
+            >
+            <!-- end View All Followers-->
           </li>
           <!-- end Followers -->
 
@@ -34,9 +35,14 @@ import { DashboardFacade } from '../../facade';
               [users]="(followers$ | async | slice: 0:8)!"
             ></lbk-user-list>
 
-            <!-- View All  -->
-            <a class="mt-2 link link-error">View all</a>
-            <!-- end View All  -->
+            <!-- View All  Following -->
+            <a
+              routerLink="/dashboard/my-network"
+              [queryParams]="{ tab: 'following' }"
+              class="mt-2 link link-error"
+              >View all</a
+            >
+            <!-- end View All  Following -->
           </li>
           <!-- end Following -->
         </ul>

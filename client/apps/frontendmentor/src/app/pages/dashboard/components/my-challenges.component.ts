@@ -21,7 +21,11 @@ import { DashboardFacade } from '../facade';
             ></lbk-challenge-preview-list>
 
             <!-- View All  -->
-            <a class="mt-2 link link-error md:mt-4">View all</a>
+            <a
+              routerLink="/dashboard/my-challenges"
+              class="mt-2 link link-error md:mt-4"
+              >View all</a
+            >
             <!-- end View All  -->
           </li>
           <!-- end In Progess -->
@@ -33,9 +37,14 @@ import { DashboardFacade } from '../facade';
               [challenges]="(completedChallenges$ | async | slice: 0:3)!"
             ></lbk-challenge-preview-list>
 
-            <!-- View All  -->
-            <a class="mt-2 link link-error md:mt-4">View all</a>
-            <!-- end View All  -->
+            <!-- View All Completed Challenges-->
+            <a
+              routerLink="/dashboard/my-challenges"
+              [queryParams]="{ status: 'completed' }"
+              class="mt-2 link link-error md:mt-4"
+              >View all</a
+            >
+            <!-- end View All Completed Challenges-->
           </li>
           <!-- end Completed -->
         </ul>
