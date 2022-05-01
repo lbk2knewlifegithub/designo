@@ -4,7 +4,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-replies',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="flex text-xs justify-between bg-primary/5 px-6 py-3 rounded-lg">
+    <div
+      class="flex text-xs justify-between bg-primary/5 px-6 py-5 rounded-lg lg:text-sm"
+    >
       <span> This comment has received <strong>1 reply</strong> </span>
 
       <!-- Toggle Button -->

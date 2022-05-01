@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-footer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <footer class="border-t border-dark">
+    <footer class="border-t border-dark/20 bg-white">
       <div class="container pt-16 2xl:px-28">
         <ul
           class="flex flex-col gap-10 md:justify-between md:flex-row lg:gap-24"
@@ -48,7 +48,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
       <!-- Copyright -->
       <lbk-copyright
-        class="block border-t-4 sm:border-t sm:border-black mt-16 md:mt-32 lg:mt-24"
+        class="block border-t-4 sm:border-t sm:border-black/20 mt-16 md:mt-32 lg:mt-24"
       ></lbk-copyright>
       <!-- end Copyright -->
     </footer>

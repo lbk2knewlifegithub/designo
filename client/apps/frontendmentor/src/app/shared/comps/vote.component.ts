@@ -18,7 +18,7 @@ import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
       }
 
       :host-context(.vertical) {
-        @apply flex-col py-3 px-3 gap-2;
+        @apply flex-col py-3 px-4 gap-2;
       }
     `,
   ],

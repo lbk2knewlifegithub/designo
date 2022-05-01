@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'lbk-design-comparison',
   template: `
-    <section scrollTo="center" class="container-poll pt-16 md:pt-20 xl:pt-32">
+    <section class="container-poll pt-16 md:pt-20 xl:pt-32">
       <h2 class="font-bold text-center xl:text-lg">DESIGN COMPARISON</h2>
 
       <div

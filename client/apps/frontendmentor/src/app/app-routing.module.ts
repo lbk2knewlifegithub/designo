@@ -15,6 +15,12 @@ const routes: Routes = [
       import('./pages/dashboard').then((m) => m.DashboardModule),
   },
 
+  // Profile
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile').then((m) => m.ProfileModule),
+  },
+
   // Solution
   {
     path: 'solution',

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ImageModule } from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
 import {
+  ActivityPreviewModule,
   LanguageListModule,
   MaskAsHelpFullModule,
   NumberOfModule,
@@ -21,6 +22,7 @@ import { ActivityPageComponent } from './containers';
     LanguageListModule,
     VoteModule,
     MaskAsHelpFullModule,
+    ActivityPreviewModule,
     // Shared Directives From Libs
     ScrollToModule,
     ImageModule,
