@@ -4,12 +4,7 @@ import { Component } from '@angular/core';
   selector: 'lbk-links',
   template: `
     <!-- Profile -->
-    <a
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-      routerLink="/settings"
-      >Profile</a
-    >
+    <a routerLinkActive="active" routerLink="/settings">Profile</a>
     <!-- end Profile -->
 
     <!-- Account -->
