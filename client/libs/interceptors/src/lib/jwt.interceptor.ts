@@ -18,10 +18,7 @@ export class JwtInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     return this._tokenService.getToken().pipe(
       switchMap((token) => {
-        const headers = req.headers.set(
-          'Authorization',
-          `Bearer ${token?.accessToken}`
-        );
+        const headers = req.headers.set('Authorization', `Bearer ${token}`);
         return next.handle(req.clone({ headers }));
       })
     );

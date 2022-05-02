@@ -6,6 +6,8 @@ export interface Link {
   image?: Image;
   icon?: string;
   queryParams?: { [key: string]: string };
+  loggedIn?: boolean;
+  skip?: boolean;
 }
 
 export const identifyLink = (index: number, link: Link) => {

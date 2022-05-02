@@ -5,8 +5,6 @@ use crate::Result;
 use actix_web::{http::header, HttpRequest};
 use jsonwebtoken::{DecodingKey, EncodingKey, Header, Validation};
 use std::env::var;
-use tracing::debug;
-
 #[derive(Clone)]
 pub struct JWTService {
     jwt_secret: String,
@@ -43,10 +41,7 @@ impl JWTService {
             &DecodingKey::from_secret(self.jwt_secret.as_ref()),
             &Validation::default(),
         )
-        .map_err(|e| {
-            debug!("JWTService -> decode ->  {e}; -> Token {token}",);
-            e
-        })?
+        .map_err(|e| AuthError::from(e))?
         .claims)
     }
 
@@ -56,14 +51,14 @@ impl JWTService {
 
         match token {
             Some(t) => {
-                let banana = t.to_str().map_err(|_| AuthError::Unauthorize)?;
+                let banana = t.to_str().map_err(|_| AuthError::TokenNotFound)?;
                 Ok(banana
                     .split_whitespace()
                     .nth(1)
-                    .ok_or(AuthError::Unauthorize)?
+                    .ok_or(AuthError::TokenNotFound)?
                     .to_string())
             }
-            None => Err(AuthError::Unauthorize.into()),
+            None => Err(AuthError::TokenNotFound.into()),
         }
     }
 

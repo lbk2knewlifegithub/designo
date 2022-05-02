@@ -5,49 +5,33 @@ import { DialogService } from '@ngneat/dialog';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { exhaustMap, map, of, tap } from 'rxjs';
 import { catchError, delay, switchMap } from 'rxjs/operators';
-import { AuthActions, AuthApiActions } from './actions';
-import { AuthFacade } from './auth.facade';
-import { AuthService, UserService } from './services';
+import { AuthActions, AuthApiActions } from '../actions';
+import { AuthFacade } from '../auth.facade';
+import { AuthService, UserService } from '../services';
 
 /**
- * - Feedback Effects
+ * - Auth Effects
  */
 @Injectable({ providedIn: 'root' })
 export class AuthEffects {
   /**
-   * - Login
+   * - Login With Github
    */
-  login$ = createEffect(() =>
+  loginWithGithub$ = createEffect(() =>
     this._actions$.pipe(
-      ofType(AuthActions.login),
-      exhaustMap(({ credentials }) =>
-        this._authService.login(credentials).pipe(
-          map((tokens) => AuthApiActions.loginSuccess({ tokens })),
-          catchError(({ error }) => of(AuthApiActions.loginFailure(error)))
-        )
-      )
-    )
-  );
-
-  /**
-   * - Sign Up
-   */
-  signup$ = createEffect(() =>
-    this._actions$.pipe(
-      ofType(AuthActions.signup),
-      exhaustMap(({ createUserDTO }) =>
-        this._authService.signup(createUserDTO).pipe(
-          map((tokens) => AuthApiActions.signUpSuccess({ tokens })),
-          tap(
-            () => void 0,
-            () => {
-              this._dialog.error({
-                title: 'Signup failed',
-                body: 'Something went wrong, please try again later.',
-              });
-            }
-          ),
-          catchError(({ error }) => of(AuthApiActions.signUpFailure(error)))
+      ofType(AuthActions.loginWithGithub),
+      exhaustMap(({ code }) =>
+        this._authService.loginWithGithub(code).pipe(
+          map((token) => AuthApiActions.loginWithGithubSuccess({ token })),
+          tap(null, () => {
+            this._dialog.error({
+              title: 'Login With Github Failure',
+              body: 'Please try again after few minutes.',
+            });
+          }),
+          catchError(({ error }) =>
+            of(AuthApiActions.loginWithGithubFailure(error))
+          )
         )
       )
     )
@@ -61,10 +45,10 @@ export class AuthEffects {
   authorizationSuccess$ = createEffect(
     () =>
       this._actions$.pipe(
-        ofType(AuthApiActions.loginSuccess, AuthApiActions.signUpSuccess),
+        ofType(AuthApiActions.loginWithGithubSuccess),
         concatLatestFrom(() => this._authFacade.returnUrl$),
-        tap(([{ tokens }, returnUrl]) => {
-          this._tokenService.saveTokens(tokens);
+        tap(([{ token }, returnUrl]) => {
+          this._tokenService.saveToken(token);
           this._authFacade.tryLogin();
 
           this._router.navigateByUrl(returnUrl ? returnUrl : `/`);
@@ -122,45 +106,6 @@ export class AuthEffects {
   );
 
   /**
-   * - Change Password
-   */
-  changePassword$ = createEffect(() =>
-    this._actions$.pipe(
-      ofType(AuthActions.changePassword),
-      exhaustMap(({ changePasswordDTO }) =>
-        this._userService.changePassword(changePasswordDTO).pipe(
-          /**
-           * - Change Password Success
-           */
-          map(() => AuthApiActions.changePasswordSuccess()),
-
-          tap(
-            // Show Dialog Change Password Success
-            () =>
-              this._dialog.success({
-                title: 'Change password sucess',
-                body: 'Next time you login, you will need to use new password',
-              }),
-            // Show Dialog Change Password Failure
-            () =>
-              this._dialog.error({
-                title: 'Change password failed',
-                body: 'Your old password incorret!',
-              })
-          ),
-
-          /**
-           * - Change Password Failure
-           */
-          catchError(({ error }) =>
-            of(AuthApiActions.changePasswordFailure(error))
-          )
-        )
-      )
-    )
-  );
-
-  /**
    * -  Update Account
    */
   updateAccount$ = createEffect(() =>
@@ -211,7 +156,7 @@ export class AuthEffects {
    */
   autoClearError$ = createEffect(() =>
     this._actions$.pipe(
-      ofType(AuthApiActions.loginFailure, AuthApiActions.signUpFailure),
+      ofType(AuthApiActions.loginWithGithubFailure),
       switchMap(() => of(AuthActions.clearError()).pipe(delay(4_000)))
     )
   );

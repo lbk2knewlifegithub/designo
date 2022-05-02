@@ -1,9 +1,9 @@
-import { AddCommentInputComponentModule } from './../../shared/comps/add-comment-input/add-comment-input.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScrollToModule } from '@lbk/directives';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import {
+  AddCommentInputComponentModule,
   DifficultyModule,
   LanguageListModule,
   SlackModule,

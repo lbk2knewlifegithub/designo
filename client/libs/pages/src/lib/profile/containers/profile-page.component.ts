@@ -1,4 +1,3 @@
-import { UserFormComponent } from '../components';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -9,9 +8,8 @@ import { AuthFacade } from '@lbk/auth';
 import { UpdateUserDTO } from '@lbk/dto';
 import { User } from '@lbk/models';
 import { NavigationService } from '@lbk/services';
-import { DialogService } from '@ngneat/dialog';
 import { combineLatest, map, Observable } from 'rxjs';
-import { ChangePasswordDialogComponent } from './../components';
+import { UserFormComponent } from '../components';
 import { ProfileFacade } from './../state/profile.facade';
 
 @Component({
@@ -38,7 +36,6 @@ import { ProfileFacade } from './../state/profile.facade';
           [pending]="(pending$ | async)!"
           class="block mt-20 md:mt-24"
           [user]="(user$ | async)!"
-          (changePassword)="changePassword()"
           (updateAccount)="updateAccount($event)"
         ></lbk-user-form>
       </div>
@@ -54,7 +51,6 @@ export class ProfilePageComponent implements OnInit {
   signupForm!: UserFormComponent;
 
   constructor(
-    private readonly _dialogService: DialogService,
     private readonly _authFacade: AuthFacade,
     private readonly _profileFacade: ProfileFacade,
     private readonly _navigationService: NavigationService
@@ -73,13 +69,6 @@ export class ProfilePageComponent implements OnInit {
       })
     );
     this.pending$ = this._profileFacade.pending$;
-  }
-
-  changePassword() {
-    this._dialogService.open(ChangePasswordDialogComponent, {
-      enableClose: false,
-      closeButton: false,
-    });
   }
 
   updateAccount(data: { updateUserDTO: UpdateUserDTO; avatar?: File }) {

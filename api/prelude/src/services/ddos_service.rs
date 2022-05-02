@@ -1,4 +1,4 @@
-use crate::{errors::AppError, Result};
+use crate::{errors::ddos_error::DDosError, Result};
 use actix_redis::Command;
 use redis_async::{resp::FromResp, resp_array};
 
@@ -36,7 +36,7 @@ impl DDosService {
             .await??;
 
         if let Ok(_) = String::from_resp_int(resp) {
-            return Err(AppError::DDosError);
+            return Err(DDosError::TooManyRequest.into());
         };
 
         Ok(())

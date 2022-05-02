@@ -1,3 +1,4 @@
-export { LoginModule } from './lib/login';
-export { ProfileModule } from './lib/profile';
-export { SignupModule } from './lib/signup';
+export * from './lib/login';
+export * from './lib/login-oauth';
+export * from './lib/profile';
+export * from './lib/signup';

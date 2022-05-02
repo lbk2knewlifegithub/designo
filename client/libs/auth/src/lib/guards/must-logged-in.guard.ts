@@ -2,14 +2,18 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
-  RouterStateSnapshot,
+  Router,
+  RouterStateSnapshot
 } from '@angular/router';
+import { first, Observable, of, switchMap, tap } from 'rxjs';
 import { AuthFacade } from '../auth.facade';
-import { first, Observable, of, switchMap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
-export class AuthGuard implements CanActivate {
-  constructor(private readonly _authFacade: AuthFacade) {}
+export class MustLoggedInGuard implements CanActivate {
+  constructor(
+    private readonly _authFacade: AuthFacade,
+    private readonly _router: Router
+  ) {}
 
   canActivate(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -21,7 +25,8 @@ export class AuthGuard implements CanActivate {
       switchMap((loggedIn) => {
         if (loggedIn) return of(true);
         return this._authFacade.me(state.url);
-      })
+      }),
+      tap((ok) => !ok && this._router.navigateByUrl('/'))
     );
   }
 }

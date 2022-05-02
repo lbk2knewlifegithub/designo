@@ -44,19 +44,6 @@
     >
     </lbk-input>
     <!-- end Username -->
-
-    <!-- Change Password -->
-    <div *ngIf="isOwned">
-      <button
-        [disabled]="pending"
-        (click)="changePassword.emit()"
-        type="button"
-        class="btn btn-ghost-primary"
-      >
-        Change password
-      </button>
-    </div>
-    <!-- end Change Password -->
   </div>
 
   <!-- User Form Actions -->

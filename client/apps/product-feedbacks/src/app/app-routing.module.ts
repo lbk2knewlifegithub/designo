@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard, TryLoginGuard } from '@lbk/auth';
+import { MustLoggedInGuard, TryLoginGuard } from '@lbk/auth';
 
 const routes: Routes = [
   /**
@@ -30,7 +30,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/create-feedback').then((m) => m.CreateFeedbackModule),
     data: { animation: 'create-feedback' },
-    canActivate: [AuthGuard],
+    canActivate: [MustLoggedInGuard],
   },
 
   /**
@@ -41,7 +41,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/edit-feedback').then((m) => m.EditFeedbackModule),
     data: { animation: 'edit-feedback' },
-    canActivate: [AuthGuard],
+    canActivate: [MustLoggedInGuard],
   },
   /**
    * - Roadmap Route
@@ -76,7 +76,7 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('@lbk/pages').then((m) => m.ProfileModule),
     data: { animation: 'profile' },
-    canActivate: [AuthGuard],
+    canActivate: [MustLoggedInGuard],
   },
   {
     path: '',

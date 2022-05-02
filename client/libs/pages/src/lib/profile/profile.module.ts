@@ -11,12 +11,12 @@ import {
 } from '@lbk/comps';
 import { AvatarPipeModule } from '@lbk/pipes';
 import { StoreModule } from '@ngrx/store';
-import { ChangePasswordDialogComponent, UserFormComponent } from './components';
+import { UserFormComponent } from './components';
 import { ProfilePageComponent } from './containers';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { profileFeature } from './state/profile.reducer';
 
-const COMPONENTS = [ChangePasswordDialogComponent, UserFormComponent];
+const COMPONENTS = [UserFormComponent];
 const CONTAINERS = [ProfilePageComponent];
 
 @NgModule({

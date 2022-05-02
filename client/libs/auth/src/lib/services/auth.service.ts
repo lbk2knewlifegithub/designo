@@ -31,12 +31,12 @@ export class AuthService {
    * - Verify Me
    * - Take token from localStorage and send it to the server
    * get back a user object
-   * @param accessToken
+   * @param token
    * @returns User of success else throw error
    */
-  me(accessToken: string): Observable<User> {
+  me(token: string): Observable<User> {
     return this._http.post<User>(`${this._apiAuthUrl}/me`, {
-      accessToken,
+      token,
     });
   }
 
@@ -76,5 +76,16 @@ export class AuthService {
             .pipe(map(() => token));
         })
       );
+  }
+
+  /**
+   * - Login With Github
+   * @param code
+   * @returns
+   */
+  loginWithGithub(code: string): Observable<string> {
+    return this._http.get<string>(
+      `${this._apiUrl}/auth/login/github?code=${code}`
+    );
   }
 }

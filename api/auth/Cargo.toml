@@ -8,6 +8,8 @@ edition = "2021"
 [dependencies]
 prelude = { path = "../prelude" }
 
+reqwest = { version = "0.11", features = ["json"] }
+
 # Actix
 actix = "0.12"
 actix-web = "4.0.1"

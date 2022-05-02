@@ -11,6 +11,14 @@ export const login = createAction(
 );
 
 /**
+ * - Login With Github
+ */
+export const loginWithGithub = createAction(
+  '[Auth] Login With Github',
+  props<{ code: string }>()
+);
+
+/**
  * - Me
  */
 export const me = createAction('[Auth] Me', props<{ accessToken: string }>());

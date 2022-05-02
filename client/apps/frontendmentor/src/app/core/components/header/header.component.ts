@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { fadeIn, fadeOut } from '@lbk/anims';
+import { AuthFacade } from '@lbk/auth';
 
 @Component({
   selector: 'lbk-header',
@@ -7,8 +8,15 @@ import { fadeIn, fadeOut } from '@lbk/anims';
   templateUrl: './header.component.html',
   animations: [fadeIn(), fadeOut()],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   shown = false;
+
+  loginGithubURL!: string;
+  constructor(private readonly _authFacade: AuthFacade) {}
+
+  ngOnInit(): void {
+    this.loginGithubURL = this._authFacade.loginGithubURL;
+  }
 
   toggle() {
     this.shown = !this.shown;

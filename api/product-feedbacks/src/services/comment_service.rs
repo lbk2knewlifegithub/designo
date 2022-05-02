@@ -17,7 +17,10 @@ pub async fn get_comment_by_id(state: &FeedbacksState, comment_id: &i32) -> Resu
 
     match comment_repo::get_comment_by_id(&client, &comment_id).await? {
         Some(comment) => Ok(comment),
-        None => Err(AppError::RecordNotFound),
+        None => Err(AppError::NotFound(
+            "CommentNotFound".to_owned(),
+            format!("comment id {} not found", comment_id),
+        )),
     }
 }
 /// Update comment by id Service

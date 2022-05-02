@@ -19,6 +19,12 @@ images-dev:
 images-prod:
 	cargo run --bin images --release
 
+frontendmentor-dev:
+	cargo watch -c -x 'run --bin frontendmentor'	
+
+frontendmentor-prod:
+	cargo run --bin frontendmentor --release
+
 invoice-app-dev:
 	cargo run --bin invoice-app	
 

@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { ChangePasswordDTO, CreateUserDTO, UpdateUserDTO } from '@lbk/dto';
 import { Credentials, User } from '@lbk/models';
 import { TokenService } from '@lbk/services';
+import { CURRENT_HOST, GITHUB_OAUTH_CLIENT_ID } from '@lbk/tokens';
 import { DialogService } from '@ngneat/dialog';
 import { Store } from '@ngrx/store';
 import {
@@ -37,14 +38,29 @@ export class AuthFacade {
     fromAuth.selectReturnUrl
   );
 
+  /**
+   * - Login Github Url
+   */
+  loginGithubURL = `https://github.com/login/oauth/authorize?client_id=${this._githubOAuthClientId}&redirect_uri=${this._currentHost}/login&scope=user:email`;
+
   constructor(
     private readonly _store: Store,
     private readonly _authService: AuthService,
     private readonly _userService: UserService,
     private readonly _tokenService: TokenService,
-    private readonly _dialogService: DialogService
+    private readonly _dialogService: DialogService,
+    @Inject(GITHUB_OAUTH_CLIENT_ID)
+    private readonly _githubOAuthClientId: string,
+    @Inject(CURRENT_HOST)
+    private readonly _currentHost: string
   ) {}
 
+  /**
+   * - Login With Github
+   */
+  loginWithGithub(code: string) {
+    this._store.dispatch(AuthActions.loginWithGithub({ code }));
+  }
   /**
    *  - Change password
    * @param changePasswordDTO
@@ -79,14 +95,9 @@ export class AuthFacade {
    * @returns
    */
   me(returnUrl: string): Observable<boolean> {
-    return this._getAccessToken().pipe(
+    return this._getToken().pipe(
       switchMap((accessToken) => {
-        if (!accessToken) {
-          this._dialogService.open(RequiredLoginComponent, {
-            data: { returnUrl },
-          });
-          return of(false);
-        }
+        if (!accessToken) return of(false);
 
         return this._authService.me(accessToken).pipe(
           tap((user) =>
@@ -95,10 +106,6 @@ export class AuthFacade {
           map(() => true),
           catchError(() => {
             this._tokenService.clear();
-
-            this._dialogService.open(RequiredLoginComponent, {
-              data: { returnUrl },
-            });
             return of(false);
           })
         );
@@ -112,28 +119,27 @@ export class AuthFacade {
    * @returns true of login success
    */
   tryLogin(): Observable<boolean> {
-    return combineLatest([this.loggedIn$, this._getAccessToken()]).pipe(
-      switchMap(([loggedIn, accessToken]) => {
+    return combineLatest([this.loggedIn$, this._getToken()]).pipe(
+      switchMap(([loggedIn, token]) => {
         if (loggedIn) return of(true);
-        if (!accessToken) return of(true);
+        if (!token) return of(true);
 
-        return this._authService.me(accessToken).pipe(
+        return this._authService.me(token).pipe(
           tap((user) => {
             this._store.dispatch(AuthApiActions.meSuccess({ user }));
           }),
           map(() => true),
-          catchError(() => of(true))
+          catchError((e) => of(true))
         );
       })
     );
   }
 
-  private _getAccessToken(): Observable<string | undefined> {
+  private _getToken(): Observable<string | undefined> {
     return this._tokenService.getToken().pipe(
       map((token) => {
         if (!token) return undefined;
-
-        return token.accessToken;
+        return token;
       })
     );
   }
@@ -187,7 +193,6 @@ export class AuthFacade {
   login(credentials: Credentials) {
     this._store.dispatch(AuthActions.login({ credentials }));
   }
-
   /**
    *  - Sign Up
    * @param createUserDTO

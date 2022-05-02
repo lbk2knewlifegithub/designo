@@ -1,101 +1,122 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { MustLoggedInGuard, TryLoginGuard } from '@lbk/auth';
+import { ShellComponent } from './core/containers';
 
 const routes: Routes = [
-  // Home Page
-  {
-    path: 'home',
-    loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
-  },
-
-  // Dashboard Page
-  {
-    path: 'dashboard',
-    loadChildren: () =>
-      import('./pages/dashboard').then((m) => m.DashboardModule),
-  },
-
-  // Profile
-  {
-    path: 'profile',
-    loadChildren: () => import('./pages/profile').then((m) => m.ProfileModule),
-  },
-
-  // Solution
-  {
-    path: 'solution',
-    loadChildren: () =>
-      import('./pages/solution').then((m) => m.SolutionModule),
-  },
-
-  // Shell
-  {
-    path: 'shell',
-    loadChildren: () => import('./pages/shell').then((m) => m.ShellModule),
-  },
-
-  // Settings
-  {
-    path: 'settings',
-    loadChildren: () =>
-      import('./pages/settings').then((m) => m.SettingsModule),
-  },
-
-  // Challenges
-  {
-    path: 'challenges',
-    loadChildren: () =>
-      import('./pages/challenges').then((m) => m.ChallengesModule),
-  },
-
-  // Challenge Details
-  {
-    path: 'challenge',
-    loadChildren: () =>
-      import('./pages/challenge').then((m) => m.ChallengeModule),
-  },
-
-  // Notifications
-  {
-    path: 'notifications',
-    loadChildren: () =>
-      import('./pages/notifications').then((m) => m.NotificationsModule),
-  },
-
-  // Unlock Pro
-  {
-    path: 'unlock-pro',
-    loadChildren: () =>
-      import('./pages/unlock-pro').then((m) => m.UnlockProModule),
-  },
-
-  // Contact Page
-  {
-    path: 'contact',
-    loadChildren: () => import('./pages/contact').then((m) => m.ContactModule),
-  },
-  // Resources
-  {
-    path: 'resources',
-    loadChildren: () =>
-      import('./pages/resources').then((m) => m.ResourcesModule),
-  },
-
-  // Hiring Page
-  {
-    path: 'hiring',
-    loadChildren: () => import('./pages/hiring').then((m) => m.HiringModule),
-  },
-
-  // FAQ Page
-  {
-    path: 'faq',
-    loadChildren: () => import('./pages/faq').then((m) => m.FAQModule),
-  },
   {
     path: '',
-    redirectTo: '/home',
-    pathMatch: 'full',
+    component: ShellComponent,
+    canActivate: [TryLoginGuard],
+    children: [
+      // Home Page
+      {
+        path: 'home',
+        loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
+      },
+
+      // Dashboard Page
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('./pages/dashboard').then((m) => m.DashboardModule),
+        canActivate: [MustLoggedInGuard],
+      },
+
+      // Profile
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('./pages/profile').then((m) => m.ProfileModule),
+        canActivate: [MustLoggedInGuard],
+      },
+
+      // Solution
+      {
+        path: 'solution',
+        loadChildren: () =>
+          import('./pages/solution').then((m) => m.SolutionModule),
+      },
+
+      // Shell
+      {
+        path: 'shell',
+        loadChildren: () => import('./pages/shell').then((m) => m.ShellModule),
+      },
+
+      // Settings
+      {
+        path: 'settings',
+        loadChildren: () =>
+          import('./pages/settings').then((m) => m.SettingsModule),
+        canActivate: [MustLoggedInGuard],
+      },
+
+      // Challenges
+      {
+        path: 'challenges',
+        loadChildren: () =>
+          import('./pages/challenges').then((m) => m.ChallengesModule),
+      },
+
+      // Challenge Details
+      {
+        path: 'challenge',
+        loadChildren: () =>
+          import('./pages/challenge').then((m) => m.ChallengeModule),
+      },
+
+      // Notifications
+      {
+        path: 'notifications',
+        loadChildren: () =>
+          import('./pages/notifications').then((m) => m.NotificationsModule),
+        canActivate: [MustLoggedInGuard],
+      },
+
+      // Unlock Pro
+      {
+        path: 'unlock-pro',
+        loadChildren: () =>
+          import('./pages/unlock-pro').then((m) => m.UnlockProModule),
+      },
+
+      // Contact Page
+      {
+        path: 'contact',
+        loadChildren: () =>
+          import('./pages/contact').then((m) => m.ContactModule),
+      },
+      // Resources
+      {
+        path: 'resources',
+        loadChildren: () =>
+          import('./pages/resources').then((m) => m.ResourcesModule),
+      },
+
+      // Hiring Page
+      {
+        path: 'hiring',
+        loadChildren: () =>
+          import('./pages/hiring').then((m) => m.HiringModule),
+      },
+
+      // FAQ Page
+      {
+        path: 'faq',
+        loadChildren: () => import('./pages/faq').then((m) => m.FAQModule),
+      },
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full',
+      },
+    ],
+  },
+  // Login Page
+  {
+    path: 'login',
+    loadChildren: () => import('@lbk/pages').then((m) => m.LoginOAuthModule),
   },
 ];
 
@@ -103,7 +124,6 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       preloadingStrategy: PreloadAllModules,
-      useHash: true,
       relativeLinkResolution: 'legacy',
       scrollPositionRestoration: 'top',
     }),

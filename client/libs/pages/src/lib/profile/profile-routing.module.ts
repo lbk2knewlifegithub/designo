@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from '@lbk/auth';
+import { MustLoggedInGuard } from '@lbk/auth';
 import { ProfilePageComponent } from './containers';
-import { UserExistsGuard, ProfilePageCanDeactiveGuard } from './guards';
+import { ProfilePageCanDeactiveGuard, UserExistsGuard } from './guards';
 
 const routes: Routes = [
   {
     path: ':username',
     component: ProfilePageComponent,
-    canActivate: [AuthGuard, UserExistsGuard],
+    canActivate: [MustLoggedInGuard, UserExistsGuard],
     canDeactivate: [ProfilePageCanDeactiveGuard],
   },
 ];

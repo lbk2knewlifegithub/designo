@@ -1,5 +1,13 @@
 import { InjectionToken } from '@angular/core';
 
+// Github Oauth Client Id
+export const GITHUB_OAUTH_CLIENT_ID = new InjectionToken<string>(
+  'GITHUB_OAUTH_CLIENT_ID'
+);
+
+// Current Host
+export const CURRENT_HOST = new InjectionToken<string>('CURRENT_HOST');
+
 // API URL
 export const API_URL = new InjectionToken<string>('API_URL');
 

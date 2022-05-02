@@ -27,6 +27,7 @@
       "@lbk/dto": ["libs/dto/src/index.ts"],
       "@lbk/effects": ["libs/effects/src/index.ts"],
       "@lbk/environments": ["libs/environments/src/index.ts"],
+      "@lbk/errors": ["libs/errors/src/index.ts"],
       "@lbk/fm/*": ["apps/frontendmentor/src/app/*"],
       "@lbk/interceptors": ["libs/interceptors/src/index.ts"],
       "@lbk/models": ["libs/models/src/index.ts"],

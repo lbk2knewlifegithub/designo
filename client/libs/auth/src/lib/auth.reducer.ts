@@ -42,29 +42,17 @@ export const authFeature = createFeature({
     ),
 
     // Set pending to false
-    on(
-      AuthApiActions.changePasswordSuccess,
-      AuthApiActions.updateAccountSuccess,
-      AuthApiActions.loginSuccess,
-      AuthApiActions.signUpSuccess,
-      (state) => ({
-        ...state,
-        pending: false,
-      })
-    ),
+    on(AuthApiActions.updateAccountSuccess, (state) => ({
+      ...state,
+      pending: false,
+    })),
 
     // Set pending to false
-    on(
-      AuthApiActions.loginFailure,
-      AuthApiActions.signUpFailure,
-      AuthApiActions.changePasswordFailure,
-      AuthApiActions.updateAccountFailure,
-      (state, { error }) => ({
-        ...state,
-        error,
-        pending: false,
-      })
-    ),
+    on(AuthApiActions.updateAccountFailure, (state, { error }) => ({
+      ...state,
+      error,
+      pending: false,
+    })),
 
     /**
      * - Logout

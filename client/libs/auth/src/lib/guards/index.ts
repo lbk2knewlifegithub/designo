@@ -1,2 +1,3 @@
-export { AuthGuard } from './auth.guard';
+export { MustLoggedInGuard } from './must-logged-in.guard';
 export { TryLoginGuard } from './try-login.guard';
+

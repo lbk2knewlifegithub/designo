@@ -7,7 +7,7 @@ import {
 import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { AuthEffects } from './auth.effects';
+import { AuthEffects } from './effects/auth.effects';
 import * as fromAuth from './auth.reducer';
 import { LoggedInComponent, RequiredLoginComponent } from './dialogs';
 

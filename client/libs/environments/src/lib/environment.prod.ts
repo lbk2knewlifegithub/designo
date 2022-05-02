@@ -3,6 +3,10 @@ export const environment = {
   // Api
   apiUrl: 'https://api-prod-lbk2knewlifegithub.cloud.okteto.net/api',
 
+  // Client Frontend Mentor
+  clientFrontendMentor:
+    'https://client-frontendmentor-client-lbk2knewlifegithub.cloud.okteto.net',
+
   // Client Product Feedbacks
   clientProductFeedbacksUrl:
     'https://client-product-feedbacks-client-lbk2knewlifegithub.cloud.okteto.net',
@@ -21,4 +25,5 @@ export const environment = {
 
   // Client Porfolio
   clientPortfolio: 'https://lbk2knewlifegithub.github.io/lbk/',
+  githubOAuthClientId: '3126fd7aba70ec3b65b4',
 };
