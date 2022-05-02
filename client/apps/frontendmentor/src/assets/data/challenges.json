@@ -1,360 +1,1626 @@
 [
-  {
-    "challenge_id": 1,
-    "name": "Intro section with dropdown navigation",
-    "slug": "intro-section-with-dropdown-navigation",
-    "isNew": true,
-    "type": "free",
-    "description": "This challenge will test your ability to create dropdown navigation menus, a common pattern on larger sites. It will also provide some nice basic layout challenges.",
-    "difficulty": "junior",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/rlaxdjplmeul4qe1qvh6.jpg",
-    "design": {
-      "desktopDesign": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:good,w_900/Challenges/zp74vhrxan0bpg43z2uu.jpg",
-      "activeStates": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:good,w_900/Challenges/x35fo4g0mcmxbl9ht02l.jpg",
-      "mobileDesign": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:good,w_900/Challenges/kjo17v5edphajeppxyix.jpg"
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 3343,
+        "completedCount": 216,
+        "challenge_id": 1444176779,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1649934436/Challenges/rlaxdjplmeul4qe1qvh6.jpg",
+        "title": "Intro section with dropdown navigation",
+        "description": "This challenge will test your ability to create dropdown navigation menus, a common pattern on larger sites. It will also provide some nice basic layout challenges.",
+        "difficulty": 2,
+        "figmaURL": "designs/intro-section-with-dropdown-navigation-figma.zip",
+        "screenshotHeight": null,
+        "slug": "intro-section-with-dropdown-navigation-ryaPetHE5",
+        "createdAt": "2022-04-14T11:07:16.588Z",
+        "updatedAt": "2022-05-01T13:28:13.586Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 103,
+        "completedCount": 1,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1648824965/Challenges/r2w3h15oximza3p1baqt.jpg",
+        "title": "In-browser markdown editor",
+        "description": "In this project, you'll build a fully-functional in-browser markdown editor application with a light/dark mode toggle. It's also perfect to build as a full-stack app!",
+        "difficulty": 3,
+        "figmaURL": "designs/in-browser-markdown-editor-figma.zip",
+        "screenshotHeight": null,
+        "slug": "inbrowser-markdown-editor-r16TrrQX9",
+        "createdAt": "2022-03-31T15:16:21.448Z",
+        "updatedAt": "2022-05-01T08:09:45.728Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 11446,
+        "completedCount": 1240,
+        "challenge_id": "",
+        "difficulty": 1,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1647605583/Challenges/hxx2bhmtmeelt0a98zos.jpg",
+        "title": "Interactive rating component",
+        "description": "This is a nice, small project to practice handling user interactions and updating the DOM. Perfect for anyone who has learned the basics of JavaScript!",
+        "figmaURL": "designs/interactive-rating-component-figma.zip",
+        "screenshotHeight": 800,
+        "slug": "interactive-rating-component-koxpeBUmI",
+        "createdAt": "2022-03-18T12:13:03.365Z",
+        "updatedAt": "2022-05-01T13:30:38.611Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 470,
+        "completedCount": 27,
+        "challenge_id": "",
+        "difficulty": 4,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1646923944/Challenges/maz79cid0jllq0js0qyi.jpg",
+        "title": "Entertainment web app",
+        "description": "This multi-page entertainment web app will have you working with JSON data, routing, state management, and search functionality.",
+        "figmaURL": "designs/entertainment-web-app-figma.zip",
+        "screenshotHeight": 1024,
+        "slug": "entertainment-web-app-J-UhgAW1X",
+        "createdAt": "2022-03-10T14:52:23.989Z",
+        "updatedAt": "2022-05-01T09:15:49.179Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS",
+            "API"
+        ],
+        "startedCount": 9750,
+        "completedCount": 1505,
+        "challenge_id": "",
+        "difficulty": 2,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1645105188/Challenges/sfl8uqvq75wnnr559ksp.jpg",
+        "title": "Advice generator app",
+        "description": "The perfect project if you're learning how to interact with 3rd-party APIs. This challenge uses the Advice Slip API to generate random quotes of advice.",
+        "figmaURL": "designs/advice-generator-app-figma.zip",
+        "screenshotHeight": 810,
+        "slug": "advice-generator-app-QdUG-13db",
+        "createdAt": "2022-02-17T13:39:48.574Z",
+        "updatedAt": "2022-05-01T12:39:20.448Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 462,
+        "completedCount": 37,
+        "challenge_id": "",
+        "difficulty": 2,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1643969912/Challenges/mflwrbyf8kjvqvpxq9uj.jpg",
+        "title": "Suite landing page",
+        "description": "This small-ish HTML and CSS only landing page includes some interesting layout decisions. Perfect if you want to put your layout and responsive skills to the test!",
+        "figmaURL": "designs/suite-landing-page-figma.zip",
+        "screenshotHeight": null,
+        "slug": "suite-landing-page-tj_eaU-Ra",
+        "createdAt": "2022-02-04T10:18:32.405Z",
+        "updatedAt": "2022-04-30T15:41:08.576Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 37121,
+        "completedCount": 5084,
+        "challenge_id": "",
+        "difficulty": 1,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1642681176/Challenges/qh97gysgjrzqyqlig2al.jpg",
+        "title": "QR code component",
+        "description": "A perfect first challenge if you're new to HTML and CSS. The card layout doesn't shift, so it's ideal if you haven't learned about building responsive layouts yet.",
+        "figmaURL": "designs/qr-code-component-figma.zip",
+        "screenshotHeight": 800,
+        "slug": "qr-code-component-iux_sIO_H",
+        "createdAt": "2022-01-20T12:19:36.828Z",
+        "updatedAt": "2022-05-01T13:18:16.275Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 409,
+        "completedCount": 22,
+        "challenge_id": "",
+        "difficulty": 3,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1641564936/Challenges/cfr9ssywcgjpcg7or928.jpg",
+        "title": "Tic Tac Toe game",
+        "description": "This classic practice project for web developers is a great exercise to complete. It will test your HTML semantics, your grid layout skill, as well as your JS logic.",
+        "figmaURL": "designs/tic-tac-toe-figma.zip",
+        "screenshotHeight": null,
+        "slug": "tic-tac-toe-game-Re7ZF_E2v",
+        "createdAt": "2022-01-07T14:15:36.092Z",
+        "updatedAt": "2022-04-29T22:17:30.639Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 5310,
+        "completedCount": 266,
+        "challenge_id": "",
+        "difficulty": 3,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1639765609/Challenges/i8zblmqsbqixz1tbhc0v.jpg",
+        "title": "Interactive comments section",
+        "description": "This is project will put your JavaScript skills to the test. We provide a JSON file to pull the data, but it's also a perfect project to build as a full-stack CRUD app!",
+        "figmaURL": "designs/interactive-comments-section-figma.zip",
+        "screenshotHeight": null,
+        "slug": "interactive-comments-section-iG1RugEG9",
+        "createdAt": "2021-12-17T18:26:49.292Z",
+        "updatedAt": "2022-05-01T12:51:08.076Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 559,
+        "completedCount": 47,
+        "challenge_id": "",
+        "difficulty": 2,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1638448247/Challenges/bg8nbm2pzsg3hpuqqmmv.jpg",
+        "title": "Art gallery website",
+        "description": "This two-page art gallery project will be perfect if you're ready to branch out beyond single landing pages. There are some particularly interesting layout challenges!",
+        "figmaURL": "designs/art-gallery-website-figma.zip",
+        "screenshotHeight": null,
+        "slug": "art-gallery-website-yVdrZlxyA",
+        "createdAt": "2021-12-02T12:30:47.308Z",
+        "updatedAt": "2022-05-01T09:33:51.974Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 47434,
+        "completedCount": 5760,
+        "challenge_id": "",
+        "difficulty": 1,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1637582292/Challenges/rinokvkluq95madbvtmk.jpg",
+        "title": "NFT preview card component",
+        "description": "This HTML & CSS only challenge is perfect for anyone just starting out or anyone wanting a small project to play around with.",
+        "figmaURL": "designs/nft-preview-card-component-figma.zip",
+        "screenshotHeight": null,
+        "slug": "nft-preview-card-component-SbdUL_w0U",
+        "createdAt": "2021-11-18T17:06:18.384Z",
+        "updatedAt": "2022-05-01T13:33:06.024Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 1318,
+        "completedCount": 180,
+        "challenge_id": "",
+        "difficulty": 1,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1636021242/Challenges/hfqgixemrcybrmoomqsz.jpg",
+        "title": "Equalizer landing page",
+        "description": "This challenge will be a perfect test of your HTML & CSS skills. If you're starting to get comfortable building smaller projects, this will be a great step up.",
+        "figmaURL": "designs/equalizer-landing-page-figma.zip",
+        "screenshotHeight": null,
+        "slug": "equalizer-landing-page-7VJ4gp3DE",
+        "createdAt": "2021-11-04T10:20:42.545Z",
+        "updatedAt": "2022-04-29T22:50:48.404Z"
+    },
+    {
+        "type": "free-plus",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 22891,
+        "completedCount": 694,
+        "challenge_id": "",
+        "difficulty": 3,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1634300165/Challenges/bbbbk7sghmqsg4zhqdo6.jpg",
+        "title": "Space tourism multi-page website",
+        "description": "This project is a fun collaboration with Scrimba and Kevin Powell! If you like, you can follow along and watch Kevin complete the project on Scrimba. Lots to learn!",
+        "figmaURL": "designs/space-tourism-website-figma.zip",
+        "screenshotHeight": null,
+        "slug": "space-tourism-multipage-website-gRWj1URZ3",
+        "createdAt": "2021-10-15T12:16:05.595Z",
+        "updatedAt": "2022-05-01T13:25:32.368Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 12585,
+        "completedCount": 739,
+        "challenge_id": "",
+        "difficulty": 3,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1633619397/Challenges/fhzpdnabrek50hvhftnl.jpg",
+        "title": "E-commerce product page",
+        "description": "In this challenge, you'll build a beautiful product page. We'll be putting your JS skills to the test with a lightbox product gallery and cart functionality!",
+        "figmaURL": "designs/ecommerce-product-page-figma.zip",
+        "screenshotHeight": null,
+        "slug": "ecommerce-product-page-UPsZ9MJp6",
+        "createdAt": "2021-10-07T15:09:57.266Z",
+        "updatedAt": "2022-05-01T12:49:33.616Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 394,
+        "completedCount": 20,
+        "challenge_id": "",
+        "difficulty": 4,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1632473821/Challenges/lphd7s3gcbcgcxmfjt19.jpg",
+        "title": "Memory game",
+        "description": "This project will be an excellent test for your HTML, CSS, and JS skills! You'll be building a fun memory game where players try to match pairs.",
+        "figmaURL": "designs/memory-game-figma.zip",
+        "screenshotHeight": null,
+        "slug": "memory-game-vse4WFPvM",
+        "createdAt": "2021-09-24T08:24:27.768Z",
+        "updatedAt": "2022-05-01T00:15:43.330Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 14286,
+        "completedCount": 1439,
+        "challenge_id": "",
+        "difficulty": 2,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1631270258/Challenges/j1ocp59n25odoftocgpi.jpg",
+        "title": "Time tracking dashboard",
+        "description": "A perfect opportunity to practice your CSS Grid skills. For anyone wanting to take it up a notch, we provide a JSON data file to practice working with data.",
+        "figmaURL": "designs/time-tracking-dashboard-figma.zip",
+        "screenshotHeight": 1024,
+        "slug": "time-tracking-dashboard-UIQ7167Jw",
+        "createdAt": "2021-09-10T10:32:22.965Z",
+        "updatedAt": "2022-05-01T13:16:05.506Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS",
+            "API"
+        ],
+        "startedCount": 1240,
+        "completedCount": 195,
+        "challenge_id": "",
+        "difficulty": 2,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1630058402/Challenges/nr37our6z7faztmhwj9r.jpg",
+        "title": "GitHub user search app",
+        "description": "In this project, you'll use the GitHub users API to pull profile data and display it. It's a great challenge if you're looking to practice working with a 3rd-party API.",
+        "figmaURL": "designs/github-user-search-app-figma.zip",
+        "screenshotHeight": null,
+        "slug": "github-user-search-app-Q09YOgaH6",
+        "createdAt": "2021-08-27T10:00:01.590Z",
+        "updatedAt": "2022-05-01T10:00:00.818Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 57783,
+        "completedCount": 8259,
+        "challenge_id": "",
+        "difficulty": 1,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1628162501/Challenges/ouobx6tvyduidzio7wr7.jpg",
+        "title": "Order summary component",
+        "description": "A perfect project for newbies who are starting to build confidence with layouts!",
+        "figmaURL": "designs/order-summary-component-figma.zip",
+        "screenshotHeight": null,
+        "slug": "order-summary-component-QlPmajDUj",
+        "createdAt": "2021-08-05T11:21:40.897Z",
+        "updatedAt": "2022-05-01T13:32:39.985Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 390,
+        "completedCount": 28,
+        "challenge_id": "",
+        "difficulty": 3,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1626949267/Challenges/nlvtx70nqb7vj1xfwj22.jpg",
+        "title": "Galleria slideshow site",
+        "description": "This art gallery slideshow project will be a great test for your layout and JS skills. With the masonry layout, slideshow logic, and lightbox view there's a lot to build!",
+        "figmaURL": "designs/galleria-slideshow-site-figma.zip",
+        "screenshotHeight": null,
+        "slug": "galleria-slideshow-site-tEA4pwsa6",
+        "createdAt": "2021-07-22T10:21:07.030Z",
+        "updatedAt": "2022-04-30T07:28:12.855Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 17622,
+        "completedCount": 2318,
+        "challenge_id": "",
+        "difficulty": 2,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1625752957/Challenges/hxkpctp6cd1meeytfdl2.jpg",
+        "title": "Tip calculator app",
+        "description": "This small app is perfect for anyone starting to get to grips with JavaScript. The calculator functionality will be a nice test!",
+        "figmaURL": "designs/tip-calculator-app-figma.zip",
+        "screenshotHeight": 1024,
+        "slug": "tip-calculator-app-ugJNGbJUX",
+        "createdAt": "2021-07-08T14:02:37.412Z",
+        "updatedAt": "2022-05-01T13:16:24.130Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 781,
+        "completedCount": 44,
+        "challenge_id": "",
+        "difficulty": 5,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1624621473/Challenges/zbq5rrhkqt63eodwcxcs.jpg",
+        "title": "Product feedback app",
+        "description": "This will be a perfect portfolio piece! You'll be working with JSON, managing state, and building like a real-world app. You can even create it as a full-stack project!",
+        "figmaURL": "designs/product-feedback-app-figma.zip",
+        "screenshotHeight": null,
+        "slug": "product-feedback-app-wbvUYqjR6",
+        "createdAt": "2021-06-25T11:44:33.184Z",
+        "updatedAt": "2022-04-29T23:00:21.069Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 19155,
+        "completedCount": 2182,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1623249861/Challenges/pigotdvhcch2b3wp9uuc.jpg",
+        "title": "Sunnyside agency landing page",
+        "description": "This challenge will be a perfect test of your layout and responsive skills. There's a tiny bit of JS for the mobile menu, but the focus is HTML & CSS.",
+        "difficulty": 2,
+        "figmaURL": "designs/sunnyside-agency-landing-page-figma.zip",
+        "slug": "sunnyside-agency-landing-page-7yVs3B6ef",
+        "createdAt": "2021-06-09T14:44:21.528Z",
+        "updatedAt": "2022-05-01T10:16:07.965Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 1135,
+        "completedCount": 152,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1622210933/Challenges/wrljilk72cxhipdjyhpa.jpg",
+        "title": "Planets fact site",
+        "description": "In this challenge, you'll be building out an 8-page fact site for all planets in our solar system. This project will make an incredible portfolio piece when completed!",
+        "difficulty": 3,
+        "figmaURL": "designs/planets-fact-site-figma.zip",
+        "slug": "planets-fact-site-gazqN8w_f",
+        "createdAt": "2021-05-28T14:08:53.258Z",
+        "updatedAt": "2022-04-30T11:33:03.770Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 10063,
+        "completedCount": 1035,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1620928611/Challenges/bz3taijsat3rhsocodym.jpg",
+        "title": "Calculator app",
+        "description": "This calculator app will be a great test of your CSS and JS skills especially. If you're wanting to practice using Grid, this challenge will be perfect for you!",
+        "difficulty": 3,
+        "figmaURL": "designs/calculator-app-figma.zip",
+        "slug": "calculator-app-9lteq5N29",
+        "createdAt": "2021-05-13T17:56:51.666Z",
+        "updatedAt": "2022-05-01T12:30:52.110Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 1066,
+        "completedCount": 75,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1619785105/Challenges/xfevkvpujubwentbteg6.jpg",
+        "title": "Audiophile e-commerce website",
+        "description": "This huge e-commerce challenge will provide an incredible test for your front-end skills. Once you're done, you'll have an amazing project to add to your portfolio!",
+        "difficulty": 5,
+        "figmaURL": "designs/audiophile-ecommerce-website-figma.zip",
+        "slug": "audiophile-ecommerce-website-C8cuSd_wx",
+        "createdAt": "2021-04-30T12:18:25.360Z",
+        "updatedAt": "2022-05-01T13:31:17.206Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 49107,
+        "completedCount": 8130,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1618491663/Challenges/sucvvhutd4codsxpzvw7.jpg",
+        "title": "Stats preview card component",
+        "description": "This is a great small challenge to help get you used to building to a design. There's no JS in this project, so you'll be able to focus on your HTML & CSS skills.",
+        "difficulty": 1,
+        "figmaURL": "designs/stats-preview-card-component-figma.zip",
+        "screenshotHeight": 800,
+        "slug": "stats-preview-card-component-8JqbgoU62",
+        "createdAt": "2021-04-15T13:01:03.594Z",
+        "updatedAt": "2022-05-01T13:32:41.319Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 1503,
+        "completedCount": 293,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1617954537/Challenges/edwlbe4gedvld6yqyazw.jpg",
+        "title": "Meet landing page",
+        "description": "This HTML & CSS only challenge is perfect if you're starting to get a bit comfortable with your layout skills. The responsive layout shifts will also be a great test!",
+        "difficulty": 1,
+        "figmaURL": "designs/meet-landing-page-figma.zip",
+        "slug": "meet-landing-page-rbTDS6OUR",
+        "createdAt": "2021-04-09T07:48:57.245Z",
+        "updatedAt": "2022-05-01T02:31:02.779Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 38860,
+        "completedCount": 8142,
+        "challenge_id": "",
+        "title": "3-column preview card component",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1617293242/Challenges/juir90bwmmvlo86g9paz.jpg",
+        "description": "This challenge is perfect if you're just getting started. The shift between the layouts will be a nice test if you're new to building responsive projects.",
+        "difficulty": 1,
+        "figmaURL": "designs/3-column-preview-card-component-figma.zip",
+        "screenshotHeight": 800,
+        "slug": "3column-preview-card-component-pH92eAR2-",
+        "createdAt": "2021-04-01T16:07:22.524Z",
+        "updatedAt": "2022-05-01T13:30:14.641Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 674,
+        "completedCount": 122,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1616682873/Challenges/h5oer4lxahk5ccqvyowy.jpg",
+        "title": "Typemaster pre-launch landing page",
+        "description": "This project will be a perfect opportunity to put your CSS Grid skills to the test. The layout shifts from mobile, to tablet, to desktop will also be a nice challenge.",
+        "figmaURL": "designs/typemaster-pre-launch-landing-page-figma.zip",
+        "difficulty": 2,
+        "slug": "typemaster-prelaunch-landing-page-J6-Yj5J-X",
+        "createdAt": "2021-03-25T14:34:32.994Z",
+        "updatedAt": "2022-05-01T10:11:01.367Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 14011,
+        "completedCount": 1173,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1615479751/Challenges/wdor1bppurckam2nrhwn.jpg",
+        "title": "Blogr landing page",
+        "description": "Flex your layout muscles with this landing page challenge. You'll mostly be working with HTML & CSS for this project with a tiny bit of JS for the mobile menu.",
+        "difficulty": 2,
+        "figmaURL": "designs/blogr-landing-page-figma.zip",
+        "slug": "blogr-landing-page-EX2RLAApP",
+        "createdAt": "2021-03-11T16:22:31.408Z",
+        "updatedAt": "2022-05-01T12:46:14.332Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 987,
+        "completedCount": 53,
+        "challenge_id": "",
+        "title": "Invoice app",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1614355469/Challenges/ael6vr3wsyatqcrzxzg1.jpg",
+        "description": "This invoicing app project will test you on many levels. You'll be working with JSON data, managing state, plus a lot more. You can even build it out as a full-stack app!",
+        "difficulty": 5,
+        "figmaURL": "designs/invoice-app-figma.zip",
+        "slug": "invoice-app-i7KaLTQjl",
+        "createdAt": "2021-02-26T16:04:29.398Z",
+        "updatedAt": "2022-04-29T16:30:05.486Z",
+        "screenshotHeight": null
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 7643,
+        "completedCount": 604,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1613128246/Challenges/tbvaexdry87sqjmbzt5o.jpg",
+        "title": "Crowdfunding product page",
+        "description": "This challenge will test both your layout and state management skills. As visitors make pledges, your goal is to keep track of the changes.",
+        "difficulty": 2,
+        "figmaURL": "designs/crowdfunding-product-page-figma.zip",
+        "slug": "crowdfunding-product-page-7uvcZe7ZR",
+        "createdAt": "2021-02-12T11:10:46.058Z",
+        "updatedAt": "2022-05-01T10:03:56.027Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 644,
+        "completedCount": 54,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1611933112/Challenges/qwfjjtc2edfogm32keno.jpg",
+        "title": "Coffeeroasters subscription site",
+        "description": "This challenge will have you building a 3-page subscription site. As part of the project, you'll create an interactive subscription page to test your JS and logic skills!",
+        "difficulty": 3,
+        "figmaURL": "designs/coffeeroasters-subscription-site-figma.zip",
+        "slug": "coffeeroasters-subscription-site-5Fc26HVY6",
+        "createdAt": "2021-01-29T15:11:51.953Z",
+        "updatedAt": "2022-04-29T02:12:08.252Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 7722,
+        "completedCount": 976,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1611325428/Challenges/fp0qtspesm6i0miyqncg.jpg",
+        "title": "Interactive pricing component",
+        "description": "In this project, you'll build out an interactive pricing component complete with custom range input slider and pricing toggle. A perfect way to test your JS skills!",
+        "difficulty": 2,
+        "figmaURL": "designs/interactive-pricing-component-figma.zip",
+        "slug": "interactive-pricing-component-t0m8PIyY8",
+        "createdAt": "2021-01-22T14:23:48.407Z",
+        "updatedAt": "2022-05-01T11:39:18.552Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 439,
+        "completedCount": 53,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1610718775/Challenges/xpfjecrtnna43teylvoa.jpg",
+        "title": "Maker pre-launch landing page",
+        "description": "Put your layout skills to the test with this landing page challenge. The only JS you'll need will be for the custom form validation on the email input.",
+        "difficulty": 2,
+        "figmaURL": "designs/maker-pre-launch-landing-page-figma.zip",
+        "slug": "maker-prelaunch-landing-page-WVZIJtKLd",
+        "createdAt": "2021-01-15T13:43:24.034Z",
+        "updatedAt": "2022-04-28T15:31:54.433Z"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 10243,
+        "completedCount": 1287,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1610103607/Challenges/f00lkcojzyklnglc3ffr.jpg",
+        "title": "Loopstudios landing page",
+        "description": "This challenge is perfect if you're looking to test your CSS Grid chops. Even without Grid, this project will be a fun one to help you practice your layout skills!",
+        "difficulty": 2,
+        "figmaURL": "designs/loopstudios-landing-page-figma.zip",
+        "slug": "loopstudios-landing-page-N88J5Onjw",
+        "createdAt": "2021-01-08T11:00:07.715Z",
+        "updatedAt": "2022-05-01T12:52:44.198Z"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 623,
+        "completedCount": 42,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1608298036/Challenges/brpylxucuonbpy2mujdy.jpg",
+        "title": "Pomodoro app",
+        "description": "This Pomodoro app will provide some tricky challenges, including building a circular progress bar. You'll also build a range of customizations, like colors and fonts.",
+        "difficulty": 4,
+        "slug": "pomodoro-app-KBFnycJ6G",
+        "createdAt": "2020-12-18T13:27:16.798Z",
+        "updatedAt": "2022-05-01T00:25:58.070Z",
+        "figmaURL": "designs/pomodoro-app-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 7145,
+        "completedCount": 769,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1607616313/Challenges/yf5s8ekgwaft5w57ju6u.jpg",
+        "title": "Launch countdown timer",
+        "description": "This will be a fun one! Your challenge is to build this countdown timer. There are lots of small CSS tests in the design as well. So it should keep you busy!",
+        "difficulty": 3,
+        "screenshotHeight": 800,
+        "slug": "launch-countdown-timer-N0XkGfyz-",
+        "createdAt": "2020-12-10T16:05:13.416Z",
+        "updatedAt": "2022-05-01T10:13:37.025Z",
+        "figmaURL": "designs/launch-countdown-timer-figma.zip"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 313,
+        "completedCount": 26,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1607085880/Challenges/elfkzwrvlhcxvoy9442f.jpg",
+        "title": "Creative agency single-page site",
+        "difficulty": 3,
+        "description": "This challenge will put your layout skills to the test with lots of overlapping elements. If you're getting confident with your CSS layouts, this will be a great project!",
+        "slug": "creative-agency-singlepage-site-Pq6V3I2RM",
+        "createdAt": "2020-12-04T12:44:40.188Z",
+        "updatedAt": "2022-04-30T14:58:10.419Z",
+        "figmaURL": "designs/creative-single-page-site-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 11254,
+        "completedCount": 1163,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1606413905/Challenges/ty4ppudcq94rtgj4rv6p.jpg",
+        "title": "Todo app",
+        "description": "The classic todo app with a few twists! This app includes a dark/light theme toggle and drag & drop reordering for anyone wanting an extra test.",
+        "difficulty": 3,
+        "slug": "todo-app-Su1_KokOW",
+        "createdAt": "2020-11-26T18:05:05.627Z",
+        "updatedAt": "2022-05-01T12:19:25.556Z",
+        "figmaURL": "designs/todo-app-figma.zip",
+        "screenshotHeight": null
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 1143,
+        "completedCount": 244,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1605825806/Challenges/gaqhj5z5pdvyztzm8mwt.jpg",
+        "title": "Pod request access landing page",
+        "description": "In this challenge, you'll be building out an early access landing page that includes custom form validation.",
+        "difficulty": 1,
+        "slug": "pod-request-access-landing-page-eyTmdkLSG",
+        "createdAt": "2020-11-19T22:43:26.829Z",
+        "updatedAt": "2022-05-01T10:08:33.404Z",
+        "figmaURL": "designs/pod-request-access-landing-page-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 41684,
+        "completedCount": 7368,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1605203355/Challenges/dia0o9uigiiz4gebiqps.jpg",
+        "title": "Profile card component",
+        "description": "This is a perfect challenge to test your layout skills. The card layout doesn't shift, so it's also great for those that haven't dived into responsive websites yet!",
+        "difficulty": 1,
+        "screenshotHeight": 720,
+        "slug": "profile-card-component-cfArpWshJ",
+        "createdAt": "2020-11-12T17:49:15.386Z",
+        "updatedAt": "2022-05-01T13:15:50.699Z",
+        "figmaURL": "designs/profile-card-component-figma.zip"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS",
+            "API"
+        ],
+        "startedCount": 740,
+        "completedCount": 123,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1604668441/Challenges/cpub8v9o7uxugll9bwab.jpg",
+        "title": "Clock app",
+        "description": "This challenge will have you working with external APIs to set data based on a visitor's location. You'll also be using logic to set content depending on the time of day.",
+        "difficulty": 3,
+        "slug": "clock-app-LMFaxFwrM",
+        "createdAt": "2020-11-06T13:14:01.371Z",
+        "updatedAt": "2022-04-28T09:18:40.809Z",
+        "figmaURL": "designs/clock-app-figma.zip"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 428,
+        "completedCount": 61,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1604050025/Challenges/vn5vgcbphrtaajszr6fn.jpg",
+        "title": "Officelite coming soon site",
+        "description": "This 2-page challenge will be a perfect test if you're starting to get comfortable with your HTML & CSS skills. There are a couple of small bonus challenges too!",
+        "difficulty": 2,
+        "slug": "officelite-coming-soon-site-M4DIPNz8g",
+        "createdAt": "2020-10-30T09:27:05.298Z",
+        "updatedAt": "2022-04-30T21:03:55.721Z",
+        "figmaURL": "designs/officelite-coming-soon-site-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 20970,
+        "completedCount": 3415,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1603385671/Challenges/hlfgqwj3chzij3t5erjv.jpg",
+        "title": "Testimonials grid section",
+        "description": "This challenge will be perfect practice for anyone wanting to test their CSS Grid skills. Grid is such a powerful addition to CSS, so it's worth getting to grips with it!",
+        "difficulty": 2,
+        "slug": "testimonials-grid-section-Nnw6J7Un7",
+        "createdAt": "2020-10-22T16:54:31.350Z",
+        "updatedAt": "2022-05-01T13:18:43.222Z",
+        "figmaURL": "designs/testimonials-grid-section-figma.zip"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 782,
+        "completedCount": 79,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1602776549/Challenges/y70y9zpnrnhw9pxqbenq.jpg",
+        "title": "Designo multi-page website",
+        "description": "This one's a BIG project! This challenge includes 5 different templates that make up a 7-page site. A perfect portfolio piece to show how you build multi-page websites!",
+        "difficulty": 5,
+        "slug": "designo-multipage-website-G48K6rfUT",
+        "createdAt": "2020-10-15T15:42:28.936Z",
+        "updatedAt": "2022-04-30T22:20:29.043Z",
+        "figmaURL": "designs/designo-multi-page-website-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 20946,
+        "completedCount": 3352,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1602235265/Challenges/ua4zwoxu3i9avrzrusre.jpg",
+        "title": "FAQ accordion card",
+        "description": "In this challenge, you'll be building out an FAQ accordion. This is an extremely common front-end pattern, so it's a great opportunity to get some practice in!",
+        "difficulty": 1,
+        "screenshotHeight": 768,
+        "slug": "faq-accordion-card-XlyjD0Oam",
+        "createdAt": "2020-10-09T09:21:05.232Z",
+        "updatedAt": "2022-05-01T13:28:51.133Z",
+        "figmaURL": "designs/faq-accordion-card-figma.zip"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 705,
+        "completedCount": 76,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1623680190/Challenges/awzekbun4czymrubupcn.jpg",
+        "title": "Devjobs web app",
+        "description": "Build a jobs board that pulls data from a local JSON file. This is a great opportunity to practice JS and get to grips with a framework/library of your choice!",
+        "difficulty": 4,
+        "slug": "devjobs-web-app-HuvC_LP4l",
+        "createdAt": "2020-10-01T14:15:24.570Z",
+        "updatedAt": "2022-04-28T02:50:18.609Z",
+        "screenshotHeight": 1620,
+        "figmaURL": "designs/devjobs-web-app-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 6947,
+        "completedCount": 712,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1601039680/Challenges/cemesnztibailziek4ly.jpg",
+        "title": "Room homepage",
+        "description": "This small homepage challenge packs a big punch to test your layout skills. There's also a slider in there to add a JS layer for extra practice.",
+        "difficulty": 3,
+        "slug": "room-homepage-BtdBY_ENq",
+        "createdAt": "2020-09-25T13:14:40.603Z",
+        "updatedAt": "2022-05-01T13:33:12.577Z",
+        "figmaURL": "designs/room-homepage-figma.zip"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 429,
+        "completedCount": 34,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1600345826/Challenges/zedk6plxdzanqoinnxla.jpg",
+        "title": "PayAPI multi-page website",
+        "description": "This 4-page website will be a great test for your HTML & CSS skills. You'll be building out a marketing site, complete with custom form validation throughout.",
+        "difficulty": 4,
+        "slug": "payapi-multipage-website-FDLR1Y11e",
+        "createdAt": "2020-09-17T12:30:26.282Z",
+        "updatedAt": "2022-04-28T02:51:12.801Z",
+        "figmaURL": "designs/payapi-multi-page-website-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 23080,
+        "completedCount": 4401,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1599649547/Challenges/a0t2zk1zww7gmanfoix3.jpg",
+        "title": "Social proof section",
+        "description": "This project will test your layout skills. If you're starting to get confident with Flexbox or Grid, this will provide a nice challenge!",
+        "difficulty": 1,
+        "screenshotHeight": 800,
+        "slug": "social-proof-section-6e0qTv_bA",
+        "createdAt": "2020-09-09T11:05:47.514Z",
+        "updatedAt": "2022-05-01T13:30:18.688Z",
+        "figmaURL": "designs/social-proof-section-figma.zip"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 583,
+        "completedCount": 71,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1599153557/Challenges/bgjwz6i6nfnqngx7ae36.jpg",
+        "title": "Photosnap multi-page website",
+        "description": "In this challenge, you'll be building the marketing site for a photo-sharing app. This will be a perfect opportunity to put your CSS Grid skills to the test!",
+        "difficulty": 4,
+        "slug": "photosnap-multipage-website-nMDSrNmNW",
+        "createdAt": "2020-09-03T17:19:16.859Z",
+        "updatedAt": "2022-04-30T22:06:32.423Z",
+        "figmaURL": "designs/photosnap-multi-page-website-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS",
+            "API"
+        ],
+        "startedCount": 8369,
+        "completedCount": 1064,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1598711974/Challenges/zfgce1seaqfllpuktpai.jpg",
+        "title": "IP Address Tracker",
+        "description": "In this challenge, you'll be using two separate APIs together to create an IP Address Tracking app.",
+        "difficulty": 3,
+        "screenshotHeight": 800,
+        "slug": "ip-address-tracker-I8-0yYAH0",
+        "createdAt": "2020-08-28T12:29:45.569Z",
+        "updatedAt": "2022-05-01T13:26:37.942Z",
+        "figmaURL": "designs/ip-address-tracker-figma.zip"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 390,
+        "completedCount": 40,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1597957554/Challenges/jslds8e2heskt4ebclte.jpg",
+        "title": "Arch Studio multi-page website",
+        "description": "In this challenge, you'll be building a 4-page site that will look great in any portfolio. You'll even get the chance to play with mapping APIs if you choose the bonus.",
+        "difficulty": 4,
+        "slug": "arch-studio-multipage-website-wNIbOFYR6",
+        "createdAt": "2020-08-20T21:05:54.537Z",
+        "updatedAt": "2022-04-29T10:44:06.351Z",
+        "figmaURL": "designs/arch-studio-multi-page-website-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 9545,
+        "completedCount": 1022,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1594752879/Challenges/xi4n6u5jtftsy9sbukd1.jpg",
+        "title": "Chat app CSS illustration",
+        "description": "In this challenge, you'll be building out the entire app illustration from scratch. This will seriously test your CSS skills. So give it a go if you feel confident!",
+        "difficulty": 3,
+        "screenshotHeight": 800,
+        "slug": "chat-app-css-illustration-O5auMkFqY",
+        "createdAt": "2020-07-14T18:54:39.600Z",
+        "updatedAt": "2022-05-01T12:30:10.528Z",
+        "figmaURL": "designs/chat-app-css-illustration-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 15229,
+        "completedCount": 2517,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1593198625/Challenges/tm7zwaa7fprabjbwbemt.jpg",
+        "title": "Article preview component",
+        "description": "Practice your layout skills with this article preview component. There's lots of fun to be had playing around with animations for the sharing icons as well.",
+        "difficulty": 1,
+        "screenshotHeight": 800,
+        "slug": "article-preview-component-dYBN_pYFT",
+        "createdAt": "2020-06-26T19:10:24.984Z",
+        "updatedAt": "2022-05-01T13:27:15.391Z",
+        "figmaURL": "designs/article-preview-component-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 14339,
+        "completedCount": 1928,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1591033485/Challenges/jve24exh4iwonznfndfc.jpg",
+        "title": "Fylo data storage component",
+        "description": "This component has some interesting CSS challenges in the design. If you're looking to test your CSS skills, this will be a great project for you!",
+        "difficulty": 2,
+        "screenshotHeight": 800,
+        "slug": "fylo-data-storage-component-1dZPRbV5n",
+        "createdAt": "2020-06-01T17:44:45.114Z",
+        "updatedAt": "2022-05-01T13:30:34.884Z",
+        "figmaURL": "designs/fylo-data-storage-component-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 7821,
+        "completedCount": 1155,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1589469033/Challenges/ajxwviujv7lrjghuhdxs.jpg",
+        "title": "Coding bootcamp testimonials slider",
+        "description": "This challenge will be a nice test if you're new to JavaScript. It's also a great opportunity to play around with content animations and transitions.",
+        "difficulty": 2,
+        "screenshotHeight": 800,
+        "slug": "coding-bootcamp-testimonials-slider-4FNyLA8JL",
+        "createdAt": "2020-05-14T15:10:33.601Z",
+        "updatedAt": "2022-05-01T13:18:54.763Z",
+        "figmaURL": "designs/coding-bootcamp-testimonials-slider-figma.zip"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 295,
+        "completedCount": 19,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1588107804/Challenges/v6totnrrz9tl9fge8eyi.jpg",
+        "title": "Scoot multi-page website",
+        "description": "This multi-page website will really test your front-end skills. There are 4 pages to build with mobile, tablet, and desktop designs included.",
+        "difficulty": 3,
+        "slug": "scoot-multipage-website-N76alNPRJ",
+        "createdAt": "2020-04-28T21:03:24.646Z",
+        "updatedAt": "2022-04-28T03:00:39.319Z",
+        "figmaURL": "designs/scoot-multi-page-website-figma.zip"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 457,
+        "completedCount": 38,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1587144964/Challenges/ii2p41jbvrtktbtlhftn.jpg",
+        "title": "Dine restaurant website",
+        "description": "This two-page website is perfect if you're starting to become more confident in your front-end skills. The challenge includes tricky design details and form validation.",
+        "difficulty": 3,
+        "slug": "dine-restaurant-website-yAt7Vvxt7",
+        "createdAt": "2020-04-17T17:27:35.040Z",
+        "updatedAt": "2022-05-01T03:10:10.206Z",
+        "figmaURL": "designs/dine-restaurant-website-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 10698,
+        "completedCount": 1628,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1585840832/Challenges/litdnhptrj3uurnnzj0m.jpg",
+        "title": "Social media dashboard with theme switcher",
+        "description": "This challenge will be a perfect chance to practice your Grid skills. The color theme switcher also adds a nice additional test.",
+        "difficulty": 2,
+        "screenshotHeight": null,
+        "slug": "social-media-dashboard-with-theme-switcher-6oY8ozp_H",
+        "createdAt": "2020-04-02T15:20:32.281Z",
+        "updatedAt": "2022-05-01T10:16:25.470Z",
+        "figmaURL": "designs/social-media-dashboard-with-theme-switcher-figma.zip"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 606,
+        "completedCount": 59,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1584636745/Challenges/zdxcoacbs8uqjynxmuh4.jpg",
+        "title": "Minimalist portfolio website",
+        "description": "This multi-page portfolio site will be a great challenge to test your all-round front-end skills. You can even use the site as your own portfolio when you're finished!",
+        "difficulty": 3,
+        "slug": "minimalist-portfolio-website-LMy-ZRyiE",
+        "createdAt": "2020-03-19T16:52:25.286Z",
+        "updatedAt": "2022-04-30T06:20:14.101Z",
+        "figmaURL": "designs/minimalist-portfolio-website-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 7920,
+        "completedCount": 769,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1584485988/Challenges/i4yfvoqdzya3dlizdyfk.jpg",
+        "title": "Job listings with filtering",
+        "description": "In this challenge, you'll be using JavaScript to filter out jobs based on the categories selected.",
+        "difficulty": 3,
+        "slug": "job-listings-with-filtering-ivstIPCt",
+        "createdAt": "2020-03-17T22:59:48.133Z",
+        "updatedAt": "2022-05-01T13:17:21.213Z",
+        "figmaURL": "designs/job-listings-with-filtering-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 28773,
+        "completedCount": 1350,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1583427479/Challenges/o4iyywkwjc31epcmsmyo.jpg",
+        "title": "Easybank landing page",
+        "description": "This challenge will provide a nice test for your layout skills. If you're ready to move up from Junior challenges, this one is a great next step.",
+        "difficulty": 3,
+        "slug": "easybank-landing-page-WaUhkoDN",
+        "createdAt": "2020-03-05T16:57:59.123Z",
+        "updatedAt": "2022-05-01T12:48:39.439Z",
+        "figmaURL": "designs/easybank-landing-page-figma.zip"
+    },
+    {
+        "type": "premium",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 361,
+        "completedCount": 48,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1581516705/Challenges/vivqu9zlxbcv5mgxdjxq.jpg",
+        "title": "myteam multi-page website",
+        "description": "This challenge will give you a real glimpse into a professional front-end developer's workflow. It includes designs for a 3-page fully-functional website.",
+        "difficulty": 4,
+        "slug": "myteam-multipage-website-mxlEauvW",
+        "createdAt": "2020-02-12T14:11:45.710Z",
+        "updatedAt": "2022-04-29T08:25:09.846Z",
+        "figmaURL": "designs/myteam-multi-page-website-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 6256,
+        "completedCount": 507,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1580921001/Challenges/dnn0oqu9q1r6dpq2lmr8.jpg",
+        "title": "Manage landing page",
+        "description": "This challenge will be a great test for your responsive skills. There are lots of small details and slight content shifts for different screen sizes.",
+        "difficulty": 3,
+        "slug": "manage-landing-page-SLXqC6P5",
+        "createdAt": "2020-02-05T16:43:21.726Z",
+        "updatedAt": "2022-05-01T10:13:37.428Z",
+        "figmaURL": "designs/manage-landing-page-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 9012,
+        "completedCount": 951,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1578936489/Challenges/wmd0ftb9v4qsmladsdzv.jpg",
+        "title": "Insure landing page",
+        "description": "Test your layout skills with this HTML & CSS only landing page. This challenge is perfect if you're starting to get confident in laying out web pages.",
+        "difficulty": 2,
+        "slug": "insure-landing-page-uTU68JV8",
+        "createdAt": "2020-01-13T17:28:09.562Z",
+        "updatedAt": "2022-05-01T11:30:20.246Z",
+        "figmaURL": "designs/insure-landing-page-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 7310,
+        "completedCount": 1091,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1575037683/Challenges/sjsrx7m77v6pxswdm0mx.jpg",
+        "title": "Pricing component with toggle",
+        "description": "This challenge will get you thinking about building an accessible custom toggle control and also test your layout skills.",
+        "difficulty": 2,
+        "slug": "pricing-component-with-toggle-8vPwRMIC",
+        "createdAt": "2019-11-29T14:28:03.594Z",
+        "updatedAt": "2022-05-01T05:12:05.144Z",
+        "screenshotHeight": 850,
+        "figmaURL": "designs/pricing-component-with-toggle-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 9572,
+        "completedCount": 755,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1573656629/Challenges/hoqxujbnnumv1ildmus4.jpg",
+        "title": "Rock, Paper, Scissors game",
+        "description": "This challenge will test your HTML, CSS and JavaScript skills. There's even a Rock, Paper, Scissors, Lizard, Spock version if you really want to challenge yourself.",
+        "difficulty": 4,
+        "slug": "rock-paper-scissors-game-pTgwgvgH",
+        "createdAt": "2019-11-13T14:50:29.011Z",
+        "updatedAt": "2022-05-01T11:42:23.640Z",
+        "figmaURL": "designs/rock-paper-scissors-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS",
+            "API"
+        ],
+        "startedCount": 8170,
+        "completedCount": 807,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1572259996/Challenges/katmpcijwnmclxyfw3wr.jpg",
+        "title": "URL shortening API landing page",
+        "description": "Integrate with the shrtcode URL shortening API and play with browser storage in this landing page challenge.",
+        "difficulty": 3,
+        "slug": "url-shortening-api-landing-page-2ce3ob-G",
+        "createdAt": "2019-10-28T10:53:16.216Z",
+        "updatedAt": "2022-05-01T13:29:55.258Z",
+        "figmaURL": "designs/url-shortening-api-landing-page-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 25402,
+        "completedCount": 5176,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1571319003/Challenges/a3b5gbgtfbtiqrdawpwp.jpg",
+        "title": "Four card feature section",
+        "description": "A nice layout-based challenge for beginners. This will test anyone who is new to multi-column and responsive layouts.",
+        "difficulty": 1,
+        "slug": "four-card-feature-section-weK1eFYK",
+        "createdAt": "2019-10-17T13:30:03.661Z",
+        "updatedAt": "2022-05-01T13:30:26.686Z",
+        "figmaURL": "designs/four-card-feature-section-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 16180,
+        "completedCount": 2532,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1564914816/Challenges/tjmihf4uv326gkkz7mbk.jpg",
+        "title": "Base Apparel coming soon page",
+        "description": "This layout looks simple enough, but there are some interesting details to it that will test your CSS skills. You'll also get to practice basic form validation.",
+        "difficulty": 1,
+        "slug": "base-apparel-coming-soon-page-5d46b47f8db8a7063f9331a0",
+        "createdAt": "2019-08-04T10:33:36.160Z",
+        "updatedAt": "2022-05-01T13:28:54.165Z",
+        "screenshotHeight": 800,
+        "figmaURL": "designs/base-apparel-coming-soon-page-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 4436,
+        "completedCount": 614,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1562939544/Challenges/bfsviv4bu5yxoxxhwbeq.jpg",
+        "title": "Project tracking intro component",
+        "description": "Some interesting layout and code challenges are baked into this design. Perfect if you're a beginner who is starting to get a bit more confident with your layouts.",
+        "difficulty": 2,
+        "slug": "project-tracking-intro-component-5d289097500fcb331a67d80e",
+        "createdAt": "2019-07-12T13:52:24.565Z",
+        "updatedAt": "2022-05-01T12:57:19.797Z",
+        "screenshotHeight": 800,
+        "figmaURL": "designs/project-tracking-intro-component-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 6263,
+        "completedCount": 587,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1561024650/Challenges/hwi1ergmy7tibqa5bvyf.jpg",
+        "title": "Bookmark landing page",
+        "difficulty": 3,
+        "description": "This challenge will really test your layout skills. There are also areas that will require some JavaScript, such as the tabbed features section and the FAQ accordion.",
+        "slug": "bookmark-landing-page-5d0b588a9edda32581d29158",
+        "createdAt": "2019-06-20T09:57:30.699Z",
+        "updatedAt": "2022-05-01T10:30:00.856Z",
+        "figmaURL": "designs/bookmark-landing-page-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 14780,
+        "completedCount": 2570,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1559829461/Challenges/ficuxtmo5kmd5bb8lmws.jpg",
+        "title": "Intro component with sign-up form",
+        "description": "Practice building out a sign-up form complete with client-side validation using JavaScript.",
+        "difficulty": 1,
+        "slug": "intro-component-with-signup-form-5cf91bd49edda32581d28fd1",
+        "createdAt": "2019-06-06T13:57:40.994Z",
+        "updatedAt": "2022-05-01T13:12:59.223Z",
+        "screenshotHeight": 800,
+        "figmaURL": "designs/intro-component-with-sign-up-form-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 24930,
+        "completedCount": 4902,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1558450474/Challenges/i6wu7n5sthrxgfpfibvx.jpg",
+        "title": "Single price grid component",
+        "description": "In this challenge, you will build out the pricing component to the designs provided. This is perfect for beginners and people who want to complete a smaller challenge.",
+        "difficulty": 1,
+        "slug": "single-price-grid-component-5ce41129d0ff452fec5abbbc",
+        "createdAt": "2019-05-21T14:54:33.884Z",
+        "updatedAt": "2022-05-01T13:04:43.608Z",
+        "screenshotHeight": 800,
+        "figmaURL": "designs/single-price-grid-component-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 11070,
+        "completedCount": 1724,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1556724941/Challenges/nem2gkhh4jptjzjb0y2y.jpg",
+        "title": "Clipboard landing page",
+        "description": "Put your layout skills to the test with this HTML & CSS landing page challenge. This challenge includes a design for hover states.",
+        "difficulty": 2,
+        "slug": "clipboard-landing-page-5cc9bccd6c4c91111378ecb9",
+        "createdAt": "2019-05-01T15:35:41.693Z",
+        "updatedAt": "2022-05-01T11:50:17.860Z",
+        "figmaURL": "designs/clipboard-landing-page-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 6345,
+        "completedCount": 1497,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1554894929/Challenges/qjiprcu1e19yvujjrflv.jpg",
+        "title": "Ping single column coming soon page",
+        "description": "This challenge is great for beginners and offers a chance to practice basic client-side form validation.",
+        "difficulty": 1,
+        "slug": "ping-single-column-coming-soon-page-5cadd051fec04111f7b848da",
+        "createdAt": "2019-04-10T11:15:29.804Z",
+        "updatedAt": "2022-05-01T11:12:53.409Z",
+        "figmaURL": "designs/ping-single-column-coming-soon-page-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS",
+            "API"
+        ],
+        "startedCount": 12496,
+        "completedCount": 1576,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1554826345/Challenges/yhq5ihanseyinzwblaw1.jpg",
+        "title": "REST Countries API with color theme switcher",
+        "difficulty": 4,
+        "description": "If you're wanting to test your JavaScript skills this is the challenge for you. Use whichever JS framework you prefer and pull data from the REST Countries API.",
+        "slug": "rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca",
+        "createdAt": "2019-04-09T16:12:25.901Z",
+        "updatedAt": "2022-05-01T13:29:27.874Z",
+        "screenshotHeight": 1024,
+        "figmaURL": "designs/rest-countries-api-with-color-theme-switcher-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 9890,
+        "completedCount": 1448,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1554380184/Challenges/y6pmwmuyxhqn0jxwgxxj.jpg",
+        "title": "Huddle landing page with alternating feature blocks",
+        "description": "This challenge is perfect if you're wanting to practice your layout skills. If you're starting to get a bit more confident laying out a web page, give this project a go.",
+        "difficulty": 2,
+        "slug": "huddle-landing-page-with-alternating-feature-blocks-5ca5f5981e82137ec91a5100",
+        "createdAt": "2019-04-04T12:16:24.201Z",
+        "updatedAt": "2022-05-01T13:17:40.840Z",
+        "figmaURL": "designs/huddle-landing-page-with-alternating-feature-blocks-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "startedCount": 13310,
+        "completedCount": 1524,
+        "challenge_id": "",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1554379475/Challenges/mhwyzwfgaii3cw5s6jco.jpg",
+        "title": "Fylo dark theme landing page",
+        "description": "This design has some nice layout challenges in it. A perfect training ground to practice your Flexbox and/or Grid skills.",
+        "difficulty": 2,
+        "slug": "fylo-dark-theme-landing-page-5ca5f2d21e82137ec91a50fd",
+        "createdAt": "2019-04-04T12:04:34.960Z",
+        "updatedAt": "2022-05-01T12:36:50.410Z",
+        "figmaURL": "designs/fylo-dark-theme-landing-page-figma.zip",
+        "screenshotHeight": null
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 20408,
+        "completedCount": 3707,
+        "challenge_id": "",
+        "title": "Huddle landing page with a single introductory section",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1554378991/Challenges/aaykth21moiquxkubywu.jpg",
+        "description": "A perfect challenge for beginners, this project will get you working with a two column layout.",
+        "difficulty": 1,
+        "slug": "huddle-landing-page-with-a-single-introductory-section-B_2Wvxgi0",
+        "createdAt": "2019-04-04T11:56:31.586Z",
+        "updatedAt": "2022-05-01T13:30:28.641Z",
+        "screenshotHeight": 800,
+        "figmaURL": "designs/huddle-landing-page-with-single-introductory-section-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 8624,
+        "completedCount": 1223,
+        "challenge_id": "",
+        "title": "Fylo landing page with two column layout",
+        "description": "This project is great if you're starting to get confident with slightly more complex layouts. The second section with the testimonial area will provide a nice challenge.",
+        "difficulty": 2,
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1554378500/Challenges/qwzpljolfstrtrqq083p.jpg",
+        "slug": "fylo-landing-page-with-two-column-layout-5ca5ef041e82137ec91a50f5",
+        "createdAt": "2019-04-04T11:48:20.790Z",
+        "updatedAt": "2022-05-01T09:17:09.304Z",
+        "figmaURL": "designs/fylo-landing-page-with-two-column-layout-figma.zip"
+    },
+    {
+        "type": "free",
+        "languages": [
+            "HTML",
+            "CSS"
+        ],
+        "startedCount": 7760,
+        "completedCount": 891,
+        "challenge_id": "",
+        "title": "Huddle landing page with curved sections",
+        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/v1554377936/Challenges/h8osxwiem1fjujhthbok.jpg",
+        "description": "Practice using pseudo-elements for styling extras and the CSS position property for the sections with curved edges.",
+        "difficulty": 2,
+        "slug": "huddle-landing-page-with-curved-sections-5ca5ecd01e82137ec91a50f2",
+        "createdAt": "2019-04-04T11:38:56.487Z",
+        "updatedAt": "2022-05-01T10:08:32.416Z",
+        "figmaURL": "designs/huddle-landing-page-with-curved-sections-figma.zip"
     }
-  },
-  {
-    "challenge_id": 2,
-    "name": "In-browser markdown editor",
-    "slug": "in-browser-markdown-editor",
-    "type": "premium",
-    "description": "In this project, you'll build a fully-functional in-browser markdown editor application with a light/dark mode toggle. It's also perfect to build as a full-stack app!",
-    "difficulty": "intermediate",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/r2w3h15oximza3p1baqt.jpg"
-  },
-  {
-    "challenge_id": 3,
-    "type": "free",
-    "name": "Interactive rating component",
-    "slug": "interactive-rating-component",
-    "description": "This is a nice, small project to practice handling user interactions and updating the DOM. Perfect for anyone who has learned the basics of JavaScript!",
-    "difficulty": "newbie",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/hxx2bhmtmeelt0a98zos.jpg"
-  },
-  {
-    "challenge_id": 4,
-    "type": "premium",
-    "name": "Entertainment web app",
-    "slug": "entertainment-web-app",
-    "description": "This multi-page entertainment web app will have you working with json data, routing, state management, and search functionality.",
-    "difficulty": "advanced",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/maz79cid0jllq0js0qyi.jpg"
-  },
-  {
-    "challenge_id": 5,
-    "type": "free",
-    "name": "Advice generator app",
-    "slug": "advice-generator-app",
-    "description": "The perfect project if you're learning how to interact with 3rd-party APIs. This challenge uses the Advice Slip API to generate random quotes of advice.",
-    "difficulty": "junior",
-    "languages": [
-      "html",
-      "css",
-      "js",
-      "api"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/sfl8uqvq75wnnr559ksp.jpg"
-  },
-  {
-    "challenge_id": 6,
-    "name": "Suite landing page",
-    "slug": "suite-landing-page",
-    "type": "premium",
-    "description": "This small-ish html and css only landing page includes some interesting layout decisions. perfect if you want to put your layout and responsive skills to the test!",
-    "difficulty": "junior",
-    "languages": [
-      "html",
-      "css"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/mflwrbyf8kjvqvpxq9uj.jpg"
-  },
-  {
-    "challenge_id": 7,
-    "name": "QR code component",
-    "slug": "qr-code-component",
-    "type": "free",
-    "description": "A perfect first challenge if you're new to HTML and CSS. The card layout doesn't shift, so it's ideal if you haven't learned about building responsive layouts yet.",
-    "difficulty": "newbie",
-    "languages": [
-      "html",
-      "css"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/qh97gysgjrzqyqlig2al.jpg"
-  },
-  {
-    "challenge_id": 8,
-    "name": "Tic Tac Toe game",
-    "slug": "tic-tac-toe-game",
-    "type": "premium",
-    "description": "This classic practice project for web developers is a great exercise to complete. It will test your HTML semantics, your grid layout skill, as well as your JS logic.",
-    "difficulty": "intermediate",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/cfr9ssywcgjpcg7or928.jpg"
-  },
-  {
-    "challenge_id": 9,
-    "name": "Interactive comments section",
-    "slug": "interactive-comments-section",
-    "type": "free",
-    "description": "This is project will put your JavaScript skills to the test. We provide a JSON file to pull the data, but it's also a perfect project to build as a full-stack CRUD app!",
-    "difficulty": "intermediate",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/i8zblmqsbqixz1tbhc0v.jpg"
-  },
-  {
-    "challenge_id": 10,
-    "name": "Art Gallery website",
-    "slug": "art-gallery-website",
-    "type": "premium",
-    "description": "This two-page art gallery project will be perfect if you're ready to branch out beyond single landing pages. There are some particularly interesting layout challenges!",
-    "difficulty": "junior",
-    "languages": [
-      "html",
-      "css"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/bg8nbm2pzsg3hpuqqmmv.jpg"
-  },
-  {
-    "challenge_id": 11,
-    "name": "NFT preview card component",
-    "slug": "nft-preview-card-component",
-    "type": "free",
-    "description": "This HTML & CSS only challenge is perfect for anyone just starting out or anyone wanting a small project to play around with.",
-    "difficulty": "newbie",
-    "languages": [
-      "html",
-      "css"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/rinokvkluq95madbvtmk.jpg"
-  },
-  {
-    "challenge_id": 12,
-    "name": "Equalizer landing page",
-    "slug": "equalizer-landing-page",
-    "type": "premium",
-    "description": "This challenge will be a perfect test of your HTML & CSS skills. If you're starting to get comfortable building smaller projects, this will be a great step up.",
-    "difficulty": "newbie",
-    "languages": [
-      "html",
-      "css"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/hfqgixemrcybrmoomqsz.jpg"
-  },
-  {
-    "challenge_id": 13,
-    "name": "Space tourism multi-page website",
-    "slug": "space-tourism-multi-page-website",
-    "type": "free+",
-    "description": "This project is a fun collaboration with Scrimba and Kevin Powell! If you like, you can follow along and watch Kevin complete the project on Scrimba. Lots to learn!",
-    "difficulty": "intermediate",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/bbbbk7sghmqsg4zhqdo6.jpg"
-  },
-  {
-    "challenge_id": 14,
-    "name": "E-commerce product page",
-    "slug": "e-commerce-product-page",
-    "type": "free",
-    "description": "In this challenge, you'll build a beautiful product page. We'll be putting your JS skills to the test with a lightbox product gallery and cart functionality!",
-    "difficulty": "intermediate",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/fhzpdnabrek50hvhftnl.jpg"
-  },
-  {
-    "challenge_id": 15,
-    "name": "Memory game",
-    "slug": "memory-game",
-    "type": "premium",
-    "description": "This project will be an excellent test for your HTML, CSS, and JS skills! You'll be building a fun memory game where players try to match pairs.",
-    "difficulty": "advanced",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/lphd7s3gcbcgcxmfjt19.jpg"
-  },
-  {
-    "challenge_id": 16,
-    "name": "Time tracking dashboard",
-    "slug": "time-tracking-dashboard",
-    "type": "free",
-    "description": "A perfect opportunity to practice your CSS Grid skills. For anyone wanting to take it up a notch, we provide a JSON data file to practice working with data.",
-    "difficulty": "junior",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/j1ocp59n25odoftocgpi.jpg"
-  },
-  {
-    "challenge_id": 17,
-    "name": "Github user search app",
-    "slug": "github-user-search-app",
-    "type": "premium",
-    "description": "In this project, you'll use the GitHub users API to pull profile data and display it. It's a great challenge if you're looking to practice working with a 3rd-party API.",
-    "difficulty": "junior",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/nr37our6z7faztmhwj9r.jpg"
-  },
-  {
-    "challenge_id": 18,
-    "name": "Order summary component",
-    "slug": "order-summary-component",
-    "type": "free",
-    "description": "A perfect project for newbies who are starting to build confidence with layouts!",
-    "difficulty": "newbie",
-    "languages": [
-      "html",
-      "css"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/ouobx6tvyduidzio7wr7.jpg"
-  },
-  {
-    "challenge_id": 19,
-    "name": "Galleria sideshow site",
-    "slug": "galleria-sideshow-site",
-    "type": "premium",
-    "description": "This art gallery slideshow project will be a great test for your layout and JS skills. With the masonry layout, slideshow logic, and lightbox view there's a lot to build!",
-    "difficulty": "intermediate",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/nlvtx70nqb7vj1xfwj22.jpg"
-  },
-  {
-    "challenge_id": 20,
-    "name": "Tip calculator app",
-    "slug": "tip-calculator-app",
-    "type": "free",
-    "description": "This small app is perfect for anyone starting to get to grips with JavaScript. The calculator functionality will be a nice test!",
-    "difficulty": "junior",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/hxkpctp6cd1meeytfdl2.jpg"
-  },
-  {
-    "challenge_id": 21,
-    "name": "Product feedback app",
-    "type": "premium",
-    "description": "This will be a perfect portfolio piece! You'll be working with JSON, managing state, and building like a real-world app. You can even create it as a full-stack project!",
-    "difficulty": "guru",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/zbq5rrhkqt63eodwcxcs.jpg"
-  },
-  {
-    "challenge_id": 22,
-    "name": "Sunnyside agency landing page",
-    "type": "premium",
-    "description": "This challenge will be a perfect test of your layout and responsive skills. There's a tiny bit of JS for the mobile menu, but the focus is HTML & CSS.",
-    "difficulty": "junior",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/pigotdvhcch2b3wp9uuc.jpg"
-  },
-  {
-    "challenge_id": 23,
-    "name": "Planets fact site",
-    "type": "premium",
-    "description": "In this challenge, you'll be building out an 8-page fact site for all planets in our solar system. This project will make an incredible portfolio piece when completed!",
-    "difficulty": "intermediate",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/wrljilk72cxhipdjyhpa.jpg"
-  },
-  {
-    "challenge_id": 24,
-    "name": "Calculator app",
-    "type": "free",
-    "description": "This calculator app will be a great test of your CSS and JS skills especially. If you're wanting to practice using Grid, this challenge will be perfect for you!",
-    "difficulty": "intermediate",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/bz3taijsat3rhsocodym.jpg"
-  },
-  {
-    "challenge_id": 25,
-    "name": "Audiophile e-commerce website",
-    "type": "premium",
-    "description": "This huge e-commerce challenge will provide an incredible test for your front-end skills. Once you're done, you'll have an amazing project to add to your portfolio!",
-    "difficulty": "guru",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/xfevkvpujubwentbteg6.jpg"
-  },
-  {
-    "challenge_id": 26,
-    "name": "Stats preview card component",
-    "type": "free",
-    "description": "This is a great small challenge to help get you used to building to a design. There's no JS in this project, so you'll be able to focus on your HTML & CSS skills.",
-    "difficulty": "guru",
-    "languages": [
-      "html",
-      "css"
-    ],
-    "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/sucvvhutd4codsxpzvw7.jpg"
-  }
 ]

@@ -1,0 +1,57 @@
+{
+    "type": "free",
+    "languages": [
+        "HTML",
+        "CSS",
+        "JS"
+    ],
+    "steps": [
+        "Set up the project with version control (e.g. Git)",
+        "Read the `README.md` file and have a look around the project",
+        "Get colors, fonts etc from the `style-guide.md` file",
+        "Set up your project/file architecture however you want",
+        "Start coding!"
+    ],
+    "ideas": [
+        "Write your styles using a pre-processor, such as [Sass](https://sass-lang.com), [Less](http://lesscss.org) or [Stylus](http://stylus-lang.com)",
+        "Train your eye for detail by getting your solution as close to the design as you can",
+        "Try estimating the time it will take for you to build the project. Then see if the time taken matches up to your estimate. Project estimations are a skill that is often overlooked but is important for professional developers"
+    ],
+    "submitted": true,
+    "startedCount": 3344,
+    "completedCount": 216,
+    "_id": "62580064f223eb5a993d4c37",
+    "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1649934436/Challenges/rlaxdjplmeul4qe1qvh6.jpg",
+    "title": "Intro section with dropdown navigation",
+    "description": "This challenge will test your ability to create dropdown navigation menus, a common pattern on larger sites. It will also provide some nice basic layout challenges.",
+    "difficulty": 2,
+    "starterURL": "https://github.com/frontendmentorio/intro-section-with-dropdown-navigation/archive/refs/heads/main.zip",
+    "sketchURL": "designs/intro-section-with-dropdown-navigation-sketch.zip",
+    "figmaURL": "designs/intro-section-with-dropdown-navigation-figma.zip",
+    "screenshotHeight": null,
+    "brief": "Your challenge is to build out this intro section with dropdown navigation and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to:\n\n- View the relevant dropdown menus on desktop and mobile when interacting with the navigation links\n- View the optimal layout for the content depending on their device's screen size\n- See hover states for all interactive elements on the page\n\nDownload the project and go through the `README.md` file. This will provide further details about the project and help you get set up.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+    "gallery": [
+        {
+            "_id": "625800d5f223eb5a993d4ec5",
+            "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1649934549/Challenges/yoglpvvo0vggjf9ekjey.jpg",
+            "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1649934549/Challenges/zp74vhrxan0bpg43z2uu.jpg",
+            "title": "Desktop design"
+        },
+        {
+            "_id": "625800d5f223eb5a993d4ec6",
+            "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1649934550/Challenges/pmszsjnfupepcohsbty9.jpg",
+            "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1649934549/Challenges/x35fo4g0mcmxbl9ht02l.jpg",
+            "title": "Active states"
+        },
+        {
+            "_id": "625800d5f223eb5a993d4ec7",
+            "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1649934549/Challenges/x4moicebbpnxh2drqr5t.jpg",
+            "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1650881897/Challenges/kjo17v5edphajeppxyix.jpg",
+            "title": "Mobile design"
+        }
+    ],
+    "reviews": [],
+    "slug": "intro-section-with-dropdown-navigation-ryaPetHE5",
+    "createdAt": "2022-04-14T11:07:16.588Z",
+    "updatedAt": "2022-05-01T13:38:47.903Z"
+}
