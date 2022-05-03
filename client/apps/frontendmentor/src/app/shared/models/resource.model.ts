@@ -29,24 +29,22 @@ export enum ResourceTypeName {
 }
 
 export interface ResourceGroup {
-  name: ResourceGroupName;
-  types: ResourceType[];
+  title: ResourceGroupName;
+  child: ResourceType[];
 }
 
 export interface ResourceType {
-  name: ResourceTypeName;
+  title: ResourceTypeName;
   resources: Resource[];
 }
 
 export interface Resource {
   resouce_id: number;
-  resourceType: ResourceTypeName;
-  resourceGroup: ResourceGroupName;
-  name: string;
+  title: string;
   description: string;
   price?: string;
-  techStacks: Language[];
-  href: string;
+  languages: Language[];
+  link: string;
   image: string;
   isAffiliate?: boolean;
 }
@@ -56,9 +54,9 @@ export const identifyResource = (index: number, resource: Resource) => {
 };
 
 export const identifyResourceGroup = (index: number, group: ResourceGroup) => {
-  return group.name;
+  return group.title;
 };
 
 export const identifyResourceType = (index: number, type: ResourceType) => {
-  return type.name;
+  return type.title;
 };

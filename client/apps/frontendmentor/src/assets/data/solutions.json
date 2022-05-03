@@ -1,186 +1,3044 @@
-[
-    {
-        "solution_id": 671106901,
-        "title": "Responsive Feedback app using Angular 12 with springboot for services",
-        "repositoryUrl": "",
-        "liveSiteUrl": "",
-        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Screenshots/dimvsjrodzr0ifj5hl3l.jpg",
-        "tags": [
-            "angular",
-            "tailwindcss"
-        ],
-        "questions": "This is the first time I make something with html & css after learning it for 2 days, so it's not perfect hahaha. I had trouble with aligning vertically the white box that contains the image and the text (tried using flexbox and other methods, neither of them worked without a specific height so I had to specify it and because of that it's not responsive, not sure of how to do it correctly :( ) All feedback is welcome, thank you!",
-        "createdAt": "2022-12-02T05:20:37+07:00",
-        "likes": 10,
-        "comments": 11,
-        "bookmarks": 4,
-        "user": {
-            "name": "Sofia Matrella",
-            "username": "sofiamatrella",
-            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_80,h_80,c_fill/Avatars/uf0arw094oxp2eqzgycz.jpg",
-            "points": 90,
-            "isPremium": true
+{
+    "data": [
+        {
+            "id": "626df3e865eb93522fb50c32",
+            "bookmarks": [],
+            "commentCount": 2,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 3,
+                "html": 0
+            },
+            "likes": [
+                "60f4e9276bad477205b2113f",
+                "6121fed6497d89150337b26e",
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://c2-order-summary-component.netlify.app/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f4a8765eb93522fc32b46"
+            ],
+            "repoURL": "https://github.com/carolinanonato/c2-order-summary-component",
+            "slug": "order-summary-with-react-rkat9a3r9",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651460743/Screenshots/sxy7zy3zuqjyw9eog8ws.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T03:05:43.662Z",
+            "tags": [
+                "619f80635f8106fb23708e7f"
+            ],
+            "title": "Order Summary with React",
+            "user": "61cf11a7f175252a7d5e5fba",
+            "challenge": "610bc9c450c6191f790975e3",
+            "comments": [
+                "626f4d4865eb93522fc3472b",
+                "626f67a065eb93522fc44030"
+            ]
+        },
+        {
+            "id": "626f012c65eb93522fc00997",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 7,
+                "html": 15
+            },
+            "likes": [
+                "60f4e9276bad477205b2113f"
+            ],
+            "liveURL": "https://conceptsec.github.io/e-commerce-product-page/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f46f265eb93522fc308da"
+            ],
+            "repoURL": "https://github.com/ConceptSec/e-commerce-product-page",
+            "slug": "ecommerce-product-page-using-flexbox-H1KgPTnr5",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651459826/Screenshots/n3ka2ftfiddalg6tru36.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T02:50:26.924Z",
+            "tags": [],
+            "title": "E-commerce Product Page using Flexbox",
+            "user": "6269ac2f38db5e0899602cd8",
+            "challenge": "615f0dc50f48541b10545eda",
+            "comments": []
+        },
+        {
+            "id": "626e2a0865eb93522fb6cb68",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 2,
+                "html": 0
+            },
+            "likes": [
+                "6195dc7c3cb8666eb7ffd526",
+                "626d9eba65eb93522fb0e7a8"
+            ],
+            "liveURL": "https://intro-section-slider.vercel.app/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f456065eb93522fc2fe97"
+            ],
+            "repoURL": "https://github.com/NHWai/intro-section-slider",
+            "slug": "intro-section-with-sliding-navbar-HyUvHT3Bq",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651459424/Screenshots/vseacbzoue2qsf9y4wbj.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T02:43:44.644Z",
+            "tags": [],
+            "title": "Intro Section with sliding navbar",
+            "user": "6167abdd1c1a861bd88c4e38",
+            "challenge": "62580064f223eb5a993d4c37",
+            "comments": []
+        },
+        {
+            "id": "6250f227f223eb5a99e7dffb",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 1
+            },
+            "likes": [
+                "6121fed6497d89150337b26e",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://four-card-feature-section-orangel.netlify.app/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f445565eb93522fc2f620"
+            ],
+            "repoURL": "https://github.com/Orangel-18/Four-card-feature-section",
+            "slug": "four-card-feature-section-r13LEphr5",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651459157/Screenshots/eikccnpalgjeg6y80uzu.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T02:39:17.718Z",
+            "tags": [],
+            "title": "Four card feature section",
+            "user": "618c5a5eb9192844cef5334f",
+            "challenge": "5da86cdaf5809005ee43ad07",
+            "comments": []
+        },
+        {
+            "id": "622eb005f54ba279575cf4c3",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 2,
+                "html": 0
+            },
+            "likes": [
+                "5fe8d6b59f2174632712c41c",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://pxvc.github.io/intro-component-with-signup-form",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f425165eb93522fc2e4e4"
+            ],
+            "repoURL": "https://github.com/PXVC/intro-component-with-signup-form",
+            "slug": "intro-component-with-signup-form-SkwUMT2H5",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651458641/Screenshots/cnrgdgfkivss2lxvadc1.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T02:30:41.747Z",
+            "tags": [
+                "619f80635f8106fb23708e90",
+                "619f80635f8106fb23708e7e"
+            ],
+            "title": "Intro component with signup form",
+            "user": "60ee92bb6192790403ab6628",
+            "challenge": "5cf91bd49edda32581d28fd1",
+            "comments": []
+        },
+        {
+            "id": "626741d3a1db5928bb7a4349",
+            "bookmarks": [],
+            "commentCount": 5,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 1,
+                "html": 3
+            },
+            "likes": [
+                "6121fed6497d89150337b26e",
+                "60f4e9276bad477205b2113f",
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://ogbo0810.github.io/nft-preview-component/",
+            "private": false,
+            "questions": "Apart from using semantic elements, what makes my code more accessible?",
+            "reports": [
+                "626f3dee65eb93522fc2bf2d"
+            ],
+            "repoURL": "https://github.com/Ogbo0810/nft-preview-component",
+            "slug": "nft-preview-component-using-flexbox-Hy4lAn2H9",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651457517/Screenshots/tybr4npdxuwv5n1fovfd.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T02:11:58.138Z",
+            "tags": [
+                "619f80635f8106fb23708e73"
+            ],
+            "title": "NFT Preview Component Using Flexbox",
+            "user": "6227ca38f54ba27957f746c0",
+            "challenge": "6196880a3cb8666eb705c489",
+            "comments": [
+                "626f43d265eb93522fc2f14f",
+                "626f63eb65eb93522fc4288e"
+            ]
+        },
+        {
+            "id": "626f080065eb93522fc05b4e",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 6,
+                "html": 6
+            },
+            "likes": [
+                "60f4e9276bad477205b2113f",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://nicolasaguero99.github.io/pages.github.io/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f3dd965eb93522fc2be57"
+            ],
+            "repoURL": "https://github.com/magun209/proyects/commits/proyect_1",
+            "slug": "f-r1yJ023Bc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651457497/Screenshots/qpnnj4p7z0vi0si96idb.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T02:11:37.665Z",
+            "tags": [],
+            "title": "f",
+            "user": "62607fe7f223eb5a999bd65d",
+            "challenge": "6234774f8a1c690472e9379a",
+            "comments": []
+        },
+        {
+            "id": "626f1a8365eb93522fc12fad",
+            "bookmarks": [],
+            "commentCount": 2,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 2,
+                "html": 0
+            },
+            "likes": [
+                "6121fed6497d89150337b26e",
+                "60f4e9276bad477205b2113f",
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526",
+                "608b3a0057b0ca508f7e4bf1",
+                "618432d7af08a258e2cefca1"
+            ],
+            "liveURL": "https://acmegamers.github.io/NFT-Preview-Card/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f3baa65eb93522fc2a555"
+            ],
+            "repoURL": "https://github.com/AcmeGamers/NFT-Preview-Card",
+            "slug": "nft-card-component-rJg2i3hS5",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651456937/Screenshots/kpvrhdbzital3ssxm8ua.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T02:02:18.190Z",
+            "tags": [],
+            "title": "NFT Card Component",
+            "user": "5f4b11e454fa6a407dcea1cb",
+            "challenge": "6196880a3cb8666eb705c489",
+            "comments": [
+                "626f682f65eb93522fc443cd"
+            ]
+        },
+        {
+            "id": "6113b5617095e237f3ce3053",
+            "bookmarks": [],
+            "commentCount": 1,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 2,
+                "html": 0
+            },
+            "likes": [
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://kathund.github.io/Stats-preview-card-component/",
+            "private": false,
+            "questions": "Could not find a good way to the the image. any support on that would be amazing",
+            "reports": [
+                "626f3b5a65eb93522fc2a2f9"
+            ],
+            "repoURL": "https://github.com/Kathund/Stats-preview-card-component",
+            "slug": "stats-preview-card-ByePs2nBc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651456858/Screenshots/wi5b29ex3v2m5w6cnzxi.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T02:00:58.474Z",
+            "tags": [],
+            "title": "Stats preview card",
+            "user": "60e7ad2d0a8c9661bfe3886a",
+            "challenge": "6078390f80d0ff7fd7954aad",
+            "comments": [
+                "626f65c765eb93522fc435ad"
+            ]
+        },
+        {
+            "id": "626f16d065eb93522fc10a16",
+            "bookmarks": [],
+            "commentCount": 2,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 4,
+                "html": 0
+            },
+            "likes": [
+                "5f4b11e454fa6a407dcea1cb",
+                "60f4e9276bad477205b2113f"
+            ],
+            "liveURL": "https://kimron.github.io/barcodechallenge/",
+            "private": false,
+            "questions": "I do think that my H3 header font does not look the same as the guide/preview.\nI just added a shadow border for no specific reason.",
+            "reports": [
+                "626f39aa65eb93522fc28cc4"
+            ],
+            "repoURL": "https://github.com/kimron/barcodechallenge",
+            "slug": "html-css-box-model-relative-and-absolute-positioning-S1e3Y2nH5",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651456425/Screenshots/zdzs0ujmsl14twp30ufi.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T01:53:46.063Z",
+            "tags": [],
+            "title": "HTML, CSS box model, Relative and Absolute Positioning.",
+            "user": "626ee02465eb93522fbe9122",
+            "challenge": "61e953584cc2653b1e5ca5b6",
+            "comments": [
+                "626f677d65eb93522fc43ed8",
+                "626f68c365eb93522fc4477c"
+            ]
+        },
+        {
+            "id": "626e879965eb93522fba6e15",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 0
+            },
+            "likes": [
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://elwin-jomy.github.io/Stats-preview-card-component-Frontend-mentor/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f376565eb93522fc2726f"
+            ],
+            "repoURL": "https://github.com/Elwin-Jomy/Stats-preview-card-component-Frontend-mentor.git",
+            "slug": "statspreviewcardcomponentfrontendmentor-by-robodev-B1qDDnnSc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651455845/Screenshots/elscm4zs1nempd9mdrrh.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T01:44:05.484Z",
+            "tags": [],
+            "title": "Stats-preview-card-component-Frontend-mentor by Robodev",
+            "user": "62525ff6f223eb5a99fec894",
+            "challenge": "6078390f80d0ff7fd7954aad",
+            "comments": []
+        },
+        {
+            "id": "62620ea9f223eb5a99ac5db8",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 14,
+                "html": 4
+            },
+            "likes": [
+                "621c80ff145c6a78f0a1caff"
+            ],
+            "liveURL": "https://rbmdeveloper.github.io/easybank-landing-page-frontendMentor-Challenge/",
+            "private": false,
+            "questions": "Nothing is difficult",
+            "reports": [
+                "626f36ee65eb93522fc26e56"
+            ],
+            "repoURL": "https://github.com/RBMdeveloper/easybank-landing-page-frontendMentor-Challenge",
+            "slug": "i-completed-this-challenge-by-my-ownself-using-html-css-and-jd-SkXlDnnSq",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651455725/Screenshots/gbzmmqfcqzbgddkxulq0.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T01:42:06.034Z",
+            "tags": [],
+            "title": "I completed this challenge by my ownself using HTML CSS and JD",
+            "user": "62120124145c6a78f024e6c6",
+            "challenge": "5e612f96e7779b5603d68243",
+            "comments": []
+        },
+        {
+            "id": "626ed99965eb93522fbe5006",
+            "bookmarks": [],
+            "commentCount": 3,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 0
+            },
+            "likes": [
+                "6121fed6497d89150337b26e",
+                "6265cf1393dffb240ef02505",
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://stats-preview-card-component-jlah47.netlify.app",
+            "private": false,
+            "questions": "Any feeback is welcome, especially if it is about CSS improvements",
+            "reports": [
+                "626f308f65eb93522fc22445"
+            ],
+            "repoURL": "https://github.com/jorgeluisah47/Stats-preview-card-component",
+            "slug": "my-solution-for-fem-challenge-using-flexbox-and-background-images-Skr5lh2H5",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651454094/Screenshots/jql3nq0eashntys8ouwk.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T01:14:55.240Z",
+            "tags": [],
+            "title": "My solution for FEM challenge using flexbox and background images",
+            "user": "626dbced65eb93522fb26d98",
+            "challenge": "6078390f80d0ff7fd7954aad",
+            "comments": [
+                "626f322e65eb93522fc23428",
+                "626f8e5965eb93522fc56c0d"
+            ]
+        },
+        {
+            "id": "61b5394daae0f219e7877b34",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 1,
+                "html": 6
+            },
+            "likes": [
+                "626dbced65eb93522fb26d98",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://testimonials-grid-section-cs.netlify.app/",
+            "private": false,
+            "questions": "Any feedback's to improve my future projects are welcome !",
+            "reports": [
+                "626f2e8f65eb93522fc2140f"
+            ],
+            "repoURL": "https://github.com/leandrorodrigues00/frontend-mentor-challenges/tree/main/testimonials-grid-section-main",
+            "slug": "testimonialsgridsection-BkBqCj2Bq",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651453582/Screenshots/rmbf4tdlxt9wqnduwdfu.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T01:06:23.199Z",
+            "tags": [],
+            "title": "testimonials-grid-section",
+            "user": "616754c01c1a861bd88a3d89",
+            "challenge": "5f91b9471ec0ad07352294f2",
+            "comments": []
+        },
+        {
+            "id": "626d41b165eb93522fad01fd",
+            "bookmarks": [],
+            "commentCount": 2,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 3,
+                "html": 0
+            },
+            "likes": [
+                "5f4b11e454fa6a407dcea1cb",
+                "60f4e9276bad477205b2113f",
+                "61e4b97b4cc2653b1e31005d"
+            ],
+            "liveURL": "https://abdelkadir-bouziane.github.io/advice-generator-app-main/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f2de865eb93522fc20c3e"
+            ],
+            "repoURL": "https://github.com/abdelkadir-bouziane/advice-generator-app-main",
+            "slug": "responsive-advice-generator-app-using-the-advice-slip-api-HJRJCsnHc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651453416/Screenshots/vnjnh8nqfzyfb7t3pai3.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T01:03:36.541Z",
+            "tags": [],
+            "title": "Responsive advice generator app using the Advice Slip API",
+            "user": "608b3a0057b0ca508f7e4bf1",
+            "challenge": "620e5024145c6a78f0f5a6db",
+            "comments": [
+                "626f693a65eb93522fc44ba7"
+            ]
+        },
+        {
+            "id": "626f1aa265eb93522fc13132",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 2,
+                "html": 0
+            },
+            "likes": [
+                "6121fed6497d89150337b26e",
+                "620c1e22145c6a78f0da5a67",
+                "61e4b97b4cc2653b1e31005d"
+            ],
+            "liveURL": "https://acmegamers.github.io/QR-Code/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f279465eb93522fc1c46e"
+            ],
+            "repoURL": "https://github.com/AcmeGamers/QR-Code",
+            "slug": "qr-code-challenge-rJ5cwo3S5",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651451795/Screenshots/t5bdvnjcgsffzhvdndeq.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T00:36:36.080Z",
+            "tags": [
+                "619f80635f8106fb23708e73"
+            ],
+            "title": "QR Code Challenge",
+            "user": "5f4b11e454fa6a407dcea1cb",
+            "challenge": "61e953584cc2653b1e5ca5b6",
+            "comments": []
+        },
+        {
+            "id": "626f04bf65eb93522fc0345c",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": true,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 8,
+                "html": 2
+            },
+            "likes": [
+                "620c1e22145c6a78f0da5a67",
+                "5f4b11e454fa6a407dcea1cb",
+                "6142c9ac361f991f0bd9a6b8",
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://davupls.github.io/NFT-preview-card/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f26bb65eb93522fc1b997"
+            ],
+            "repoURL": "https://github.com/davupls/NFT-preview-card",
+            "slug": "css-flexbox-S1MaUsnB9",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651452939/Screenshots/a1uphc43zy12jliizekn.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T00:33:00.010Z",
+            "tags": [],
+            "title": "CSS, Flexbox",
+            "user": "5efead49a2c03d602ba8022f",
+            "challenge": "6196880a3cb8666eb705c489",
+            "comments": []
+        },
+        {
+            "id": "626f0dd865eb93522fc0a6c8",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 0
+            },
+            "likes": [
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://comendrun.github.io/3-column-preview-card-component/",
+            "private": false,
+            "questions": "I really struggled to change the direction of the Grid from row to column with media-query. something that definitely should put some more time on ...",
+            "reports": [
+                "626f269465eb93522fc1b740"
+            ],
+            "repoURL": "https://github.com/comendrun/3-column-preview-card-component",
+            "slug": "used-cssgrid-and-cssflexbox-for-styling-this-three-column-preview-SJccUs3rc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651451539/Screenshots/qickg4djmzyuejuczjdy.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T00:32:20.337Z",
+            "tags": [],
+            "title": "used CSS-Grid and CSS-FlexBox for styling this three column preview",
+            "user": "620c1e22145c6a78f0da5a67",
+            "challenge": "6065efba65c0ff6e9bf5360f",
+            "comments": []
+        },
+        {
+            "id": "626c408b65eb93522fa18c6b",
+            "bookmarks": [],
+            "commentCount": 1,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 0
+            },
+            "likes": [
+                "60f4cb4e6bad477205b21078",
+                "6121fed6497d89150337b26e"
+            ],
+            "liveURL": "https://ang3l-spf.github.io/Single-Price-Grid-Component/",
+            "private": false,
+            "questions": "This is my first time using CSS Grid. I don't understand everything, but I did my best work.\nWhat can I improve in my code?\n\nEsta es la primera vez que uso css grid. La verdad, no termino de entender del todo como usar su poder para el tema del responsive. Aplique \"first mobile\", por lo cual desde el inicio no aplique grid a la card. Seguiré estudiando más a fondo grid :)",
+            "reports": [
+                "626f258065eb93522fc1aaa3"
+            ],
+            "repoURL": "https://github.com/Ang3l-SPF/Single-Price-Grid-Component",
+            "slug": "singlepricegridcomponent-H1vFBo3H5",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651451264/Screenshots/fgfch9vmfjuf4cgdmlck.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T00:27:44.686Z",
+            "tags": [],
+            "title": "Single-Price-Grid-Component",
+            "user": "6266b211a1db5928bb72cc2e",
+            "challenge": "5ce41129d0ff452fec5abbbc",
+            "comments": [
+                "626f86c965eb93522fc51b06"
+            ]
+        },
+        {
+            "id": "626f24fc65eb93522fc1a41a",
+            "bookmarks": [],
+            "commentCount": 1,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 4,
+                "html": 0
+            },
+            "likes": [
+                "620c1e22145c6a78f0da5a67",
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://order-summary-i21oakyur-ynb92.vercel.app/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f251d65eb93522fc1a59d",
+                "626f255b65eb93522fc1a8f6"
+            ],
+            "repoURL": "https://github.com/ynb92/order-summary.git",
+            "slug": "ordersummary-BJQmHs2Hq",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651451165/Screenshots/h2rjd4jamqpu86lilpeb.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T00:26:05.719Z",
+            "tags": [],
+            "title": "order-summary",
+            "user": "6268585a38db5e0899504a25",
+            "challenge": "610bc9c450c6191f790975e3",
+            "comments": [
+                "626f69c865eb93522fc44ff9"
+            ]
+        },
+        {
+            "id": "626c603365eb93522fa2ac9e",
+            "bookmarks": [],
+            "commentCount": 1,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 9,
+                "html": 2
+            },
+            "likes": [
+                "6121fed6497d89150337b26e",
+                "62261b7ef54ba27957dd53a9",
+                "6195dc7c3cb8666eb7ffd526",
+                "626d9eba65eb93522fb0e7a8"
+            ],
+            "liveURL": "https://mohammedbahnini.github.io/intro-section-with-dropdown-menu/",
+            "private": false,
+            "questions": "After a lot of work and fixing issues , i came up with this solution built with HTMl , SASS and a small porion of Js .\nYour feedback means a lot .",
+            "reports": [
+                "626f23d465eb93522fc1974c"
+            ],
+            "repoURL": "https://github.com/mohammedbahnini/intro-section-with-dropdown-menu.git",
+            "slug": "intro-section-with-dropdown-navigation-Hyc0XsnBc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651450835/Screenshots/efntxrd61u7zsuiadtj2.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T00:20:36.347Z",
+            "tags": [],
+            "title": "Intro section with dropdown navigation",
+            "user": "6048ad22d6bf4e49edd3cd0c",
+            "challenge": "62580064f223eb5a993d4c37",
+            "comments": [
+                "626f6aad65eb93522fc45419"
+            ]
+        },
+        {
+            "id": "626749f9a1db5928bb7a92cb",
+            "bookmarks": [],
+            "commentCount": 1,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 2,
+                "html": 8
+            },
+            "likes": [],
+            "liveURL": "https://taepal467.github.io/Huddle_landing_page_with_curvedSections/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f235865eb93522fc1928d"
+            ],
+            "repoURL": "https://github.com/taepal467/Huddle_landing_page_with_curvedSections",
+            "slug": "huddle-landing-page-wcurved-sections-using-flexbox-and-javascript-H1lTLQj2Bq",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651450711/Screenshots/ce1wbkkti02nicvkj8gg.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T00:18:32.111Z",
+            "tags": [],
+            "title": "Huddle Landing Page w/Curved Sections using Flexbox & Javascript",
+            "user": "604ea686d6bf4e49edd401f8",
+            "challenge": "5ca5ecd01e82137ec91a50f2",
+            "comments": [
+                "626f6afb65eb93522fc4561a"
+            ]
+        },
+        {
+            "id": "62609156f223eb5a999c79d7",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 1,
+                "html": 0
+            },
+            "likes": [
+                "61e4b97b4cc2653b1e31005d"
+            ],
+            "liveURL": "https://interactive-pricing-component-solution-3.vigengareyan.repl.co/",
+            "private": false,
+            "questions": "Which areas of your code are you unsure of?\n\nThe discount area will not be displayed properly if you don't refresh the page.",
+            "reports": [
+                "626f225e65eb93522fc1876f",
+                "626f22fe65eb93522fc18e57",
+                "626f23e365eb93522fc19813",
+                "626f248065eb93522fc19e64",
+                "626f252165eb93522fc1a601",
+                "626f25c965eb93522fc1ae94",
+                "626f261e65eb93522fc1b248",
+                "626f269165eb93522fc1b70d"
+            ],
+            "repoURL": "https://github.com/vigengareyan/interactive-pricing-component-solution-3",
+            "slug": "interactive-pricing-component-with-flexbox-and-css-grid-SJGPGj2Sq",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651450462/Screenshots/wcrnteswcg4spk4j70wf.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T00:14:22.636Z",
+            "tags": [],
+            "title": "Interactive Pricing Component with Flexbox and CSS Grid",
+            "user": "6224a69ff54ba27957cb111a",
+            "challenge": "600adff47931c226d23551f6",
+            "comments": []
+        },
+        {
+            "id": "625cc112f223eb5a996e7ead",
+            "bookmarks": [],
+            "commentCount": 1,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 1,
+                "html": 0
+            },
+            "likes": [
+                "61984ee33cb8666eb714d527",
+                "6121fed6497d89150337b26e",
+                "620c1e22145c6a78f0da5a67",
+                "5f4b11e454fa6a407dcea1cb",
+                "6142c9ac361f991f0bd9a6b8",
+                "61e4b97b4cc2653b1e31005d",
+                "62261fd0f54ba27957dd967e",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://fabiosk2.github.io/nft-card/",
+            "private": false,
+            "questions": "meu primeiro projeto que finalizo e posto para alguém ver.\naceito sugestões e criticas tambem.",
+            "reports": [
+                "626f224f65eb93522fc186c6"
+            ],
+            "repoURL": "https://github.com/fabiosk2/nft-card",
+            "slug": "flexbox-ByBUMohH5",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651450446/Screenshots/uurkljxm6plwnbigbft6.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T00:14:07.088Z",
+            "tags": [],
+            "title": "flexbox",
+            "user": "625cc02df223eb5a996e7465",
+            "challenge": "6196880a3cb8666eb705c489",
+            "comments": [
+                "626f24cd65eb93522fc1a247"
+            ]
+        },
+        {
+            "id": "62392bbc8a1c69047224f0f2",
+            "bookmarks": [],
+            "commentCount": 1,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 5,
+                "html": 2
+            },
+            "likes": [
+                "5f4b11e454fa6a407dcea1cb",
+                "61e4b97b4cc2653b1e31005d"
+            ],
+            "liveURL": "https://poowerllz.github.io/advice-generator-app/",
+            "private": false,
+            "questions": "Improvements to the project?",
+            "reports": [
+                "626f20de65eb93522fc17879"
+            ],
+            "repoURL": "https://github.com/Poowerllz/advice-generator-app",
+            "slug": "pgina-responsiva-utilizando-react-e-styled-components-rkVkWinSc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651450078/Screenshots/neivratxzauplacavqrc.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-02T00:07:58.534Z",
+            "tags": [
+                "619f80635f8106fb23708e7f",
+                "619f80635f8106fb23708e91"
+            ],
+            "title": "Página responsiva utilizando react e styled components",
+            "user": "62392b8a8a1c69047224ef71",
+            "challenge": "620e5024145c6a78f0f5a6db",
+            "comments": [
+                "626f6b6c65eb93522fc458f9"
+            ]
+        },
+        {
+            "id": "626f1bf865eb93522fc14078",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 2
+            },
+            "likes": [],
+            "liveURL": "https://david404-dev.github.io/sunnyside-landing-page/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f1e8865eb93522fc15eb8"
+            ],
+            "repoURL": "https://github.com/David404-dev/sunnyside-landing-page",
+            "slug": "htmlcssjs-rJCYRc2S9",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651449479/Screenshots/cjunnmm91fyuqsqlzv4t.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:58:00.358Z",
+            "tags": [],
+            "title": "html,css,js",
+            "user": "5f6e879070aa013252de8fc9",
+            "challenge": "60c0d3c5905837382196aa15",
+            "comments": []
+        },
+        {
+            "id": "626ddfe765eb93522fb41fed",
+            "bookmarks": [],
+            "commentCount": 1,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 8,
+                "html": 2
+            },
+            "likes": [
+                "620c1e22145c6a78f0da5a67"
+            ],
+            "liveURL": "https://zilla3k.github.io/QrCode-Component---Mini-Project/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f1e6365eb93522fc15cee"
+            ],
+            "repoURL": "https://github.com/Zilla3k/QrCode-Component---Mini-Project",
+            "slug": "qr-code-compontent-ry5DA92Hc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651451839/Screenshots/wtea28ap4zhu34jr9ze2.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:57:23.952Z",
+            "tags": [],
+            "title": "Qr Code Compontent",
+            "user": "625d426cf223eb5a9973e81a",
+            "challenge": "61e953584cc2653b1e5ca5b6",
+            "comments": [
+                "626f25ff65eb93522fc1b05f"
+            ]
+        },
+        {
+            "id": "626f023265eb93522fc01581",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 1,
+                "html": 1
+            },
+            "likes": [
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://eriickw.github.io/Secao_de_quatro_cartoes/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f1dbc65eb93522fc15593"
+            ],
+            "repoURL": "https://github.com/EriickW/Secao_de_quatro_cartoes",
+            "slug": "seo-de-quatro-cartes-HkXTT5hrc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651449276/Screenshots/pex4y4f6o41nkilwuvot.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:54:36.920Z",
+            "tags": [
+                "619f80635f8106fb23708e73",
+                "619f80635f8106fb23708ea3",
+                "619f80635f8106fb23708e9f",
+                "61ae14f270e6a22776e6facb"
+            ],
+            "title": "Seção de quatro cartões",
+            "user": "624890a5f223eb5a997ffc7a",
+            "challenge": "5da86cdaf5809005ee43ad07",
+            "comments": []
+        },
+        {
+            "id": "61b210f6aae0f219e76be1e2",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 17,
+                "html": 12
+            },
+            "likes": [
+                "61e4b97b4cc2653b1e31005d"
+            ],
+            "liveURL": "https://huddle-landing-page-bootstrap.netlify.app/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f1cc765eb93522fc14a3a"
+            ],
+            "repoURL": "https://github.com/Ahmedhassanin12/huddle-landing-page-with-curved-sections-master",
+            "slug": "huddlelandingpageusing-bootstrap-rJaT3qnSc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651449030/Screenshots/ao8zyogb2pccwhfdafqz.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:50:31.286Z",
+            "tags": [
+                "619f80635f8106fb23708e74",
+                "619f80635f8106fb23708e90"
+            ],
+            "title": "huddle-landing-page-using bootstrap",
+            "user": "61adbb6fbb27946dd3ca97de",
+            "challenge": "5ca5ecd01e82137ec91a50f2",
+            "comments": []
+        },
+        {
+            "id": "62365a998a1c69047201f802",
+            "bookmarks": [],
+            "commentCount": 2,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 1
+            },
+            "likes": [
+                "620c1e22145c6a78f0da5a67",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://interactive-rating-component-cs.netlify.app/",
+            "private": false,
+            "questions": "Any feedback's to improve my future projects are welcome !",
+            "reports": [
+                "626f1c5965eb93522fc14510",
+                "626f1d9a65eb93522fc1544a"
+            ],
+            "repoURL": "https://github.com/leandrorodrigues00/frontend-mentor-challenges/tree/main/interactive-rating-component-main",
+            "slug": "interactiveratingcomponentmain-SJgw252r9",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651449232/Screenshots/lpmymxyajvffzlcsyxrr.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:48:41.876Z",
+            "tags": [],
+            "title": "interactive-rating-component-main",
+            "user": "616754c01c1a861bd88a3d89",
+            "challenge": "6234774f8a1c690472e9379a",
+            "comments": [
+                "626f2ce965eb93522fc2030f"
+            ]
+        },
+        {
+            "id": "626a9c2965eb93522f90caae",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 12,
+                "html": 7
+            },
+            "likes": [],
+            "liveURL": "https://fransemprini.github.io/SunnysideAgencyLandingPage/",
+            "private": false,
+            "questions": "This was the second page I made since I started a front-end developer course. I appreciate your comments, corrections, and feedback. \n\nThank you!",
+            "reports": [
+                "626f1bed65eb93522fc13fd3",
+                "626f24b165eb93522fc1a0ae",
+                "626f255865eb93522fc1a890",
+                "626f290f65eb93522fc1d61a"
+            ],
+            "repoURL": "https://github.com/FranSemprini/SunnysideAgencyLandingPage",
+            "slug": "mobile-first-responsive-using-grids-and-flex-with-sass-BJMx3chSc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651452352/Screenshots/eanbwh7h7ju1ppshf5ab.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:46:53.022Z",
+            "tags": [
+                "619f80635f8106fb23708e90"
+            ],
+            "title": "Mobile first, responsive using grids and flex with sass.",
+            "user": "626a9b2365eb93522f90bcc1",
+            "challenge": "60c0d3c5905837382196aa15",
+            "comments": []
+        },
+        {
+            "id": "626eb24265eb93522fbc752b",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 1,
+                "html": 1
+            },
+            "likes": [
+                "620c1e22145c6a78f0da5a67",
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://vista-previa-de-tarjeta-de-3-columnas.netlify.app/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f1b0f65eb93522fc135f2"
+            ],
+            "repoURL": "https://github.com/hdlfkja/tarjeta-de-3-columnas",
+            "slug": "vista-previa-de-tarjeta-de-3-columnas-rJUfo5nH5",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651448591/Screenshots/yeea6bh77nsk4a2f8ews.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:43:11.627Z",
+            "tags": [],
+            "title": "Vista Previa de Tarjeta de 3 Columnas",
+            "user": "62585d0ff223eb5a994134c8",
+            "challenge": "6065efba65c0ff6e9bf5360f",
+            "comments": []
+        },
+        {
+            "id": "62683a9538db5e08994ee9ae",
+            "bookmarks": [],
+            "commentCount": 2,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 0
+            },
+            "likes": [
+                "6121fed6497d89150337b26e",
+                "61e4b97b4cc2653b1e31005d"
+            ],
+            "liveURL": "https://advice-generator-app-roan-nu.vercel.app/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f19d665eb93522fc12811",
+                "626f293e65eb93522fc1d9ca",
+                "626f2a0865eb93522fc1e347",
+                "626f2aaa65eb93522fc1ea3d"
+            ],
+            "repoURL": "https://github.com/godstimedev/advice-generator-app",
+            "slug": "advicegeneratorapp-rynCF9nr9",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651448278/Screenshots/aup6aewqrf53k0x8pifj.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:37:58.930Z",
+            "tags": [
+                "61ae14f270e6a22776e6facb"
+            ],
+            "title": "advice-generator-app",
+            "user": "5ede33544d48d07e8557909e",
+            "challenge": "620e5024145c6a78f0f5a6db",
+            "comments": [
+                "626f1cc365eb93522fc149f4"
+            ]
+        },
+        {
+            "id": "626ed0cb65eb93522fbde1e1",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 1,
+                "html": 0
+            },
+            "likes": [
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://ahmed7mehana.github.io/fylo-data-storage-component-master11/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f18d565eb93522fc11be5"
+            ],
+            "repoURL": "https://github.com/ahmed7mehana/fylo-data-storage-component-master11.git",
+            "slug": "fylodatastoragecomponentmaster11-r12Rd93S9",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651448021/Screenshots/jyptjkentabbds91qcsn.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:33:41.814Z",
+            "tags": [
+                "619f80635f8106fb23708e73"
+            ],
+            "title": "fylo-data-storage-component-master11/",
+            "user": "625594c2f223eb5a99231ad6",
+            "challenge": "5ed53e8dcc418419539bb192",
+            "comments": []
+        },
+        {
+            "id": "6268776e38db5e0899519fa6",
+            "bookmarks": [],
+            "commentCount": 1,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 1,
+                "html": 8
+            },
+            "likes": [],
+            "liveURL": "https://almero0922.github.io/ComingSoonPage/",
+            "private": false,
+            "questions": "I find difficult two things:\n- I could not achieve setting the facebook icon with a perfect round border.\n- I tried to write some javascript to display the error message under the input, it didn't work.\n\nWhat is the best practice to set the width and height when its shift to desktop version?\nIs there any way to set the error message using only html/css?",
+            "reports": [
+                "626f18d465eb93522fc11bbc"
+            ],
+            "repoURL": "https://github.com/almero0922/ComingSoonPage",
+            "slug": "coming-soon-page-using-flexbox-ryoRd53r5",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651448020/Screenshots/urto35m1sew29rq2oemk.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:33:40.804Z",
+            "tags": [],
+            "title": "Coming Soon page using flex-box",
+            "user": "608361bf57b0ca508f7e085d",
+            "challenge": "5cadd051fec04111f7b848da",
+            "comments": [
+                "626f8a1665eb93522fc53f4b"
+            ]
+        },
+        {
+            "id": "626f013865eb93522fc00a04",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 1
+            },
+            "likes": [
+                "61e4b97b4cc2653b1e31005d"
+            ],
+            "liveURL": "https://palyba8.github.io/advice-generator-app-main/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f18d365eb93522fc11b92",
+                "626f1be565eb93522fc13f73",
+                "626f1c4865eb93522fc14470"
+            ],
+            "repoURL": "https://github.com/palyba8/advice-generator-app-main",
+            "slug": "advice-generator-SkKAOq3B9",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651448018/Screenshots/thydbgsrhxzxyfgmhic2.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:33:39.140Z",
+            "tags": [],
+            "title": "Advice generator",
+            "user": "6261f814f223eb5a99ab680e",
+            "challenge": "620e5024145c6a78f0f5a6db",
+            "comments": []
+        },
+        {
+            "id": "626c80a965eb93522fa3d8bb",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 1
+            },
+            "likes": [],
+            "liveURL": "https://eliseusousa.github.io/easybank/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f182765eb93522fc11606"
+            ],
+            "repoURL": "https://github.com/eliseuSousa/easybank",
+            "slug": "easybank-landing-page-solution-H1TXOq3rq",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651447846/Screenshots/hu8wtgkpsdwitvccgvvy.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:30:47.115Z",
+            "tags": [],
+            "title": "Easybank landing page solution",
+            "user": "62274ec8f54ba27957efa1de",
+            "challenge": "5e612f96e7779b5603d68243",
+            "comments": []
+        },
+        {
+            "id": "626d41e365eb93522fad04b1",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 7,
+                "html": 0
+            },
+            "likes": [
+                "60f4cb4e6bad477205b21078",
+                "620c1e22145c6a78f0da5a67",
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://earnest-speculoos-21dae3.netlify.app/",
+            "private": false,
+            "questions": "I'm not confident on the mobile responsiveness. I know how to use media queries, but I'd like a method that doesn't require so many lines of code (for cleanliness). I'm thinking along the lines of MUI. Are my only options to use media queries with a lot more css, or MUI with its built in responsiveness?",
+            "reports": [
+                "626f167665eb93522fc10558"
+            ],
+            "repoURL": "https://github.com/mseidel819/Frontend-Mentor-Interactive-rating-component",
+            "slug": "interactive-rating-component-using-react-and-styledcomponents-ryT_L5hBq",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651447414/Screenshots/j9hj58hfbqnmlbrbv6mz.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:23:34.897Z",
+            "tags": [
+                "619f80635f8106fb23708e7f",
+                "619f80635f8106fb23708e91"
+            ],
+            "title": "Interactive rating component using React and Styled-Components",
+            "user": "626d3ef965eb93522facd99a",
+            "challenge": "6234774f8a1c690472e9379a",
+            "comments": []
+        },
+        {
+            "id": "626ed9bd65eb93522fbe5169",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 0
+            },
+            "likes": [
+                "60f4cb4e6bad477205b21078",
+                "6121fed6497d89150337b26e",
+                "608b3a0057b0ca508f7e4bf1",
+                "61e4b97b4cc2653b1e31005d"
+            ],
+            "liveURL": "https://acmegamers.github.io/Advice-Generator/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f137065eb93522fc0e241",
+                "626f21b865eb93522fc180ec",
+                "626f284065eb93522fc1cd0a",
+                "626f292e65eb93522fc1d869",
+                "626f297c65eb93522fc1dceb"
+            ],
+            "repoURL": "https://github.com/AcmeGamers/Advice-Generator",
+            "slug": "responsive-react-advice-generator-HyIOQ93H9",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651446640/Screenshots/o8wctor3umx1xq3u0m52.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:10:40.336Z",
+            "tags": [
+                "619f80635f8106fb23708e7f",
+                "61ae14f270e6a22776e6facb"
+            ],
+            "title": "Responsive React Advice Generator",
+            "user": "5f4b11e454fa6a407dcea1cb",
+            "challenge": "620e5024145c6a78f0f5a6db",
+            "comments": []
+        },
+        {
+            "id": "626bbd7365eb93522f9bbce1",
+            "bookmarks": [
+                "62375b108a1c6904720e3535"
+            ],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 11,
+                "html": 20
+            },
+            "likes": [
+                "60f4cb4e6bad477205b21078",
+                "62375b108a1c6904720e3535"
+            ],
+            "liveURL": "https://codepen.io/Assumptaginika",
+            "private": false,
+            "questions": "Please review my solutions. \nI tried bringing the attribution to the center but all my effort failed. I would appreciate a feedback from you.",
+            "reports": [
+                "626f119c65eb93522fc0d12f"
+            ],
+            "repoURL": "https://github.com/Assumptaginika/QR-code-component",
+            "slug": "qr-code-component-Hy6cZ9hBc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651446171/Screenshots/re8zcq9wodrnpuybbc4a.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T23:02:52.196Z",
+            "tags": [
+                "619f80635f8106fb23708e7b",
+                "619f80635f8106fb23708e74",
+                "619f80635f8106fb23708e8a",
+                "624f0158f223eb5a99d1f589"
+            ],
+            "title": "QR code component",
+            "user": "626b9b2265eb93522f9a7fdc",
+            "challenge": "61e953584cc2653b1e5ca5b6",
+            "comments": []
+        },
+        {
+            "id": "626b1d5b65eb93522f967a75",
+            "bookmarks": [],
+            "commentCount": 4,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 4,
+                "html": 0
+            },
+            "likes": [
+                "60f4cb4e6bad477205b21078",
+                "6121fed6497d89150337b26e",
+                "620c1e22145c6a78f0da5a67",
+                "62261fd0f54ba27957dd967e"
+            ],
+            "liveURL": "https://kamila-alves.github.io/Componente-de-QR-code-Desafio-FrontendMentor/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f104365eb93522fc0c393"
+            ],
+            "repoURL": "https://github.com/Kamila-Alves/Componente-de-QR-code-Desafio-FrontendMentor",
+            "slug": "componente-qr-code-ryFHl9hBc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651445874/Screenshots/gsbvdrl8oqlfh8xexoz2.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T22:57:07.653Z",
+            "tags": [],
+            "title": "Componente QR code",
+            "user": "623344ff8a1c690472d96779",
+            "challenge": "61e953584cc2653b1e5ca5b6",
+            "comments": [
+                "626f18e365eb93522fc11cea",
+                "626f6c6b65eb93522fc460f8"
+            ]
+        },
+        {
+            "id": "626ef38665eb93522fbf61e4",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 0
+            },
+            "likes": [
+                "60f4cb4e6bad477205b21078",
+                "620c1e22145c6a78f0da5a67",
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://gabrielfteles.github.io/Stats-Preview-Card/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f0f9365eb93522fc0bbf2"
+            ],
+            "repoURL": "https://github.com/GabrielFTeles/Stats-Preview-Card",
+            "slug": "semantic-html5-markup-css-custom-properties-flexbox-css-grid-Byq9193Hq",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651446141/Screenshots/hjfrkcqleftnamlmlnee.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T22:54:12.004Z",
+            "tags": [],
+            "title": "Semantic HTML5 markup, CSS custom properties, Flexbox, CSS Grid",
+            "user": "626091adf223eb5a999c7cee",
+            "challenge": "6078390f80d0ff7fd7954aad",
+            "comments": []
+        },
+        {
+            "id": "626ee69565eb93522fbed663",
+            "bookmarks": [],
+            "commentCount": 2,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 5,
+                "html": 3
+            },
+            "likes": [
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://frontend-mentor-interactive-rating-component-main.vercel.app/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f0ea865eb93522fc0b12b"
+            ],
+            "repoURL": "https://github.com/yy34/frontend-mentor/tree/master/interactive-rating-component-main",
+            "slug": "interactive-rating-component-S1khCt3H5",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651445416/Screenshots/cvovpj2rvuyvq5mhzfbj.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T22:50:16.507Z",
+            "tags": [
+                "619f80635f8106fb23708e81"
+            ],
+            "title": "Interactive rating component",
+            "user": "60462f6ed6bf4e49edd3b4b6",
+            "challenge": "6234774f8a1c690472e9379a",
+            "comments": [
+                "626f1a6765eb93522fc12f16"
+            ]
+        },
+        {
+            "id": "626ddf6665eb93522fb419ed",
+            "bookmarks": [],
+            "commentCount": 1,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 4,
+                "html": 4
+            },
+            "likes": [
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://youssra-ghninou.github.io/social-proof-section-master/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f0df865eb93522fc0a95c"
+            ],
+            "repoURL": "https://github.com/youssra-ghninou/social-proof-section-master",
+            "slug": "socialproofsectionmaster-HJ0lCKnH5",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651445239/Screenshots/eoxyro0kxh9xbdavlu8o.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T22:47:20.299Z",
+            "tags": [],
+            "title": "social-proof-section-master",
+            "user": "6182fd61af08a258e2c4adc9",
+            "challenge": "5f58b70b911b62234993f18b",
+            "comments": [
+                "626f6d2765eb93522fc4663d"
+            ]
+        },
+        {
+            "id": "626e940d65eb93522fbb0647",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": true,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 0
+            },
+            "likes": [
+                "61984ee33cb8666eb714d527",
+                "620c1e22145c6a78f0da5a67",
+                "625b0841f223eb5a995cc40c",
+                "61e4b97b4cc2653b1e31005d",
+                "6195dc7c3cb8666eb7ffd526"
+            ],
+            "liveURL": "https://order-summary-component-bayoumi-dev.vercel.app/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f0da965eb93522fc0a3b4"
+            ],
+            "repoURL": "https://github.com/Bayoumi-dev/Order-summary-component",
+            "slug": "order-summary-component-using-pure-css-rJJ3TtnSc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651445841/Screenshots/txr6jrorvgtuq8mlnqsl.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T22:46:01.304Z",
+            "tags": [],
+            "title": "Order summary component using pure CSS",
+            "user": "624ebbb5f223eb5a99cea63d",
+            "challenge": "610bc9c450c6191f790975e3",
+            "comments": []
+        },
+        {
+            "id": "6240b391f223eb5a9926d9be",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 0,
+                "html": 0
+            },
+            "likes": [
+                "60f4cb4e6bad477205b21078",
+                "61e4b97b4cc2653b1e31005d"
+            ],
+            "liveURL": "https://api-advice-generator-cs.netlify.app/",
+            "private": false,
+            "questions": "Any feedback's to improve my future projects are welcome !",
+            "reports": [
+                "626f0d2865eb93522fc09b0a"
+            ],
+            "repoURL": "https://github.com/leandrorodrigues00/frontend-mentor-challenges/tree/main/api-advice-generator-app-main",
+            "slug": "apiadvicegeneratorappmain-S11NpY2Sc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651445032/Screenshots/op82n9tn6ubnzahmpgjm.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T22:43:52.928Z",
+            "tags": [],
+            "title": "api-advice-generator-app-main",
+            "user": "616754c01c1a861bd88a3d89",
+            "challenge": "620e5024145c6a78f0f5a6db",
+            "comments": []
+        },
+        {
+            "id": "626c0b0565eb93522f9f1c08",
+            "bookmarks": [],
+            "commentCount": 1,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 4,
+                "html": 1
+            },
+            "likes": [
+                "60f4cb4e6bad477205b21078",
+                "620c1e22145c6a78f0da5a67",
+                "62261fd0f54ba27957dd967e"
+            ],
+            "liveURL": "https://marilia-borgo.github.io/Qr_code_frontendMentor/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f0cef65eb93522fc09797"
+            ],
+            "repoURL": "https://github.com/marilia-borgo/Qr_code_frontendMentor",
+            "slug": "pgina-de-qr-code-utilizando-css-flexbox-rkEx6Y3Hc",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651444975/Screenshots/qkoyrimqjtm6rcctf7zr.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T22:42:55.412Z",
+            "tags": [],
+            "title": "Página de Qr code utilizando CSS Flexbox",
+            "user": "626bea5965eb93522f9d9d37",
+            "challenge": "61e953584cc2653b1e5ca5b6",
+            "comments": [
+                "626f6d9765eb93522fc4696e"
+            ]
+        },
+        {
+            "id": "6268808d38db5e089951fd72",
+            "bookmarks": [],
+            "commentCount": 0,
+            "designUnlocked": false,
+            "hubSolutionsUnlocked": true,
+            "issues": {
+                "accessibility": 3,
+                "html": 31
+            },
+            "likes": [
+                "6195dc7c3cb8666eb7ffd526",
+                "60f4cb4e6bad477205b21078"
+            ],
+            "liveURL": "https://data-storage-component-nine.vercel.app/",
+            "private": false,
+            "questions": "",
+            "reports": [
+                "626f0c5565eb93522fc08f02"
+            ],
+            "repoURL": "https://github.com/Koreankat/data-storage-component",
+            "slug": "position-items-with-flex-properties-looking-forward-for-your-comments-r1oInthHq",
+            "screenshot": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651444820/Screenshots/q5ouuxj8fy7s8pgecpnc.jpg",
+            "submitted": true,
+            "submittedAt": "2022-05-01T22:40:21.226Z",
+            "tags": [],
+            "title": "Position items with flex properties, looking forward for your comments",
+            "user": "6244685af223eb5a994fee56",
+            "challenge": "5ed53e8dcc418419539bb192",
+            "comments": []
         }
+    ],
+    "associations": {
+        "users": [
+            {
+                "id": "61cf11a7f175252a7d5e5fba",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/44845754?v=4",
+                "bio": "塵も積もれば山となる\r\ncsnonato@gmail.com",
+                "displayName": "Carol Nonato",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/carolinanonato"
+                },
+                "location": "Toronto, Canada",
+                "mentorScore": 30,
+                "mentor": false,
+                "name": "Carol Nonato",
+                "username": "carolinanonato"
+            },
+            {
+                "id": "6269ac2f38db5e0899602cd8",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/75154124?v=4",
+                "displayName": "Calvin",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "website": "https://github.com/DeepSociety",
+                    "gitHub": "https://github.com/ConceptSec"
+                },
+                "location": "Peru",
+                "mentorScore": 120,
+                "mentor": false,
+                "name": "Calvin",
+                "username": "ConceptSec"
+            },
+            {
+                "id": "6167abdd1c1a861bd88c4e38",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/89084040?v=4",
+                "displayName": "NaingHWai",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/NHWai"
+                },
+                "location": "Yangon, Myanmar",
+                "mentorScore": 80,
+                "mentor": false,
+                "name": "NaingHWai",
+                "username": "NHWai"
+            },
+            {
+                "id": "618c5a5eb9192844cef5334f",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/84021771?v=4",
+                "displayName": "Orangel Rubio",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/Orangel-18"
+                },
+                "mentorScore": 10,
+                "mentor": false,
+                "name": "Orangel Rubio",
+                "username": "Orangel-18"
+            },
+            {
+                "id": "60ee92bb6192790403ab6628",
+                "achievements": [],
+                "avatar": "https://res.cloudinary.com/dz209s6jk/image/upload/v1644662086/Avatars/lus7vaxj23aqs0pwbaga.jpg",
+                "bio": "I'm not going to work. Because I'm just learning how to make a web and I'm just a junior high school student :))))",
+                "displayName": "PXVC",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/pxvc",
+                    "twitter": "https://twitter.com/pxvc2008",
+                    "codePen": "https://codepen.io/pxvcuong"
+                },
+                "location": "Ho Chi Minh City, Vietnam",
+                "mentorScore": 425,
+                "mentor": false,
+                "username": "PXVC"
+            },
+            {
+                "id": "6227ca38f54ba27957f746c0",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/59059600?v=4",
+                "displayName": "Alberta Ogbo Dadeboe",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/Ogbo0810"
+                },
+                "location": "Ghana",
+                "mentorScore": 30,
+                "mentor": false,
+                "name": "Alberta Ogbo Dadeboe",
+                "username": "Ogbo0810"
+            },
+            {
+                "id": "62607fe7f223eb5a999bd65d",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/74827200?v=4",
+                "displayName": "NicoAguero",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/magun209"
+                },
+                "mentorScore": 30,
+                "mentor": false,
+                "name": "NicoAguero",
+                "username": "magun209"
+            },
+            {
+                "id": "5f4b11e454fa6a407dcea1cb",
+                "achievements": [
+                    {
+                        "count": 1,
+                        "_id": "5f4b11e454fa6a407dcea1cc",
+                        "badge": "5ee4d2345ddb07728cd9a31c"
+                    }
+                ],
+                "avatar": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651221954/Avatars/ixdlmr2f9jw995warro4.jpg",
+                "bio": "A full-stack react engineer, a friend, and a partner-in-crime (that's a joke though lol). If you ever need my help, you can always ping me on my social channels.",
+                "displayName": "Acme Gamers",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "learning": "Web 3.0 with Motoko • TypeScript • WebGL • Three.JS • Angular • ASP.NET",
+                "links": {
+                    "gitHub": "https://github.com/AcmeGamers",
+                    "codePen": "https://codepen.io/acme_gamers/",
+                    "codewars": "https://www.codewars.com/users/AcmeGamers",
+                    "devTo": "https://dev.to/acmegamers",
+                    "freeCodeCamp": "https://www.freecodecamp.org/acme_gamers",
+                    "hashnode": "https://hashnode.com/@acmegamers",
+                    "linkedIn": "https://www.linkedin.com/in/acme-gamers/",
+                    "twitter": "https://twitter.com/Acme_Gamers",
+                    "twitch": "https://codepen.io/acme_gamers/",
+                    "website": "https://acme.fatima-academy.com",
+                    "youTube": "https://www.youtube.com/channel/UCdPyQ1W3fCJO0OJ0IXTvSpA/"
+                },
+                "location": "Lahore, Pakistan",
+                "mentorScore": 65,
+                "mentor": false,
+                "name": "Acme Gamers",
+                "username": "AcmeGamers"
+            },
+            {
+                "id": "60e7ad2d0a8c9661bfe3886a",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/55346310?v=4",
+                "displayName": "kath",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/Kathund"
+                },
+                "mentorScore": 80,
+                "mentor": false,
+                "name": "kath",
+                "username": "Kathund"
+            },
+            {
+                "id": "626ee02465eb93522fbe9122",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/4420086?v=4",
+                "displayName": "kimron",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/kimron"
+                },
+                "location": "Jamaica",
+                "mentorScore": 10,
+                "mentor": false,
+                "name": "kimron",
+                "username": "kimron"
+            },
+            {
+                "id": "62525ff6f223eb5a99fec894",
+                "achievements": [],
+                "avatar": "https://res.cloudinary.com/dz209s6jk/image/upload/v1649565786/Avatars/qmbsfjz4elqxwgd3dry7.jpg",
+                "bio": "Robodev\nelwinjomy21@gmail.com\nNewbie to Front end development.\nHTML , CSS...",
+                "displayName": "Robodev",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/Elwin-Jomy"
+                },
+                "mentorScore": 40,
+                "mentor": false,
+                "name": "Robodev",
+                "username": "Elwin-Jomy"
+            },
+            {
+                "id": "62120124145c6a78f024e6c6",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/96675636?v=4",
+                "bio": "Hi' I am RBM - Raja Babu Mahato A creative Front end developer and artist.",
+                "displayName": "Raja Babu Mahato",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/RBMdeveloper"
+                },
+                "location": "India , State - Assam, city- Guwahati",
+                "mentorScore": 30,
+                "mentor": false,
+                "name": "Raja Babu Mahato",
+                "username": "RBMdeveloper"
+            },
+            {
+                "id": "626dbced65eb93522fb26d98",
+                "achievements": [],
+                "avatar": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651359141/Avatars/uf0arw094oxp2eqzgycz.jpg",
+                "bio": "I'm a beginner Web Developer, searching for fun in my life.",
+                "displayName": "Jorge Luis Azuara",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/jorgeluisah47"
+                },
+                "location": "México",
+                "mentorScore": 20,
+                "mentor": false,
+                "name": "Jorge Luis Azuara",
+                "username": "jorgeluisah47"
+            },
+            {
+                "id": "616754c01c1a861bd88a3d89",
+                "achievements": [],
+                "avatar": "https://res.cloudinary.com/dz209s6jk/image/upload/v1650940144/Avatars/dsqmrufbbos9qyxpr5sw.png",
+                "bio": "I do some pretty clueless coding and break builds.",
+                "displayName": "CODE STEAL",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/leandrorodrigues00"
+                },
+                "location": "BR",
+                "mentorScore": 150,
+                "mentor": false,
+                "name": "CODE STEAL",
+                "username": "leandrorodrigues00"
+            },
+            {
+                "id": "608b3a0057b0ca508f7e4bf1",
+                "achievements": [],
+                "avatar": "https://res.cloudinary.com/dz209s6jk/image/upload/v1650329560/Avatars/qhsk1myvybaotftqhnpw.jpg",
+                "bio": "Hello world !\nI am Abdelkadir Bouziane, A frontend web developer.",
+                "displayName": "Abdelkadir",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/abdelkadir-bouziane"
+                },
+                "location": "Algiers, Algeria",
+                "mentorScore": 140,
+                "mentor": false,
+                "name": "Abdelkadir",
+                "username": "abdelkadir-bouziane"
+            },
+            {
+                "id": "5efead49a2c03d602ba8022f",
+                "achievements": [
+                    {
+                        "count": 1,
+                        "_id": "5efead49a2c03d602ba80230",
+                        "badge": "5ee4d2345ddb07728cd9a31c"
+                    }
+                ],
+                "avatar": "https://avatars1.githubusercontent.com/u/47851457?v=4",
+                "bio": "FrontEnd Dev location in Chicago.",
+                "displayName": "David Mclean",
+                "hasActiveSubscription": true,
+                "hireMe": false,
+                "learning": "Three.js, Sass",
+                "links": {
+                    "gitHub": "https://github.com/davupls",
+                    "twitter": "https://twitter.com/Davutech",
+                    "codewars": "https://www.codewars.com/users/davupls"
+                },
+                "location": "Chicago",
+                "mentorScore": 255,
+                "mentor": false,
+                "name": "David Mclean",
+                "username": "davupls"
+            },
+            {
+                "id": "620c1e22145c6a78f0da5a67",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/98057836?v=4",
+                "displayName": "KamRan",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/comendrun"
+                },
+                "location": "IZMIR.TURKEY",
+                "mentorScore": 60,
+                "mentor": false,
+                "name": "KamRan",
+                "username": "comendrun"
+            },
+            {
+                "id": "6266b211a1db5928bb72cc2e",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/104373212?v=4",
+                "bio": "I'm a begginer in this art. \nI want to improve my skills on HTML, CSS & JS.",
+                "displayName": "Angel Garcia",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/Ang3l-SPF"
+                },
+                "location": "Colombia - Norte de Santander",
+                "mentorScore": 70,
+                "mentor": false,
+                "name": "Angel Garcia",
+                "username": "Ang3l-SPF"
+            },
+            {
+                "id": "6268585a38db5e0899504a25",
+                "achievements": [],
+                "avatar": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651005568/Avatars/mfycvynltqmu15vse8qr.jpg",
+                "bio": "On a journey to become a full-stack developer! :-)",
+                "displayName": "ynb92",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/ynb92"
+                },
+                "mentorScore": 30,
+                "mentor": false,
+                "username": "ynb92"
+            },
+            {
+                "id": "6048ad22d6bf4e49edd3cd0c",
+                "achievements": [],
+                "avatar": "https://res.cloudinary.com/dz209s6jk/image/upload/v1650923298/Avatars/i9wwfth4vafrfsgtnlbu.jpg",
+                "displayName": "Mohammed BAHNINI",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/mohammedbahnini"
+                },
+                "mentorScore": 290,
+                "mentor": false,
+                "name": "Mohammed BAHNINI",
+                "username": "mohammedbahnini"
+            },
+            {
+                "id": "604ea686d6bf4e49edd401f8",
+                "achievements": [],
+                "avatar": "https://res.cloudinary.com/dz209s6jk/image/upload/v1645652903/Avatars/c6rdqhot803pgsfavme6.png",
+                "bio": "Well, don't really have much to say. Except that I am practicing my frontend development skills to get hired as a Web/Software developer.",
+                "displayName": "Chantae",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "learning": "HTML\nCSS\nJavaSCript",
+                "links": {
+                    "gitHub": "https://github.com/taepal467",
+                    "devTo": "https://dev.to/taepal467",
+                    "linkedIn": "https://www.linkedin.com/in/chantae-palacio/"
+                },
+                "location": "Los Angeles, CA",
+                "mentorScore": 220,
+                "mentor": false,
+                "name": "Chantae",
+                "slackUsername": "Tae",
+                "username": "taepal467"
+            },
+            {
+                "id": "6224a69ff54ba27957cb111a",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/84800105?v=4",
+                "displayName": "Vigen",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/vigengareyan"
+                },
+                "location": "Bonn, Germany",
+                "mentorScore": 170,
+                "mentor": false,
+                "name": "Vigen",
+                "username": "vigengareyan"
+            },
+            {
+                "id": "625cc02df223eb5a996e7465",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/97864048?v=4",
+                "bio": "Iniciando no mundo da programação e muito otimista onde esse caminho da tecnologia, pode me levar.",
+                "displayName": "Fabio Torres",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/fabiosk2"
+                },
+                "location": "Maceió-Al",
+                "mentorScore": 20,
+                "mentor": false,
+                "name": "Fabio Torres",
+                "username": "fabiosk2"
+            },
+            {
+                "id": "62392b8a8a1c69047224ef71",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/51340237?v=4",
+                "bio": "- THE DREAM IS ALIVE.",
+                "displayName": "Elzevir Sá",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "website": "https://www.linkedin.com/in/elzevir-de-sousa-s%C3%A1-filho-a37286187/",
+                    "gitHub": "https://github.com/Poowerllz"
+                },
+                "location": "Aquiraz",
+                "mentorScore": 20,
+                "mentor": false,
+                "name": "Elzevir Sá",
+                "username": "Poowerllz"
+            },
+            {
+                "id": "5f6e879070aa013252de8fc9",
+                "achievements": [
+                    {
+                        "count": 1,
+                        "_id": "5f6e879070aa013252de8fca",
+                        "badge": "5ee4d2345ddb07728cd9a31c"
+                    }
+                ],
+                "avatar": "https://avatars0.githubusercontent.com/u/71465876?v=4",
+                "displayName": "David",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/David404-dev?tab=repositories"
+                },
+                "mentorScore": 240,
+                "mentor": false,
+                "name": "David",
+                "username": "David404-dev"
+            },
+            {
+                "id": "625d426cf223eb5a9973e81a",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/86894691?v=4",
+                "displayName": "Henrique Pelanda Possebon",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/Zilla3k"
+                },
+                "location": "São Paulo - SP, Brazil",
+                "mentorScore": 10,
+                "mentor": false,
+                "name": "Henrique Pelanda Possebon",
+                "username": "Zilla3k"
+            },
+            {
+                "id": "624890a5f223eb5a997ffc7a",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/87780768?v=4",
+                "displayName": "Mercúrio 水星",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/EriickW"
+                },
+                "location": "Brazil",
+                "mentorScore": 80,
+                "mentor": false,
+                "name": "Mercúrio 水星",
+                "username": "EriickW"
+            },
+            {
+                "id": "61adbb6fbb27946dd3ca97de",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/89364017?v=4",
+                "displayName": "Ahmed ibrahim",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "learning": "javascript and sass",
+                "links": {
+                    "gitHub": "https://github.com/Ahmedhassanin12",
+                    "codePen": "https://codepen.io/ahmedhassanin12",
+                    "linkedIn": "https://www.linkedin.com/in/ahmed-hassanin-a7aa63198/"
+                },
+                "mentorScore": 350,
+                "mentor": false,
+                "name": "Ahmed ibrahim",
+                "username": "Ahmedhassanin12"
+            },
+            {
+                "id": "626a9b2365eb93522f90bcc1",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/103007233?v=4",
+                "displayName": "Francisco",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/FranSemprini"
+                },
+                "mentorScore": 20,
+                "mentor": false,
+                "name": "Francisco",
+                "username": "FranSemprini"
+            },
+            {
+                "id": "62585d0ff223eb5a994134c8",
+                "achievements": [],
+                "avatar": "https://res.cloudinary.com/dz209s6jk/image/upload/v1649958202/Avatars/fnmc34btbc60kzksaf7i.jpg",
+                "displayName": "Jean Carlo Gómez Narváez",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/hdlfkja",
+                    "freeCodeCamp": "https://www.freecodecamp.org/jean_carlo_gomez_narvaez",
+                    "twitter": "https://twitter.com/JeanCar27866009"
+                },
+                "location": "Colombia",
+                "mentorScore": 60,
+                "mentor": false,
+                "name": "Jean Carlo Gómez Narváez",
+                "slackUsername": "JeanCarlo",
+                "username": "hdlfkja"
+            },
+            {
+                "id": "5ede33544d48d07e8557909e",
+                "achievements": [
+                    {
+                        "count": 1,
+                        "_id": "5ee68ac2e7d45a48744f5a79",
+                        "badge": "5ee4d2345ddb07728cd9a31c"
+                    }
+                ],
+                "avatar": "https://avatars0.githubusercontent.com/u/64644665?v=4",
+                "displayName": "Godstime Agholor",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "learning": "I'm currently  learning JavaScript and ReactJs",
+                "links": {
+                    "gitHub": "https://github.com/godstimedev",
+                    "linkedIn": "https://www.linkedin.com/in/godstime-agholor-2939a81a4?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BWom9%2Be2VRRKyFZMUXhuj2A%3D%3D",
+                    "twitter": "https://twitter.com/_Godstimee"
+                },
+                "location": "Lagos, Nigeria",
+                "mentorScore": 70,
+                "mentor": false,
+                "name": "Godstime Agholor",
+                "username": "godstimedev"
+            },
+            {
+                "id": "625594c2f223eb5a99231ad6",
+                "achievements": [],
+                "avatar": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651234685/Avatars/jihioxp55p1my5pjq3nl.jpg",
+                "bio": "welcome\nMy name is Ahmed Mehana\nI'm 21 years old\nI love to learn programming\n What I've learned so far:\n1) HTML\n2) CSS",
+                "displayName": "Ahmed",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "learning": "JavaScript",
+                "links": {
+                    "gitHub": "https://github.com/ahmed7mehana"
+                },
+                "location": "Egypt",
+                "mentorScore": 80,
+                "mentor": false,
+                "name": "Ahmed",
+                "username": "ahmed7mehana"
+            },
+            {
+                "id": "608361bf57b0ca508f7e085d",
+                "achievements": [],
+                "avatar": "https://res.cloudinary.com/dz209s6jk/image/upload/v1650928441/Avatars/kglk6bis9jfaqycbxydr.jpg",
+                "displayName": "Alberto Medel",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/almero0922"
+                },
+                "location": "Guadalajara, Mexico",
+                "mentorScore": 30,
+                "mentor": false,
+                "name": "Alberto Medel",
+                "username": "almero0922"
+            },
+            {
+                "id": "6261f814f223eb5a99ab680e",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/19425121?v=4",
+                "displayName": "Serhii Paluba",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/palyba8"
+                },
+                "location": "UK",
+                "mentorScore": 20,
+                "mentor": false,
+                "name": "Serhii Paluba",
+                "username": "palyba8"
+            },
+            {
+                "id": "62274ec8f54ba27957efa1de",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/84541933?v=4",
+                "bio": "Iniciante no mundo de Front-End.\nEstudante de Engenharia de Computação.",
+                "displayName": "Eliseu Sousa",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/eliseuSousa"
+                },
+                "location": "Tucuruí/PA",
+                "mentorScore": 120,
+                "mentor": false,
+                "name": "Eliseu Sousa",
+                "username": "eliseuSousa"
+            },
+            {
+                "id": "626d3ef965eb93522facd99a",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/91429736?v=4",
+                "bio": "Entry-level programmer working towards employment in  front-end development.",
+                "displayName": "Matt Seidel",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/mseidel819"
+                },
+                "location": "Greater Chicago Area, Bloomington-Normal",
+                "mentorScore": 10,
+                "mentor": false,
+                "name": "Matt Seidel",
+                "username": "mseidel819"
+            },
+            {
+                "id": "626b9b2265eb93522f9a7fdc",
+                "achievements": [],
+                "avatar": "https://res.cloudinary.com/dz209s6jk/image/upload/v1651220111/Avatars/pplubgawm3pxc3nfscrk.jpg",
+                "bio": "Fresher software developer looking to get a hands-on experience solving real life issus.",
+                "displayName": "Ozoude Assumpta Ginika",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/Assumptaginika"
+                },
+                "location": "Enugu, Nigeria",
+                "mentorScore": 10,
+                "mentor": false,
+                "name": "Ozoude Assumpta Ginika",
+                "username": "Assumptaginika"
+            },
+            {
+                "id": "623344ff8a1c690472d96779",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/98965608?v=4",
+                "bio": "Tenho 19 anos,  desde pequena sempre gostei de tecnologia, faço faculdade de Análise e Desenvolvimento de Sistemas. Quero me tornar Desenvolvedora FullStack.",
+                "displayName": "Kamila Alves",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "website": "https://www.linkedin.com/in/kamila-alves-",
+                    "gitHub": "https://github.com/Kamila-Alves"
+                },
+                "location": "Piauí/Brasil",
+                "mentorScore": 10,
+                "mentor": false,
+                "name": "Kamila Alves",
+                "username": "Kamila-Alves"
+            },
+            {
+                "id": "626091adf223eb5a999c7cee",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/101151753?v=4",
+                "bio": "Studying TI.\r\n20y",
+                "displayName": "Gabriel Teles",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/GabrielFTeles"
+                },
+                "location": "Brazil",
+                "mentorScore": 70,
+                "mentor": false,
+                "name": "Gabriel Teles",
+                "username": "GabrielFTeles"
+            },
+            {
+                "id": "60462f6ed6bf4e49edd3b4b6",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/33022125?v=4",
+                "displayName": "Yunus YILMAZ",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "website": "https://www.linkedin.com/in/yy34/",
+                    "gitHub": "https://github.com/yy34"
+                },
+                "location": "İstanbul",
+                "mentorScore": 10,
+                "mentor": false,
+                "name": "Yunus YILMAZ",
+                "username": "yy34"
+            },
+            {
+                "id": "6182fd61af08a258e2c4adc9",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/92607242?v=4",
+                "displayName": "ussraa",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/youssra-ghninou"
+                },
+                "mentorScore": 60,
+                "mentor": false,
+                "name": "ussraa",
+                "username": "youssra-ghninou"
+            },
+            {
+                "id": "624ebbb5f223eb5a99cea63d",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/83502526?v=4",
+                "bio": "Creative Solutions Front-End Web developer, I am creating attractive and responsive website designs for a more interesting and flexible user experience.",
+                "displayName": "Ahmed Bayoumi",
+                "hasActiveSubscription": true,
+                "hireMe": false,
+                "learning": "- Next js\n- React Native",
+                "links": {
+                    "gitHub": "https://github.com/Bayoumi-dev",
+                    "linkedIn": "https://www.linkedin.com/in/bayoumi-dev",
+                    "website": "https://bayoumi.dev"
+                },
+                "location": "Egypt",
+                "mentorScore": 30,
+                "mentor": false,
+                "name": "Ahmed Bayoumi",
+                "username": "Bayoumi-dev"
+            },
+            {
+                "id": "626bea5965eb93522f9d9d37",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/101718104?v=4",
+                "displayName": "Marília Borgo de Moraes",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/marilia-borgo"
+                },
+                "location": "São José dos Campos",
+                "mentorScore": 10,
+                "mentor": false,
+                "name": "Marília Borgo de Moraes",
+                "username": "marilia-borgo"
+            },
+            {
+                "id": "6244685af223eb5a994fee56",
+                "achievements": [],
+                "avatar": "https://avatars.githubusercontent.com/u/71778261?v=4",
+                "displayName": "Ali Jaafari",
+                "hasActiveSubscription": false,
+                "hireMe": false,
+                "links": {
+                    "gitHub": "https://github.com/Koreankat"
+                },
+                "location": "Casablanca , Morocco",
+                "mentorScore": 140,
+                "mentor": false,
+                "name": "Ali Jaafari",
+                "username": "Koreankat"
+            }
+        ],
+        "challenges": [
+            {
+                "id": "610bc9c450c6191f790975e3",
+                "brief": "Your challenge is to build out this order summary card component and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to:\n\n- See hover states for interactive elements\n\nDownload the project and go through the `README.md` file. This will provide further details about the project and help you get set up.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "A perfect project for newbies who are starting to build confidence with layouts!",
+                "difficulty": 1,
+                "gallery": [
+                    {
+                        "_id": "610bca1c50c6191f790975e9",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1628162588/Challenges/ztpxtbfhkp1af0guaylg.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1628162588/Challenges/gh4wbxnbnf9wqezb0b6y.jpg",
+                        "title": "Desktop design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1628162501/Challenges/ouobx6tvyduidzio7wr7.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "order-summary-component-QlPmajDUj",
+                "screenshotHeight": null,
+                "startedCount": 57898,
+                "completedCount": 8280,
+                "title": "Order summary component",
+                "type": "free"
+            },
+            {
+                "id": "615f0dc50f48541b10545eda",
+                "brief": "Your challenge is to build out this e-commerce product page and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to:\n\n- View the optimal layout for the site depending on their device's screen size\n- See hover states for all interactive elements on the page\n- Open a lightbox gallery by clicking on the large product image\n- Switch the large product image by clicking on the small thumbnail images\n- Add items to the cart\n- View the cart and remove items from it\n\nDownload the starter code and go through the `README.md` file. This will provide further details about the project. The `style-guide.md` file is where you'll find colors, fonts, etc.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "In this challenge, you'll build a beautiful product page. We'll be putting your JS skills to the test with a lightbox product gallery and cart functionality!",
+                "difficulty": 3,
+                "gallery": [
+                    {
+                        "_id": "615f0e4b0f48541b1054648f",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1633619532/Challenges/bognvsqd34ueowkompeh.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1633619531/Challenges/uehz7kwoo7gesfebbqi8.jpg",
+                        "title": "Desktop design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1633619397/Challenges/fhzpdnabrek50hvhftnl.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS",
+                    "JS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "ecommerce-product-page-UPsZ9MJp6",
+                "screenshotHeight": null,
+                "startedCount": 12629,
+                "completedCount": 742,
+                "title": "E-commerce product page",
+                "type": "free"
+            },
+            {
+                "id": "62580064f223eb5a993d4c37",
+                "brief": "Your challenge is to build out this intro section with dropdown navigation and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to:\n\n- View the relevant dropdown menus on desktop and mobile when interacting with the navigation links\n- View the optimal layout for the content depending on their device's screen size\n- See hover states for all interactive elements on the page\n\nDownload the project and go through the `README.md` file. This will provide further details about the project and help you get set up.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "This challenge will test your ability to create dropdown navigation menus, a common pattern on larger sites. It will also provide some nice basic layout challenges.",
+                "difficulty": 2,
+                "gallery": [
+                    {
+                        "_id": "625800d5f223eb5a993d4ec5",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1649934549/Challenges/yoglpvvo0vggjf9ekjey.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1649934549/Challenges/zp74vhrxan0bpg43z2uu.jpg",
+                        "title": "Desktop design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1649934436/Challenges/rlaxdjplmeul4qe1qvh6.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS",
+                    "JS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "intro-section-with-dropdown-navigation-ryaPetHE5",
+                "screenshotHeight": null,
+                "startedCount": 3535,
+                "completedCount": 232,
+                "title": "Intro section with dropdown navigation",
+                "type": "free"
+            },
+            {
+                "id": "5da86cdaf5809005ee43ad07",
+                "brief": "Your challenge is to build out this feature section and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to: \n\n- View the optimal layout for the site depending on their device's screen size\n\nDownload the starter code and go through the `README.md` file. This will provide further details about the project. The `style-guide.md` file is where you'll find colors, fonts, etc.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "A nice layout-based challenge for beginners. This will test anyone who is new to multi-column and responsive layouts.",
+                "difficulty": 1,
+                "gallery": [
+                    {
+                        "_id": "5da86cdaf5809005ee43ad09",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1571319220/Challenges/czhvpqpwrao3iao7f1cs.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1571319002/Challenges/wbsdema37uawkvkp9lab.jpg",
+                        "title": "Desktop Design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1571319003/Challenges/a3b5gbgtfbtiqrdawpwp.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "four-card-feature-section-weK1eFYK",
+                "startedCount": 25451,
+                "completedCount": 5187,
+                "title": "Four card feature section",
+                "type": "free"
+            },
+            {
+                "id": "5cf91bd49edda32581d28fd1",
+                "brief": "Your challenge is to build out this landing page and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to: \n\n- View the optimal layout for the site depending on their device's screen size\n- See hover states for all interactive elements on the page\n- Receive an error message when the `form` is submitted if:\n    - Any `input` field is empty\n    - The email address is not formatted correctly\n\nDownload the starter code and go through the `README.md` file. This will provide further details about the project. The `style-guide.md` file is where you'll find colors, fonts, etc.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "Practice building out a sign-up form complete with client-side validation using JavaScript.",
+                "difficulty": 1,
+                "gallery": [
+                    {
+                        "_id": "5cf91d969edda32581d28fd3",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1559829911/Challenges/cbyamvcsyhwlvnlelr5n.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1559829910/Challenges/mnmpkjsbvur3xvrydf66.jpg",
+                        "title": "Desktop Design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1559829461/Challenges/ficuxtmo5kmd5bb8lmws.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS",
+                    "JS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "intro-component-with-signup-form-5cf91bd49edda32581d28fd1",
+                "screenshotHeight": 800,
+                "startedCount": 14801,
+                "completedCount": 2571,
+                "title": "Intro component with sign-up form",
+                "type": "free"
+            },
+            {
+                "id": "6196880a3cb8666eb705c489",
+                "brief": "Your challenge is to build out this preview card component and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to:\n\n- View the optimal layout depending on their device's screen size\n- See hover states for interactive elements\n\nDownload the project and go through the `README.md` file. This will provide further details about the project and help you get set up.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "This HTML & CSS only challenge is perfect for anyone just starting out or anyone wanting a small project to play around with.",
+                "difficulty": 1,
+                "gallery": [
+                    {
+                        "_id": "619688563cb8666eb705c792",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1637582314/Challenges/lphlhinp8axkoadq4jq7.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1637582314/Challenges/sr9i7z9p1tfb2m40pigu.jpg",
+                        "title": "Desktop design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1637582292/Challenges/rinokvkluq95madbvtmk.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "nft-preview-card-component-SbdUL_w0U",
+                "screenshotHeight": null,
+                "startedCount": 47620,
+                "completedCount": 5785,
+                "title": "NFT preview card component",
+                "type": "free"
+            },
+            {
+                "id": "6234774f8a1c690472e9379a",
+                "brief": "Your challenge is to build out this interactive rating component and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to:\n\n- Select and submit a number rating\n- See the \"Thank you\" card state after submitting a rating\n- View the optimal layout for the app depending on their device's screen size\n- See hover states for all interactive elements on the page\n\nDownload the project and go through the `README.md` file. This will provide further details about the project and help you get set up.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "This is a nice, small project to practice handling user interactions and updating the DOM. Perfect for anyone who has learned the basics of JavaScript!",
+                "difficulty": 1,
+                "gallery": [
+                    {
+                        "_id": "623477af8a1c690472e93f87",
+                        "title": "Desktop design",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1647605683/Challenges/mow7ca07z3qa0ffbwc2p.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1647605679/Challenges/dm3s8oqtz0mwcaygqjhy.jpg"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1647605583/Challenges/hxx2bhmtmeelt0a98zos.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS",
+                    "JS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "interactive-rating-component-koxpeBUmI",
+                "screenshotHeight": 800,
+                "startedCount": 11642,
+                "completedCount": 1260,
+                "title": "Interactive rating component",
+                "type": "free"
+            },
+            {
+                "id": "6078390f80d0ff7fd7954aad",
+                "brief": "Your challenge is to build out this card component and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to:\n\n- View the optimal layout depending on their device's screen size\n\nDownload the project and go through the `README.md` file. This will provide further details about the project and help you get set up.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "This is a great small challenge to help get you used to building to a design. There's no JS in this project, so you'll be able to focus on your HTML & CSS skills.",
+                "difficulty": 1,
+                "gallery": [
+                    {
+                        "_id": "6078397c80d0ff7fd7954aaf",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1618491773/Challenges/pnczwsvslfwimxcqjrwm.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1618491772/Challenges/t26y9p3veejvbc9biv3f.jpg",
+                        "title": "Desktop Design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1618491663/Challenges/sucvvhutd4codsxpzvw7.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "stats-preview-card-component-8JqbgoU62",
+                "screenshotHeight": 800,
+                "startedCount": 49184,
+                "completedCount": 8139,
+                "title": "Stats preview card component",
+                "type": "free"
+            },
+            {
+                "id": "61e953584cc2653b1e5ca5b6",
+                "brief": "Your challenge is to build out this QR code component and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nDownload the starter code and go through the `README.md` file. This will provide further details about the project. The `style-guide.md` file is where you'll find colors, fonts, etc.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "A perfect first challenge if you're new to HTML and CSS. The card layout doesn't shift, so it's ideal if you haven't learned about building responsive layouts yet.",
+                "difficulty": 1,
+                "gallery": [
+                    {
+                        "_id": "61e954814cc2653b1e5caeb1",
+                        "title": "Desktop design",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1642681473/Challenges/lzfaukzhigbavv5sc26b.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1642681473/Challenges/cybxdhr4wewlscvco9dd.jpg"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1642681176/Challenges/qh97gysgjrzqyqlig2al.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "qr-code-component-iux_sIO_H",
+                "screenshotHeight": 800,
+                "startedCount": 37327,
+                "completedCount": 5121,
+                "title": "QR code component",
+                "type": "free"
+            },
+            {
+                "id": "5e612f96e7779b5603d68243",
+                "brief": "Your challenge is to build out this landing page and get it looking as close to the design as possible. \n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nThe only JavaScript required is for the mobile navigation toggle. However, you could also try doing this without JS.\n\nYour users should be able to:\n\n- View the optimal layout for the site depending on their device's screen size\n- See hover states for all interactive elements on the page\n\nDownload the starter code and go through the `README.md` file. This will provide further details about the project. The `style-guide.md` file is where you'll find colors, fonts, etc.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "This challenge will provide a nice test for your layout skills. If you're ready to move up from Junior challenges, this one is a great next step.",
+                "difficulty": 3,
+                "gallery": [
+                    {
+                        "_id": "5e613057e7779b5603d68245",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1583427671/Challenges/r57dwegyobrqigxhsj36.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1583427671/Challenges/yezt1f56cfp2njnakpbo.jpg",
+                        "title": "Desktop Design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1583427479/Challenges/o4iyywkwjc31epcmsmyo.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS",
+                    "JS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "easybank-landing-page-WaUhkoDN",
+                "startedCount": 28795,
+                "completedCount": 1354,
+                "title": "Easybank landing page",
+                "type": "free"
+            },
+            {
+                "id": "5f91b9471ec0ad07352294f2",
+                "brief": "Your challenge is to build out this testimonials grid section and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to: \n\n- View the optimal layout for the site depending on their device's screen size\n\nDownload the starter code and go through the `README.md` file. This will provide further details about the project. The `style-guide.md` file is where you'll find colors, fonts, etc.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "This challenge will be perfect practice for anyone wanting to test their CSS Grid skills. Grid is such a powerful addition to CSS, so it's worth getting to grips with it!",
+                "difficulty": 2,
+                "gallery": [
+                    {
+                        "_id": "5f91b97c1ec0ad07352294f3",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1603385725/Challenges/uctyehbyqpp90valvmwn.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1603385724/Challenges/h05k6b7pqcylnhsw8pqs.jpg",
+                        "title": "Desktop Design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1603385671/Challenges/hlfgqwj3chzij3t5erjv.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "testimonials-grid-section-Nnw6J7Un7",
+                "startedCount": 21019,
+                "completedCount": 3423,
+                "title": "Testimonials grid section",
+                "type": "free"
+            },
+            {
+                "id": "620e5024145c6a78f0f5a6db",
+                "brief": "Your challenge is to build out this advice generator app using the [Advice Slip API](https://api.adviceslip.com) and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to:\n\n- View the optimal layout for the app depending on their device's screen size\n- See hover states for all interactive elements on the page\n- Generate a new piece of advice by clicking the dice icon\n\nDownload the project and go through the `README.md` file. This will provide further details about the project and help you get set up.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "The perfect project if you're learning how to interact with 3rd-party APIs. This challenge uses the Advice Slip API to generate random quotes of advice.",
+                "difficulty": 2,
+                "gallery": [
+                    {
+                        "_id": "620e50a0145c6a78f0f5ae77",
+                        "title": "Desktop design",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1645105312/Challenges/syo43ktrlu3huqaqye2c.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1645105312/Challenges/l0nkljeqewyxuw0vedhd.jpg"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1645105188/Challenges/sfl8uqvq75wnnr559ksp.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS",
+                    "JS",
+                    "API"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "advice-generator-app-QdUG-13db",
+                "screenshotHeight": 810,
+                "startedCount": 9836,
+                "completedCount": 1521,
+                "title": "Advice generator app",
+                "type": "free"
+            },
+            {
+                "id": "6065efba65c0ff6e9bf5360f",
+                "brief": "Your challenge is to build out this 3-column preview card component and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to:\n\n- View the optimal layout depending on their device's screen size\n- See hover states for interactive elements\n\nDownload the project and go through the `README.md` file. This will provide further details about the project and help you get set up.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "This challenge is perfect if you're just getting started. The shift between the layouts will be a nice test if you're new to building responsive projects.",
+                "difficulty": 1,
+                "gallery": [
+                    {
+                        "_id": "6065efd165c0ff6e9bf53613",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1617293350/Challenges/ofrkupd8a9wh1wenvr8c.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1617293265/Challenges/ap7h50kkrdq7zclbokox.jpg",
+                        "title": "Desktop Design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1617293242/Challenges/juir90bwmmvlo86g9paz.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "3column-preview-card-component-pH92eAR2-",
+                "screenshotHeight": 800,
+                "startedCount": 38956,
+                "completedCount": 8157,
+                "title": "3-column preview card component",
+                "type": "free"
+            },
+            {
+                "id": "5ce41129d0ff452fec5abbbc",
+                "brief": "Your challenge is to build out this pricing component and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to: \n\n- View the optimal layout for the component depending on their device's screen size\n- See a hover state on desktop for the Sign Up call-to-action\n\nDownload the starter code and go through the `README.md` file. This will provide further details about the project. The `style-guide.md` file is where you'll find colors, fonts, etc.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "In this challenge, you will build out the pricing component to the designs provided. This is perfect for beginners and people who want to complete a smaller challenge.",
+                "difficulty": 1,
+                "gallery": [
+                    {
+                        "_id": "5ce412a0d0ff452fec5abbbe",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1558450849/Challenges/etoajz7nokwmphl1jonw.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1558450848/Challenges/ouvhkqeq9dhokut9payi.jpg",
+                        "title": "Desktop Design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1558450474/Challenges/i6wu7n5sthrxgfpfibvx.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "single-price-grid-component-5ce41129d0ff452fec5abbbc",
+                "screenshotHeight": 800,
+                "startedCount": 24956,
+                "completedCount": 4907,
+                "title": "Single price grid component",
+                "type": "free"
+            },
+            {
+                "id": "5ca5ecd01e82137ec91a50f2",
+                "brief": "Your challenge is to build out this landing page and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to: \n\n- View the optimal layout for the site depending on their device's screen size\n- See hover states for all interactive elements on the page\n\nDownload the starter code and go through the `README.md` file. This will provide further details about the project. The `style-guide.md` file is where you'll find colors, fonts, etc.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "Practice using pseudo-elements for styling extras and the CSS position property for the sections with curved edges.",
+                "difficulty": 2,
+                "gallery": [
+                    {
+                        "_id": "5ca5ed5d1e82137ec91a50f4",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1554378078/Challenges/bcq6hzgzoq2fsg9o5kii.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1554378078/Challenges/r6fio3uuca3rqvijjavh.jpg",
+                        "title": "Desktop Design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1554377936/Challenges/h8osxwiem1fjujhthbok.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "huddle-landing-page-with-curved-sections-5ca5ecd01e82137ec91a50f2",
+                "startedCount": 7781,
+                "completedCount": 896,
+                "title": "Huddle landing page with curved sections",
+                "type": "free"
+            },
+            {
+                "id": "600adff47931c226d23551f6",
+                "brief": "Your challenge is to build out this interactive pricing component and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to:\n\n- View the optimal layout for the app depending on their device's screen size\n- See hover states for all interactive elements on the page\n- Use the slider and toggle to see prices for different page view numbers (details provided in the `README.md`)\n\nDownload the project and go through the `README.md` file. This will provide further details about the project and help you get set up.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "In this project, you'll build out an interactive pricing component complete with custom range input slider and pricing toggle. A perfect way to test your JS skills!",
+                "difficulty": 2,
+                "gallery": [
+                    {
+                        "_id": "600ae0237931c226d23551f8",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1611325476/Challenges/aqcjg4hbvhk2bsrt7ay4.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1611325475/Challenges/pnoljknuewnetbngzmto.jpg",
+                        "title": "Desktop Design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1611325428/Challenges/fp0qtspesm6i0miyqncg.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS",
+                    "JS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "interactive-pricing-component-t0m8PIyY8",
+                "startedCount": 7742,
+                "completedCount": 979,
+                "title": "Interactive pricing component",
+                "type": "free"
+            },
+            {
+                "id": "60c0d3c5905837382196aa15",
+                "brief": "Your challenge is to build out this landing page and get it looking as close to the design as possible.\n\nThis challenge focuses mostly on HTML & CSS. There's a tiny bit of JS included for the mobile navigation toggle. But you could also choose to do this without JS!\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to:\n\n- View the optimal layout for the site depending on their device's screen size\n- See hover states for all interactive elements on the page\n\nDownload the starter code and go through the `README.md` file. This will provide further details about the project. The `style-guide.md` file is where you'll find colors, fonts, etc.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "This challenge will be a perfect test of your layout and responsive skills. There's a tiny bit of JS for the mobile menu, but the focus is HTML & CSS.",
+                "difficulty": 2,
+                "gallery": [
+                    {
+                        "_id": "60c0d4c1905837382196aa1e",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1623250117/Challenges/lvj0udxz21q6bicxkysz.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1623250115/Challenges/wqzotbyfysz9pbfk9jus.jpg",
+                        "title": "Desktop Design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1623249861/Challenges/pigotdvhcch2b3wp9uuc.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS",
+                    "JS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "sunnyside-agency-landing-page-7yVs3B6ef",
+                "startedCount": 19197,
+                "completedCount": 2192,
+                "title": "Sunnyside agency landing page",
+                "type": "free"
+            },
+            {
+                "id": "5ed53e8dcc418419539bb192",
+                "brief": "Your challenge is to build out this data storage component and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to:\n\n- View the optimal layout for the site depending on their device's screen size\n\nDownload the starter code and go through the `README.md` file. This will provide further details about the project. The `style-guide.md` file is where you'll find colors, fonts, etc.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "This component has some interesting CSS challenges in the design. If you're looking to test your CSS skills, this will be a great project for you!",
+                "difficulty": 2,
+                "gallery": [
+                    {
+                        "_id": "5ed53ed3cc418419539bb194",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1591033555/Challenges/uja7och1qxswpbietazs.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1591033776/Challenges/beiy7t7hcpdkhgc6ueho.jpg",
+                        "title": "Desktop Design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1591033485/Challenges/jve24exh4iwonznfndfc.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "fylo-data-storage-component-1dZPRbV5n",
+                "screenshotHeight": 800,
+                "startedCount": 14365,
+                "completedCount": 1931,
+                "title": "Fylo data storage component",
+                "type": "free"
+            },
+            {
+                "id": "5cadd051fec04111f7b848da",
+                "brief": "Your challenge is to build out this Coming Soon page and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to: \n\n- View the optimal layout for the site depending on their device's screen size\n- See hover states for all interactive elements on the page\n- Submit their email address using an `input` field\n- Receive an error message when the `form` is submitted if:\n    - The `input` field is empty\n    - The email address is not formatted correctly\n\nDownload the starter code and go through the `README.md` file. This will provide further details about the project. The `style-guide.md` file is where you'll find colors, fonts, etc.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "This challenge is great for beginners and offers a chance to practice basic client-side form validation.",
+                "difficulty": 1,
+                "gallery": [
+                    {
+                        "_id": "5cadd33efec04111f7b848dc",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1554895678/Challenges/tvzmm442kkjocmihbpiq.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1554895678/Challenges/i30yb3bo5vfag44bojox.jpg",
+                        "title": "Desktop Design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1554894929/Challenges/qjiprcu1e19yvujjrflv.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS",
+                    "JS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "ping-single-column-coming-soon-page-5cadd051fec04111f7b848da",
+                "startedCount": 6348,
+                "completedCount": 1500,
+                "title": "Ping single column coming soon page",
+                "type": "free"
+            },
+            {
+                "id": "5f58b70b911b62234993f18b",
+                "brief": "Your challenge is to build out this social proof section and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nYour users should be able to: \n\n- View the optimal layout for the site depending on their device's screen size\n\nDownload the starter code and go through the `README.md` file. This will provide further details about the project. The `style-guide.md` file is where you'll find colors, fonts, etc.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+                "description": "This project will test your layout skills. If you're starting to get confident with Flexbox or Grid, this will provide a nice challenge!",
+                "difficulty": 1,
+                "gallery": [
+                    {
+                        "_id": "5f58b733911b62234993f18c",
+                        "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1599649588/Challenges/vfwjcmjv1jhtixjwqg48.jpg",
+                        "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1599649587/Challenges/c5mnesn5eknealmjz4w2.jpg",
+                        "title": "Desktop Design"
+                    }
+                ],
+                "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1599649547/Challenges/a0t2zk1zww7gmanfoix3.jpg",
+                "languages": [
+                    "HTML",
+                    "CSS"
+                ],
+                "steps": [
+                    "Set up the project with version control (e.g. Git)",
+                    "Read the `README.md` file and have a look around the project",
+                    "Get colors, fonts etc from the `style-guide.md` file",
+                    "Set up your project/file architecture however you want",
+                    "Start coding!"
+                ],
+                "slug": "social-proof-section-6e0qTv_bA",
+                "screenshotHeight": 800,
+                "startedCount": 23119,
+                "completedCount": 4411,
+                "title": "Social proof section",
+                "type": "free"
+            }
+        ]
     },
-    {
-        "solution_id": 52995606,
-        "title": "Responsive Feedback app using Angular 12 with springboot for services",
-        "repositoryUrl": "",
-        "liveSiteUrl": "",
-        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Screenshots/dimvsjrodzr0ifj5hl3l.jpg",
-        "tags": [
-            "angular",
-            "tailwindcss"
-        ],
-        "questions": "This is the first time I make something with html & css after learning it for 2 days, so it's not perfect hahaha. I had trouble with aligning vertically the white box that contains the image and the text (tried using flexbox and other methods, neither of them worked without a specific height so I had to specify it and because of that it's not responsive, not sure of how to do it correctly :( ) All feedback is welcome, thank you!",
-        "createdAt": "2022-12-02T05:20:37+07:00",
-        "likes": 10,
-        "comments": 11,
-        "bookmarks": 4,
-        "user": {
-            "name": "Sofia Matrella",
-            "username": "sofiamatrella",
-            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_80,h_80,c_fill/Avatars/uf0arw094oxp2eqzgycz.jpg",
-            "points": 90,
-            "isPremium": true
-        }
-    },
-    {
-        "solution_id": 2159117072,
-        "title": "Responsive Feedback app using Angular 12 with springboot for services",
-        "repositoryUrl": "",
-        "liveSiteUrl": "",
-        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Screenshots/dimvsjrodzr0ifj5hl3l.jpg",
-        "tags": [
-            "angular",
-            "tailwindcss"
-        ],
-        "questions": "This is the first time I make something with html & css after learning it for 2 days, so it's not perfect hahaha. I had trouble with aligning vertically the white box that contains the image and the text (tried using flexbox and other methods, neither of them worked without a specific height so I had to specify it and because of that it's not responsive, not sure of how to do it correctly :( ) All feedback is welcome, thank you!",
-        "createdAt": "2022-12-02T05:20:37+07:00",
-        "likes": 10,
-        "comments": 11,
-        "bookmarks": 4,
-        "user": {
-            "name": "Sofia Matrella",
-            "username": "sofiamatrella",
-            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_80,h_80,c_fill/Avatars/uf0arw094oxp2eqzgycz.jpg",
-            "points": 90,
-            "isPremium": true
-        }
-    },
-    {
-        "solution_id": 918799879,
-        "title": "Responsive Feedback app using Angular 12 with springboot for services",
-        "repositoryUrl": "",
-        "liveSiteUrl": "",
-        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Screenshots/dimvsjrodzr0ifj5hl3l.jpg",
-        "tags": [
-            "angular",
-            "tailwindcss"
-        ],
-        "questions": "This is the first time I make something with html & css after learning it for 2 days, so it's not perfect hahaha. I had trouble with aligning vertically the white box that contains the image and the text (tried using flexbox and other methods, neither of them worked without a specific height so I had to specify it and because of that it's not responsive, not sure of how to do it correctly :( ) All feedback is welcome, thank you!",
-        "createdAt": "2022-12-02T05:20:37+07:00",
-        "likes": 10,
-        "comments": 11,
-        "bookmarks": 4,
-        "user": {
-            "name": "Sofia Matrella",
-            "username": "sofiamatrella",
-            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_80,h_80,c_fill/Avatars/uf0arw094oxp2eqzgycz.jpg",
-            "points": 90,
-            "isPremium": true
-        }
-    },
-    {
-        "solution_id": 2728839865,
-        "title": "Responsive Feedback app using Angular 12 with springboot for services",
-        "repositoryUrl": "",
-        "liveSiteUrl": "",
-        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Screenshots/dimvsjrodzr0ifj5hl3l.jpg",
-        "tags": [
-            "angular",
-            "tailwindcss"
-        ],
-        "questions": "This is the first time I make something with html & css after learning it for 2 days, so it's not perfect hahaha. I had trouble with aligning vertically the white box that contains the image and the text (tried using flexbox and other methods, neither of them worked without a specific height so I had to specify it and because of that it's not responsive, not sure of how to do it correctly :( ) All feedback is welcome, thank you!",
-        "createdAt": "2022-12-02T05:20:37+07:00",
-        "likes": 10,
-        "comments": 11,
-        "bookmarks": 4,
-        "user": {
-            "name": "Sofia Matrella",
-            "username": "sofiamatrella",
-            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_80,h_80,c_fill/Avatars/uf0arw094oxp2eqzgycz.jpg",
-            "points": 90,
-            "isPremium": true
-        }
-    },
-    {
-        "solution_id": 696492197,
-        "title": "Responsive Feedback app using Angular 12 with springboot for services",
-        "repositoryUrl": "",
-        "liveSiteUrl": "",
-        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Screenshots/dimvsjrodzr0ifj5hl3l.jpg",
-        "tags": [
-            "angular",
-            "tailwindcss"
-        ],
-        "questions": "This is the first time I make something with html & css after learning it for 2 days, so it's not perfect hahaha. I had trouble with aligning vertically the white box that contains the image and the text (tried using flexbox and other methods, neither of them worked without a specific height so I had to specify it and because of that it's not responsive, not sure of how to do it correctly :( ) All feedback is welcome, thank you!",
-        "createdAt": "2022-12-02T05:20:37+07:00",
-        "likes": 10,
-        "comments": 11,
-        "bookmarks": 4,
-        "user": {
-            "name": "Sofia Matrella",
-            "username": "sofiamatrella",
-            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_80,h_80,c_fill/Avatars/uf0arw094oxp2eqzgycz.jpg",
-            "points": 90,
-            "isPremium": true
-        }
-    },
-    {
-        "solution_id": 3933310809,
-        "title": "Responsive Feedback app using Angular 12 with springboot for services",
-        "repositoryUrl": "",
-        "liveSiteUrl": "",
-        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Screenshots/dimvsjrodzr0ifj5hl3l.jpg",
-        "tags": [
-            "angular",
-            "tailwindcss"
-        ],
-        "questions": "This is the first time I make something with html & css after learning it for 2 days, so it's not perfect hahaha. I had trouble with aligning vertically the white box that contains the image and the text (tried using flexbox and other methods, neither of them worked without a specific height so I had to specify it and because of that it's not responsive, not sure of how to do it correctly :( ) All feedback is welcome, thank you!",
-        "createdAt": "2022-12-02T05:20:37+07:00",
-        "likes": 10,
-        "comments": 11,
-        "bookmarks": 4,
-        "user": {
-            "name": "Sofia Matrella",
-            "username": "sofiamatrella",
-            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_80,h_80,c_fill/Avatars/uf0arw094oxp2eqzgycz.jpg",
-            "points": 90,
-            "isPremium": true
-        }
-    },
-    {
-        "solution_id": 1688052557,
-        "title": "Responsive Feedback app using Angular 12 with springboot for services",
-        "repositoryUrl": "",
-        "liveSiteUrl": "",
-        "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Screenshots/dimvsjrodzr0ifj5hl3l.jpg",
-        "tags": [
-            "angular",
-            "tailwindcss"
-        ],
-        "questions": "This is the first time I make something with html & css after learning it for 2 days, so it's not perfect hahaha. I had trouble with aligning vertically the white box that contains the image and the text (tried using flexbox and other methods, neither of them worked without a specific height so I had to specify it and because of that it's not responsive, not sure of how to do it correctly :( ) All feedback is welcome, thank you!",
-        "createdAt": "2022-12-02T05:20:37+07:00",
-        "likes": 10,
-        "comments": 11,
-        "bookmarks": 4,
-        "user": {
-            "name": "Sofia Matrella",
-            "username": "sofiamatrella",
-            "image": "https://res.cloudinary.com/dz209s6jk/image/upload/q_auto:low,w_80,h_80,c_fill/Avatars/uf0arw094oxp2eqzgycz.jpg",
-            "points": 90,
-            "isPremium": true
-        }
+    "page": {
+        "current": 3,
+        "next": 4,
+        "prev": 2,
+        "total": 2501
     }
-]
+}

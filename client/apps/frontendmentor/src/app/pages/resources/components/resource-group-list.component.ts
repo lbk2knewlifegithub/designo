@@ -14,16 +14,16 @@ import {
       <li *ngFor="let group of resourcesGroups; trackBy: identifyResourceGroup">
         <!-- Group Name -->
         <h1 class="font-black uppercase tracking-[.25rem] text-center">
-          {{ group.name }}
+          {{ group.title }}
         </h1>
         <!-- end Group Name -->
 
         <!-- List Types -->
         <ul class="mt-12 grid gap-32">
-          <li *ngFor="let type of group.types; trackBy: identifyResourceType">
+          <li *ngFor="let type of group.child; trackBy: identifyResourceType">
             <!-- Type Name -->
             <div class="flex items-center gap-4">
-              <h2 class="font-medium text-xl">{{ type.name }}</h2>
+              <h2 class="font-medium text-xl">{{ type.title }}</h2>
               <span class="h-[1px] bg-dark/20 grow"></span>
             </div>
             <!-- end Type Name -->

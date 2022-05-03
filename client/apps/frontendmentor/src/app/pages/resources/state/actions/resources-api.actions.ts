@@ -1,12 +1,12 @@
 import { createAction, props } from '@ngrx/store';
-import { Resource } from '../../../../shared';
+import { ResourceGroup } from '@lbk/fm/shared';
 
-export const loadResourcesSuccess = createAction(
-  '[Resources/API] Load All Resources Success',
-  props<{ resources: Resource[] }>()
+export const loadResourcesGroupSuccess = createAction(
+  '[Resources/API] Load Resources Group',
+  props<{ resourcesGroup: ResourceGroup[] }>()
 );
 
-export const loadResourcesFailure = createAction(
+export const loadResourcesGroupFailure = createAction(
   '[Resources/API] Load All Resources Failure',
   props<{ error: string }>()
 );

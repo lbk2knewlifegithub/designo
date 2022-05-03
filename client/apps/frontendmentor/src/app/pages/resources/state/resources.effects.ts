@@ -8,24 +8,24 @@ import { ResourcesService } from './services';
 @Injectable({ providedIn: 'root' })
 export class ResourcesEffects {
   /**
-   * - Load Resources
+   * - Load Resources Groups
    */
-  loadAllResources$ = createEffect(() =>
+  loadReourcesGroup$ = createEffect(() =>
     this._actions$.pipe(
       ofType(ResourcesActions.loadAllResources),
       exhaustMap(() =>
-        this._resourcesService.getAllResources().pipe(
+        this._resourcesService.getResourcesGroup().pipe(
           /**
-           * - Load All Resources Success
+           * - Load Resources Group Success
            */
-          map((resources) =>
-            ResourcesAPIActions.loadResourcesSuccess({ resources })
+          map((resourcesGroup) =>
+            ResourcesAPIActions.loadResourcesGroupSuccess({ resourcesGroup })
           ),
           /**
-           * - Load Resources Failure
+           * - Load Resources Group Failure
            */
           catchError((error) =>
-            of(ResourcesAPIActions.loadResourcesFailure(error))
+            of(ResourcesAPIActions.loadResourcesGroupFailure(error))
           )
         )
       )

@@ -1,4 +1,8 @@
 import { resourcesFeature } from './resources.reducer';
 
-export const { selectResources, selectLoaded, selectError, selectLoading } =
-  resourcesFeature;
+export const {
+  selectResourcesGroup,
+  selectLoaded,
+  selectError,
+  selectLoading,
+} = resourcesFeature;

@@ -1,9 +1,9 @@
 import { Observable } from 'rxjs';
-import { Resource } from '../../../../shared';
+import { ResourceGroup } from '@lbk/fm/shared';
 
 export interface ResourcesService {
   /**
-   * - Get All Resources
+   * - Get Resources Group
    */
-  getAllResources(): Observable<Resource[]>;
+  getResourcesGroup(): Observable<ResourceGroup[]>;
 }

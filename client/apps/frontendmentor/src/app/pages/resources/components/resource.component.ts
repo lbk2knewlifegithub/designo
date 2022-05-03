@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Resource } from '../../../shared';
+import { Resource } from '@lbk/fm/shared';
 
 @Component({
   selector: 'lbk-resource',
@@ -7,15 +7,15 @@ import { Resource } from '../../../shared';
   template: `
     <!-- Resource Image -->
     <a
-      [href]="resource.href"
+      [href]="resource.link"
       target="_blank"
       aria-label="freeCodeCamp"
-      class="block overflow-hidden w-full max-h-[464px]"
+      class="block overflow-hidden w-full max-h-[464px] md:min-h-[240px]"
     >
       <lbk-image
         classImage="duration-300 hover:scale-110"
         [singleImage]="resource.image"
-        [alt]="resource.name"
+        [alt]="resource.title"
       >
       </lbk-image>
     </a>
@@ -25,25 +25,21 @@ import { Resource } from '../../../shared';
       <div class="flex items-center gap-2">
         <!-- Name -->
         <h3 class="text-xl font-medium font-heading lg:text-2xl">
-          {{ resource.name }}
+          {{ resource.title }}
         </h3>
         <!-- end Name -->
 
         <!-- Link Icon -->
-        <a target="_blank" aria-label="freeCodeCamp" [href]="resource.href">
+        <a target="_blank" aria-label="freeCodeCamp" [href]="resource.link">
           <i class="opacity-20 fa-solid fa-arrow-up-right-from-square"></i>
         </a>
         <!-- end Link Icon-->
       </div>
 
       <div class="flex justify-between items-end mt-2 lg:mt-4">
-        <!-- Tech Stacks -->
-        <ul class="flex gap-2">
-          <li *ngFor="let tech of resource.techStacks">
-            <lbk-language [classList]="tech">{{ tech }}</lbk-language>
-          </li>
-        </ul>
-        <!-- end Tech Stacks -->
+        <!-- Languages -->
+        <lbk-language-list [languages]="resource.languages"></lbk-language-list>
+        <!-- end Languages -->
 
         <ul class="flex gap-2">
           <li *ngIf="resource.isAffiliate">

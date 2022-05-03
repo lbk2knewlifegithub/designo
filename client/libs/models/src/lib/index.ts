@@ -12,3 +12,4 @@ export * from './token.model';
 export * from './user.model';
 export * from './group.model';
 export * from './loadable.model';
+export * from './pagination.model';

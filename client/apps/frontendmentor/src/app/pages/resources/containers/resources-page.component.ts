@@ -5,7 +5,7 @@ import {
   ResourceGroupName,
   ResourceTypeName,
 } from '../../../shared';
-import { ChallengesFacade } from '../../../state';
+import { ChallengesFacade } from '@lbk/fm/state';
 import { ResourcesFacade } from '../state';
 
 @Component({

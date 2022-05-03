@@ -1,8 +1,8 @@
-import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AuthFacade } from '@lbk/auth';
 import { Observable, take, tap } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class LoggedInGuard implements CanActivate {
@@ -15,7 +15,7 @@ export class LoggedInGuard implements CanActivate {
     return this._authFacade.loggedIn$.pipe(
       take(1),
       tap((loggedIn) => {
-        loggedIn && this._router.navigateByUrl('/shell/solutions');
+        loggedIn && this._router.navigateByUrl('/feed');
       }),
       map(() => true)
     );

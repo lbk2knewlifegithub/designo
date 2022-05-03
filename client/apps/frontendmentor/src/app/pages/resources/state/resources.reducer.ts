@@ -1,13 +1,13 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { Resource } from '../../../shared';
-import { ResourcesAPIActions, ResourcesActions } from './actions';
+import { ResourceGroup } from './../../../shared/models/resource.model';
+import { ResourcesActions, ResourcesAPIActions } from './actions';
 
 export const resourcesFeatureKey = 'resources';
 
 export interface State {
   // resourcesGroup: { loaded: boolean; group: ResourceGroupName }[];
   // resourcesType: { loaded: boolean; type: ResourceTypeName }[];
-  resources: Resource[];
+  resourcesGroup: ResourceGroup[];
   loaded: boolean;
   error: string;
   loading: boolean;
@@ -22,7 +22,7 @@ export const initialState: State = {
   //   loaded: false,
   //   type,
   // })),
-  resources: [],
+  resourcesGroup: [],
   loaded: false,
   error: '',
   loading: false,
@@ -44,18 +44,21 @@ export const resourcesFeature = createFeature({
     /**
      * - Load Resources Success
      */
-    on(ResourcesAPIActions.loadResourcesSuccess, (state, { resources }) => ({
-      ...state,
-      loaded: true,
-      resources,
-      error: '',
-      loading: false,
-    })),
+    on(
+      ResourcesAPIActions.loadResourcesGroupSuccess,
+      (state, { resourcesGroup }) => ({
+        ...state,
+        loaded: true,
+        resourcesGroup,
+        error: '',
+        loading: false,
+      })
+    ),
 
     /**
      * - Load Resources Failure
      */
-    on(ResourcesAPIActions.loadResourcesFailure, (state, { error }) => ({
+    on(ResourcesAPIActions.loadResourcesGroupFailure, (state, { error }) => ({
       ...state,
       error,
       loading: false,

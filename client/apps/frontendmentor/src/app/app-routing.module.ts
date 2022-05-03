@@ -15,6 +15,13 @@ const routes: Routes = [
         loadChildren: () => import('./pages/home').then((m) => m.HomeModule),
       },
 
+      // Feed Page
+      {
+        path: 'feed',
+        loadChildren: () => import('./pages/feed').then((m) => m.FeedModule),
+        canActivate: [MustLoggedInGuard],
+      },
+
       // Dashboard Page
       {
         path: 'dashboard',
