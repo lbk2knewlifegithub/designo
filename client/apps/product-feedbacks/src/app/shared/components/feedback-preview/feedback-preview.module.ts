@@ -1,10 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FeedbackPreviewComponent } from './feedback-preview.component';
-import { CommonModule } from '@angular/common';
-import { CommentsAmountComponent } from './comments-amount.component';
-import { UpvoteModule } from '../upvote.component';
 import { UpperPipeModule } from '@lbk/pipes';
+import { UpvoteModule } from '../upvote.component';
+import { CommentsAmountComponent } from './comments-amount.component';
+import { FeedbackPreviewComponent } from './feedback-preview.component';
 
 const COMPONENTS = [FeedbackPreviewComponent, CommentsAmountComponent];
 

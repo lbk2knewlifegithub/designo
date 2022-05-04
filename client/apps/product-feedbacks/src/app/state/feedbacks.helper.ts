@@ -1,4 +1,4 @@
-import { Comment } from '@lbk/models';
+import { Comment } from '../shared';
 
 export function findCommentIndex(
   comments: Comment[],

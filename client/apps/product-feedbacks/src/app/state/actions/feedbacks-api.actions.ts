@@ -1,6 +1,6 @@
-import { UpdateCommentDTO, UpdateFeedbackDTO } from '@lbk/dto';
-import { Comment, Feedback } from '@lbk/models';
 import { createAction, props } from '@ngrx/store';
+import { Comment, Feedback } from '../../shared/models';
+import { UpdateCommentDTO, UpdateFeedbackDTO } from '../../shared/dto';
 
 /**
  * - Load Single Feedback

@@ -51,7 +51,7 @@ pub async fn me(state: &AuthState, token: &str) -> Result<User> {
         Some(u) => Ok(u),
         None => {
             debug!("Auth Me -> User not found");
-            Err(AppError::NotFound(
+            Err(AppError::not_found(
                 "UserNotFound".to_owned(),
                 "user not found".to_owned(),
             ))

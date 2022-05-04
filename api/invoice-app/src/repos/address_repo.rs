@@ -1,4 +1,8 @@
-use crate::dto::address_dto::{CreateAddressDTO, UpdateAddressDTO};
+use crate::{
+    dto::address_dto::{CreateAddressDTO, UpdateAddressDTO},
+    errors::invoice_error::InvoiceError,
+};
+
 use prelude::{errors::AppError, Result};
 
 use deadpool_postgres::Transaction;
@@ -33,7 +37,7 @@ pub async fn create_address(
         .await
     {
         Ok(row) => Ok(row.get(0)),
-        Err(_) => Err(AppError::IntervalServerError),
+        Err(_) => Err(AppError::internal_server_error()),
     }
 }
 
@@ -94,7 +98,7 @@ async fn update_address(
             &[street, post_code, country, city, address_id, invoice_id],
         )
         .await
-        .map_err(|_| AppError::InvalidInput)?;
+        .map_err(|_| InvoiceError::InvalidInvoice)?;
 
     Ok(affected)
 }

@@ -1,0 +1,10 @@
+name: lbk
+image: okteto/rust:1
+command: bash
+sync:
+- .:/usr/src/app
+forward:
+- 8080:8080
+volumes:
+- /usr/local/cargo/registry
+- /home/root/app/target

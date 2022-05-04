@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { FeedbackSummary, identifyFeedback } from '@lbk/models';
+import { FeedbackSummary, identifyFeedback } from '../../../shared';
 
 @Component({
   selector: 'lbk-feedback-roadmap-list',

@@ -1,12 +1,15 @@
 import { Inject, Injectable } from '@angular/core';
 import { AuthFacade } from '@lbk/auth';
-import { AddCommentDTO, CreateFeedbackDTO, UpdateFeedbackDTO } from '@lbk/dto';
+import {} from '@lbk/dto';
 import {
+  AddCommentDTO,
+  CreateFeedbackDTO,
   createSummaryFeedback,
   Feedback,
   FeedbackStatus,
   FeedbackSummary,
-} from '@lbk/models';
+  UpdateFeedbackDTO,
+} from '@lbk/pf/shared';
 import { Store } from '@ngrx/store';
 import { Observable, of, zip } from 'rxjs';
 import {
@@ -23,8 +26,8 @@ import {
 } from 'rxjs/operators';
 import { FeedbacksActions, FeedbacksApiActions } from './actions';
 import * as fromFeedbacks from './feedbacks.selectors';
-import { FEEDBACKS_SERVICE } from './feedbacks.token';
 import { FeedbacksService } from './services/feedbacks.service';
+import { FEEDBACKS_SERVICE } from './tokens/feedbacks.token';
 
 /**
  * - Feedbacks Facade

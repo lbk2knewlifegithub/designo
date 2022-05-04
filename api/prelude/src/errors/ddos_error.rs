@@ -11,7 +11,7 @@ impl From<DDosError> for AppError {
         let error = format!("{}", e);
         match e {
             DDosError::TooManyRequest => {
-                AppError::TooManyRequest(error, "too many request".to_owned())
+                AppError::too_many_request(error, "too many request".to_owned())
             }
         }
     }

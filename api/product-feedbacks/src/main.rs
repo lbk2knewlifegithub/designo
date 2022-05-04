@@ -10,6 +10,7 @@ use prelude::{
 };
 
 mod dto;
+mod errors;
 mod handlers;
 mod models;
 mod repos;

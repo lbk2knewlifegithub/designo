@@ -16,7 +16,6 @@ export interface Solution {
   comments: number;
   bookmarks: number;
   user: UserMinimal;
-
   isPrivate?: boolean;
   isBookmarked?: boolean;
   isLiked?: boolean;

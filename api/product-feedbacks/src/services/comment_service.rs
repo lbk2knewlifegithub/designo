@@ -1,4 +1,5 @@
 use crate::{
+    errors::comment_error::CommentError,
     models::comment_model::{Comment, NewComment, UpdateComment},
     repos::{comment_repo, feedback_repo},
     FeedbacksState,
@@ -17,7 +18,7 @@ pub async fn get_comment_by_id(state: &FeedbacksState, comment_id: &i32) -> Resu
 
     match comment_repo::get_comment_by_id(&client, &comment_id).await? {
         Some(comment) => Ok(comment),
-        None => Err(AppError::NotFound(
+        None => Err(AppError::not_found(
             "CommentNotFound".to_owned(),
             format!("comment id {} not found", comment_id),
         )),
@@ -30,7 +31,7 @@ pub async fn update_comment(state: &FeedbacksState, update_comment: &UpdateComme
     let affected = comment_repo::update_comment(&client, update_comment).await?;
 
     if affected != 1 {
-        return Err(AppError::RecordNotFound);
+        return Err(CommentError::CommentNotFound.into());
     }
 
     Ok(())
@@ -45,7 +46,7 @@ pub async fn get_comment_by_feedback_id(
 
     // Check feedback_id exists
     if !feedback_repo::check_feedback_exists_by_id(&client, &feedback_id).await? {
-        return Err(AppError::RecordNotFound);
+        return Err(CommentError::CommentNotFound.into());
     }
 
     Ok(comment_repo::get_comment_by_feedback_id(&client, &feedback_id).await?)
@@ -72,7 +73,7 @@ pub async fn delete_comment(state: &FeedbacksState, user_id: &i32, comment_id: &
     let affected = comment_repo::delete_comment(&client, user_id, comment_id).await?;
 
     if affected != 1 {
-        return Err(AppError::RecordNotFound);
+        return Err(CommentError::CommentNotFound.into());
     }
 
     Ok(())

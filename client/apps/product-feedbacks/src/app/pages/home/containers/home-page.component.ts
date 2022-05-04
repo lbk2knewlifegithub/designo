@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Feedback } from '@lbk/models';
-import { FeedbacksFacade } from '../../../state';
 import { map, Observable } from 'rxjs';
+import { Feedback } from '../../../shared';
+import { FeedbacksFacade } from '../../../state';
 import { HomeFacade } from '../state/home.facade';
 
 @Component({

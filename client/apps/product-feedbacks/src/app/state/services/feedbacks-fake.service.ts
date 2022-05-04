@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import {
   AddCommentDTO,
+  Comment,
   CreateFeedbackDTO,
+  Feedback,
   UpdateCommentDTO,
   UpdateFeedbackDTO,
-} from '@lbk/dto';
-import { Comment, Feedback } from '@lbk/models';
-import { Observable } from 'rxjs';
+} from '../../shared';
 import { FeedbacksService } from './feedbacks.service';
 
 /**

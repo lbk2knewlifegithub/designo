@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FeedbackSummary } from '@lbk/models';
-import { RoadmapFacade } from '../state';
+import { FeedbackSummary } from '../../../shared';
 import { FeedbacksFacade } from '../../../state';
+import { RoadmapFacade } from '../state';
 
 @Component({
   selector: 'lbk-roadmap-page',

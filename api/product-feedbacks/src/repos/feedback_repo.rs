@@ -1,10 +1,10 @@
-use crate::models::feedback_model::{
-    DeleteFeedback, Downvote, Feedback, NewFeedback, UpdateFeedback, Upvote,
+use crate::{
+    errors::feedback_error::FeedbackError,
+    models::feedback_model::{
+        DeleteFeedback, Downvote, Feedback, NewFeedback, UpdateFeedback, Upvote,
+    },
 };
-use prelude::{
-    errors::{feedback_error::FeedbackError, AppError},
-    Result,
-};
+use prelude::Result;
 
 use deadpool_postgres::Client;
 use tokio_pg_mapper::FromTokioPostgresRow;
@@ -109,8 +109,8 @@ pub async fn create_feedback(client: &Client, new_feedback: &NewFeedback) -> Res
         )
         .await
         .map_err(|e| {
-            error!("{}", e);
-            AppError::InvalidInput
+            error!("Create feedback {}", e);
+            FeedbackError::FeedbackInvalid
         })?
         .iter()
         .map(|row| row.get("feedback_id"))
@@ -131,7 +131,7 @@ pub async fn upvote_feedback(client: &Client, upvote: &Upvote) -> Result<i32> {
             Some(c) if c.code() == SqlState::UNIQUE_VIOLATION.code() => {
                 FeedbackError::AlreadyUpvote.into()
             }
-            _ => AppError::InvalidInput,
+            _ => FeedbackError::FeedbackNotFound,
         })?;
 
     Ok(affected as i32)
@@ -164,7 +164,7 @@ pub async fn delete_feedback(client: &Client, delete_feedback: &DeleteFeedback) 
         .await
         .map_err(|e| {
             error!("DELETE_FEEDBACK_REPO {e}");
-            AppError::InvalidInput
+            FeedbackError::FeedbackNotFound
         })?;
     Ok(affected)
 }
@@ -197,7 +197,7 @@ pub async fn update_feedback(client: &Client, update_feedback: &UpdateFeedback) 
             ],
         )
         .await
-        .map_err(|_| AppError::InvalidInput)?;
+        .map_err(|_| FeedbackError::FeedbackNotFound)?;
 
     Ok(affected)
 }

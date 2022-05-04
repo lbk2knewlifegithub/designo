@@ -9,10 +9,7 @@ use validator::ValidationError;
 
 pub mod auth_error;
 pub mod ddos_error;
-pub mod feedback_error;
 pub mod github_error;
-pub mod invoice_error;
-pub mod upload_error;
 
 #[derive(Debug)]
 pub struct AppError {
@@ -28,7 +25,7 @@ impl fmt::Display for AppError {
 }
 
 impl AppError {
-    pub fn IntervalServerError() -> Self {
+    pub fn internal_server_error() -> Self {
         Self {
             code: StatusCode::INTERNAL_SERVER_ERROR,
             error: "InternalServerError".to_owned(),
@@ -36,7 +33,7 @@ impl AppError {
         }
     }
 
-    pub fn BadRequest(error: String, message: String) -> Self {
+    pub fn bad_request(error: String, message: String) -> Self {
         Self {
             code: StatusCode::BAD_REQUEST,
             error,
@@ -44,28 +41,28 @@ impl AppError {
         }
     }
 
-    pub fn Unauthorize(error: String, message: String) -> Self {
+    pub fn unauthorize(error: String, message: String) -> Self {
         Self {
             code: StatusCode::UNAUTHORIZED,
             error,
             message,
         }
     }
-    pub fn Forbidden(error: String, message: String) -> Self {
+    pub fn forbidden(error: String, message: String) -> Self {
         Self {
             code: StatusCode::FORBIDDEN,
             error,
             message,
         }
     }
-    pub fn NotFound(error: String, message: String) -> Self {
+    pub fn not_found(error: String, message: String) -> Self {
         Self {
             code: StatusCode::NOT_FOUND,
             error,
             message,
         }
     }
-    pub fn TooManyRequest(error: String, message: String) -> Self {
+    pub fn too_many_request(error: String, message: String) -> Self {
         Self {
             code: StatusCode::TOO_MANY_REQUESTS,
             error,
@@ -98,56 +95,56 @@ impl actix_web::ResponseError for AppError {
 impl From<BlockingError> for AppError {
     fn from(e: BlockingError) -> Self {
         debug!("BlockingError {e}");
-        AppError::IntervalServerError()
+        AppError::internal_server_error()
     }
 }
 
 impl From<MailboxError> for AppError {
     fn from(e: MailboxError) -> Self {
         debug!("MailboxError {e}");
-        AppError::IntervalServerError()
+        AppError::internal_server_error()
     }
 }
 
 impl From<std::io::Error> for AppError {
     fn from(e: std::io::Error) -> Self {
         debug!("{e}");
-        AppError::IntervalServerError()
+        AppError::internal_server_error()
     }
 }
 
 impl From<PGMapperError> for AppError {
     fn from(e: PGMapperError) -> Self {
         debug!("PGMapperError {e}");
-        AppError::IntervalServerError()
+        AppError::internal_server_error()
     }
 }
 
 impl From<PGError> for AppError {
     fn from(e: PGError) -> Self {
         debug!("PGError {e}");
-        AppError::IntervalServerError()
+        AppError::internal_server_error()
     }
 }
 
 impl From<PoolError> for AppError {
     fn from(e: PoolError) -> Self {
         debug!("PoolError {e}");
-        AppError::IntervalServerError()
+        AppError::internal_server_error()
     }
 }
 
 impl From<actix_redis::Error> for AppError {
     fn from(e: actix_redis::Error) -> Self {
         debug!("Redis Error - {e}");
-        AppError::IntervalServerError()
+        AppError::internal_server_error()
     }
 }
 
 impl From<ValidationError> for AppError {
     fn from(e: ValidationError) -> Self {
         debug!("ValidationError - {e}");
-        AppError::BadRequest(
+        AppError::bad_request(
             "ValidationErrore".to_owned(),
             e.message.unwrap_or_default().to_string(),
         )

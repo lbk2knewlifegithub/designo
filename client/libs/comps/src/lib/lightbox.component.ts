@@ -20,7 +20,7 @@ import { zoomIn } from '@lbk/anims';
       <!-- Close Icon -->
       <button
         (click)="close()"
-        class="duration-300 fixed text-white right-8 top-4 w-12 h-12 rounded-full hover:bg-white hover:text-dark"
+        class="duration-300 fixed text-white right-8 top-4 w-12 h-12 rounded-full hover:bg-white hover:text-black"
         aria-label="Close"
       >
         <i class="fa-solid fa-xmark text-2xl"></i>
@@ -67,7 +67,7 @@ import { zoomIn } from '@lbk/anims';
     `
       :host {
         .navigate-btn {
-          @apply duration-300 text-white  px-4 py-2 rounded-full hover:bg-white hover:text-dark;
+          @apply duration-300 text-white  px-4 py-2 rounded-full hover:bg-white hover:text-black;
         }
       }
     `,

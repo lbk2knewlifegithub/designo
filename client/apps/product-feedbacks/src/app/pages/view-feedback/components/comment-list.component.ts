@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { listInLeft, slideInRight } from '@lbk/anims';
-import { Comment } from '@lbk/models';
+import { Comment } from '../../../shared';
 
 @Component({
   selector: 'lbk-comment-list',

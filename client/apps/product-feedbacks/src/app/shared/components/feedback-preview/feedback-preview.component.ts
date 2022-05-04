@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Feedback } from '@lbk/models';
-import { HomeFacade } from '../../../pages/home/state';
-import { FeedbacksFacade } from '../../../state';
+import { Feedback } from '@lbk/pf/shared';
+import { FeedbacksFacade } from '@lbk/pf/state';
+import { HomeFacade } from '@lbk/pf/pages/home/state';
 
 @Component({
   selector: 'lbk-feedback-preview',

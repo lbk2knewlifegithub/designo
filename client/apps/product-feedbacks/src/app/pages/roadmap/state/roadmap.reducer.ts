@@ -1,5 +1,5 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { FeedbackStatus } from '@lbk/models';
+import { FeedbackStatus } from '../../../shared';
 import * as RoadmapActions from './roadmap.actions';
 
 const roadmapFeatureKey = 'roadmapFeatureKey';

@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CreateFeedbackDTO } from '@lbk/dto';
-import { FeedbackCategory } from '@lbk/models';
-import { FeedbacksFacade } from '../../../state';
 import { map, Observable, pluck } from 'rxjs';
+import { CreateFeedbackDTO, FeedbackCategory } from '../../../shared';
+import { FeedbacksFacade } from '../../../state';
 import { CreateFeedbackPageFacade } from '../state/create-feedback.facade';
 
 @Component({

@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import {
-  AddCommentDTO,
-  CreateFeedbackDTO,
-  UpdateCommentDTO,
-  UpdateFeedbackDTO,
-} from '@lbk/dto';
-import { Comment, Feedback } from '@lbk/models';
 import { API_URL } from '@lbk/tokens';
 import { Observable, shareReplay } from 'rxjs';
+import {
+  AddCommentDTO,
+  Comment,
+  CreateFeedbackDTO,
+  Feedback,
+  UpdateCommentDTO,
+  UpdateFeedbackDTO,
+} from '../.../../../shared';
 import { FeedbacksService } from './feedbacks.service';
 
 /**

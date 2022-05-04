@@ -83,13 +83,13 @@ pub async fn create_user(trans: &Transaction<'_>, user_github: &UserGithub) -> R
         .await
         .map_err(|e| {
             error!("Create User Error  -> Failed to execute query: {}", e);
-            AppError::BadRequest("CreateUserError".to_owned(), "create user error".to_owned())
+            AppError::bad_request("CreateUserError".to_owned(), "create user error".to_owned())
         })?
         .iter()
         .map(|row| User::from_row_ref(row).unwrap())
         .collect::<Vec<User>>()
         .pop()
-        .ok_or(AppError::IntervalServerError())?)
+        .ok_or(AppError::internal_server_error())?)
 }
 
 // /// Update Account Repo

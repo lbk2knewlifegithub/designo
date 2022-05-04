@@ -1,0 +1,66 @@
+{
+    "type": "premium",
+    "languages": [
+        "HTML",
+        "CSS",
+        "JS"
+    ],
+    "steps": [
+        "Set up the project with version control (e.g. Git)",
+        "Read the `README.md` file and have a look around the project",
+        "Download the design files, we provide both [Sketch](https://www.sketch.com/) and [Figma](https://www.figma.com/) versions of the design",
+        "Get colors, fonts, etc from the design system in the design file",
+        "Set up your project/file architecture however you want",
+        "Start coding!"
+    ],
+    "ideas": [
+        "Build the project out as a full-stack application",
+        "Train your eye for detail by getting your solution as close to the design as you can",
+        "Use a JavaScript framework/library to practice templating and/or building using components",
+        "Try estimating the time it will take for you to build the project. Then see if the time taken matches up to your estimate. Project estimations are a skill that is often overlooked, but is important for professional developers"
+    ],
+    "submitted": true,
+    "startedCount": 789,
+    "completedCount": 45,
+    "_id": "60d5c1a17ec33e10e86fa571",
+    "difficulty": 5,
+    "heroImage": "https://res.cloudinary.com/dz209s6jk/image/upload/v1624621473/Challenges/zbq5rrhkqt63eodwcxcs.jpg",
+    "title": "Product feedback app",
+    "description": "This will be a perfect portfolio piece! You'll be working with JSON, managing state, and building like a real-world app. You can even create it as a full-stack project!",
+    "starterURL": "challenges/product-feedback-app.zip",
+    "sketchURL": "designs/product-feedback-app-sketch.zip",
+    "figmaURL": "designs/product-feedback-app-figma.zip",
+    "productId": null,
+    "screenshotHeight": null,
+    "brief": "Your challenge is to build out this product feedback application and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.\n\nWe provide the data in a local `data.json` file, so use that to populate the content on the first load. If you want to take it up a notch, feel free to build this as a full-stack application!\n\nYour users should be able to:\n\n- View the optimal layout for the app depending on their device's screen size\n- See hover states for all interactive elements on the page\n- Create, read, update, and delete product feedback requests\n- Receive form validations when trying to create/edit feedback requests\n- Sort suggestions by most/least upvotes and most/least comments\n- Filter suggestions by category\n- Add comments and replies to a product feedback request\n- Upvote product feedback requests\n- **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)\n- **Bonus**: Build this project as a full-stack application\n\nDownload the project and go through the `README.md` file. This will provide further details about the project and help you get set up.\n\nWant some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the help channel.",
+    "gallery": [
+        {
+            "_id": "60d5c2327ec33e10e86fa576",
+            "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1624621619/Challenges/vnx44muoxqyn886oi5sb.jpg",
+            "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1624621618/Challenges/cznparjtrflllhixgw96.jpg",
+            "title": "Desktop Design"
+        },
+        {
+            "_id": "60d5c2887ec33e10e86fa592",
+            "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1624621706/Challenges/uf4zb5ufaresipumy7jb.jpg",
+            "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1624621705/Challenges/gwp1wqd9etndpdqntzti.jpg",
+            "title": "Inner Page"
+        },
+        {
+            "_id": "60d5c2c17ec33e10e86fa5c0",
+            "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1624621762/Challenges/tsaibconxg9gus3xvdpj.jpg",
+            "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1624621762/Challenges/rcsvedsumulyaalzlzsv.jpg",
+            "title": "Tablet Design"
+        },
+        {
+            "_id": "60d5c2fc7ec33e10e86fa5c4",
+            "design": "https://res.cloudinary.com/dz209s6jk/image/upload/v1624621821/Challenges/hxbzjlkmxctyumxih5ct.jpg",
+            "preview": "https://res.cloudinary.com/dz209s6jk/image/upload/v1624621820/Challenges/sbiwekkqi9l5ulqsnzba.jpg",
+            "title": "Mobile Design"
+        }
+    ],
+    "reviews": [],
+    "slug": "product-feedback-app-wbvUYqjR6",
+    "createdAt": "2021-06-25T11:44:33.184Z",
+    "updatedAt": "2022-05-03T07:48:22.748Z"
+}

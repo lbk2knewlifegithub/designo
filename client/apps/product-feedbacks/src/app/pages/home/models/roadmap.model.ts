@@ -1,4 +1,4 @@
-import { FeedbackSummary } from '@lbk/models';
+import { FeedbackSummary } from '../../../shared';
 
 export interface Roadmap extends Pick<FeedbackSummary, 'color' | 'status'> {
   numberOfFeedbacks: number;

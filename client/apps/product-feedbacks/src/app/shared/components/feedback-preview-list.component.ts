@@ -3,11 +3,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  NgModule
+  NgModule,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { listInLeft } from '@lbk/anims';
-import { Feedback, identifyFeedback } from '@lbk/models';
+import { Feedback, identifyFeedback } from '../models';
 import { FeedbackPreviewModule } from './feedback-preview/feedback-preview.module';
 
 @Component({

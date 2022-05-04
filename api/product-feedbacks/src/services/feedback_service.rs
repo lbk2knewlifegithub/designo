@@ -1,5 +1,6 @@
 use crate::{
     dto::feedback_dto::{CreateFeedbackDTO, UpdateFeedbackDTO},
+    errors::feedback_error::FeedbackError,
     models::feedback_model::{
         DeleteFeedback, Downvote, Feedback, NewFeedback, UpdateFeedback, Upvote,
     },
@@ -24,7 +25,7 @@ pub async fn get_feedback_by_id(
 
     match feedback_repo::get_feedback_by_id(&client, user_id, feedback_id).await? {
         Some(feedback) => Ok(feedback),
-        None => Err(AppError::RecordNotFound),
+        None => Err(FeedbackError::FeedbackNotFound.into()),
     }
 }
 
@@ -38,7 +39,7 @@ pub async fn delete_feedback(
     let affected = feedback_repo::delete_feedback(&client, &delete_feedback).await?;
 
     if affected != 1 {
-        return Err(AppError::RecordNotFound);
+        return Err(FeedbackError::FeedbackNotFound.into());
     }
 
     Ok(())
@@ -57,14 +58,14 @@ pub async fn update_feedback(
     let category =
         match category_repo::get_category_by_name(&client, &update_feedback_dto.category).await? {
             Some(category) => category,
-            None => return Err(AppError::InvalidInput),
+            None => return Err(FeedbackError::FeedbackInvalid.into()),
         };
 
     // Get status
     let status = match status_repo::get_status_by_name(&client, &update_feedback_dto.status).await?
     {
         Some(status) => status,
-        None => return Err(AppError::InvalidInput),
+        None => return Err(FeedbackError::FeedbackInvalid.into()),
     };
 
     // Create UpdateFeedback
@@ -81,7 +82,7 @@ pub async fn update_feedback(
     let affected = feedback_repo::update_feedback(&client, &update_feedback).await?;
 
     if affected != 1 {
-        return Err(AppError::RecordNotFound);
+        return Err(FeedbackError::FeedbackNotFound.into());
     }
 
     Ok(())
@@ -100,14 +101,14 @@ pub async fn create_feedback(
     let category =
         match category_repo::get_category_by_name(&client, &create_feedback_dto.category).await? {
             Some(category) => category,
-            None => return Err(AppError::InvalidInput),
+            None => return Err(FeedbackError::FeedbackInvalid.into()),
         };
 
     let new_feedback = NewFeedback::new(&create_feedback_dto, user_id, &category.category_id);
     // Create feedback and return back feedback_id
     let feedback_id = match feedback_repo::create_feedback(&client, &new_feedback).await? {
         Some(feedback_id) => feedback_id,
-        None => return Err(AppError::IntervalServerError),
+        None => return Err(AppError::internal_server_error()),
     };
 
     // Find feedback by id all return to client
@@ -115,7 +116,7 @@ pub async fn create_feedback(
         .await?
     {
         Some(feedback) => Ok(feedback),
-        None => Err(AppError::IntervalServerError),
+        None => Err(AppError::internal_server_error()),
     }
 }
 
@@ -126,7 +127,7 @@ pub async fn upvote_feedback(state: &FeedbacksState, upvote: &Upvote) -> Result<
     let affected = feedback_repo::upvote_feedback(&client, upvote).await?;
 
     if affected != 1 {
-        return Err(AppError::RecordNotFound);
+        return Err(FeedbackError::FeedbackNotFound.into());
     }
 
     Ok(())
@@ -139,7 +140,7 @@ pub async fn downvote_feedback(state: &FeedbacksState, downvote: &Downvote) -> R
     let affected = feedback_repo::downvote_feedback(&client, downvote).await?;
 
     if affected != 1 {
-        return Err(AppError::RecordNotFound);
+        return Err(FeedbackError::FeedbackNotFound.into());
     }
 
     Ok(())

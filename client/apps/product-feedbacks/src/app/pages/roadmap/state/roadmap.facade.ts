@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FeedbackStatus, FeedbackSummary } from '@lbk/models';
-import { FeedbacksFacade } from '../../../state';
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { FeedbackStatus, FeedbackSummary } from '../../../shared';
+import { FeedbacksFacade } from '../../../state';
 import * as RoadmapActions from './roadmap.actions';
 import * as fromRoadmap from './roadmap.selectors';
 

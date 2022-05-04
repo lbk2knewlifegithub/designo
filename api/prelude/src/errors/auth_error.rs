@@ -16,10 +16,10 @@ impl From<AuthError> for AppError {
         let error = format!("{}", e);
         match e {
             AuthError::InvalidCredentials => {
-                AppError::Unauthorize(error, "Username or password incorrect".to_owned())
+                AppError::unauthorize(error, "Username or password incorrect".to_owned())
             }
-            AuthError::TokenInvalid => AppError::BadRequest(error, "Token valid".to_owned()),
-            AuthError::TokenNotFound => AppError::BadRequest(error, "Token not found".to_owned()),
+            AuthError::TokenInvalid => AppError::bad_request(error, "Token valid".to_owned()),
+            AuthError::TokenNotFound => AppError::bad_request(error, "Token not found".to_owned()),
         }
     }
 }

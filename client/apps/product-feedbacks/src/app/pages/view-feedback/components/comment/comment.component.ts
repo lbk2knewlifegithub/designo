@@ -6,10 +6,10 @@ import {
 } from '@angular/core';
 import { collapseOut, expandIn } from '@lbk/anims';
 import { AuthFacade } from '@lbk/auth';
-import { AddCommentDTO } from '@lbk/dto';
-import { Comment, User, UserComment } from '@lbk/models';
+import { User } from '@lbk/models';
 import { DialogService } from '@ngneat/dialog';
 import { combineLatest, map, Observable, of, switchMap } from 'rxjs';
+import { AddCommentDTO, Comment, UserComment } from '../../../../shared';
 import { FeedbacksFacade } from '../../../../state';
 import { ConfirmDeleteCommentComponent } from '../confirm-delete-comment.component';
 import { ViewFeedbacksFacade } from './../../state';

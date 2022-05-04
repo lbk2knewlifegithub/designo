@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Feedback, FeedbackCategory, FeedbackStatus } from '@lbk/models';
-import { FeedbacksFacade } from '../../../state';
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
+import { Feedback, FeedbackCategory, FeedbackStatus } from '../../../shared';
+import { FeedbacksFacade } from '../../../state';
 import { createRoadmap, Roadmap } from '../models/roadmap.model';
 import { HomeActions } from './actions';
 import { SortFeedback } from './home.reducer';

@@ -1,7 +1,12 @@
-import { AddCommentDTO, CreateFeedbackDTO, UpdateFeedbackDTO } from '@lbk/dto';
-import { Comment, Feedback } from '@lbk/models';
 import { Observable } from 'rxjs';
-import { UpdateCommentDTO } from '@lbk/dto';
+import {
+  AddCommentDTO,
+  Comment,
+  CreateFeedbackDTO,
+  Feedback,
+  UpdateCommentDTO,
+  UpdateFeedbackDTO,
+} from '../../shared';
 
 /**
  * - Feedbacks Service

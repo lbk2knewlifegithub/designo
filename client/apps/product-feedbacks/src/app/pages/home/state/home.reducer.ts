@@ -1,6 +1,6 @@
-import { FeedbackCategory } from '@lbk/models';
-import { FeedbacksActions, FeedbacksApiActions } from '../../../state';
 import { createFeature, createReducer, on } from '@ngrx/store';
+import { FeedbackCategory } from '../../../shared';
+import { FeedbacksActions, FeedbacksApiActions } from '../../../state';
 import { HomeActions } from './actions';
 
 export enum SortFeedback {

@@ -1,4 +1,7 @@
-use crate::models::comment_model::{Comment, NewComment, UpdateComment};
+use crate::{
+    errors::comment_error::CommentError,
+    models::comment_model::{Comment, NewComment, UpdateComment},
+};
 use prelude::{errors::AppError, Result};
 
 use deadpool_postgres::Client;
@@ -221,7 +224,7 @@ pub async fn add_comment_to_feedback(client: &Client, new_comment: &NewComment) 
         .await
         .map_err(|e| {
             debug!("{e}");
-            AppError::InvalidInput
+            CommentError::CommentInvalid
         })?
         .iter()
         .map(|row| row.get("comment_id"))
@@ -229,7 +232,7 @@ pub async fn add_comment_to_feedback(client: &Client, new_comment: &NewComment) 
         .pop()
     {
         Some(comment_id) => Ok(comment_id),
-        None => Err(AppError::IntervalServerError),
+        None => Err(AppError::internal_server_error()),
     }
 }
 
@@ -254,7 +257,7 @@ pub async fn update_comment(client: &Client, update_comment: &UpdateComment) -> 
             ],
         )
         .await
-        .map_err(|_| AppError::InvalidInput)?;
+        .map_err(|_| CommentError::CommentInvalid)?;
 
     Ok(affected as i32)
 }
@@ -273,7 +276,7 @@ pub async fn delete_comment(client: &Client, user_id: &i32, comment_id: &i32) ->
     let affected = client
         .execute(&stmt, &[comment_id, user_id])
         .await
-        .map_err(|_| AppError::InvalidInput)?;
+        .map_err(|_| CommentError::CommentInvalid)?;
 
     Ok(affected as i32)
 }

@@ -3,7 +3,7 @@ import {
   CreateFeedbackDTO,
   UpdateCommentDTO,
   UpdateFeedbackDTO,
-} from '@lbk/dto';
+} from '../../shared';
 import { createAction, props } from '@ngrx/store';
 
 /**

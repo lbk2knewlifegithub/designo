@@ -1,5 +1,5 @@
-import { FeedbackCategory } from '@lbk/models';
 import { createAction, props } from '@ngrx/store';
+import { FeedbackCategory } from '../../../../shared';
 import { SortFeedback } from '../home.reducer';
 
 /**

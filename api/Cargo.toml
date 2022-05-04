@@ -3,7 +3,7 @@
 members = [
     "auth",
     "product-feedbacks",
-    "images",
+    "upload",
     "prelude",
     "invoice-app",
     "frontendmentor",

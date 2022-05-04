@@ -12,6 +12,8 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, CoreModule } from './core';
 import { StateModule } from './state';
+import { FeedbacksImplService } from './state/services';
+import { FEEDBACKS_SERVICE } from './state/tokens/feedbacks.token';
 
 @NgModule({
   imports: [
@@ -31,6 +33,10 @@ import { StateModule } from './state';
     {
       provide: API_URL,
       useValue: environment.apiUrl,
+    },
+    {
+      provide: FEEDBACKS_SERVICE,
+      useValue: FeedbacksImplService,
     },
     {
       provide: HTTP_INTERCEPTORS,

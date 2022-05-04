@@ -8,10 +8,10 @@ import {
   Output,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CreateFeedbackDTO, UpdateFeedbackDTO } from '@lbk/dto';
-import { Feedback, FeedbackCategory } from '@lbk/models';
 import { DialogService } from '@ngneat/dialog';
 import { combineLatest, map, of } from 'rxjs';
+import { CreateFeedbackDTO, UpdateFeedbackDTO } from '../../../dto';
+import { Feedback, FeedbackCategory } from '../../../models';
 
 @Component({
   selector: 'lbk-feedback-form',

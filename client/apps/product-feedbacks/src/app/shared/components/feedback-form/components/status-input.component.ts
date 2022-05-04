@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FeedbackStatus } from '@lbk/models';
+import { FeedbackStatus } from '../../../models';
 
 @Component({
   selector: 'lbk-status-input',

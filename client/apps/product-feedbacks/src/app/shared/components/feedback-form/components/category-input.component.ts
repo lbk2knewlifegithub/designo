@@ -5,7 +5,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FeedbackCategory } from '@lbk/models';
+import { FeedbackCategory } from '../../../models';
 
 @Component({
   selector: 'lbk-category-input',

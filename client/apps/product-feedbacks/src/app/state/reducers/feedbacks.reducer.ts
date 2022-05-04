@@ -1,4 +1,4 @@
-import { Comment, Feedback } from '@lbk/models';
+import { Comment, Feedback } from '../../shared';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 import { FeedbacksActions, FeedbacksApiActions } from '../actions';

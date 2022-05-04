@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Feedback } from '@lbk/models';
+import { Feedback } from '../../../../shared';
 import { FeedbacksFacade } from '../../../../state';
 import { HomeFacade } from '../../../home/state';
 

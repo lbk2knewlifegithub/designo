@@ -1,4 +1,4 @@
-import { FeedbackStatus } from '@lbk/models';
+import { FeedbackStatus } from '@lbk/pf/shared';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromFeedbacks from './reducers/feedbacks.reducer';
 

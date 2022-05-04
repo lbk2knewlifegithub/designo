@@ -9,10 +9,10 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { Unsubscriber } from '@lbk/comps';
-import { FeedbackStatus, FeedbackSummary } from '@lbk/models';
-import { FeedbacksFacade } from '../../../../state';
 import { combineLatest, fromEvent, map, Observable } from 'rxjs';
 import { take, throttleTime } from 'rxjs/operators';
+import { FeedbackStatus, FeedbackSummary } from '../../../../shared';
+import { FeedbacksFacade } from '../../../../state';
 import { RoadmapFacade } from '../../state';
 
 @Component({

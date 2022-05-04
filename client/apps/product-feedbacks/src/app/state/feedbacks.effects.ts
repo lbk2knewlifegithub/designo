@@ -6,7 +6,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map, tap } from 'rxjs/operators';
 import { FeedbacksActions, FeedbacksApiActions } from './actions';
-import { FEEDBACKS_SERVICE } from './feedbacks.token';
+import { FEEDBACKS_SERVICE } from './tokens/feedbacks.token';
 import { FeedbacksService } from './services';
 
 /**
