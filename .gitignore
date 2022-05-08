@@ -5,6 +5,7 @@
 **/node_modules
 **/.env
 api/.env
+rust-api/target
 **/.vscode
 node_modules
 dist
