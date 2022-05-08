@@ -12,13 +12,16 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         >
       </div>
 
+      <!-- Generate Screenshot Button -->
       <div>
         <button
+          (click)="generateScreenShot()"
           class="btn italic font-bold btn-error w-full md:w-auto md:px-10"
         >
           GENERATE SCREENSHOT
         </button>
       </div>
+      <!-- end Generate Screenshot Button -->
     </div>
 
     <div class="mt-2 sm:flex sm:justify-center sm:mt-4">
@@ -36,4 +39,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     `,
   ],
 })
-export class WantScreenshotComponent {}
+export class WantScreenshotComponent {
+  /**
+   * - Generate Screenshot
+   */
+  generateScreenShot() {
+    throw new Error('Not implemented yet');
+  }
+}

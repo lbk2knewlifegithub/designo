@@ -4,3 +4,4 @@ export * from './resource.model';
 export * from './solution.model';
 export * from './user.model';
 export * from './tags.model';
+export * from './report.model';

@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Solution } from '@lbk/fm/shared';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'lbk-report',
@@ -36,11 +37,17 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
         <!-- View Report Button -->
         <div class="flex justify-center mt-4 sm:mt-8">
-          <button class="btn btn-white px-12 font-bold">VIEW REPORT</button>
+          <a
+            [routerLink]="['/report', solution.solution_id]"
+            class="btn btn-white px-12 font-bold"
+            >VIEW REPORT</a
+          >
         </div>
         <!-- end View Report Button -->
       </div>
     </section>
   `,
 })
-export class ReportComponent {}
+export class ReportComponent {
+  @Input() solution!: Solution;
+}

@@ -2,14 +2,14 @@ import { Loadable } from '@lbk/models';
 import { Solution } from './solution.model';
 
 /**
- * - Email Notification
+ * - Email Settings
  */
-export interface EmailNotification {
+export interface EmailSettings {
   email_notification_id: number;
-  comment_on_my_solution?: boolean;
-  reply_on_my_comment?: boolean;
-  mention_me_in_comment?: boolean;
-  earn_an_archievement?: boolean;
+  commentOnSolution?: boolean;
+  replyOnComment?: boolean;
+  mentionInComment?: boolean;
+  earnAnArchivement?: boolean;
 }
 
 /**

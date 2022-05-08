@@ -6,8 +6,8 @@ import { UserMinimal } from './user.model';
 export interface Solution {
   solution_id: number;
   title: string;
-  repositoryUrl: string;
-  liveSiteUrl: string;
+  repoURL: string;
+  liveSiteURL: string;
   image: string;
   tags: string[];
   questions: string;

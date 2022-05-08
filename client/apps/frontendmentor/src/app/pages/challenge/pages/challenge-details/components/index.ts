@@ -1,6 +1,6 @@
 import { AssetsProvidedComponent } from './assets-provided.component';
 import { ChallengeDetailsComponent } from './challenge-details/challenge-details.component';
-import { DesignComponent } from './design/design.component';
+import { DesignComponent } from './gallery/gallery.component';
 import { StaredChallengeComponent } from './started-challenge.component';
 import { TestYourselfComponent } from './test-yourself.component';
 

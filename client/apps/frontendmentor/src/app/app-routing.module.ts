@@ -108,6 +108,13 @@ const routes: Routes = [
           import('./pages/hiring').then((m) => m.HiringModule),
       },
 
+      // Report Page
+      {
+        path: 'report',
+        loadChildren: () =>
+          import('./pages/report').then((m) => m.ReportModule),
+      },
+
       // FAQ Page
       {
         path: 'faq',

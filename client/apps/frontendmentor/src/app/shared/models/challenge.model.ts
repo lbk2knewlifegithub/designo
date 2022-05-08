@@ -1,13 +1,9 @@
-/**
- * - Design
- */
+type Gallery = ChallengeImage[];
 
-export interface Design {
-  desktopDesign?: string;
-  activeStates?: string;
-  mobileDesign?: string;
-  innerPage?: string;
-  tabletDesign?: string;
+export interface ChallengeImage {
+  preview: string;
+  design: string;
+  title: string;
 }
 /**
  * - Challenge Query
@@ -63,14 +59,13 @@ export type ChallengeStatus = 'in-progress' | 'completed';
 export interface Challenge {
   challenge_id: number;
   name: string;
-  slug: string;
   difficulty: Difficulty;
   description: string;
   languages: Language[];
   image: string;
   isNew?: boolean;
   type: ChallengeType;
-  design: Design;
+  gallery: Gallery;
   status?: ChallengeStatus;
 }
 

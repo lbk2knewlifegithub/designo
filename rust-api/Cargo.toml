@@ -1,0 +1,12 @@
+[workspace]
+
+members = [
+    "auth",
+    # "product-feedbacks",
+    # "upload",
+    "prelude",
+    # "invoice-app",
+    "frontendmentor",
+    # "report",
+    # "realtime",
+]
