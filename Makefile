@@ -84,6 +84,9 @@ deploy-client-frontendmentor:
 	okteto deploy -f .okteto/client-frontendmentor.yaml 
 
 
+# Deploy frontendmentor
+deploy-frontendmentor: deploy-client-frontendmentor deploy-api-frontendmentor
+
 # Secret 
 apply-secret:
 	kubectl apply -f secret/my-secret.yaml -n lbk2knewlifegithub
@@ -133,5 +136,5 @@ uninstall-redis-prod:
 
 forward-redis-prod:
 	echo "Forwarding REDIS PRODUCTION to port 6381"
-	kubectl port-forward --namespace db-lbk2knewlifegithub svc/redis-master 6381:6379
+	kubectl port-forward --namespace banana-lbk2knewlifegithub svc/redis-master 6381:6379
 

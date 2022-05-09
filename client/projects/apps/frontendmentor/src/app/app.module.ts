@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, CoreModule } from './core';
 import { CHALLENGES_SERVICE } from './shared';
 import { ChallengesImplService, StateModule } from './state';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   imports: [
@@ -20,6 +21,9 @@ import { ChallengesImplService, StateModule } from './state';
     BrowserAnimationsModule,
     CoreModule,
     StateModule.forRoot(),
+
+    // Third Libs
+    MarkdownModule.forRoot(),
     HttpClientModule,
     // Thirds Libs
     DialogModule.forRoot(),

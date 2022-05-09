@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  NgModule,
+} from '@angular/core';
 
 @Component({
   selector: 'lbk-get-started',

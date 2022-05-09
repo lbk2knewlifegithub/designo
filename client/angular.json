@@ -343,9 +343,12 @@
               "projects/apps/frontendmentor/src/assets"
             ],
             "styles": [
-              "projects/apps/frontendmentor/src/styles.scss"
+              "projects/apps/frontendmentor/src/styles.scss",
+              "node_modules/github-markdown-css/github-markdown.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/marked/marked.min.js"
+            ]
           },
           "configurations": {
             "production": {

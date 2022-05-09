@@ -20,14 +20,14 @@
         <!-- end Difficulty -->
       </div>
 
-      <!-- Name -->
+      <!-- Title -->
       <h1
         [routerLink]="['/challenge', challenge.id]"
         class="text-2xl font-medium font-heading mt-2 lg:text-4xl lg:mt-4"
       >
         {{ challenge.title }}
       </h1>
-      <!-- end Name -->
+      <!-- end Title -->
 
       <!-- Description -->
       <p class="text-sm text-secondary mt-4 text-base lg:mt-10">
@@ -47,8 +47,9 @@
           <a
             [routerLink]="['/challenge/hub/overview', challenge.id]"
             class="btn btn-primary italic px-6 font-bold tracking-widest md:px-10"
-            >VISIT CHALLENGE HUB</a
           >
+            VISIT CHALLENGE HUB
+          </a>
         </div>
         <!-- end Visit Challenge Hub -->
       </div>
@@ -62,10 +63,12 @@
       CHALLENGE
     </h2>
 
-    <ul class="grid gap-24 mt-20 md:grid-cols-2 lg:mt-28">
+    <ul class="grid gap-10 mt-24 md:grid-cols-2 lg:mt-28">
+      <!-- Brief -->
       <li>
-        <lbk-brief></lbk-brief>
+        <lbk-brief [brief]="challenge.brief"></lbk-brief>
       </li>
+      <!-- end Brief -->
 
       <li>
         <ul class="grid gap-10">
@@ -73,9 +76,11 @@
             <lbk-get-started></lbk-get-started>
           </li>
 
+          <!-- Ideas -->
           <li>
-            <lbk-test-yourself></lbk-test-yourself>
+            <lbk-ideas [ideas]="challenge.ideas"></lbk-ideas>
           </li>
+          <!-- end Ideas -->
         </ul>
       </li>
     </ul>

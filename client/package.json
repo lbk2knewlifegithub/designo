@@ -49,8 +49,11 @@
     "@ngrx/router-store": "^13.2.0",
     "@ngrx/store": "^13.2.0",
     "@ngrx/store-devtools": "^13.2.0",
+    "github-markdown-css": "^5.1.0",
+    "marked": "^4.0.15",
     "memo-decorator": "^2.0.1",
     "ng-lazyload-image": "^9.1.2",
+    "ngx-markdown": "^13.1.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

@@ -18,11 +18,14 @@ import { ObjectKeysPipeModule, WhiteSpacePipeModule } from '@lbk/pipes';
 import { ChallengeDetailsRoutingModule } from './challenge-details-routing.module';
 import { COMPONENTS } from './components';
 import { ChallengeDetailsPageComponent } from './containers';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   imports: [
     CommonModule,
     ChallengeDetailsRoutingModule,
+    // Third Libs
+    MarkdownModule.forChild(),
     // Shared Directives From Libs
     ScrollToModule,
 

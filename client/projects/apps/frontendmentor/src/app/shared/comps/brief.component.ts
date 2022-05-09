@@ -1,12 +1,24 @@
-import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  NgModule,
+  Input,
+  ViewEncapsulation,
+} from '@angular/core';
+import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
   selector: 'lbk-brief',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
   template: `
     <h2 class="text-dark font-bold text-2xl lg:text-3xl">Brief</h2>
 
-    <ul class="grid gap-4 mt-4 text-sm lg:text-base lg:mt-6">
+    <markdown scrollTo="center" class="brief markdown-body block mt-4">
+      {{ brief }}
+    </markdown>
+
+    <!-- <ul class="grid gap-4 mt-4 text-sm lg:text-base lg:mt-6">
       <li>
         Your challenge is to build out this intro section with dropdown
         navigation and get it looking as close to the design as possible.
@@ -46,12 +58,28 @@ import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
         <a routerLink="/">Join our Slack community</a> and ask questions in the
         help channel.
       </li>
-    </ul>
+    </ul> -->
   `,
+  styles: [
+    `
+      .brief.markdown-body {
+        @apply mt-4 text-sm;
+        ul {
+          @apply grid gap-2 list-disc lg:text-base lg:mt-6;
+        }
+      }
+    `,
+  ],
 })
-export class BriefComponent {}
+export class BriefComponent {
+  @Input() brief!: string;
+}
 
 @NgModule({
+  imports: [
+    // Third Libs
+    MarkdownModule.forChild(),
+  ],
   exports: [BriefComponent],
   declarations: [BriefComponent],
 })

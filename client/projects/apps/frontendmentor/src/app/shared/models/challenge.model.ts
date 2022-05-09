@@ -67,6 +67,8 @@ export interface Challenge {
   type: ChallengeType;
   gallery: Gallery;
   status?: ChallengeStatus;
+  ideas: string;
+  brief: string;
 }
 
 /**

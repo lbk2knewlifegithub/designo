@@ -7,5 +7,5 @@ export const environment = {
   clientDesignoUrl: 'http://localhost:4204',
   clientPortfolio: 'http://localhost:4202',
   clientInvoiceApp: 'http://localhost:4203',
-  githubOAuthClientId: '3126fd7aba70ec3b65b4',
+  githubOAuthClientId: '7b086e8e9e884c0d721d',
 };

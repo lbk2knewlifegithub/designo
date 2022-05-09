@@ -131,6 +131,13 @@
   input[type='checkbox'] {
     @apply w-6 h-6 border-[3px] border-primary focus:bg-primary;
   }
+
+  // Markdown body
+  .markdown-body {
+    a {
+      text-decoration: underline !important;
+    }
+  }
 }
 
 @layer components {

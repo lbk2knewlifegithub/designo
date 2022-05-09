@@ -2,10 +2,7 @@
 on:
   push:
     branches:
-      - client-frontendmentor
-  pull_request:
-    branches:
-      - client-frontendmentor
+      - frontendmentor
 name: client-frontendmentor
 
 jobs:

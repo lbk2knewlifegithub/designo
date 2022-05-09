@@ -2,11 +2,8 @@
 on:
   push:
     branches:
-      - api-frontendmentor
-  pull_request:
-    branches:
-      - api-frontendmentor
-name: okteto
+      - frontendmentor
+name: api-frontendmentor
 
 jobs:
   api-frontendmentor:
