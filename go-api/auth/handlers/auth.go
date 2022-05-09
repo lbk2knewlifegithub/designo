@@ -38,10 +38,10 @@ func loginGithub(c *fiber.Ctx) error {
 	}
 
 	// Check user Exist
-	if userId := repo.UserExists(conn, &userGithub.Login); userId != nil {
+	if userId, admin := repo.UserExists(conn, &userGithub.Login); userId != nil {
 		log.Println("user exists ", userId)
 		// Hash Token
-		token, err := sv.JWT.Hash(userId, false)
+		token, err := sv.JWT.Hash(userId, admin)
 		if err != nil {
 			log.Println(err)
 			return c.SendStatus(fiber.StatusInternalServerError)
@@ -57,7 +57,8 @@ func loginGithub(c *fiber.Ctx) error {
 	}
 
 	// Hash Token
-	token, err := sv.JWT.Hash(userId, false)
+	admin := false
+	token, err := sv.JWT.Hash(userId, &admin)
 	if err != nil {
 		log.Println(err)
 		return c.SendStatus(fiber.StatusInternalServerError)
@@ -92,10 +93,9 @@ func me(ctx *fiber.Ctx) error {
 // PublicRoutes func for describe group of public routes.
 func AuthHandler(a *fiber.App) {
 	// Create routes group.
-	route := a.Group("/v1")
 
 	// Routes for GET method:
-	route.Get("/login/github", loginGithub)
+	a.Get("/login/github", loginGithub)
 
-	route.Get("/me", middleware.AuthMiddleware, me)
+	a.Get("/me", middleware.AuthMiddleware, me)
 }

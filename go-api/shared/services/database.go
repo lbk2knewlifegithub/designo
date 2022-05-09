@@ -3,6 +3,7 @@ package services
 import (
 	"context"
 	"fmt"
+	"log"
 	"os"
 	"strconv"
 
@@ -56,8 +57,20 @@ func init() {
 	Database = database{
 		url: url,
 	}
+
+	// Check connection
+	checkConnect()
 }
 
 func (db database) Connect() (*pgx.Conn, error) {
 	return pgx.Connect(context.Background(), db.url)
+}
+
+func checkConnect() {
+	conn, err := Database.Connect()
+	if err != nil {
+		panic("Connect to Database failure")
+	}
+	log.Println("Connected to Database")
+	defer conn.Close(context.Background())
 }

@@ -64,15 +64,16 @@ func CreateUser(c *pgx.Conn, userGithub *models.UserGithub) (*string, error) {
 }
 
 // Check user exist
-func UserExists(c *pgx.Conn, username *string) *string {
+func UserExists(c *pgx.Conn, username *string) (*string, *bool) {
 	log.Println("userename ", *username)
-	query := "SELECT user_id FROM public.users WHERE username = $1;"
+	query := "SELECT user_id, admin FROM public.users WHERE username = $1;"
 	row := c.QueryRow(context.Background(), query, *username)
 
 	var userId string
-	row.Scan(&userId)
+	var admin bool
+	row.Scan(&userId, &admin)
 
-	return &userId
+	return &userId, &admin
 }
 
 // Get User Auth By Id
@@ -85,8 +86,8 @@ func GetUserAuthById(c *pgx.Conn, id *string) (*models.UserAuthentication, error
             u.email, 
             u.avatar,
             u.admin,
-            u.is_premium, 
-            u.is_hire_me, 
+            u.is_premium as isPreimum, 
+            u.is_hire_me as isHireMe,
             u.location
         FROM public.users u WHERE u.user_id = $1;
 	`

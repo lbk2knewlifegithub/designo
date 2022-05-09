@@ -42,20 +42,20 @@ spec:
                   key: email-password
             - name: EMAIL_TEMPLATES_FOLDER
               value: "/app/templates"
-            # Ysql Config
-            - name: YSQL_USERNAME
+            # DB Config
+            - name: DB_USERNAME
               valueFrom:
                 configMapKeyRef:
                   name: config-map
                   key: ysql-username
-            - name: YSQL_PASSWORD
+            - name: DB_PASSWORD
               valueFrom:
                 configMapKeyRef:
                   name: config-map
                   key: ysql-password
-            - name: YSQL_HOST
+            - name: DB_HOST
               value: {{ .Values.api.ysql.host}} 
-            - name: YSQL_DB_NAME
+            - name: DB_NAME
               valueFrom:
                 configMapKeyRef:
                   name: config-map
@@ -65,6 +65,17 @@ spec:
               value: {{ .Values.api.redis.host.write }} 
             - name: REDIS_HOST_READ
               value: {{ .Values.api.redis.host.read }} 
+            # Github
+            - name: GITHUB_OAUTH_CLIENT_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: config-map
+                  key: github-id
+            - name: GITHUB_OAUTH_CLIENT_SECRET
+              valueFrom:
+                configMapKeyRef:
+                  name: config-map
+                  key: github-secret
             - name: REDIS_PASSWORD
               valueFrom:
                 configMapKeyRef:

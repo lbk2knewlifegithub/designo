@@ -24,7 +24,8 @@ pub async fn all_challenges(trans: &Transaction<'_>) -> Result<Vec<Challenge>> {
                 ideas,
                 (SELECT jsonb_agg(row) FROM (SELECT l.name FROM public.languages l WHERE l.challenge_id = c.challenge_id) AS row) AS languages,
                 (SELECT jsonb_agg(row) FROM (SELECT g.preview, g.design, g.title FROM public.gallery g WHERE g.challenge_id = c.challenge_id) AS row) AS gallery
-        FROM public.challenges AS c;"#,
+        FROM public.challenges AS c;
+        "#,
         )
         .await.expect("Error preparing statement GET_ALL_INVOICES");
 
@@ -51,7 +52,8 @@ pub async fn crate_challenge(trans: &Transaction<'_>, challenge_dto: &ChallengeD
                     starter_url,
                     type,
                     difficulty)
-                VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING challenge_id;"#,
+                VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING challenge_id;
+                "#,
         )
         .await
         .expect("Error preparing statement CREATE_CHALLENGE");

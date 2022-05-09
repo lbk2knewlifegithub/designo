@@ -1,0 +1,247 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "paths": {
+      "@lib/anims": [
+        "dist/lib/anims/lib-anims",
+        "dist/lib/anims"
+      ],
+      "@lib/auth": [
+        "dist/lib/auth/lib-auth",
+        "dist/lib/auth"
+      ],
+      "@lib/coms": [
+        "dist/lib/coms/lib-coms",
+        "dist/lib/coms"
+      ],
+      "@lib/data": [
+        "dist/lib/data/lib-data",
+        "dist/lib/data"
+      ],
+      "@lib/directives": [
+        "dist/lib/directives/lib-directives",
+        "dist/lib/directives"
+      ],
+      "@lib/dto": [
+        "dist/lib/dto/lib-dto",
+        "dist/lib/dto"
+      ],
+      "@lib/effects": [
+        "dist/lib/effects/lib-effects",
+        "dist/lib/effects"
+      ],
+      "@lib/environments": [
+        "dist/lib/environments/lib-environments",
+        "dist/lib/environments"
+      ],
+      "@lib/errors": [
+        "dist/lib/errors/lib-errors",
+        "dist/lib/errors"
+      ],
+      "@lib/interceptors": [
+        "dist/lib/interceptors/lib-interceptors",
+        "dist/lib/interceptors"
+      ],
+      "@lib/models": [
+        "dist/lib/models/lib-models",
+        "dist/lib/models"
+      ],
+      "@lib/others": [
+        "dist/lib/others/lib-others",
+        "dist/lib/others"
+      ],
+      "@lib/pages": [
+        "dist/lib/pages/lib-pages",
+        "dist/lib/pages"
+      ],
+      "@lib/pipes": [
+        "dist/lib/pipes/lib-pipes",
+        "dist/lib/pipes"
+      ],
+      "@lib/services": [
+        "dist/lib/services/lib-services",
+        "dist/lib/services"
+      ],
+      "@lib/tokens": [
+        "dist/lib/tokens/lib-tokens",
+        "dist/lib/tokens"
+      ],
+      "@lib/utils": [
+        "dist/lib/utils/lib-utils",
+        "dist/lib/utils"
+      ],
+      "@lib/validators": [
+        "dist/lib/validators/lib-validators",
+        "dist/lib/validators"
+      ],
+      "@lbk/anims": [
+        "projects/libs/anims/src/public-api"
+      ],
+      "@lbk/assets": [
+        "projects/libs/assets/src/public-api"
+      ],
+      "@lbk/auth": [
+        "projects/libs/auth/src/public-api"
+      ],
+      "@lbk/comps": [
+        "projects/libs/comps/src/public-api"
+      ],
+      "@lbk/data": [
+        "projects/libs/data/src/public-api"
+      ],
+      "@lbk/directives": [
+        "projects/libs/directives/src/public-api"
+      ],
+      "@lbk/dto": [
+        "projects/libs/dto/src/public-api"
+      ],
+      "@lbk/effects": [
+        "projects/libs/effects/src/public-api"
+      ],
+      "@lbk/environments": [
+        "projects/libs/environments/src/public-api"
+      ],
+      "@lbk/errors": [
+        "projects/libs/errors/src/public-api"
+      ],
+      "@lbk/fm/*": [
+        "projects/apps/frontendmentor/src/app/*"
+      ],
+      "@lbk/pf/*": [
+        "projects/apps/product-feedbacks/src/app/*"
+      ],
+      "@lbk/interceptors": [
+        "projects/libs/interceptors/src/public-api"
+      ],
+      "@lbk/models": [
+        "projects/libs/models/src/public-api"
+      ],
+      "@lbk/others": [
+        "projects/libs/others/src/public-api"
+      ],
+      "@lbk/pages": [
+        "projects/libs/pages/src/public-api"
+      ],
+      "@lbk/pipes": [
+        "projects/libs/pipes/src/public-api"
+      ],
+      "@lbk/rxjs": [
+        "projects/libs/rxjs/src/public-api"
+      ],
+      "@lbk/services": [
+        "projects/libs/services/src/public-api"
+      ],
+      "@lbk/tokens": [
+        "projects/libs/tokens/src/public-api"
+      ],
+      "@lbk/utils": [
+        "projects/libs/utils/src/public-api"
+      ],
+      "@lbk/validators": [
+        "projects/libs/validators/src/public-api"
+      ],
+      "@libs/anims": [
+        "dist/libs/anims/libs-anims",
+        "dist/libs/anims"
+      ],
+      "@libs/assets": [
+        "dist/libs/assets/libs-assets",
+        "dist/libs/assets"
+      ],
+      "@libs/auth": [
+        "dist/libs/auth/libs-auth",
+        "dist/libs/auth"
+      ],
+      "@libs/comps": [
+        "dist/libs/comps/libs-comps",
+        "dist/libs/comps"
+      ],
+      "@libs/data": [
+        "dist/libs/data/libs-data",
+        "dist/libs/data"
+      ],
+      "@libs/directives": [
+        "dist/libs/directives/libs-directives",
+        "dist/libs/directives"
+      ],
+      "@libs/dto": [
+        "dist/libs/dto/libs-dto",
+        "dist/libs/dto"
+      ],
+      "@libs/effects": [
+        "dist/libs/effects/libs-effects",
+        "dist/libs/effects"
+      ],
+      "@libs/environments": [
+        "dist/libs/environments/libs-environments",
+        "dist/libs/environments"
+      ],
+      "@libs/errors": [
+        "dist/libs/errors/libs-errors",
+        "dist/libs/errors"
+      ],
+      "@libs/interceptors": [
+        "dist/libs/interceptors/libs-interceptors",
+        "dist/libs/interceptors"
+      ],
+      "@libs/models": [
+        "dist/libs/models/libs-models",
+        "dist/libs/models"
+      ],
+      "@libs/others": [
+        "dist/libs/others/libs-others",
+        "dist/libs/others"
+      ],
+      "@libs/pages": [
+        "dist/libs/pages/libs-pages",
+        "dist/libs/pages"
+      ],
+      "@libs/pipes": [
+        "dist/libs/pipes/libs-pipes",
+        "dist/libs/pipes"
+      ],
+      "@libs/services": [
+        "dist/libs/services/libs-services",
+        "dist/libs/services"
+      ],
+      "@libs/tokens": [
+        "dist/libs/tokens/libs-tokens",
+        "dist/libs/tokens"
+      ],
+      "@libs/utils": [
+        "dist/libs/utils/libs-utils",
+        "dist/libs/utils"
+      ],
+      "@libs/validators": [
+        "dist/libs/validators/libs-validators",
+        "dist/libs/validators"
+      ]
+    },
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "es2020",
+    "lib": [
+      "es2020",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

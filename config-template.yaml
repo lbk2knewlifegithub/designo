@@ -15,3 +15,5 @@ data:
   ysql-db-name: $YSQL_DB_NAME
   # Redis
   redis-password: $REDIS_PASSWORD
+  github-id: $GITHUB_ID
+  github-secret: $GITHUB_SECRET

@@ -42,13 +42,13 @@ func init() {
 }
 
 // CreateAccessToken func for generate a new Access token.
-func (jwt jwt) Hash(id *string, admin bool) (*string, error) {
+func (jwt jwt) Hash(id *string, admin *bool) (*string, error) {
 
 	// Create a new claims.
 	claims := jwtLib.MapClaims{
 		"id":    *id,
 		"exp":   time.Now().Add(time.Minute * time.Duration(jwt.expire)).Unix(),
-		"admin": admin,
+		"admin": *admin,
 	}
 
 	// Create a new JWT access token with claims.

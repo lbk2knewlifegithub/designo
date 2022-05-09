@@ -33,7 +33,6 @@ func AuthMiddleware(c *fiber.Ctx) error {
 // Admin Middleware
 func AdminMiddleware(c *fiber.Ctx) error {
 	token := c.Get("Authorization")
-
 	// Check token exist
 	if token == "" {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{

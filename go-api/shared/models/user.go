@@ -25,12 +25,12 @@ type UserAuthentication struct {
 	Username  string    `json:"username"`
 	Email     string    `json:"email"`
 	Avatar    string    `json:"avatar"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
+	CreatedAt time.Time `json:"createdAt"`
+	UpdatedAt time.Time `json:"updatedAt"`
 	Admin     bool      `json:"admin"`
 	Blocked   bool      `json:"blocked"`
-	IsPremium bool      `json:"is_premium"`
-	IsHireMe  bool      `json:"is_hire_me"`
+	IsPremium bool      `json:"isPremium"`
+	IsHireMe  bool      `json:"isHireMe"`
 	Location  string    `json:"location"`
 }
 

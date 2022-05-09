@@ -68,6 +68,10 @@ deploy-api-product-feedbacks:
 destroy-api-product-feedbacks:
 	okteto destroy -f okteto/api-product-feedbacks.yaml -n lemon-lbk2knewlifegithub
 
+# API FRONTENDMENTOR 
+deploy-api-frontendmentor:
+	okteto ns use lbk2knewlifegithub && okteto kubeconfig 
+	okteto deploy -f .okteto/api-frontendmentor.yaml 
 
 # CLIENT PRODUCT FEEDBACKS 
 deploy-client-product-feedbacks:
@@ -75,6 +79,11 @@ deploy-client-product-feedbacks:
 	okteto deploy -f okteto/client-product-feedbacks.yaml 
 destroy-client-product-feedbacks:
 	okteto destroy -n client-lbk2knewlifegithub -f okteto/client-product-feedbacks.yaml
+
+# Deploy client frontendmentor
+deploy-client-frontendmentor:
+	okteto ns use client-lbk2knewlifegithub && okteto kubeconfig 
+	okteto deploy -f .okteto/client-frontendmentor.yaml 
 
 
 # Secret 

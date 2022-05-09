@@ -1,0 +1,41 @@
+<!-- Challenge Image -->
+<a class="block" [routerLink]="['/challenge', challenge.id]">
+  <lbk-image
+    classImage="duration-300 w-full max-h-[236px] sm:max-h-[288px] hover:scale-110"
+    [alt]="challenge.title"
+    [singleImage]="challenge.heroImage"
+  ></lbk-image>
+</a>
+<!-- end Challenge Image -->
+
+<lbk-challenge-type
+  class="absolute right-3 top-3"
+  [challenge]="challenge"
+></lbk-challenge-type>
+
+<div class="p-6">
+  <!-- Name -->
+  <a
+    [routerLink]="['/challenge', challenge.id]"
+    class="text-xl font-medium font-heading lg:text-2xl hover:underline"
+  >
+    {{ challenge.title }}
+  </a>
+  <!-- end Name -->
+
+  <div class="flex justify-between items-end mt-1 sm:mt-2 lg:mt-4">
+    <!-- Language List -->
+    <lbk-language-list [languages]="challenge.languages"></lbk-language-list>
+    <!-- end Language List -->
+
+    <!-- Difficulty -->
+    <lbk-difficulty [difficulty]="challenge.difficulty"></lbk-difficulty>
+    <!-- end Difficulty -->
+  </div>
+
+  <!-- Description -->
+  <p class="text-sm text-secondary mt-2 lg:text-base lg:mt-5">
+    {{ challenge.description }}
+  </p>
+  <!-- end Description -->
+</div>

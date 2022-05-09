@@ -36,20 +36,20 @@ spec:
                 configMapKeyRef:
                   name: config-map
                   key: jwt-secret
-            # Ysql Config
-            - name: YSQL_USERNAME
+            # DB Config
+            - name: DB_USERNAME
               valueFrom:
                 configMapKeyRef:
                   name: config-map
                   key: ysql-username
-            - name: YSQL_PASSWORD
+            - name: DB_PASSWORD
               valueFrom:
                 configMapKeyRef:
                   name: config-map
                   key: ysql-password
-            - name: YSQL_HOST
-              value: {{ .Values.apiStorage.ysql.host }}
-            - name: YSQL_DB_NAME
+            - name: DB_HOST
+              value: {{ .Values.api.ysql.host}} 
+            - name: DB_NAME
               valueFrom:
                 configMapKeyRef:
                   name: config-map
