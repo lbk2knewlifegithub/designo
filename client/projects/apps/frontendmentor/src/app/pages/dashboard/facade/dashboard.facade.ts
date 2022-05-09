@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Challenge, SolutionMinimal, Tags, UserMinimal } from '@lbk/fm/shared';
+import { Challenge, SolutionMinimal, Tags } from '@lbk/fm/shared';
+import { UserMinimal } from '@lbk/models';
 import { Actions } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { map, Observable, take } from 'rxjs';

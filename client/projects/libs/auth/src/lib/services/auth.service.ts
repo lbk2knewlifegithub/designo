@@ -35,9 +35,7 @@ export class AuthService {
    * @returns User of success else throw error
    */
   me(token: string): Observable<User> {
-    return this._http.post<User>(`${this._apiAuthUrl}/me`, {
-      token,
-    });
+    return this._http.get<User>(`${this._apiAuthUrl}/me`);
   }
 
   /**
@@ -84,8 +82,8 @@ export class AuthService {
    * @returns
    */
   loginWithGithub(code: string): Observable<string> {
-    return this._http.get<string>(
-      `${this._apiUrl}/auth/login/github?code=${code}`
-    );
+    return this._http
+      .get<{ token: string }>(`${this._apiUrl}/auth/login/github?code=${code}`)
+      .pipe(map(({ token }) => token));
   }
 }

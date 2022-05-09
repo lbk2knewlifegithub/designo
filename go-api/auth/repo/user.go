@@ -53,26 +53,24 @@ func CreateUser(c *pgx.Conn, userGithub *models.UserGithub) (*string, error) {
 
 	row := c.QueryRow(context.Background(), query, userGithub.Name, userGithub.Login, userGithub.Email, userGithub.AvatarUrl)
 
-	var id *string
-	err := row.Scan(id)
-
+	var userID string
+	err := row.Scan(&userID)
 	if err != nil {
+		log.Println("Create User Errr: ", err)
 		return nil, err
 	}
 
-	return id, nil
+	return &userID, nil
 }
 
 // Check user exist
 func UserExists(c *pgx.Conn, username *string) (*string, *bool) {
-	log.Println("userename ", *username)
 	query := "SELECT user_id, admin FROM public.users WHERE username = $1;"
 	row := c.QueryRow(context.Background(), query, *username)
 
 	var userId string
 	var admin bool
 	row.Scan(&userId, &admin)
-
 	return &userId, &admin
 }
 
@@ -80,7 +78,7 @@ func UserExists(c *pgx.Conn, username *string) (*string, *bool) {
 func GetUserAuthById(c *pgx.Conn, id *string) (*models.UserAuthentication, error) {
 	query := `
 		SELECT 
-            u.user_id as id, 
+            u.user_id, 
             u.name, 
             u.username, 
             u.email, 
@@ -89,7 +87,7 @@ func GetUserAuthById(c *pgx.Conn, id *string) (*models.UserAuthentication, error
             u.is_premium as isPreimum, 
             u.is_hire_me as isHireMe,
             u.location
-        FROM public.users u WHERE u.user_id = $1;
+        FROM public.users u WHERE u.user_id::uuid = $1;
 	`
 	row := c.QueryRow(context.Background(), query, *id)
 
@@ -105,6 +103,7 @@ func GetUserAuthById(c *pgx.Conn, id *string) (*models.UserAuthentication, error
 		&userAuth.IsHireMe,
 		&userAuth.Location,
 	); err != nil {
+		log.Println("GetUserAuthById Scan Error: ", err)
 		return nil, err
 	}
 

@@ -1,10 +1,11 @@
+import { loginWithGithubFailure } from './../actions/auth-api.actions';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from '@lbk/services';
 import { DialogService } from '@ngneat/dialog';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { exhaustMap, map, of, tap } from 'rxjs';
-import { catchError, delay, switchMap } from 'rxjs/operators';
+import { catchError, delay, switchMap, take } from 'rxjs/operators';
 import { AuthActions, AuthApiActions } from '../actions';
 import { AuthFacade } from '../auth.facade';
 import { AuthService, UserService } from '../services';
@@ -23,18 +24,36 @@ export class AuthEffects {
       exhaustMap(({ code }) =>
         this._authService.loginWithGithub(code).pipe(
           map((token) => AuthApiActions.loginWithGithubSuccess({ token })),
-          tap(null, () => {
-            this._dialog.error({
-              title: 'Login With Github Failure',
-              body: 'Please try again after few minutes.',
-            });
-          }),
           catchError(({ error }) =>
-            of(AuthApiActions.loginWithGithubFailure(error))
+            of(AuthApiActions.loginWithGithubFailure({ error }))
           )
         )
       )
     )
+  );
+
+  /**
+   * - Login With Github Failure
+   */
+  loginWithGithubFailure$ = createEffect(
+    () =>
+      this._actions$.pipe(
+        ofType(AuthApiActions.loginWithGithubFailure),
+        tap(() => {
+          this._dialog
+            .error({
+              title: 'Login Failed',
+              body: 'Please try again later.',
+            })
+            .afterClosed$.pipe(take(1))
+            .subscribe(() => {
+              this._router.navigate(['/']);
+            });
+        })
+      ),
+    {
+      dispatch: false,
+    }
   );
 
   /**

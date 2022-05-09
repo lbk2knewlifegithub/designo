@@ -1,30 +1,37 @@
 {
-    "/api/auth": {
+    "/api/v1/auth": {
         "target": "http://127.0.0.1:8080",
         "secure": false,
         "pathRewrite": {
-            "^/api/auth": ""
+            "^/api/v1/auth": ""
         }
     },
-    "/api/images": {
+    "/api/v1/images": {
         "target": "http://127.0.0.1:8081",
         "secure": false,
         "pathRewrite": {
-            "^/api/images": ""
+            "^/api/v1/images": ""
         }
     },
-    "/api/product-feedbacks": {
+    "/api/v1/product-feedbacks": {
         "target": "http://127.0.0.1:8082",
         "secure": false,
         "pathRewrite": {
-            "^/api/product-feedbacks": ""
+            "^/api/v1/product-feedbacks": ""
         }
     },
-    "/api/invoices": {
+    "/api/v1/invoices": {
         "target": "http://127.0.0.1:8083",
         "secure": false,
         "pathRewrite": {
-            "^/api/invoices": ""
+            "^/api/v1/invoices": ""
+        }
+    },
+    "/api/v1/frontendmentor": {
+        "target": "http://127.0.0.1:8084",
+        "secure": false,
+        "pathRewrite": {
+            "^/api/v1/frontendmentor": ""
         }
     }
 }

@@ -65,7 +65,7 @@ export class ProfilePageComponent implements OnInit {
 
     this.isOwned$ = combineLatest([this._authFacade.user$, this.user$]).pipe(
       map(([me, another]) => {
-        return me?.user_id === another?.user_id;
+        return me?.id === another?.id;
       })
     );
     this.pending$ = this._profileFacade.pending$;

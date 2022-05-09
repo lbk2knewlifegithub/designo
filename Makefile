@@ -49,15 +49,13 @@ staging:
 # API AUTH
 deploy-api-auth:
 	okteto ns use lbk2knewlifegithub && okteto kubeconfig 
-	okteto deploy -f okteto/api-auth.yaml 
-destroy-api-auth:
-	okteto destroy -f okteto/api-auth.yaml -n lemon-lbk2knewlifegithub
+	okteto deploy -f .okteto/api-auth.yaml 
 
 # API IMAGES
 # okteto ns use lemon-lbk2knewlifegithub && okteto kubeconfig 
 deploy-api-images:
 	okteto ns use lemon-lbk2knewlifegithub && okteto kubeconfig 
-	okteto deploy -f okteto/api-images.yaml -n lemon-lbk2knewlifegithub
+	okteto deploy -f .okteto/api-images.yaml -n lemon-lbk2knewlifegithub
 destroy-api-images:
 	okteto destroy -f okteto/api-images.yaml -n lemon-lbk2knewlifegithub
 

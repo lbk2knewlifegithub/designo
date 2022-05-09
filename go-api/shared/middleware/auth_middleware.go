@@ -17,7 +17,6 @@ func AuthMiddleware(c *fiber.Ctx) error {
 	}
 
 	userToken, err := sv.JWT.Decode(&token)
-
 	if err != nil {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
 			"error": "token invalid",

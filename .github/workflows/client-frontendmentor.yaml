@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - client-frontendmentor
+  pull_request:
+    branches:
+      - client-frontendmentor
 name: client-frontendmentor
 
 jobs:

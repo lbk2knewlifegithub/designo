@@ -1,7 +1,7 @@
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { identifyUserMinimal, UserMinimal } from '@lbk/fm/shared';
+import { identifyUserMinimal, UserMinimal } from '@lbk/models';
 
 @Component({
   selector: 'lbk-user-list',
@@ -14,7 +14,7 @@ import { identifyUserMinimal, UserMinimal } from '@lbk/fm/shared';
       >
         <img
           class="w-[50px] aspect-square rounded-full"
-          [src]="user.image"
+          [src]="user.avatar"
           [alt]="user.name"
         />
 

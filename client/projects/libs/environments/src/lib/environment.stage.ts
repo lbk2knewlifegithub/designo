@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   // Api
-  apiUrl: 'https://api-lemon-lbk2knewlifegithub.cloud.okteto.net/v1/api',
+  apiUrl: 'https://api-lemon-lbk2knewlifegithub.cloud.okteto.net/api/v1',
 
   // Client
   clientProductFeedbacksUrl:

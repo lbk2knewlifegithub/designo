@@ -46,7 +46,7 @@ export class CommentComponent implements OnInit {
     ]).pipe(
       map(([feedback, user]) => {
         if (!feedback || !user) return false;
-        return this.comment.user.user_id === user.user_id;
+        return this.comment.user.id === user.id;
       })
     );
 

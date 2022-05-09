@@ -1,6 +1,7 @@
 package services
 
 import (
+	"log"
 	"strconv"
 	"time"
 
@@ -8,6 +9,7 @@ import (
 	"shared/models"
 	"shared/utils"
 
+	"github.com/gofiber/fiber/v2"
 	jwtLib "github.com/golang-jwt/jwt"
 )
 
@@ -57,8 +59,8 @@ func (jwt jwt) Hash(id *string, admin *bool) (*string, error) {
 	// Generate token.
 	t, err := token.SignedString([]byte(jwt.secret))
 	if err != nil {
-		// Return error, it JWT token generation failed.
-		return nil, err
+		log.Println("Hash Token Error: ", err)
+		return nil, fiber.ErrInternalServerError
 	}
 
 	return &t, nil

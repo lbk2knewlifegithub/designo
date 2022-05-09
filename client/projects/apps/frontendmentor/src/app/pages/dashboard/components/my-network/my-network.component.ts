@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { UserMinimal } from '@lbk/fm/shared';
+import { UserMinimal } from '@lbk/models';
 import { Observable } from 'rxjs';
 import { DashboardFacade } from '../../facade';
 

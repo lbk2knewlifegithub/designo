@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserMinimal } from '@lbk/fm/shared';
+import { UserMinimal } from '@lbk/models';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { DashboardFacade } from '../../facade';

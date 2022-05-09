@@ -1,4 +1,4 @@
-import { UserMinimal } from './user.model';
+import { UserMinimal } from '@lbk/models';
 
 /**
  * - Solution

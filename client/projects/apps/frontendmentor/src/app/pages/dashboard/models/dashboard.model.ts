@@ -1,5 +1,6 @@
-import { Challenge, SolutionMinimal, Tags, UserMinimal } from '@lbk/fm/shared';
+import { Challenge, SolutionMinimal, Tags } from '@lbk/fm/shared';
 import { CREDIS_DEFAULT, Credits } from '../models';
+import { UserMinimal } from '@lbk/models';
 
 export interface Dashboard {
   credits: Credits;

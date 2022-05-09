@@ -31,40 +31,37 @@ func loginGithub(c *fiber.Ctx) error {
 	// Get user Github
 	userGithub, err := sv.Github.GetUser(&code)
 	if err != nil {
-		log.Println(err)
+		log.Println("GetUserGithub Error", err)
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"error": "invalid code",
 		})
 	}
 
 	// Check user Exist
-	if userId, admin := repo.UserExists(conn, &userGithub.Login); userId != nil {
-		log.Println("user exists ", userId)
-		// Hash Token
-		token, err := sv.JWT.Hash(userId, admin)
+	if userID, admin := repo.UserExists(conn, &userGithub.Login); *userID != "" {
+		log.Println("user exists ", *userID) // Hash Token
+		token, err := sv.JWT.Hash(userID, admin)
 		if err != nil {
 			log.Println(err)
 			return c.SendStatus(fiber.StatusInternalServerError)
 		}
-		return c.Status(fiber.StatusCreated).SendString(*token)
+		return c.Status(fiber.StatusCreated).JSON(fiber.Map{"token": *token})
 	}
 
 	// Save User to database
-	userId, err := repo.CreateUser(conn, userGithub)
+	userID, err := repo.CreateUser(conn, userGithub)
 	if err != nil {
-		log.Println(err)
 		return c.SendStatus(fiber.StatusInternalServerError)
 	}
 
 	// Hash Token
 	admin := false
-	token, err := sv.JWT.Hash(userId, &admin)
+	token, err := sv.JWT.Hash(userID, &admin)
 	if err != nil {
-		log.Println(err)
-		return c.SendStatus(fiber.StatusInternalServerError)
+		return err
 	}
 
-	return c.Status(fiber.StatusCreated).SendString(*token)
+	return c.Status(fiber.StatusCreated).JSON(fiber.Map{"token": *token})
 }
 
 func me(ctx *fiber.Ctx) error {
@@ -76,12 +73,9 @@ func me(ctx *fiber.Ctx) error {
 	}
 
 	userToken := ctx.Locals("user").(*models.UserToken)
-
 	// Get User Auth By Id
 	user, err := repo.GetUserAuthById(conn, &userToken.Id)
-
 	if err != nil {
-		log.Println(err)
 		return ctx.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
 			"error": "user not found",
 		})

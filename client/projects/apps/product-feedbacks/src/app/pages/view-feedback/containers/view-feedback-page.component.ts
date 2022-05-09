@@ -34,7 +34,7 @@ export class ViewFeedbackPageComponent implements OnInit {
     ]).pipe(
       map(([feedback, user]) => {
         if (!feedback || !user) return false;
-        return feedback.user_id === user.user_id;
+        return feedback.user_id === user.id;
       })
     );
 
