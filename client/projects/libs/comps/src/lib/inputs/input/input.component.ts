@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, NgModule } from '@angular/core';
+import { Component, Input, NgModule, OnInit } from '@angular/core';
+import { Input as InputModel } from '@lbk/models';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 export interface LengthError {
@@ -22,15 +23,26 @@ export interface LengthError {
     `,
   ],
 })
-export class InputComponent {
-  @Input() parent!: FormGroup;
-  @Input() controlName!: string;
-  @Input() label!: string;
-  @Input() inputType = 'text';
-  @Input() placeholder = '';
+export class InputComponent implements OnInit {
+  @Input() input!: InputModel;
+
+  inputType!: string;
+  placeholder!: string;
+  controlName!: string;
+
+  ngOnInit(): void {
+    const { inputType, placeholder, controlName } = this.input;
+    this.inputType = inputType || 'text';
+    this.placeholder = placeholder || '';
+    this.controlName = controlName;
+  }
 
   get formControl(): FormControl {
-    return this.parent.get(this.controlName) as FormControl;
+    const { parent, groupName, controlName } = this.input;
+    return groupName
+      ? // If GroupName is not provided, use the controlName
+        ((parent.get(groupName) as FormGroup).get(controlName) as FormControl)
+      : (parent.get(controlName) as FormControl);
   }
 
   hasError(error: string): boolean {
@@ -42,20 +54,25 @@ export class InputComponent {
   }
 
   get maxlength(): LengthError | null {
-    const errors = this.formControl.errors;
+    const errors = this.formControl?.errors;
     return errors && errors['maxlength'];
   }
 
   get minlength(): LengthError | null {
-    const errors = this.formControl.errors;
+    const errors = this.formControl?.errors;
     return errors && errors['minlength'];
   }
 
   get email(): boolean {
     return this.hasError('email');
   }
+
   get emailExists(): boolean {
     return this.hasError('emailExists');
+  }
+
+  get url(): boolean {
+    return this.hasError('url');
   }
 }
 

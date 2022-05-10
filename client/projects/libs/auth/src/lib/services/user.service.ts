@@ -11,7 +11,7 @@ import {
   delay,
 } from 'rxjs';
 import { catchError, map, shareReplay } from 'rxjs/operators';
-import { ImagesService } from './images.service';
+import { UploadService } from './images.service';
 import { User } from '@lbk/models';
 
 @Injectable({ providedIn: 'root' })
@@ -33,7 +33,7 @@ export class UserService {
     @Inject(API_URL)
     private readonly _apiUrl: string,
     private readonly _http: HttpClient,
-    private readonly _imagesService: ImagesService
+    private readonly _imagesService: UploadService
   ) {}
   /**
    * - Change Password
@@ -58,22 +58,25 @@ export class UserService {
   }
 
   /**
-   * - Update Account
+   * - Update Profile
    */
-  updateAccount(updateUserDTO: UpdateUserDTO): Observable<string | undefined> {
+  updateProfile(updateUserDTO: UpdateUserDTO): Observable<string | undefined> {
     if (!this.avatar)
-      return this._http.put<void>(`${this._authUrl}/me`, updateUserDTO).pipe(
-        map(() => undefined),
-        delay(3_000)
-      );
+      return this._http
+        .put<void>(`${this._authUrl}/me`, updateUserDTO)
+        .pipe(map(() => undefined));
 
+    // Update With Avatar
     const formData = new FormData();
     formData.append('avatar', this.avatar);
     this.avatar = undefined;
     return forkJoin([
       this._http.put<void>(`${this._authUrl}/me`, updateUserDTO),
       this._imagesService.uploadAvatar(formData),
-    ]).pipe(map(([, avatar]) => avatar));
+    ]).pipe(
+      map(([, avatar]) => avatar),
+      shareReplay(1)
+    );
   }
 
   /**
@@ -128,5 +131,12 @@ export class UserService {
     return this._http
       .get<User>(`${this._authUrl}/users?username=${username}`)
       .pipe(shareReplay(1));
+  }
+
+  /**
+   *  - Delete Account
+   */
+  deleteAccount(): Observable<void> {
+    return this._http.delete<void>(`${this._authUrl}/me`).pipe(shareReplay(1));
   }
 }

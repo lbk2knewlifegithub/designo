@@ -1,88 +1,115 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { UpdateUserDTO } from '@lbk/dto';
+import { OnInit, Output, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as MyValidators from '@lbk/validators';
+import {
+  ChangeDetectionStrategy,
+  EventEmitter,
+  Component,
+  Input,
+} from '@angular/core';
+import { User } from '@lbk/models';
+import { DialogService } from '@ngneat/dialog';
+import { AvatarInputComponent } from '@lbk/comps';
 
 @Component({
   selector: 'lbk-user-form',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <form class="bg-white p-6 rounded-lg border grid gap-3">
-      <h1 class="text-lg font-bold tracking-widest">PERSONAL</h1>
-
-      <div class="grid place-items-center gap-3 mt-8">
-        <!-- Image -->
-        <img
-          class="w-[264px] h-[264px] rounded-full object-cover"
-          src="https://res.cloudinary.com/dz209s6jk/image/upload/v1649228093/Avatars/jakb5tseftxy47sebxpa.jpg"
-          alt=""
-        />
-        <!-- end Image -->
-
-        <!-- Choose Image -->
-        <button class="btn px-10 py-2 btn-primary-outline">CHOOSE IMAGE</button>
-        <!-- end Choose Image -->
-      </div>
-
-      <!-- Name -->
-      <div class="sm:mt-6">
-        <label class="text-sm font-medium" for="name"> Name </label>
-        <br />
-        <input value="Le Binh Khang" class="w-full" id="name" type="text" />
-      </div>
-      <!-- end Name -->
-
-      <!-- Email* -->
-      <div>
-        <label class="text-sm font-medium" for="email"> Email </label>
-        <br />
-        <input
-          value="lbk2knewlife@gmail.com"
-          class="w-full"
-          id="email"
-          type="email"
-        />
-      </div>
-      <!-- end Email* -->
-
-      <!-- Slack Username* -->
-      <div>
-        <label class="text-sm font-medium" for="name"> Slack username </label>
-        <br />
-        <input
-          value="Le Binh Khang"
-          class="w-full"
-          id="slackUsername"
-          type="text"
-        />
-      </div>
-      <!-- end Slack username* -->
-
-      <!-- Location -->
-      <div>
-        <label class="text-sm font-medium" for="name">Location</label>
-        <br />
-        <input value="Location" class="w-full" id="location" type="text" />
-      </div>
-      <!-- end Location -->
-
-      <!-- Hire Me -->
-      <lbk-hire-me-input></lbk-hire-me-input>
-      <!-- end Location -->
-
-      <!-- BIO Input Group -->
-      <lbk-bio-input-group class="mt-4"></lbk-bio-input-group>
-      <!-- end BIO Input Group -->
-
-      <!-- Links Input Group -->
-      <lbk-links-input-group class="mt-4"></lbk-links-input-group>
-      <!-- end Links Input Group -->
-
-      <!-- Update Profile Button -->
-      <div class="flex justify-end items-center mt-2">
-        <button class="btn btn-error italic font-bold py-2">
-          UPDATE PROFILE
-        </button>
-      </div>
-      <!-- end Update Profile Button -->
-    </form>
-  `,
+  templateUrl: `./user-form.component.html`,
 })
-export class UserFormComponent {}
+export class UserFormComponent implements OnInit {
+  @Input() user!: User;
+  @Input() pending!: boolean | undefined | null;
+  @Output() update = new EventEmitter<{
+    updateUserDTO: UpdateUserDTO;
+    avatar?: File;
+  }>();
+
+  @ViewChild('avatarInput', { static: true })
+  avatarInput!: AvatarInputComponent;
+  form!: FormGroup;
+
+  constructor(
+    private readonly _fb: FormBuilder,
+    private readonly _ds: DialogService
+  ) {}
+
+  ngOnInit(): void {
+    this._initForm();
+  }
+
+  private _initForm() {
+    const {
+      name,
+      email,
+      location,
+      isHireMe,
+      bio: { website, currentLearning, content: bio },
+      links: {
+        github,
+        twitter,
+        devTo,
+        hashnode,
+        codepen,
+        twitch,
+        stackOverFlow,
+        gitlab,
+        freeCodeCamp,
+        medium,
+        linkedIn,
+        youtube,
+        codewars,
+      },
+    } = this.user;
+    this.form = this._fb.group({
+      name: [name, [Validators.required, Validators.maxLength(50)]],
+      email: [email, [Validators.required, Validators.email]],
+      location: [location, [Validators.required, Validators.maxLength(50)]],
+      isHireMe: [!!isHireMe],
+      // BIO
+      bio: this._fb.group({
+        content: [bio],
+        website: [website, [MyValidators.URL]],
+        currentLearning: [currentLearning],
+      }),
+      // Links
+      links: this._fb.group({
+        github: [github, [MyValidators.URL]],
+        twitter: [twitter, [MyValidators.URL]],
+        devTo: [devTo, [MyValidators.URL]],
+        hashnode: [hashnode, [MyValidators.URL]],
+        codepen: [codepen, [MyValidators.URL]],
+        twitch: [twitch, [MyValidators.URL]],
+        stackOverFlow: [stackOverFlow, [MyValidators.URL]],
+        gitlab: [gitlab, [MyValidators.URL]],
+        freeCodeCamp: [freeCodeCamp, [MyValidators.URL]],
+        medium: [medium, [MyValidators.URL]],
+        linkedIn: [linkedIn, [MyValidators.URL]],
+        youtube: [youtube, [MyValidators.URL]],
+        codewars: [codewars, [MyValidators.URL]],
+      }),
+    });
+
+    this.form.valueChanges.subscribe(console.log);
+  }
+
+  onSubmit() {
+    if (!this.form.dirty) this.form.markAllAsTouched();
+
+    if (this.form.value == this.user) {
+      return this._ds.error('Nothing changed');
+    }
+
+    const avatar = this.avatarInput.file;
+
+    if (this.form.invalid) {
+      return this._ds.error({
+        title: 'Form is invalid',
+        body: 'Please check your form and try again',
+      });
+    }
+
+    const updateUserDTO = this.form.value as UpdateUserDTO;
+    return this.update.emit({ updateUserDTO, avatar });
+  }
+}

@@ -21,8 +21,9 @@
           <a
             routerLink="/settings"
             class="inline-block text-xs py-1 px-3 rounded-lg bg-accent text-white font-medium md:tracking-wide md:text-[10px]"
-            >EDIT PROFILE</a
           >
+            EDIT PROFILE
+          </a>
         </div>
       </div>
       <!-- end User Image -->
@@ -38,8 +39,8 @@
           <span>@lbk2knewlifegithub</span>
           <span>
             <i class="fa-brands fa-slack"></i>
-            Le Binh Khang</span
-          >
+            Le Binh Khang
+          </span>
         </div>
 
         <h2 class="font-bold text-primary text-sm mt-8 md:mt-4">Viet Nam</h2>
@@ -62,14 +63,13 @@
     <ul
       class="text-center text-sm grid gap-6 max-w-xl md:text-left lg:text-base"
     >
-      <li>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum
-        aspernatur illo, officiis veritatis facilis inventore ut dolorum magni
-        soluta suscipit necessitatibus numquam a ipsum praesentium cum voluptate
-        doloribus dolore unde.
+      <li *ngIf="true">
+        I’m a mysterious individual who has yet to fill out my bio. One thing’s
+        for certain: I love writing front-end code!
       </li>
 
-      <li>
+      <!-- Current Learning -->
+      <li *ngIf="true">
         <strong class="text-primary">I'm currently learning...</strong>
         <p class="mt-4">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
@@ -78,6 +78,7 @@
           omnis temporibus corrupti ullam deleniti eos.
         </p>
       </li>
+      <!-- end Current Learning -->
     </ul>
   </div>
 </section>

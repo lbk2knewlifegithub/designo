@@ -7,12 +7,12 @@ import { DDosInterceptor, JwtInterceptor } from '@lbk/interceptors';
 import { LoginOAuthModule } from '@lbk/pages';
 import { API_URL, CURRENT_HOST, GITHUB_OAUTH_CLIENT_ID } from '@lbk/tokens';
 import { DialogModule } from '@ngneat/dialog';
+import { MarkdownModule } from 'ngx-markdown';
 import { environment as env, environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, CoreModule } from './core';
 import { CHALLENGES_SERVICE } from './shared';
 import { ChallengesImplService, StateModule } from './state';
-import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   imports: [
@@ -21,12 +21,11 @@ import { MarkdownModule } from 'ngx-markdown';
     BrowserAnimationsModule,
     CoreModule,
     StateModule.forRoot(),
-
-    // Third Libs
-    MarkdownModule.forRoot(),
     HttpClientModule,
+
     // Thirds Libs
     DialogModule.forRoot(),
+    MarkdownModule.forRoot(),
     // Shared Auth From Libs
     AuthModule.forRoot(),
     // Shared Pages From Libs

@@ -1,0 +1,11 @@
+<div [formGroup]="parent">
+  <h2 class="font-bold">LINKS</h2>
+
+  <ul class="mt-1 grid gap-4">
+    <!-- Github URL -->
+    <li *ngFor="let input of inputs">
+      <lbk-input [input]="input"></lbk-input>
+    </li>
+    <!-- end Github URL -->
+  </ul>
+</div>

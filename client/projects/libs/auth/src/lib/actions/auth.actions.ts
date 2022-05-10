@@ -50,7 +50,7 @@ export const changePassword = createAction(
 /**
  * - Update Account
  */
-export const updateAccount = createAction(
+export const updateProfile = createAction(
   '[Auth] Update Account',
   props<{ updateUserDTO: UpdateUserDTO }>()
 );
@@ -67,3 +67,8 @@ export const setReturnUrl = createAction(
  * - Clear Error
  */
 export const clearError = createAction('[Auth] Clear Error');
+
+/**
+ * - Delete Account
+ */
+export const deleteAccount = createAction('[Auth] Delete Account');

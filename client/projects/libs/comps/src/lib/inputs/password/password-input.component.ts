@@ -6,8 +6,10 @@ import { InputComponent } from '../input/input.component';
 @Component({
   selector: 'lbk-password-input',
   template: `
-    <div class="form-control" [formGroup]="parent">
-      <label [for]="controlName" class="label label-text"> {{ label }} </label>
+    <div class="form-control" [formGroup]="input.parent">
+      <label [for]="controlName" class="label label-text">
+        {{ input.label }}
+      </label>
 
       <div class="relative">
         <input
@@ -58,9 +60,12 @@ export class PasswordInputComponent extends InputComponent implements OnInit {
 
   same$!: Observable<boolean>;
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
+    super.ngOnInit();
     if (this.notSameWith) {
-      const noSameWithFC = this.parent.get(this.notSameWith) as FormControl;
+      const noSameWithFC = this.input.parent.get(
+        this.notSameWith
+      ) as FormControl;
       this.same$ = combineLatest([
         this.formControl.valueChanges,
         noSameWithFC.valueChanges,

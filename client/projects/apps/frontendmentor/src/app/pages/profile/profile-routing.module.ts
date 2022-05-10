@@ -9,7 +9,7 @@ import {
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: ShellComponent,
     children: [
       {

@@ -1,5 +1,7 @@
 <header class="relative border-b">
-  <nav class="container flex justify-between items-center pr-5 lg:py-1 lg:pr-0">
+  <nav
+    class="container flex justify-between items-center pr-5 lg:py-1 lg:gap-4"
+  >
     <a aria-label="Logo" routerLink="/">
       <!-- Logo Mobile -->
       <img
@@ -18,7 +20,7 @@
       <!-- end Logo Tablet -->
     </a>
 
-    <div class="hidden gap-8 items-center lg:flex lg:justify-end lg:w-full">
+    <div class="hidden gap-8 items-center lg:flex lg:justify-end lg:grow">
       <!-- Link Desktop -->
       <lbk-links-desktop></lbk-links-desktop>
       <!-- end Link Desktop -->
@@ -35,17 +37,25 @@
       <!-- end Login With Github -->
     </div>
 
-    <div class="flex items-center">
-      <!-- Icon Notifcation -->
-      <a
-        *loggedIn="true"
-        title="Notifications"
-        routerLink="/notifications"
-        class="mr-6 text-xl"
-      >
-        <i class="fa-regular fa-bell"></i>
-      </a>
-      <!-- end Icon Notifcation -->
+    <div class="flex items-center gap-4">
+      <div *loggedIn="true" class="flex items-center">
+        <!-- Icon Notifcation -->
+        <a
+          title="Notifications"
+          routerLink="/notifications"
+          class="mr-6 text-xl"
+        >
+          <i class="fa-regular fa-bell"></i>
+        </a>
+        <!-- end Icon Notifcation -->
+
+        <!-- Profile Button -->
+        <lbk-profile-button
+          (click)="open()"
+          (clickOutside)="close()"
+        ></lbk-profile-button>
+        <!-- end Profile Button -->
+      </div>
 
       <!-- Hamburger  -->
       <lbk-menu-one
@@ -62,10 +72,10 @@
     [(shown)]="shown"
     *ngIf="shown"
     (clickOutside)="close()"
-    skip="lbk-menu-one"
+    [skip]="['lbk-menu-one', 'lbk-profile-button']"
     @fadeIn
     @fadeOut
-    class="absolute w-full top-0 bottom-0 translate-y-full z-50 md:border md:translate-y-[130%] md:w-auto md:right-8 lg:hidden"
+    class="absolute w-full top-0 bottom-0 translate-y-full z-50 md:border md:translate-y-[130%] md:w-auto md:right-8 lg:translate-y-[120%]"
   ></lbk-nav-mobile>
   <!-- end Nav Mobile -->
 </header>

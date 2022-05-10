@@ -2,7 +2,9 @@ import { FormGroup } from '@angular/forms';
 
 export interface Input {
   parent: FormGroup;
-  formControlName: string;
-  inputType: string;
-  label?: string;
+  controlName: string;
+  label: string;
+  groupName?: string;
+  inputType?: string;
+  placeholder?: string;
 }

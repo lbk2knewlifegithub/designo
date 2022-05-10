@@ -18,8 +18,4 @@ export class ProfileButtonComponent implements OnInit {
     this.loggedIn$ = this._authFacade.loggedIn$;
     this.user$ = this._authFacade.user$ as Observable<User>;
   }
-
-  onClick() {
-    this._authFacade.showProfile();
-  }
 }

@@ -1,6 +1,13 @@
+import { AvatarPipeModule } from '@lbk/pipes';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { SwitchModule, InputModule } from '@lbk/comps';
+import { ReactiveFormsModule } from '@angular/forms';
+import {
+  SwitchModule,
+  AvatarInputModule,
+  InputModule,
+  SpinnerModule,
+} from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
 import { SubHeaderModule } from '@lbk/fm/shared';
 import { COMPONENTS } from './components';
@@ -11,11 +18,18 @@ import { ProfileRoutingModule } from './profile-routing.module';
   imports: [
     CommonModule,
     ProfileRoutingModule,
+    ReactiveFormsModule,
+
     // Shared Components From Libs
     SwitchModule,
     InputModule,
+    AvatarInputModule,
+    AvatarPipeModule,
+    SpinnerModule,
+
     // Shared Directives From Libs
     ScrollToModule,
+
     // Shared Components From FrontendMentor
     SubHeaderModule,
   ],

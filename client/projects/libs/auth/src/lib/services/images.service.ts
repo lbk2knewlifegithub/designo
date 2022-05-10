@@ -1,11 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { API_URL } from '@lbk/tokens';
-import { Observable } from 'rxjs';
+import { Observable, map, shareReplay } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
-export class ImagesService {
-  private readonly _apiImagesUrl = `${this._apiUrl}/images`;
+export class UploadService {
   constructor(
     @Inject(API_URL)
     private readonly _apiUrl: string,
@@ -13,14 +12,11 @@ export class ImagesService {
   ) {}
 
   uploadAvatar(formData: FormData, accessToken?: string): Observable<string> {
-    return this._http.put<string>(
-      `${this._apiImagesUrl}/upload/avatar`,
-      formData,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      }
-    );
+    return this._http
+      .put<{ avatar: string }>(`${this._apiUrl}/upload/avatar`, formData)
+      .pipe(
+        map(({ avatar }) => avatar),
+        shareReplay(1)
+      );
   }
 }

@@ -16,14 +16,14 @@ import {
     </h2>
     <!-- end Title -->
 
-    <markdown scrollTo="center" class="ideas markdown-body block mt-4">
+    <markdown class="ideas markdown-body block mt-4">
       {{ ideas }}
     </markdown>
   `,
   styles: [
     `
       .ideas.markdown-body {
-        @apply mt-4;
+        @apply mt-4 bg-transparent;
         ul {
           @apply grid gap-2 text-sm list-disc lg:text-base lg:mt-6;
         }

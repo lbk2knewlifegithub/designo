@@ -4,23 +4,28 @@ import {
   Input,
   NgModule,
 } from '@angular/core';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'lbk-switch',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <label class="switch">
-      <input type="checkbox" />
-      <div></div>
-    </label>
+    <div [formGroup]="parent">
+      <label class="switch">
+        <input [formControlName]="name" type="checkbox" />
+        <div></div>
+      </label>
+    </div>
   `,
   styleUrls: ['./switch.component.scss'],
 })
 export class SwitchComponent {
-  @Input() activated!: boolean;
+  @Input() parent!: FormGroup;
+  @Input() name!: string;
 }
 
 @NgModule({
+  imports: [ReactiveFormsModule],
   exports: [SwitchComponent],
   declarations: [SwitchComponent],
 })

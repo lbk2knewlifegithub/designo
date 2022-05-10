@@ -7,7 +7,7 @@ import { DropdownService } from './dropdown.service';
   selector: 'lbk-content-filter-by',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <ul (clickOutside)="close()" skip="#filter-by" class="grid bg-white">
+    <ul (clickOutside)="close()" [skip]="['#filter-by']" class="grid bg-white">
       <li *ngFor="let group of groups | objectKeys">
         <!-- Group Name -->
         <h3

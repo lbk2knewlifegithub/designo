@@ -78,7 +78,7 @@ func (jwt jwt) Decode(tokenString *string) (*models.UserToken, error) {
 
 	lemon := token.Claims.(jwtLib.MapClaims)
 	userToken := models.UserToken{
-		Id:    lemon["id"].(string),
+		ID:    lemon["id"].(string),
 		Admin: lemon["admin"].(bool),
 	}
 

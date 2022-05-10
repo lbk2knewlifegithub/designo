@@ -22,7 +22,7 @@ import { AboutPrivateSolutionsComponent } from '../../about-private-solution.com
       <span>Public</span>
 
       <!-- Switch -->
-      <lbk-switch [activated]="true"></lbk-switch>
+      <lbk-switch></lbk-switch>
       <!-- end Switch -->
 
       <div class="flex gap-2 items-center">

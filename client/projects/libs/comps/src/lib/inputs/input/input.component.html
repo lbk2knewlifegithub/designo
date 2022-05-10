@@ -1,13 +1,38 @@
-<div [formGroup]="parent">
-  <label class="grid gap-1" [for]="controlName">
-    {{ label | titlecase }}
-    <input
-      [id]="controlName"
-      [formControlName]="controlName"
-      [type]="inputType"
-      [placeholder]="placeholder"
-    />
-  </label>
+<div [formGroup]="input.parent">
+  <!-- Group -->
+  <ng-container *ngIf="input.groupName; else noGroup">
+    <div class="form-control" [formGroupName]="input.groupName">
+      <label class="label" [for]="input.controlName">
+        {{ input.label | titlecase }}
+      </label>
+      <input
+        class="input"
+        [id]="input.controlName"
+        [formControlName]="input.controlName"
+        [type]="inputType"
+        [placeholder]="placeholder"
+      />
+    </div>
+  </ng-container>
+  <!-- end Group -->
+
+  <!-- No Group -->
+  <ng-template #noGroup>
+    <div class="form-control">
+      <label class="label" [for]="input.controlName">
+        {{ input.label | titlecase }}
+      </label>
+
+      <input
+        class="input"
+        [id]="input.controlName"
+        [formControlName]="input.controlName"
+        [type]="inputType"
+        [placeholder]="placeholder"
+      />
+    </div>
+  </ng-template>
+  <!-- end No Group -->
 
   <!-- Errors -->
   <div class="grid">
@@ -38,6 +63,12 @@
       {{ maxlength.requiredLength }} chracters
     </span>
     <!-- end Max Length error  -->
+
+    <!-- URL error  -->
+    <span *ngIf="url" class="error">
+      URL invalid
+    </span>
+    <!-- end URL error  -->
   </div>
   <!-- end Errors -->
 </div>

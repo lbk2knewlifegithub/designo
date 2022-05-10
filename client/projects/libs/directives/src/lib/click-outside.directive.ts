@@ -15,7 +15,7 @@ import { fromEvent } from 'rxjs';
 @Directive({ selector: '[clickOutside]' })
 export class ClickOutsideDirective extends Unsubscriber implements OnInit {
   @Output() clickOutside = new EventEmitter<void>();
-  @Input() skip?: string;
+  @Input() skip?: string[];
 
   constructor(
     private readonly _el: ElementRef,
@@ -31,7 +31,11 @@ export class ClickOutsideDirective extends Unsubscriber implements OnInit {
         event = event as PointerEvent;
         const target = event.target as HTMLElement;
 
-        if (this.skip && !!target.closest(this.skip)) return;
+        if (this.skip)
+          for (const s of this.skip) {
+            if (target.closest(s)) return;
+          }
+
         if (this._el.nativeElement.contains(target)) return;
 
         this._zone.run(() => {

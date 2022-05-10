@@ -35,6 +35,7 @@ export const logoutFailure = createAction(
   '[Auth/API] Logout Failure',
   props<{ error: any }>()
 );
+
 // Update Account Success
 export const updateAccountSuccess = createAction(
   '[Auth/API] Update Account Success',
@@ -44,5 +45,16 @@ export const updateAccountSuccess = createAction(
 // Update Account Failure
 export const updateAccountFailure = createAction(
   '[Auth/API] Update Account Failure',
+  props<{ error: any }>()
+);
+
+// Delete Account Success
+export const deleteAccountSuccess = createAction(
+  '[Auth/API] Delete Account Success'
+);
+
+// Delete Account Failure
+export const deleteAccountFailure = createAction(
+  '[Auth/API] Delete Account Failure',
   props<{ error: any }>()
 );

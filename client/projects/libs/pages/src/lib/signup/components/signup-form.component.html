@@ -18,35 +18,60 @@
     <div class="flex flex-col sm:flex-row sm:gap-6">
       <!-- FirstName -->
       <lbk-input
-        [parent]="form"
-        label="First Name"
-        controlName="firstname"
+        [input]="{
+          parent: form,
+          controlName: 'firstname',
+          label: 'First Name'
+        }"
       ></lbk-input>
       <!-- end FirstName -->
 
       <!-- LastName -->
       <lbk-input
-        [parent]="form"
-        label="Last Name"
-        controlName="lastname"
+        [input]="{
+          parent: form,
+          controlName: 'lastname',
+          label: 'Last Name'
+        }"
       ></lbk-input>
       <!-- end end LastName -->
     </div>
 
     <!-- Username -->
-    <lbk-input [parent]="form" controlName="username" label="Username">
+
+    <lbk-input
+      [input]="{
+        parent: form,
+        controlName: 'username',
+        label: 'Username'
+      }"
+    >
       <span *ngIf="usernameExists" class="error">
-        Username already <strong>exists</strong>
+        Username already
+        <strong>exists</strong>
       </span>
     </lbk-input>
+
     <!-- end Username -->
 
     <!-- Password -->
-    <lbk-password-input label="Password" [parent]="form"></lbk-password-input>
+    <lbk-password-input
+      [input]="{
+        parent: form,
+        controlName: 'password',
+        label: 'Password'
+      }"
+    ></lbk-password-input>
     <!-- end Password -->
 
     <!-- Confirm Password -->
-    <lbk-confirm-password-input [parent]="form"></lbk-confirm-password-input>
+    <lbk-confirm-password-input
+      [input]="{
+        parent: form,
+        controlName: 'confirmPassword',
+        label: 'Confirm Password'
+      }"
+    ></lbk-confirm-password-input>
     <!-- end Confirm Password -->
   </div>
 
@@ -72,8 +97,9 @@
       routerLink="/login"
       [queryParams]="queryParams$ | async"
       class="duration-100 bg-stone-600 rounded-lg text-white text-center block font-bold py-3 hover:bg-stone-500"
-      >Login</a
     >
+      Login
+    </a>
     <!-- end Login Button -->
 
     <div class="flex gap-10 justify-end items-center mt-6">

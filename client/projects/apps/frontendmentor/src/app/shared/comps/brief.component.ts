@@ -14,7 +14,7 @@ import { MarkdownModule } from 'ngx-markdown';
   template: `
     <h2 class="text-dark font-bold text-2xl lg:text-3xl">Brief</h2>
 
-    <markdown scrollTo="center" class="brief markdown-body block mt-4">
+    <markdown class="brief markdown-body block mt-4">
       {{ brief }}
     </markdown>
 
@@ -63,7 +63,7 @@ import { MarkdownModule } from 'ngx-markdown';
   styles: [
     `
       .brief.markdown-body {
-        @apply mt-4 text-sm;
+        @apply mt-4 text-sm bg-transparent;
         ul {
           @apply grid gap-2 list-disc lg:text-base lg:mt-6;
         }

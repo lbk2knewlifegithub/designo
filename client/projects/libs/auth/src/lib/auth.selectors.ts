@@ -6,4 +6,5 @@ export const {
   selectReturnUrl,
   selectError,
   selectAlreadyTryLogin,
+  selectUpdatingProfile,
 } = authFeature;

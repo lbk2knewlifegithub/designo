@@ -1,10 +1,9 @@
 <button aria-label="Profile Button">
   <!-- LoggedIn User -->
   <img
-    (click)="onClick()"
     *ngIf="loggedIn$ | async; else defaultUser"
-    style="width: 40px !important; height: 40px !important;"
-    class="rounded-full border border-white md:border-2"
+    style="width: 35px !important; height: 35px !important;"
+    class="rounded-full object-cover border border-white md:border-2"
     [src]="(user$ | async)! | avatar"
     alt="Avatar"
   />
@@ -13,7 +12,6 @@
   <ng-template #defaultUser>
     <!-- Default user -->
     <div
-      (click)="onClick()"
       class="w-8 rounded-full aspect-square bg-white grid place-items-center"
     >
       <i class="fa-solid fa-user"></i>

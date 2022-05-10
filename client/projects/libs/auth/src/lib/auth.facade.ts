@@ -18,7 +18,7 @@ import {
 import { AuthActions, AuthApiActions } from './actions';
 import { AuthError } from './auth.reducer';
 import * as fromAuth from './auth.selectors';
-import { LoggedInComponent, RequiredLoginComponent } from './dialogs';
+import { RequiredLoginComponent } from './dialogs';
 import { AuthService, UserService } from './services';
 
 @Injectable({ providedIn: 'root' })
@@ -30,6 +30,10 @@ export class AuthFacade {
   );
 
   pending$: Observable<boolean> = this._store.select(fromAuth.selectPending);
+
+  // Updating Profile
+  updatingProfile$: Observable<boolean> = this._store.select(fromAuth.selectUpdatingProfile);
+
   error$: Observable<AuthError | null> = this._store.select(
     fromAuth.selectError
   );
@@ -145,13 +149,13 @@ export class AuthFacade {
   }
 
   /**
-   *  - Update Account
+   *  - Update Profile
    * @param updateUserDTO
    * @param avatar
    */
-  updateAccount(updateUserDTO: UpdateUserDTO, avatar?: File) {
+  updateProfile(updateUserDTO: UpdateUserDTO, avatar?: File) {
     if (avatar) this._userService.avatar = avatar;
-    this._store.dispatch(AuthActions.updateAccount({ updateUserDTO }));
+    this._store.dispatch(AuthActions.updateProfile({ updateUserDTO }));
   }
 
   /**
@@ -204,14 +208,9 @@ export class AuthFacade {
   }
 
   /**
-   * - Show Profile
+   * - Delete Account
    */
-  showProfile() {
-    this.user$;
-    this.checkLoggedIn((user) =>
-      this._dialogService.open(LoggedInComponent, {
-        data: user.username,
-      })
-    );
+  deleteAccount() {
+    this._store.dispatch(AuthActions.deleteAccount());
   }
 }

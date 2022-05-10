@@ -3,42 +3,25 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ElementRef,
   Inject,
   Input,
   NgModule,
   OnInit,
+  ViewChild,
 } from '@angular/core';
-import { DEFAULT_AVATAR } from '@lbk/tokens';
 
 @Component({
   selector: 'lbk-avatar-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div
-      (click)="onAvatarClick(file)"
-      class="relative group  rounded-full object-cover object-center shadow-lg overflow-hidden"
-    >
-      <img #image class="w-32 h-32" [src]="avatarSrc" alt="Avatar" />
-
-      <!-- Choose Avatar -->
-      <button
-        type="button"
-        aria-label="Choose Avatar"
-        [ngClass]="{ 'group-hover:opacity-100': !disabled }"
-        class="opacity-0 duration-300  bg-white/60  absolute w-full h-full inset-0"
-      >
-        <div class="center">
-          <i class="fa-solid fa-image text-3xl"></i>
-        </div>
-      </button>
-      <!-- end Choose Avatar -->
-
+    <div class="relative">
+      <img #image [src]="avatarSrc" alt="Avatar" />
       <!-- Input File -->
       <input
-        accept=".jpg, .jpeg, .png, .svg"
+        accept=".jpg, .jpeg, .png"
         [multiple]="false"
         (change)="onFileChange($event)"
-        formControlName="avatar"
         #file
         class="hidden"
         type="file"
@@ -47,23 +30,14 @@ import { DEFAULT_AVATAR } from '@lbk/tokens';
     </div>
   `,
 })
-export class AvatarInputComponent implements OnInit {
+export class AvatarInputComponent {
   file?: File;
-
   @Input() avatarSrc!: string;
   @Input() disabled = false;
 
-  constructor(
-    private readonly _cd: ChangeDetectorRef,
-    @Inject(DEFAULT_AVATAR)
-    private readonly _defaultAvatar: string
-  ) {}
+  @ViewChild('file') fileRef!: ElementRef<HTMLInputElement>;
 
-  ngOnInit(): void {
-    if (!this.avatarSrc) {
-      this.avatarSrc = this._defaultAvatar;
-    }
-  }
+  constructor(private readonly _cd: ChangeDetectorRef) {}
   /**
    * - On File Change
    */
@@ -95,9 +69,9 @@ export class AvatarInputComponent implements OnInit {
     };
   };
 
-  onAvatarClick(file: HTMLInputElement) {
+  onAvatarClick() {
     if (this.disabled) return;
-    file.click();
+    this.fileRef.nativeElement.click();
   }
 }
 

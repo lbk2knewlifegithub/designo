@@ -4,7 +4,7 @@ import { CreateUserDTO } from '@lbk/dto';
 import { Credentials, Tokens, User } from '@lbk/models';
 import { API_URL } from '@lbk/tokens';
 import { BehaviorSubject, map, Observable, of, switchMap } from 'rxjs';
-import { ImagesService } from './images.service';
+import { UploadService } from './images.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -24,7 +24,7 @@ export class AuthService {
     @Inject(API_URL)
     private readonly _apiUrl: string,
     private readonly _http: HttpClient,
-    private readonly _imagesService: ImagesService
+    private readonly _imagesService: UploadService
   ) {}
 
   /**

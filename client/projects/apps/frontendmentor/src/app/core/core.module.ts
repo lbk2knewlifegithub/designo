@@ -2,7 +2,11 @@ import { LoggedInDirectiveModule } from '@lbk/directives';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AttributionModule, MenuOneModule } from '@lbk/comps';
+import {
+  AttributionModule,
+  ProfileButtonModule,
+  MenuOneModule,
+} from '@lbk/comps';
 import { ClickOutsideModule, ScrollToModule } from '@lbk/directives';
 import { SocialsModule, SubHeaderModule } from '../shared';
 import { COMPONENTS } from './components';
@@ -22,6 +26,7 @@ const CONTAINERS = [AppComponent, ShellComponent];
     AttributionModule,
     ScrollToModule,
     MenuOneModule,
+    ProfileButtonModule,
     // Shared Directives from Libs
     LoggedInDirectiveModule,
   ],

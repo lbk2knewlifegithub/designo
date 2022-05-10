@@ -15,15 +15,20 @@
 
   <div class="grid gap-2">
     <!-- Username -->
-    <lbk-input [parent]="form" controlName="username" label="Username">
+    <lbk-input
+      [input]="{ parent: form, controlName: 'username', label: 'Username' }"
+    >
       <span *ngIf="usernameExists" class="error">
-        Username already <strong>exists</strong>
+        Username already
+        <strong>exists</strong>
       </span>
     </lbk-input>
     <!-- end Username -->
 
     <!-- Password -->
-    <lbk-password-input label="Password" [parent]="form"></lbk-password-input>
+    <lbk-password-input
+      [input]="{ parent: form, controlName: 'password', label: 'Password' }"
+    ></lbk-password-input>
     <!-- end Password -->
   </div>
 
@@ -49,8 +54,9 @@
       [routerLink]="['/signup', ]"
       [queryParams]="queryParams$ | async"
       class="duration-100 bg-stone-700 py-3 rounded-lg text-white text-center block font-bold hover:scale-95"
-      >Sign Up</a
     >
+      Sign Up
+    </a>
     <!-- end Sign Up Button -->
 
     <div class="flex gap-10 justify-end items-center mt-6">

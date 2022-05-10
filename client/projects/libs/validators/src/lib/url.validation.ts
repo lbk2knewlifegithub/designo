@@ -1,10 +1,16 @@
-import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { AbstractControl, ValidationErrors, Validators } from '@angular/forms';
 
 /**
- * - Validation URL
+ * - Validate URL
  * @param control
  */
-export const validURL = (control: AbstractControl): ValidationErrors | null => {
+export const URL = (control: AbstractControl): ValidationErrors | null => {
+  const value = (control.value || '') as string;
+
+  // Skip when empty
+  const hasRequired = control.hasValidator(Validators.required);
+  if (!hasRequired && value.length === 0) return null;
+
   const pattern = new RegExp(
     '^(https?:\\/\\/)?' + // protocol
       '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
@@ -14,7 +20,6 @@ export const validURL = (control: AbstractControl): ValidationErrors | null => {
       '(\\#[-a-z\\d_]*)?$',
     'i'
   ); // fragment locator
-  const value = control.value as string;
   if (pattern.test(value)) return null;
   else return { url: value };
 };

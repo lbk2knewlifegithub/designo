@@ -1,17 +1,17 @@
 package models
 
 type UserLinks struct {
-	Id            string `json:"id"`
-	Github        string `json:"github"`
-	Twitter       string `json:"twitter"`
-	DevTo         string `json:"dev_to"`
-	HashNode      string `json:"hashnode"`
-	Codepen       string `json:"codeped"`
-	Twitch        string `json:"twitch"`
-	StackOverFlow string `json:"stack_over_flow"`
-	Gitlab        string `json:"gitlab"`
-	FreeCodeCamp  string `json:"free_code_camp"`
-	Medium        string `json:"medium"`
-	Youtube       string `json:"youtube"`
-	Codewars      string `json:"codewars"`
+	Github        string `json:"github,omitempty"`
+	Twitter       string `json:"twitter,omitempty"`
+	DevTo         string `json:"devTo,omitempty"`
+	HashNode      string `json:"hashnode,omitempty"`
+	Codepen       string `json:"codepen,omitempty"`
+	Twitch        string `json:"twitch,omitempty"`
+	StackOverFlow string `json:"stackOverFlow,omitempty"`
+	Gitlab        string `json:"gitlab,omitempty"`
+	FreeCodeCamp  string `json:"freeCodeCamp,omitempty"`
+	Medium        string `json:"medium,omitempty"`
+	Youtube       string `json:"youtube,omitempty"`
+	Codewars      string `json:"codewars,omitempty"`
+	LinkedIn      string `json:"linkedIn,omitempty"`
 }

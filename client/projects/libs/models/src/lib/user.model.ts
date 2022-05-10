@@ -13,29 +13,28 @@ export interface EmailSettings {
  * - Bio
  */
 export interface Bio {
-  bio_id: number;
   website: string;
-  content: string;
-  currentLearning: string;
+  content?: string;
+  currentLearning?: string;
 }
 
 /**
  * - UserLinks
  */
 export interface UserLinks {
-  user_links_id: number;
-  githubURL?: string;
-  twitterURL?: string;
-  devToURL?: string;
-  hashnodeURL?: string;
-  codepenURL?: string;
-  twitchURL?: string;
-  stackOverflowURL?: string;
-  gitlabURL?: string;
-  freeCodeCampURL?: string;
-  mediumURL?: string;
-  youtubeURL?: string;
-  codewarsURL?: string;
+  github?: string;
+  twitter?: string;
+  devTo?: string;
+  hashnode?: string;
+  codepen?: string;
+  twitch?: string;
+  stackOverFlow?: string;
+  gitlab?: string;
+  freeCodeCamp?: string;
+  medium?: string;
+  linkedIn?: string;
+  youtube?: string;
+  codewars?: string;
 }
 
 /**
@@ -47,11 +46,13 @@ export interface User {
   username: string;
   email: string;
   location: string;
+  avatarGithub: string;
   avatar: string;
   isPremium?: boolean;
   isHireMe?: boolean;
   points: number;
-  links?: UserLinks;
+  links: UserLinks;
+  bio: Bio;
 }
 
 /**

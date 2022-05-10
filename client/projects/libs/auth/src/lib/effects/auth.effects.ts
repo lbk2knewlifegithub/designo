@@ -1,4 +1,3 @@
-import { loginWithGithubFailure } from './../actions/auth-api.actions';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from '@lbk/services';
@@ -84,7 +83,7 @@ export class AuthEffects {
    */
   logout$ = createEffect(() =>
     this._actions$.pipe(
-      ofType(AuthActions.logout),
+      ofType(AuthActions.logout, AuthApiActions.deleteAccountSuccess),
       tap(() => {
         this._tokenService.clear();
         this._router.navigateByUrl('/');
@@ -125,22 +124,22 @@ export class AuthEffects {
   );
 
   /**
-   * -  Update Account
+   * -  Update Profile
    */
-  updateAccount$ = createEffect(() =>
+  updateProfile = createEffect(() =>
     this._actions$.pipe(
-      ofType(AuthActions.updateAccount),
+      ofType(AuthActions.updateProfile),
       exhaustMap(({ updateUserDTO }) =>
-        this._userService.updateAccount(updateUserDTO).pipe(
+        this._userService.updateProfile(updateUserDTO).pipe(
           /**
-           * - Update Account Success
+           * - Update Profile Success
            */
           map((avatar) =>
             AuthApiActions.updateAccountSuccess({ updateUserDTO, avatar })
           ),
 
           tap(
-            // Show Dialog Update Account Success
+            // Show Dialog Profile Account Success
             () =>
               this._dialog.success({
                 title: 'Update Account Success',
@@ -151,7 +150,10 @@ export class AuthEffects {
               this._dialog.error({
                 title: 'Updated Account Failed',
                 body: 'Something went wrong. Please try again',
-              })
+              }),
+            () => {
+              this._userService.avatar = undefined;
+            }
           ),
 
           /**
@@ -165,11 +167,6 @@ export class AuthEffects {
     )
   );
 
-  private get _returnUrl() {
-    const href = window.location.href.split('?')[0];
-    return href ? `returnUrl=${href}` : '';
-  }
-
   /**
    * - Auto clear error after 4 seconds
    */
@@ -177,6 +174,41 @@ export class AuthEffects {
     this._actions$.pipe(
       ofType(AuthApiActions.loginWithGithubFailure),
       switchMap(() => of(AuthActions.clearError()).pipe(delay(4_000)))
+    )
+  );
+
+  /**
+   * -  Update Account
+   */
+  deleteAccount = createEffect(() =>
+    this._actions$.pipe(
+      ofType(AuthActions.deleteAccount),
+      exhaustMap(() =>
+        this._userService.deleteAccount().pipe(
+          /**
+           * - Delete Account Success
+           */
+          map(() => AuthApiActions.deleteAccountSuccess()),
+
+          tap(
+            // Show Dialog Profile Account Success
+            () => this._dialog.success('Your account has been deleted'),
+            // Show Dialog Update Account Failure
+            () =>
+              this._dialog.error({
+                title: 'Delete Account Failed',
+                body: 'Something went wrong. Please try again',
+              })
+          ),
+
+          /**
+           * - Delete Account Failure
+           */
+          catchError(({ error }) =>
+            of(AuthApiActions.deleteAccountFailure(error))
+          )
+        )
+      )
     )
   );
 

@@ -1,30 +1,43 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'lbk-bio-input-group',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <h2 class="font-bold">BIO</h2>
+    <div [formGroup]="parent">
+      <h2 class="font-bold">BIO</h2>
 
-    <ul class="mt-1 grid gap-4">
-      <!-- Website -->
-      <li>
-        <label class="text-sm font-medium" for="website">Website</label>
-        <br />
+      <ul class="mt-1 grid gap-4">
+        <!-- Website -->
+        <li>
+          <lbk-input
+            [input]="{
+              parent: parent,
+              label: 'Website',
+              controlName: 'website',
+              groupName: 'bio',
+              placeholder: 'e.g. https://www.youtube.com'
+            }"
+          ></lbk-input>
+        </li>
+        <!-- end Website -->
 
-        <input
-          value="e.g. https://www.youtube.com"
-          class="w-full"
-          id="website"
-          type="text"
-        />
-      </li>
-      <!-- end Website -->
+        <!-- Content -->
+        <li>
+          <lbk-content-input [parent]="parent"></lbk-content-input>
+        </li>
+        <!-- end Content -->
 
-      <lbk-bio-input></lbk-bio-input>
-
-      <lbk-learning-input></lbk-learning-input>
-    </ul>
+        <!-- Learning -->
+        <li>
+          <lbk-learning-input [parent]="parent"></lbk-learning-input>
+        </li>
+        <!-- end Learning -->
+      </ul>
+    </div>
   `,
 })
-export class BioInputGroupComponent {}
+export class BioInputGroupComponent {
+  @Input() parent!: FormGroup;
+}

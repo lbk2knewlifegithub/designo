@@ -38,7 +38,7 @@ interface Group {
         <ul
           @fadeIn
           (clickOutside)="close()"
-          skip="#go-to-sections"
+          [skip]="['#go-to-sections']"
           class="absolute z-30 bg-white shadow-md w-full bottom-0 translate-y-full grid md:right-0 md:overflow-y-scroll md:max-h-[700px] md:max-w-[250px]"
         >
           <li *ngFor="let group of groups">

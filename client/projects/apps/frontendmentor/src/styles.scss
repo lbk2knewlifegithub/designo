@@ -140,6 +140,20 @@
   }
 }
 
+.form-control {
+  .label {
+    @apply text-sm font-medium;
+  }
+
+  .input {
+    @apply w-full;
+  }
+}
+
+input.ng-invalid.ng-touched {
+  @apply border-2 border-error;
+}
+
 @layer components {
 }
 

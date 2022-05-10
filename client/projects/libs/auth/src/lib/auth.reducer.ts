@@ -13,6 +13,7 @@ export interface State {
   user: User | null;
   error: AuthError | null;
   pending: boolean;
+  updatingProfile: boolean;
   returnUrl: string | null;
   alreadyTryLogin: boolean;
 }
@@ -23,6 +24,7 @@ export const initialState: State = {
   pending: false,
   returnUrl: null,
   alreadyTryLogin: false,
+  updatingProfile: false,
 };
 
 export const authFeature = createFeature({
@@ -34,10 +36,11 @@ export const authFeature = createFeature({
       AuthActions.login,
       AuthActions.signup,
       AuthActions.changePassword,
-      AuthActions.updateAccount,
+      AuthActions.updateProfile,
       (state) => ({
         ...state,
         pending: true,
+        updatingProfile: true,
       })
     ),
 
@@ -45,6 +48,7 @@ export const authFeature = createFeature({
     on(AuthApiActions.updateAccountSuccess, (state) => ({
       ...state,
       pending: false,
+      updatingProfile: false,
     })),
 
     // Set pending to false
@@ -52,13 +56,14 @@ export const authFeature = createFeature({
       ...state,
       error,
       pending: false,
+      updatingProfile: false,
     })),
 
     /**
      * - Logout
-     * -
+     * - Delete Account Success
      */
-    on(AuthActions.logout, (state) => ({
+    on(AuthActions.logout, AuthApiActions.deleteAccountSuccess, (state) => ({
       ...state,
       user: null,
       alreadyTryLogin: false,
@@ -97,17 +102,7 @@ export const authFeature = createFeature({
      */
     on(
       AuthApiActions.updateAccountSuccess,
-      (
-        state,
-        {
-          updateUserDTO: {
-            firstname,
-            lastname,
-            // email
-          },
-          avatar,
-        }
-      ) => {
+      (state, { updateUserDTO, avatar }) => {
         if (!state.user) return state;
         const { user } = state;
 
@@ -115,10 +110,7 @@ export const authFeature = createFeature({
           ...state,
           user: {
             ...user,
-            firstname,
-            lastname,
-            // verified: user.email === email,
-            // email,
+            ...updateUserDTO,
             avatar: avatar ? avatar : user.avatar,
           },
           pending: false,

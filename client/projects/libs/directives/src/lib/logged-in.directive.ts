@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { AuthFacade } from '@lbk/auth';
 import { Unsubscriber } from '@lbk/comps';
+import { distinctUntilChanged } from 'rxjs';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
@@ -28,22 +29,20 @@ export class LoggedInDirective extends Unsubscriber implements OnInit {
 
   override ngOnInit(): void {
     super.ngOnInit();
+    this._container.createEmbeddedView(this._template);
+    // if (this.skip) {
+    //   this._container.createEmbeddedView(this._template);
+    //   return;
+    // }
 
-    if (this.skip) {
-      this._container.createEmbeddedView(this._template);
-      return;
-    }
+    // this.appendSub = this._authFacade.loggedIn$
+    //   .pipe(distinctUntilChanged())
+    //   .subscribe((loggedIn) => {
 
-    this.appendSub = this._authFacade.loggedIn$.subscribe((loggedIn) => {
-      if (this.loggedIn)
-        return loggedIn
-          ? this._container.createEmbeddedView(this._template)
-          : this._container.clear();
-
-      return !loggedIn
-        ? this._container.createEmbeddedView(this._template)
-        : this._container.clear();
-    });
+    //     this.loggedIn && loggedIn
+    //       ? this._container.createEmbeddedView(this._template)
+    //       : this._container.clear();
+    //   });
   }
 }
 

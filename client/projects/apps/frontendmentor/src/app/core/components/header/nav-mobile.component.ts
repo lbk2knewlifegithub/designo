@@ -145,7 +145,7 @@ export class NavMobileComponent implements OnInit {
       },
       {
         name: 'SETTINGS',
-        href: '/setting',
+        href: '/settings',
         icon: 'fa-sliders',
         loggedIn: true,
       },

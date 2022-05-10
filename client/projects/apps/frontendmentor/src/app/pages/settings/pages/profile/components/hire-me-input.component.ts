@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { DialogService } from '@ngneat/dialog';
 import { HiremeDialogComponent } from './hire-me-dialog.component';
 
@@ -20,7 +21,7 @@ import { HiremeDialogComponent } from './hire-me-dialog.component';
     <span>Disabled "Hire Me" button</span>
 
     <!-- Switch -->
-    <lbk-switch></lbk-switch>
+    <lbk-switch name="isHireMe" [parent]="parent"></lbk-switch>
     <!-- end Switch -->
 
     <span>Enable "Hire Me" button</span>
@@ -37,6 +38,8 @@ import { HiremeDialogComponent } from './hire-me-dialog.component';
   ],
 })
 export class HireMeInputComponent {
+  @Input() parent!: FormGroup;
+
   constructor(private readonly _dialogService: DialogService) {}
   showHireMeDialog() {
     this._dialogService.open(HiremeDialogComponent);

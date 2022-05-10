@@ -6,7 +6,7 @@ import { InputComponent } from '../input/input.component';
 @Component({
   selector: 'lbk-confirm-password-input',
   template: `
-    <div class="form-control" [formGroup]="parent">
+    <div class="form-control" [formGroup]="input.parent">
       <label [for]="controlName" class="label label-text">
         Confirm Password
       </label>
@@ -78,7 +78,8 @@ export class ConfirmPasswordInputComponent
     return this.shown ? 'fa-eye-slash' : 'fa-eye';
   }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
+    super.ngOnInit();
     this.noMatches$ = combineLatest([
       this.formControl.valueChanges,
       this.password.valueChanges,
@@ -86,6 +87,6 @@ export class ConfirmPasswordInputComponent
   }
 
   get password(): FormControl {
-    return this.parent.get(this.target) as FormControl;
+    return this.input.parent.get(this.target) as FormControl;
   }
 }

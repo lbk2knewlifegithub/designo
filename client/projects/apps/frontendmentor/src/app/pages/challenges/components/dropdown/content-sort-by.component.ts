@@ -6,7 +6,7 @@ import { DropdownService } from './dropdown.service';
   selector: 'lbk-content-sort-by',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <ul (clickOutside)="close()" skip="#sort-by" class="grid bg-white">
+    <ul (clickOutside)="close()" [skip]="['#sort-by']" class="grid bg-white">
       <li>
         <a
           routerLinkActive="active"
