@@ -12,6 +12,18 @@ export class ChallengesImplService implements ChallengesService {
     @Inject(API_URL)
     private readonly _api: string
   ) {}
+
+  /**
+   * - Start Challenge
+   * @param id
+   * @returns
+   */
+  startChallenge(id: string): Observable<void> {
+    return this._http.post<void>(
+      `${this._api}/frontendmentor/challenge/${id}/start`,
+      {}
+    );
+  }
   /**
    * - Get All Challenges
    */

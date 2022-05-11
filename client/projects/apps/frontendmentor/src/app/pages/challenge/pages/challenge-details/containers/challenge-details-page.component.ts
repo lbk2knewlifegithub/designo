@@ -1,3 +1,4 @@
+import { ChallengesFacade } from '@lbk/fm/state';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, pluck } from 'rxjs';
@@ -11,9 +12,9 @@ import { Challenge } from '@lbk/fm/shared';
 export class ChallengeDetailsPageComponent implements OnInit {
   challenge$!: Observable<Challenge>;
 
-  constructor(private readonly _route: ActivatedRoute) {}
+  constructor(private readonly _cf: ChallengesFacade) {}
 
   ngOnInit(): void {
-    this.challenge$ = this._route.data.pipe(pluck('challenge'));
+    this.challenge$ = this._cf.selectedChallenge$ as Observable<Challenge>;
   }
 }

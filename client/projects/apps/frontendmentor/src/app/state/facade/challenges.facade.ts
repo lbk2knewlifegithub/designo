@@ -1,3 +1,5 @@
+import { selectStartingChallenge } from './../selectors/challenges.selectors';
+import { DialogService } from '@ngneat/dialog';
 import { Inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
@@ -37,6 +39,10 @@ export class ChallengesFacade {
 
   readonly loading$: Observable<boolean> = this._store.select(
     fromChallanges.selectLoading
+  );
+
+  readonly startingChallenge$: Observable<boolean> = this._store.select(
+    fromChallanges.selectStartingChallenge
   );
 
   /**
@@ -130,7 +136,8 @@ export class ChallengesFacade {
   constructor(
     private readonly _store: Store,
     @Inject(CHALLENGES_SERVICE)
-    private readonly _challengesService: ChallengesService
+    private readonly _challengesService: ChallengesService,
+    private readonly _ds: DialogService
   ) {}
 
   /**
@@ -155,8 +162,31 @@ export class ChallengesFacade {
       map((invoice) => !!invoice),
       take(1),
       tap((result) => {
-        if (result) this.selectChallenge(id);
+        if (!result) return;
+
+        console.log('load challenge from store');
+        this.selectChallenge(id);
       })
+    );
+  }
+
+  /**
+   * - Has Challenge In Api
+   * @param challenge_id
+   */
+  hasChallengeInAPI(id: string): Observable<boolean> {
+    return this._challengesService.retrieveChallenge(id).pipe(
+      take(1),
+      tap((challenge) => {
+        if (!challenge) return;
+
+        console.log('load challenge from api');
+
+        this._store.dispatch(ChallengesActions.loadChallenge({ challenge }));
+        this.selectChallenge(challenge.id);
+      }),
+      map(() => true),
+      catchError(() => of(false))
     );
   }
 
@@ -168,19 +198,18 @@ export class ChallengesFacade {
   }
 
   /**
-   * - Has Challenge In Api
-   * @param challenge_id
+   *  - Start Challenge
+   * @param id
    */
-  hasChallengeInAPI(id: string): Observable<boolean> {
-    return this._challengesService.retrieveChallenge(id).pipe(
-      tap((challenge) => {
-        if (challenge) {
-          this._store.dispatch(ChallengesActions.loadChallenge({ challenge }));
-          this.selectChallenge(challenge.id);
-        }
-      }),
-      map(() => true),
-      catchError(() => of(false))
-    );
+  startChallenge() {
+    this.selectedChallenge$.pipe(take(1)).subscribe((challenge) => {
+      if (!challenge) {
+        this._ds.error("You haven't selected a challenge");
+        return;
+      }
+      this._store.dispatch(
+        ChallengesActions.startChallenge({ id: challenge.id })
+      );
+    });
   }
 }

@@ -3,29 +3,28 @@ package handlers
 import (
 	"context"
 	"log"
-	"time"
 
 	"frontendmentor/dto"
 	"frontendmentor/repo"
 	"shared/middleware"
+	"shared/models"
 	sv "shared/services"
 	"shared/utils"
 
-	"github.com/goccy/go-json"
 	"github.com/gofiber/fiber/v2"
 	"github.com/jackc/pgx/v4"
 )
 
-const allChallengesKey = "allChallenges"
-const getChallengeKey = "getChallenge"
+// const allChallengesKey = "allChallenges"
+// const getChallengeKey = "getChallenge"
 
 // All Challenges
 func allChallenges(ctx *fiber.Ctx) error {
-	// Get Cached
-	cached := sv.Redis.Read.Get(context.Background(), allChallengesKey).Val()
-	if cached != "" {
-		return ctx.SendString(cached)
-	}
+	// // Get Cached
+	// cached := sv.Redis.Read.Get(context.Background(), allChallengesKey).Val()
+	// if cached != "" {
+	// 	return ctx.SendString(cached)
+	// }
 
 	// Connect To Database
 	conn, err := sv.Database.Connect()
@@ -34,40 +33,41 @@ func allChallenges(ctx *fiber.Ctx) error {
 		return ctx.SendStatus(fiber.StatusInternalServerError)
 	}
 
-	// Get all challenges
-	challenges, err := repo.Challenge.AllChallenge(conn)
+	userToken := ctx.Locals("user")
+	// Get Challenges for Authenticated user
+	if userToken != nil {
+		userToken := userToken.(*models.UserToken)
+		// Get all challenges
+		challenges, err := repo.Challenge.AllChallengeWithUserID(conn, &userToken.ID)
+		if err != nil {
+			return err
+		}
+		return ctx.Status(fiber.StatusOK).JSON(challenges)
+	}
+
+	// Get Challenges for Unauthenticated user
+	challenges, err := repo.Challenge.AllChallenges(conn)
 	if err != nil {
 		return err
 	}
-
-	// Cache all challenges
-	json, err := json.Marshal(challenges)
-	if err != nil {
-		log.Println("Marchal challenges Err ", err.Error())
-		return ctx.SendStatus(fiber.StatusInternalServerError)
-	}
-	if err := sv.Redis.Write.Set(context.Background(), allChallengesKey, json, 10*time.Minute).Err(); err != nil {
-		log.Println("Set cached challenges Err ", err)
-		return ctx.SendStatus(fiber.StatusInternalServerError)
-	}
-
 	return ctx.Status(fiber.StatusOK).JSON(challenges)
 }
 
 // Get Challenge
 func getChallenge(ctx *fiber.Ctx) error {
-	// Get ID
-	id := ctx.Params("id")
-	if id == "" {
+	// Get challengeID
+	challengeID := ctx.Params("id")
+	if challengeID == "" {
 		return ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "Challenge ID is required"})
 	}
-	cacheKey := getChallengeKey + id
 
-	// Get Cached
-	cached := sv.Redis.Read.Get(context.Background(), cacheKey).Val()
-	if cached != "" {
-		return ctx.SendString(cached)
-	}
+	// cacheKey := getChallengeKey + challengeID
+
+	// // Get Cached
+	// cached := sv.Redis.Read.Get(context.Background(), cacheKey).Val()
+	// if cached != "" {
+	// 	return ctx.SendString(cached)
+	// }
 
 	// Connect To Database
 	conn, err := sv.Database.Connect()
@@ -75,25 +75,36 @@ func getChallenge(ctx *fiber.Ctx) error {
 		log.Println(err)
 		return ctx.SendStatus(fiber.StatusInternalServerError)
 	}
+	userToken := ctx.Locals("user")
+	// Get Challenge for Authenticated user
+	if userToken != nil {
+		userToken := userToken.(*models.UserToken)
+		challenge, err := repo.Challenge.GetChallengeWithUserID(conn, &userToken.ID, &challengeID)
+		if err != nil {
+			return err
+		}
+		return ctx.Status(fiber.StatusOK).JSON(challenge)
+	}
 
-	// Get challenge
-	challenge, err := repo.Challenge.GetChallenge(conn, &id)
+	// Get Challenge for Unauthenticated user
+	challenge, err := repo.Challenge.GetChallenge(conn, &challengeID)
 	if err != nil {
 		return err
 	}
 
-	// Cache challenge
-	json, err := json.Marshal(challenge)
-	if err != nil {
-		log.Println("Marchal challenge Err ", err.Error())
-		return ctx.SendStatus(fiber.StatusInternalServerError)
-	}
-	if err := sv.Redis.Write.Set(context.Background(), cacheKey, json, 10*time.Minute).Err(); err != nil {
-		log.Println("Set cached challenge Err ", err)
-		return ctx.SendStatus(fiber.StatusInternalServerError)
-	}
-
 	return ctx.Status(fiber.StatusOK).JSON(challenge)
+
+	// // Cache challenge
+	// json, err := json.Marshal(challenge)
+	// if err != nil {
+	// 	log.Println("Marchal challenge Err ", err.Error())
+	// 	return ctx.SendStatus(fiber.StatusInternalServerError)
+	// }
+	// if err := sv.Redis.Write.Set(context.Background(), cacheKey, json, 10*time.Minute).Err(); err != nil {
+	// 	log.Println("Set cached challenge Err ", err)
+	// 	return ctx.SendStatus(fiber.StatusInternalServerError)
+	// }
+
 }
 
 // Create Challenge
@@ -148,13 +159,38 @@ func createChallenge(ctx *fiber.Ctx) error {
 	return ctx.SendStatus(fiber.StatusCreated)
 }
 
+// Start Challenge
+func startChallenge(ctx *fiber.Ctx) error {
+	// Connect To Database
+	conn, err := sv.Database.Connect()
+	if err != nil {
+		log.Println(err)
+		return ctx.SendStatus(fiber.StatusInternalServerError)
+	}
+
+	challengeID := ctx.Params("id")
+	userToken := ctx.Locals("user").(*models.UserToken)
+
+	err = repo.Challenge.StartChallenge(conn, &userToken.ID, &challengeID)
+	if err != nil {
+		return err
+	}
+
+	return ctx.Status(fiber.StatusCreated).JSON(fiber.Map{
+		"message": "start challenge success",
+	})
+}
+
 func ChallengeHandlers(a *fiber.App) {
 	// Create routes group.
 
 	// Get All Challenges
-	a.Get("/challenges", allChallenges)
+	a.Get("/challenges", middleware.TryLoginMiddleware, allChallenges)
 	challenge := a.Group("/challenge")
 	// Create Challenge
-	challenge.Get("/:id", getChallenge)
+	challenge.Get("/:id", middleware.TryLoginMiddleware, getChallenge)
+	// Create Challenge
 	challenge.Post("/", middleware.AdminMiddleware, createChallenge)
+	// Start Challenge
+	challenge.Post("/:id/start", middleware.AuthMiddleware, startChallenge)
 }

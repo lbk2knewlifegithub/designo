@@ -46,3 +46,14 @@
     @apply bg-warning-50;
   }
 }
+
+:host-context(.guru) {
+  @apply border-error;
+  .name {
+    @apply text-error border-error;
+  }
+
+  .index {
+    @apply bg-error;
+  }
+}

@@ -25,7 +25,7 @@ import {
       .ideas.markdown-body {
         @apply mt-4 bg-transparent;
         ul {
-          @apply grid gap-2 text-sm list-disc lg:text-base lg:mt-6;
+          @apply text-sm list-disc lg:mt-6;
         }
       }
     `,

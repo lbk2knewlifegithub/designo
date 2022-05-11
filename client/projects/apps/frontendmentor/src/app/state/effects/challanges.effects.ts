@@ -34,6 +34,30 @@ export class ChallengesEffects {
     )
   );
 
+  /**
+   * - Start Challenge
+   */
+  startChallenge$ = createEffect(() =>
+    this._actions$.pipe(
+      ofType(ChallengesActions.startChallenge),
+      exhaustMap(({ id }) => {
+        return this._challengesService.startChallenge(id).pipe(
+          /**
+           * - Start Challenge Success
+           */
+          map(() => ChallengesAPIActions.startChallengeSuccess({ id })),
+
+          /**
+           * - Start Challenge Failure
+           */
+          catchError(({ error }) =>
+            of(ChallengesAPIActions.startChallengeFailure({ error }))
+          )
+        );
+      })
+    )
+  );
+
   constructor(
     private readonly _actions$: Actions,
     @Inject(CHALLENGES_SERVICE)

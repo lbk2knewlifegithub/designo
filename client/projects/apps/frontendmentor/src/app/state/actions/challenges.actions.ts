@@ -23,3 +23,13 @@ export const selectChallenge = createAction(
     id: string | null;
   }>()
 );
+
+/**
+ * - Start Challenge
+ */
+export const startChallenge = createAction(
+  '[Challenges] Start Challenge',
+  props<{
+    id: string;
+  }>()
+);

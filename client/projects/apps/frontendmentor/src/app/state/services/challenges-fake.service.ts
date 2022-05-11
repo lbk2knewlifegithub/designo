@@ -8,6 +8,9 @@ import { ChallengesService } from './challenges.service';
 @Injectable({ providedIn: 'root' })
 export class ChallengesFakeService implements ChallengesService {
   constructor(private readonly _http: HttpClient) {}
+  startChallenge(id: string): Observable<void> {
+    throw new Error('Method not implemented.');
+  }
   /**
    * - Get All Challenges
    */

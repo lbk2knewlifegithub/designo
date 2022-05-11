@@ -19,4 +19,5 @@ type Challenge struct {
 	StarterURL     string    `json:"staterURL"`
 	Brief          string    `json:"brief"`
 	Gallery        []Image   `json:"gallery"`
+	Status         *string   `json:"status"`
 }

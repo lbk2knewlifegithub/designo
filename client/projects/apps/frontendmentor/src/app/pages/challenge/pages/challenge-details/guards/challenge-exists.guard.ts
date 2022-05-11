@@ -32,6 +32,7 @@ export class ChallengeExistsGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot) {
+    console.log('ChallengeExistsGuard.canActivate');
     return this.hasChallenge(route.params['id']);
   }
 }

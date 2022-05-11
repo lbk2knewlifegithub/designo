@@ -55,3 +55,11 @@ export const selectLoading = createSelector(
   selectChallengesEntitiesState,
   fromChallenges.getLoading
 );
+
+/**
+ * - Select Starting Challenge
+ */
+export const selectStartingChallenge = createSelector(
+  selectChallengesEntitiesState,
+  fromChallenges.getStartingChallenge
+);

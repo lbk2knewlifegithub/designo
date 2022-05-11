@@ -29,20 +29,14 @@ export class LoggedInDirective extends Unsubscriber implements OnInit {
 
   override ngOnInit(): void {
     super.ngOnInit();
-    this._container.createEmbeddedView(this._template);
-    // if (this.skip) {
-    //   this._container.createEmbeddedView(this._template);
-    //   return;
-    // }
 
-    // this.appendSub = this._userFacade.loggedIn$
-    //   .pipe(distinctUntilChanged())
-    //   .subscribe((loggedIn) => {
-
-    //     this.loggedIn && loggedIn
-    //       ? this._container.createEmbeddedView(this._template)
-    //       : this._container.clear();
-    //   });
+    this.appendSub = this._userFacade.loggedIn$
+      .pipe(distinctUntilChanged())
+      .subscribe((loggedIn) => {
+        loggedIn
+          ? this._container.createEmbeddedView(this._template)
+          : this._container.clear();
+      });
   }
 }
 

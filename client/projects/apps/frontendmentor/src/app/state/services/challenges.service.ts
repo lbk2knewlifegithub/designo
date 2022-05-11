@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, ObservedValueOf } from 'rxjs';
 import { Challenge } from '../../shared';
 
 export interface ChallengesService {
@@ -11,4 +11,10 @@ export interface ChallengesService {
    * - Retrieve a Challenge
    */
   retrieveChallenge(id: string): Observable<Challenge>;
+
+  /**
+   * - Start a Challenge
+   * @param id
+   */
+  startChallenge(id: string): Observable<void>;
 }

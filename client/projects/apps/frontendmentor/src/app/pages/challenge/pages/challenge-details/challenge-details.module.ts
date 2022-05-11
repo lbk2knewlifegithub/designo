@@ -1,3 +1,4 @@
+import { SpinnerModule } from './../../../../../../../../libs/comps/src/lib/loading/spinner.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { LightBoxModule } from '@lbk/comps';
@@ -31,6 +32,8 @@ import { MarkdownModule } from 'ngx-markdown';
 
     // Shared Components From Libs
     LightBoxModule,
+    SpinnerModule,
+
     // Shared Pipes From Libs
     ObjectKeysPipeModule,
     WhiteSpacePipeModule,

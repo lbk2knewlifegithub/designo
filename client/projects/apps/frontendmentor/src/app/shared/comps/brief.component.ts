@@ -65,7 +65,7 @@ import { MarkdownModule } from 'ngx-markdown';
       .brief.markdown-body {
         @apply mt-4 text-sm bg-transparent;
         ul {
-          @apply grid gap-2 list-disc lg:text-base lg:mt-6;
+          @apply grid list-disc lg:mt-6;
         }
       }
     `,

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Challenge } from '../../../../../../shared';
+import { Challenge } from '@lbk/fm/shared';
 
 @Component({
   selector: 'lbk-challenge-details',

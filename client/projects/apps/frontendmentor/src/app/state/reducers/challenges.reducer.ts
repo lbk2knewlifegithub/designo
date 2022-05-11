@@ -8,7 +8,8 @@ export const challengesFeatureKey = 'challenges';
 export interface State extends EntityState<Challenge> {
   loaded: boolean;
   loading: boolean;
-  selectedChallengeId: string | null;
+  selectedChallengeID: string | null;
+  startingChallenge: boolean;
 }
 
 export const adapter: EntityAdapter<Challenge> = createEntityAdapter<Challenge>(
@@ -19,9 +20,10 @@ export const adapter: EntityAdapter<Challenge> = createEntityAdapter<Challenge>(
 );
 
 export const initialState: State = adapter.getInitialState({
-  selectedChallengeId: null,
+  selectedChallengeID: null,
   loaded: false,
   loading: false,
+  startingChallenge: false,
 });
 
 export const reducer = createReducer(
@@ -50,15 +52,46 @@ export const reducer = createReducer(
   ),
 
   /**
+   * - Start Challenge
+   */
+  on(ChallengesActions.startChallenge, (state) => ({
+    ...state,
+    startingChallenge: true,
+  })),
+
+  /**
+   * - Start Challenge Success
+   */
+  on(ChallengesAPIActions.startChallengeSuccess, (state, { id }) => {
+    return adapter.updateOne(
+      { id, changes: { status: 'in-progress' } },
+      {
+        ...state,
+        startingChallenge: false,
+      }
+    );
+  }),
+
+  /**
+   * - Start Challenge Failure
+   */
+  on(ChallengesAPIActions.startChallengeFailure, (state, { error }) => ({
+    ...state,
+    error,
+    startingChallenge: false,
+  })),
+
+  /**
    * - Select Challenge Id
    */
   on(ChallengesActions.selectChallenge, (state, { id }) => ({
     ...state,
-    selectedChallengeId: id,
+    selectedChallengeID: id,
   }))
 );
 
 // Gets
-export const getId = (state: State) => state.selectedChallengeId;
+export const getId = (state: State) => state.selectedChallengeID;
 export const getLoaded = (state: State) => state.loaded;
 export const getLoading = (state: State) => state.loading;
+export const getStartingChallenge = (state: State) => state.startingChallenge;
