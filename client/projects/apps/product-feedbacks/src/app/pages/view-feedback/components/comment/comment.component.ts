@@ -5,7 +5,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { collapseOut, expandIn } from '@lbk/anims';
-import { AuthFacade } from '@lbk/auth';
+import { UserFacade } from '@lbk/user';
 import { User } from '@lbk/models';
 import { DialogService } from '@ngneat/dialog';
 import { combineLatest, map, Observable, of, switchMap } from 'rxjs';
@@ -34,7 +34,7 @@ export class CommentComponent implements OnInit {
 
   constructor(
     private readonly _feedbacksFacade: FeedbacksFacade,
-    private readonly _authFacade: AuthFacade,
+    private readonly _userFacade: UserFacade,
     private readonly _dialogService: DialogService,
     private readonly _facade: ViewFeedbacksFacade
   ) {}
@@ -42,7 +42,7 @@ export class CommentComponent implements OnInit {
   ngOnInit(): void {
     this.isOwnedByUser$ = combineLatest([
       this._feedbacksFacade.selectedFeedback$,
-      this._authFacade.user$,
+      this._userFacade.user$,
     ]).pipe(
       map(([feedback, user]) => {
         if (!feedback || !user) return false;
@@ -55,7 +55,7 @@ export class CommentComponent implements OnInit {
     this.user$ = this.isOwnedByUser$.pipe(
       switchMap((isOwnedByUser) => {
         return isOwnedByUser
-          ? (this._authFacade.user$ as Observable<User>)
+          ? (this._userFacade.user$ as Observable<User>)
           : of(this.comment.user);
       })
     );

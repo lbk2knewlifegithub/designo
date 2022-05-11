@@ -12,9 +12,9 @@
         "dist/lib/anims/lib-anims",
         "dist/lib/anims"
       ],
-      "@lib/auth": [
-        "dist/lib/auth/lib-auth",
-        "dist/lib/auth"
+      "@lib/user": [
+        "dist/lib/user/lib-user",
+        "dist/lib/user"
       ],
       "@lib/coms": [
         "dist/lib/coms/lib-coms",
@@ -86,8 +86,8 @@
       "@lbk/assets": [
         "projects/libs/assets/src/public-api"
       ],
-      "@lbk/auth": [
-        "projects/libs/auth/src/public-api"
+      "@lbk/user": [
+        "projects/libs/user/src/public-api"
       ],
       "@lbk/comps": [
         "projects/libs/comps/src/public-api"
@@ -154,9 +154,9 @@
         "dist/libs/assets/libs-assets",
         "dist/libs/assets"
       ],
-      "@libs/auth": [
-        "dist/libs/auth/libs-auth",
-        "dist/libs/auth"
+      "@libs/user": [
+        "dist/libs/user/libs-user",
+        "dist/libs/user"
       ],
       "@libs/comps": [
         "dist/libs/comps/libs-comps",

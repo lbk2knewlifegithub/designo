@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { AuthFacade } from '@lbk/auth';
+import { UserFacade } from '@lbk/user';
 import {} from '@lbk/dto';
 import {
   AddCommentDTO,
@@ -110,7 +110,7 @@ export class FeedbacksFacade {
     private readonly _store: Store,
     @Inject(FEEDBACKS_SERVICE)
     private readonly _feedBacksService: FeedbacksService,
-    private readonly _authFacade: AuthFacade
+    private readonly _userFacade: UserFacade
   ) {}
 
   /**
@@ -183,7 +183,7 @@ export class FeedbacksFacade {
    * - Upvote Feedback By Id
    */
   upvote(feedback_id: number) {
-    this._authFacade.checkLoggedIn(() => {
+    this._userFacade.checkLoggedIn(() => {
       this._store.dispatch(FeedbacksActions.upvote({ feedback_id }));
     });
   }
@@ -192,7 +192,7 @@ export class FeedbacksFacade {
    * - Downvote Feedback By Id
    */
   downvote(feedback_id: number) {
-    this._authFacade.checkLoggedIn(() => {
+    this._userFacade.checkLoggedIn(() => {
       this._store.dispatch(FeedbacksActions.downvote({ feedback_id }));
     });
   }
@@ -213,7 +213,7 @@ export class FeedbacksFacade {
    * @param addCommentDTO
    */
   addComment(feedback_id: number, addCommentDTO: AddCommentDTO) {
-    this._authFacade.checkLoggedIn(() => {
+    this._userFacade.checkLoggedIn(() => {
       this._store.dispatch(
         FeedbacksActions.addComment({ feedback_id, addCommentDTO })
       );
@@ -225,7 +225,7 @@ export class FeedbacksFacade {
    * @param addCommentDTO
    */
   addCommentSelectedFeedback(addCommentDTO: AddCommentDTO) {
-    this._authFacade.checkLoggedIn(() => {
+    this._userFacade.checkLoggedIn(() => {
       this.selectedFeedback$.pipe(take(1)).subscribe((feedback) => {
         if (!feedback) return;
         const { feedback_id } = feedback;

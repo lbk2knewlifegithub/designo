@@ -5,7 +5,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { AuthFacade } from '@lbk/auth';
+import { UserFacade } from '@lbk/user';
 import { DialogService } from '@ngneat/dialog';
 import { combineLatest, map, Observable, take } from 'rxjs';
 import { InvoiceFormComponent, InvoiceStatus } from '../../../../shared';
@@ -29,7 +29,7 @@ export class NewInvoiceOverlayComponent implements OnInit {
     private readonly _dialogService: DialogService,
     private readonly _homeFacade: HomeFacade,
     private readonly _invoicesFacade: InvoicesFacade,
-    private readonly _authFacade: AuthFacade
+    private readonly _userFacade: UserFacade
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class NewInvoiceOverlayComponent implements OnInit {
 
     this.pendingCreate$ = this._homeFacade.pendingCreate$;
 
-    this.loggedIn$ = this._authFacade.loggedIn$;
+    this.loggedIn$ = this._userFacade.loggedIn$;
   }
 
   get invalid() {

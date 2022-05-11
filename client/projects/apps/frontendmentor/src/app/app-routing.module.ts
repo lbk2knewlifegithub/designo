@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { MustLoggedInGuard, TryLoginGuard } from '@lbk/auth';
+import { MustLoggedInGuard, TryLoginGuard } from '@lbk/user';
 import { ShellComponent } from './core/containers';
 
 const routes: Routes = [
@@ -130,7 +130,7 @@ const routes: Routes = [
   // Login Page
   {
     path: 'login',
-    loadChildren: () => import('@lbk/pages').then((m) => m.LoginOAuthModule),
+    loadChildren: () => import('@lbk/pages').then((m) => m.LoginModule),
   },
 ];
 

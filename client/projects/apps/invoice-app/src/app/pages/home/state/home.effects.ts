@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthApiActions } from '@lbk/auth';
+import { UserAPIActions } from '@lbk/user';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { routerNavigatedAction } from '@ngrx/router-store';
 import { tap } from 'rxjs';
@@ -28,7 +28,7 @@ export class HomeEffects {
   logoutSuccess = createEffect(
     () =>
       this._actions$.pipe(
-        ofType(AuthApiActions.logoutSuccess),
+        ofType(UserAPIActions.logoutSuccess),
         tap(() => {
           this._invoicesFacade.loadAllInvoices(true);
         })

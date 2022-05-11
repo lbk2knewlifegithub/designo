@@ -7,7 +7,7 @@ import {
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
-import { AuthFacade } from '@lbk/auth';
+import { UserFacade } from '@lbk/user';
 import { Unsubscriber } from '@lbk/comps';
 import { distinctUntilChanged } from 'rxjs';
 
@@ -22,7 +22,7 @@ export class LoggedInDirective extends Unsubscriber implements OnInit {
   constructor(
     private readonly _template: TemplateRef<unknown>,
     private readonly _container: ViewContainerRef,
-    private readonly _authFacade: AuthFacade
+    private readonly _userFacade: UserFacade
   ) {
     super();
   }
@@ -35,7 +35,7 @@ export class LoggedInDirective extends Unsubscriber implements OnInit {
     //   return;
     // }
 
-    // this.appendSub = this._authFacade.loggedIn$
+    // this.appendSub = this._userFacade.loggedIn$
     //   .pipe(distinctUntilChanged())
     //   .subscribe((loggedIn) => {
 

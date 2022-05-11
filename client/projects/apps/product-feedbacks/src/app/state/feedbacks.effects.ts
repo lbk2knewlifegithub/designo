@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { AuthApiActions } from '@lbk/auth';
+import { UserAPIActions } from '@lbk/user';
 import { FeedbacksFacade } from './feedbacks.facade';
 import { DialogService } from '@ngneat/dialog';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
@@ -21,7 +21,7 @@ export class FeedbackEffects {
   logout$ = createEffect(
     () =>
       this._actions$.pipe(
-        ofType(AuthApiActions.logoutSuccess),
+        ofType(UserAPIActions.logoutSuccess),
         tap(() => {
           this._feedbacksFacade.reset();
         })

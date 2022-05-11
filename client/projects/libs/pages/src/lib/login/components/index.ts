@@ -1,2 +1,1 @@
-import { LoginFormComponent } from './login-form.component';
-export const COMPONENTS = [LoginFormComponent];
+export const COMPONENTS = [];

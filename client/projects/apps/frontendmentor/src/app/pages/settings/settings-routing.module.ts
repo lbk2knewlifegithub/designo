@@ -37,7 +37,7 @@ const routes: Routes = [
       {
         path: 'notifications',
         loadChildren: () =>
-          import('./pages/notifications').then((m) => m.NotifcationsModule),
+          import('./pages/email-settings').then((m) => m.EmailSettingsModule),
       },
     ],
   },

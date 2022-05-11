@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { MustLoggedInGuard, TryLoginGuard } from '@lbk/auth';
+import { MustLoggedInGuard, TryLoginGuard } from '@lbk/user';
 
 const routes: Routes = [
   /**

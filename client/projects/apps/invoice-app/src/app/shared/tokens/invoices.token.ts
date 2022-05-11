@@ -1,5 +1,5 @@
 import { inject, InjectionToken } from '@angular/core';
-import { selectUser } from '@lbk/auth';
+import { selectUser } from '@lbk/user';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs';
 import { InvoicesImplService, InvoicesStorageService } from '../../state';

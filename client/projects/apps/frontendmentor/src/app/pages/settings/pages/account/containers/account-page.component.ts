@@ -2,7 +2,7 @@ import { DialogService } from '@ngneat/dialog';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ConfirmDeleteAccountDialog } from '../components';
 import { take } from 'rxjs';
-import { AuthFacade } from '@lbk/auth';
+import { UserFacade } from '@lbk/user';
 
 @Component({
   selector: 'lbk-account-page',
@@ -12,7 +12,7 @@ import { AuthFacade } from '@lbk/auth';
 export class AccountPageComponent {
   constructor(
     private readonly _dialogService: DialogService,
-    private readonly _authFacade: AuthFacade
+    private readonly _userFacade: UserFacade
   ) {}
 
   deleteAccount() {
@@ -21,7 +21,7 @@ export class AccountPageComponent {
       .afterClosed$.pipe(take(1))
       .subscribe((confirm) => {
         if (!confirm) return;
-        this._authFacade.deleteAccount();
+        this._userFacade.deleteAccount();
       });
   }
 }

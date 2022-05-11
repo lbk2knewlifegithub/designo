@@ -1,4 +1,4 @@
-import { AuthActions, AuthApiActions } from '@lbk/auth';
+import { UserActions, UserAPIActions } from '@lbk/user';
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { InvoiceStatus } from '../../../shared';
 import { InvoicesActions, InvoicesAPIActions } from '../../../state';
@@ -34,7 +34,7 @@ export const homeFeature = createFeature({
      * - Create Invoice Success
      */
     on(
-      AuthActions.logout,
+      UserActions.logout,
       InvoicesAPIActions.createInvoiceSuccess,
       () => initialState
     ),

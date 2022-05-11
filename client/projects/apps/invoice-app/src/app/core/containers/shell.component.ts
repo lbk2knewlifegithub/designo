@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CAROUSEL_ROUTE_ANIMATION } from '@lbk/anims';
-import { AuthFacade } from '@lbk/auth';
+import { UserFacade } from '@lbk/user';
 import { Observable } from 'rxjs';
 import { LayoutFacade } from '../../state';
 
@@ -30,12 +30,12 @@ export class ShellComponent implements OnInit {
   loggedIn$!: Observable<boolean>;
 
   constructor(
-    private readonly _authFacade: AuthFacade,
+    private readonly _userFacade: UserFacade,
     private readonly _layoutFacade: LayoutFacade
   ) {}
 
   ngOnInit(): void {
-    this.loggedIn$ = this._authFacade.loggedIn$;
+    this.loggedIn$ = this._userFacade.loggedIn$;
     this._layoutFacade.loadTheme();
   }
 
@@ -47,7 +47,7 @@ export class ShellComponent implements OnInit {
   }
 
   logout() {
-    this._authFacade.logout();
+    this._userFacade.logout();
   }
 
   prepareRoute(outlet: RouterOutlet) {

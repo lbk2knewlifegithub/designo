@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TryLoginGuard } from '@lbk/auth';
+import { TryLoginGuard } from '@lbk/user';
 import { ShellComponent } from './core/containers';
 
 const routes: Routes = [

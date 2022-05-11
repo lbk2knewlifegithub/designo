@@ -2,7 +2,6 @@
  * - Email Settings
  */
 export interface EmailSettings {
-  email_notification_id: number;
   commentOnSolution?: boolean;
   replyOnComment?: boolean;
   mentionInComment?: boolean;
@@ -53,6 +52,7 @@ export interface User {
   points: number;
   links: UserLinks;
   bio: Bio;
+  emailSettings: EmailSettings;
 }
 
 /**

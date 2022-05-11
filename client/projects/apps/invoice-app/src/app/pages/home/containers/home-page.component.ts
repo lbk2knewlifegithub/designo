@@ -5,7 +5,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { AuthFacade } from '@lbk/auth';
+import { UserFacade } from '@lbk/user';
 import { Unsubscriber } from '@lbk/comps';
 import { Observable } from 'rxjs';
 import { Invoice, InvoiceStatus } from '../../../shared';
@@ -32,7 +32,7 @@ export class HomePageComponent extends Unsubscriber implements OnInit {
 
   constructor(
     private readonly _title: Title,
-    private readonly _authFacade: AuthFacade,
+    private readonly _userFacade: UserFacade,
     private readonly _homeFacade: HomeFacade,
     private readonly _invoicesFacade: InvoicesFacade
   ) {
@@ -44,7 +44,7 @@ export class HomePageComponent extends Unsubscriber implements OnInit {
 
     this.invoices$ = this._homeFacade.invoicesFiltered$;
     this.totalInvoices$ = this._homeFacade.totalInvoices$;
-    this.loggedIn$ = this._authFacade.loggedIn$;
+    this.loggedIn$ = this._userFacade.loggedIn$;
 
     this.filterByStatus$ = this._homeFacade.filterByStatus$;
 

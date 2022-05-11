@@ -2,7 +2,7 @@ import { OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { User } from '@lbk/models';
-import { AuthFacade } from '@lbk/auth';
+import { UserFacade } from '@lbk/user';
 import { UpdateUserDTO } from '@lbk/dto';
 import { UserFormComponent } from '../components/user-form.component';
 
@@ -16,11 +16,11 @@ export class ProfilePageComponent implements OnInit {
   updatingProfile$!: Observable<boolean>;
   @ViewChild('userForm', { static: true }) userForm!: UserFormComponent;
 
-  constructor(private readonly _authFacade: AuthFacade) {}
+  constructor(private readonly _userFacade: UserFacade) {}
 
   ngOnInit(): void {
-    this.user$ = this._authFacade.user$ as Observable<User>;
-    this.updatingProfile$ = this._authFacade.updatingProfile$;
+    this.user$ = this._userFacade.user$ as Observable<User>;
+    this.updatingProfile$ = this._userFacade.updatingProfile$;
   }
 
   /**
@@ -29,6 +29,6 @@ export class ProfilePageComponent implements OnInit {
    */
   updateProfile(payload: { updateUserDTO: UpdateUserDTO; avatar?: File }) {
     const { updateUserDTO, avatar } = payload;
-    this._authFacade.updateProfile(updateUserDTO, avatar);
+    this._userFacade.updateProfile(updateUserDTO, avatar);
   }
 }

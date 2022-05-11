@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { AuthFacade } from '@lbk/auth';
+import { UserFacade } from '@lbk/user';
 
 @Component({
   selector: 'lbk-hero',
@@ -8,9 +8,9 @@ import { AuthFacade } from '@lbk/auth';
 })
 export class HeroComponent implements OnInit {
   loginGithubURL!: string;
-  constructor(private _authFacade: AuthFacade) {}
+  constructor(private _userFacade: UserFacade) {}
 
   ngOnInit() {
-    this.loginGithubURL = this._authFacade.loginGithubURL;
+    this.loginGithubURL = this._userFacade.loginGithubURL;
   }
 }

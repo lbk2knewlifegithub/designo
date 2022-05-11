@@ -2,9 +2,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthModule } from '@lbk/auth';
+import { AuthModule } from '@lbk/user';
 import { DDosInterceptor, JwtInterceptor } from '@lbk/interceptors';
-import { LoginOAuthModule } from '@lbk/pages';
+import { LoginModule } from '@lbk/pages';
 import { API_URL, CURRENT_HOST, GITHUB_OAUTH_CLIENT_ID } from '@lbk/tokens';
 import { DialogModule } from '@ngneat/dialog';
 import { MarkdownModule } from 'ngx-markdown';
@@ -29,7 +29,7 @@ import { ChallengesImplService, StateModule } from './state';
     // Shared Auth From Libs
     AuthModule.forRoot(),
     // Shared Pages From Libs
-    LoginOAuthModule,
+    LoginModule,
   ],
   providers: [
     {

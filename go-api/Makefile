@@ -1,10 +1,10 @@
-# Auth
-auth-run:
-	cd auth && go run . 
-auth-watch:
-	cd auth && air	
-auth-tidy:
-	cd auth && go mod tidy && cd -
+# User
+user-run:
+	cd user && go run . 
+user-watch:
+	cd user && air	
+user-tidy:
+	cd user && go mod tidy && cd -
 
 # feedback
 feedback-watch:

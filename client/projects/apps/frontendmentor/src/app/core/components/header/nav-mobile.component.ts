@@ -6,7 +6,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { AuthFacade } from '@lbk/auth';
+import { UserFacade } from '@lbk/user';
 import { identifyLink, Link } from '@lbk/models';
 
 @Component({
@@ -98,11 +98,11 @@ export class NavMobileComponent implements OnInit {
 
   loginGithubURL!: string;
 
-  constructor(private readonly _authFacade: AuthFacade) {}
+  constructor(private readonly _userFacade: UserFacade) {}
 
   ngOnInit(): void {
     this._initLinks();
-    this.loginGithubURL = this._authFacade.loginGithubURL;
+    this.loginGithubURL = this._userFacade.loginGithubURL;
   }
 
   private _initLinks() {
@@ -166,7 +166,7 @@ export class NavMobileComponent implements OnInit {
 
   logout() {
     this.close();
-    this._authFacade.logout();
+    this._userFacade.logout();
   }
 
   close() {

@@ -2,7 +2,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthModule } from '@lbk/auth';
+import { UserModu } from '@lbk/user';
 import { DDosInterceptor, JwtInterceptor } from '@lbk/interceptors';
 import { API_URL, CURRENT_HOST, GITHUB_OAUTH_CLIENT_ID } from '@lbk/tokens';
 import { DialogModule } from '@ngneat/dialog';

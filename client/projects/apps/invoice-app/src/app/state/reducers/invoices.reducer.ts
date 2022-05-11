@@ -1,4 +1,4 @@
-import { AuthActions, AuthApiActions } from '@lbk/auth';
+import { UserActions, UserAPIActions } from '@lbk/user';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 import { Invoice, InvoiceStatus } from '../../shared';
@@ -31,8 +31,8 @@ export const reducer = createReducer(
    * - Reset To Initial State
    */
   on(
-    AuthActions.logout,
-    AuthApiActions.loginWithGithubSuccess,
+    UserActions.logout,
+    UserAPIActions.loginWithGithubSuccess,
     () => initialState
   ),
 

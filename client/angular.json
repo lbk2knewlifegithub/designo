@@ -792,23 +792,23 @@
         }
       }
     },
-    "@libs/auth": {
+    "@libs/user": {
       "projectType": "library",
-      "root": "projects/libs/auth",
-      "sourceRoot": "projects/libs/auth/src",
+      "root": "projects/libs/usere",
+      "sourceRoot": "projects/libs/user/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/libs/auth/ng-package.json"
+            "project": "projects/libs/user/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/libs/auth/tsconfig.lib.prod.json"
+              "tsConfig": "projects/libs/user/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/libs/auth/tsconfig.lib.json"
+              "tsConfig": "projects/libs/user/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -816,9 +816,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/libs/auth/src/test.ts",
-            "tsConfig": "projects/libs/auth/tsconfig.spec.json",
-            "karmaConfig": "projects/libs/auth/karma.conf.js"
+            "main": "projects/libs/user/src/test.ts",
+            "tsConfig": "projects/libs/user/tsconfig.spec.json",
+            "karmaConfig": "projects/libs/user/karma.conf.js"
           }
         }
       }

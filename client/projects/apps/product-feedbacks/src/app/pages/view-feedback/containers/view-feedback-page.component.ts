@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { AuthFacade } from '@lbk/auth';
+import { UserFacade } from '@lbk/user';
 import { Feedback } from '../../../shared';
 import { FeedbacksFacade } from '../../../state';
 import { combineLatest, map, Observable, take } from 'rxjs';
@@ -19,7 +19,7 @@ export class ViewFeedbackPageComponent implements OnInit {
   constructor(
     private readonly _feedbacksFacade: FeedbacksFacade,
     private readonly _facade: ViewFeedbacksFacade,
-    private readonly _authFacade: AuthFacade
+    private readonly _userFacade: UserFacade
   ) {}
 
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class ViewFeedbackPageComponent implements OnInit {
 
     this.isOwnedByUser$ = combineLatest([
       this._feedbacksFacade.selectedFeedback$,
-      this._authFacade.user$,
+      this._userFacade.user$,
     ]).pipe(
       map(([feedback, user]) => {
         if (!feedback || !user) return false;

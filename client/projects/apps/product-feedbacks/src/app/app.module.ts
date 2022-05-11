@@ -2,7 +2,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthModule } from '@lbk/auth';
+import { AuthModule } from '@lbk/user';
 import { JwtInterceptor } from '@lbk/interceptors';
 import { CoreHttpClientModule } from '@lbk/services';
 import { API_URL } from '@lbk/tokens';

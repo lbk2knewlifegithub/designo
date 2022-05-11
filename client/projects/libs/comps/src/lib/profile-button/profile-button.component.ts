@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { AuthFacade } from '@lbk/auth';
+import { UserFacade } from '@lbk/user';
 import { User } from '@lbk/models';
 import { Observable } from 'rxjs';
 
@@ -12,10 +12,10 @@ export class ProfileButtonComponent implements OnInit {
   loggedIn$!: Observable<boolean>;
   user$!: Observable<User>;
 
-  constructor(private readonly _authFacade: AuthFacade) {}
+  constructor(private readonly _userFacade: UserFacade) {}
 
   ngOnInit(): void {
-    this.loggedIn$ = this._authFacade.loggedIn$;
-    this.user$ = this._authFacade.user$ as Observable<User>;
+    this.loggedIn$ = this._userFacade.loggedIn$;
+    this.user$ = this._userFacade.user$ as Observable<User>;
   }
 }
