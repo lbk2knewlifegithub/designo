@@ -39,6 +39,7 @@
 
       <div class="mt-8">
         <lbk-stared-challenge
+          [challengeID]="challenge.id"
           *ngIf="challenge.status; else startFree"
         ></lbk-stared-challenge>
 
@@ -82,6 +83,7 @@
 
     <div class="mt-10 md:mt-14">
       <lbk-stared-challenge
+        [challengeID]="challenge.id"
         *ngIf="challenge.status; else startFree"
       ></lbk-stared-challenge>
 

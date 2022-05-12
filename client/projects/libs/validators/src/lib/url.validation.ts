@@ -5,7 +5,8 @@ import { AbstractControl, ValidationErrors, Validators } from '@angular/forms';
  * @param control
  */
 export const URL = (control: AbstractControl): ValidationErrors | null => {
-  const value = (control.value || '') as string;
+  const value = control.value;
+  if (!value) return null;
 
   // Skip when empty
   const hasRequired = control.hasValidator(Validators.required);

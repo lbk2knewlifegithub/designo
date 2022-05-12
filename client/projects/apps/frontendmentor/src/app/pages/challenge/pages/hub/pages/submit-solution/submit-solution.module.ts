@@ -1,23 +1,30 @@
-import { AddCommentInputComponentModule } from '../../../../../../shared/comps/add-comment-input/add-comment-input.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { SwitchModule } from '@lbk/comps';
+import { SwitchModule, InputModule } from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
 import {
   NewLetterModule,
   QuestionListModule,
   SlackModule,
+  AddCommentInputComponentModule,
 } from '@lbk/fm/shared';
 import { COMPONENTS } from './components';
 import { SubmitSolutionPageComponent } from './containers';
 import { SubmitSolutionRoutingModule } from './submit-solution-routing.module';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   imports: [
     CommonModule,
     SubmitSolutionRoutingModule,
+    ReactiveFormsModule,
+    NgSelectModule,
+
     // Shared Directives From Libs
     ScrollToModule,
+    // Shared Components From Libs
+    InputModule,
 
     // Shared Components From FrontendMentor
     QuestionListModule,

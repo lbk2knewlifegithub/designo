@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Challenge } from '@lbk/fm/shared';
 
 @Component({
   selector: 'lbk-my-challenge-status',
@@ -6,22 +7,22 @@ import { Component } from '@angular/core';
     <div>
       <span class="text-sm md:text-base">Status</span>
       <h2 class="text-warning-50 font-bold text-2xl md:text-3xl">
-        In Progress
+        {{ challenge.status | titlecase }}
       </h2>
     </div>
 
     <ul class="grow flex justify-evenly gap-2 text-sm md:text-base">
       <li class="grid gap-2">
         Likes
-        <span class="w-3 h-1 bg-dark"></span>
+        <lbk-hyphen [value]="challenge.likes"></lbk-hyphen>
       </li>
       <li class="grid gap-2">
         Bookmarks
-        <span class="w-3 h-1 bg-dark"></span>
+        <lbk-hyphen [value]="challenge.bookmarks"></lbk-hyphen>
       </li>
       <li class="grid gap-2">
         Comments
-        <span class="w-3 h-1 bg-dark"></span>
+        <lbk-hyphen [value]="challenge.comments"></lbk-hyphen>
       </li>
     </ul>
   `,
@@ -33,4 +34,6 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class MyChallengeStatusComponent {}
+export class MyChallengeStatusComponent {
+  @Input() challenge!: Challenge;
+}

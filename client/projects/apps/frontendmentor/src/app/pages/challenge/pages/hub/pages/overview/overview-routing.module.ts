@@ -4,7 +4,7 @@ import { OverviewPageComponent } from './containers';
 
 const routes: Routes = [
   {
-    path: ':challenge_id',
+    path: '',
     component: OverviewPageComponent,
   },
 ];

@@ -243,7 +243,7 @@ func (u *user) UpdateEmailSettings(tx pgx.Tx, userID *string, emailSettingsDTO *
 
 // Create Default Email Settings
 func (u *user) CreateDefaultEmailSettings(tx pgx.Tx, userID *string) error {
-	query := `INSERT INTO public.email_settings(user_id) VALUE($1);`
+	query := `INSERT INTO public.email_settings (user_id) VALUES ($1);`
 
 	_, err := tx.Exec(
 		context.Background(),

@@ -1,4 +1,4 @@
-import { EmailSettings } from './../../../../models/src/lib/user.model';
+import { EmailSettings } from '@lbk/models';
 import { ChangePasswordDTO, CreateUserDTO, UpdateUserDTO } from '@lbk/dto';
 import { createAction, props } from '@ngrx/store';
 

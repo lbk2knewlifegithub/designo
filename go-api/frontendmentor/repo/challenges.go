@@ -21,8 +21,14 @@ func (ch *challenge) AllChallenges(conn *pgx.Conn) (*[]models.Challenge, error) 
 	query := `
 	SELECT 
 		challenge_id,  
-		(SELECT count(*) FROM public.users_challenges) AS started_count, 
-		(SELECT count(*) FROM public.users_challenges uc WHERE uc.completed = true) AS completed_count, 
+		(SELECT count(*) 
+		FROM public.users_challenges uc 
+		WHERE uc.challenge_id = c.challenge_id) AS started_count, 
+
+		(SELECT count(*) 
+		FROM public.users_challenges uc 
+		WHERE uc.completed = true AND uc.challenge_id = c.challenge_id) AS completed_count, 
+
 		title,
 		hero_image, 
 		description,
@@ -94,8 +100,14 @@ func (ch *challenge) AllChallengeWithUserID(conn *pgx.Conn, userID *string) (*[]
 	query := `
 	SELECT 
 		challenge_id,  
-		(SELECT count(*) FROM public.users_challenges) AS started_count, 
-		(SELECT count(*) FROM public.users_challenges uc WHERE uc.completed = true) AS completed_count, 
+		(SELECT count(*) 
+		FROM public.users_challenges uc 
+		WHERE uc.challenge_id = c.challenge_id) AS started_count, 
+
+		(SELECT count(*) 
+		FROM public.users_challenges uc 
+		WHERE uc.completed = true AND uc.challenge_id = c.challenge_id) AS completed_count, 
+
 		title,
 		hero_image, 
 		description,
@@ -173,11 +185,19 @@ func (ch *challenge) AllChallengeWithUserID(conn *pgx.Conn, userID *string) (*[]
 
 // Get Challenge With User ID
 func (ch *challenge) GetChallengeWithUserID(conn *pgx.Conn, userID *string, challengeID *string) (*models.Challenge, error) {
+	log.Println(*challengeID)
 	query := `
 	SELECT 
 		challenge_id,  
-		(SELECT count(*) FROM public.users_challenges) AS started_count, 
-		(SELECT count(*) FROM public.users_challenges uc WHERE uc.completed = true) AS completed_count, 
+
+		(SELECT count(*) 
+		FROM public.users_challenges uc 
+		WHERE uc.challenge_id = $1) AS started_count, 
+
+		(SELECT count(*) 
+		FROM public.users_challenges uc 
+		WHERE uc.completed = true AND uc.challenge_id = $1) AS completed_count, 
+
 		title,
 		hero_image, 
 		description,
@@ -208,12 +228,12 @@ func (ch *challenge) GetChallengeWithUserID(conn *pgx.Conn, userID *string, chal
 			ELSE NULL
 			END AS status
 		FROM public.users_challenges uc
-		WHERE uc.user_id = $1 AND uc.challenge_id = c.challenge_id) AS status
+		WHERE uc.user_id = $2 AND uc.challenge_id = c.challenge_id) AS status
 
-	FROM public.challenges AS c WHERE c.challenge_id = $2;
+	FROM public.challenges AS c WHERE c.challenge_id = $1;
 	`
 
-	row := conn.QueryRow(context.Background(), query, *userID, *challengeID)
+	row := conn.QueryRow(context.Background(), query, *challengeID, *userID)
 	var challenge models.Challenge
 
 	if err := row.Scan(
@@ -247,8 +267,14 @@ func (ch *challenge) GetChallenge(conn *pgx.Conn, challengeID *string) (*models.
 	query := `
 	SELECT 
 		challenge_id,  
-		(SELECT count(*) FROM public.users_challenges) AS started_count, 
-		(SELECT count(*) FROM public.users_challenges uc WHERE uc.completed = true) AS completed_count, 
+		(SELECT count(*) 
+		FROM public.users_challenges uc 
+		WHERE uc.challenge_id = $1) AS started_count, 
+
+		(SELECT count(*) 
+		FROM public.users_challenges uc 
+		WHERE uc.completed = true AND uc.challenge_id = $1) AS completed_count, 
+
 		title,
 		hero_image, 
 		description,

@@ -1,3 +1,4 @@
+import { ChallengeStatus } from './../../shared/models/challenge.model';
 import { selectStartingChallenge } from './../selectors/challenges.selectors';
 import { DialogService } from '@ngneat/dialog';
 import { Inject, Injectable } from '@angular/core';
@@ -156,16 +157,24 @@ export class ChallengesFacade {
    * - Has Challenge In Store
    * @param challenge_id
    */
-  hasChallengeInStore(id: string): Observable<boolean> {
+  hasChallengeInStore(id: string, started?: boolean): Observable<boolean> {
     return this._store.select(fromChallanges.selectChallangeEntities).pipe(
-      map((entities) => entities[id]),
-      map((invoice) => !!invoice),
       take(1),
-      tap((result) => {
-        if (!result) return;
+      map((entities) => entities[id]),
+      map((challenge) => {
+        if (!challenge) return false;
 
-        console.log('load challenge from store');
-        this.selectChallenge(id);
+        if (!started) {
+          this.selectChallenge(id);
+          return true;
+        }
+
+        if (!!challenge.status) {
+          this.selectChallenge(id);
+          return true;
+        }
+
+        return false;
       })
     );
   }
@@ -174,18 +183,27 @@ export class ChallengesFacade {
    * - Has Challenge In Api
    * @param challenge_id
    */
-  hasChallengeInAPI(id: string): Observable<boolean> {
+  hasChallengeInAPI(id: string, started?: boolean): Observable<boolean> {
     return this._challengesService.retrieveChallenge(id).pipe(
       take(1),
-      tap((challenge) => {
-        if (!challenge) return;
+      map((challenge) => {
+        if (!challenge) return false;
 
-        console.log('load challenge from api');
+        if (!started) {
+          this._store.dispatch(ChallengesActions.loadChallenge({ challenge }));
+          this.selectChallenge(challenge.id);
 
-        this._store.dispatch(ChallengesActions.loadChallenge({ challenge }));
-        this.selectChallenge(challenge.id);
+          return true;
+        }
+
+        if (!!challenge.status) {
+          this._store.dispatch(ChallengesActions.loadChallenge({ challenge }));
+          this.selectChallenge(challenge.id);
+          return true;
+        }
+
+        return false;
       }),
-      map(() => true),
       catchError(() => of(false))
     );
   }

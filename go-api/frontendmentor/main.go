@@ -23,6 +23,7 @@ func main() {
 
 	// Register Handler
 	handlers.ChallengeHandlers(app)
+	handlers.SolutionHandlers(app)
 
 	log.Println("Server started on ", host)
 	log.Fatal(app.Listen(host))

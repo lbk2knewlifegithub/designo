@@ -16,10 +16,6 @@ export interface LengthError {
       input.ng-invalid.ng-touched {
         @apply border-2 border-red-500;
       }
-
-      .error {
-        @apply text-red-500 font-bold italic text-xs;
-      }
     `,
   ],
 })

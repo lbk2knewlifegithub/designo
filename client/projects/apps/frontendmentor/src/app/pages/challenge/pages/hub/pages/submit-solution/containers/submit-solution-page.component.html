@@ -1,7 +1,9 @@
 <main class="mb-20 container">
-  <lbk-submit-form
+  <lbk-solution-form
+    (createSolution)="createSolution($event)"
+    [solution]="solution$ | async"
     class="mt-10 block max-w-[798px] mx-auto md:mt-14"
-  ></lbk-submit-form>
+  ></lbk-solution-form>
 
   <lbk-slack class="block mt-28 lg:mt-[120px] 2xl:mt-[124px]"></lbk-slack>
 

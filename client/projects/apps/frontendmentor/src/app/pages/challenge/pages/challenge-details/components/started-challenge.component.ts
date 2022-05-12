@@ -13,7 +13,7 @@ import { Component, Input } from '@angular/core';
     <!-- Visit Challenge Hub -->
     <div>
       <a
-        [routerLink]="['/challenge/hub/overview', challengeID]"
+        [routerLink]="['/challenge/hub/' + challengeID + '/overview']"
         class="btn btn-primary italic px-6 font-bold tracking-widest md:px-10"
       >
         VISIT CHALLENGE HUB

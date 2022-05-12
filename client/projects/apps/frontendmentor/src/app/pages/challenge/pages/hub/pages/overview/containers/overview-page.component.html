@@ -1,21 +1,29 @@
 <main class="mb-20">
   <!-- Hero -->
-  <lbk-hero></lbk-hero>
+  <lbk-hero [challenge]="(challenge$ | async)!"></lbk-hero>
   <!-- end Hero -->
-  <lbk-cards></lbk-cards>
+
+  <lbk-cards [challenge]="(challenge$ | async)!"></lbk-cards>
 
   <section
     class="container-poll flex flex-col mt-4 md:flex-row md:gap-8 lg:gap-14 lg:mt-10"
   >
     <div class="grid grow gap-8">
-      <lbk-my-challenge-status class="block mt-4"></lbk-my-challenge-status>
+      <lbk-my-challenge-status
+        [challenge]="(challenge$ | async)!"
+        class="block mt-4"
+      ></lbk-my-challenge-status>
+
       <lbk-brief></lbk-brief>
 
       <lbk-get-started></lbk-get-started>
     </div>
 
     <div class="md:h-0">
-      <lbk-stats class="block mt-4 min-w-[232px]"></lbk-stats>
+      <lbk-stats
+        [challenge]="(challenge$ | async)!"
+        class="block mt-4 min-w-[232px]"
+      ></lbk-stats>
     </div>
   </section>
 

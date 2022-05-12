@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Challenge } from '@lbk/fm/shared';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'lbk-stats',
@@ -8,7 +9,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <h3 class="font-bold tracking-widest text-lg md:text-base">DIFFICULTY</h3>
 
       <div>
-        <lbk-difficulty difficulty="junior"></lbk-difficulty>
+        <lbk-difficulty [difficulty]="challenge.difficulty"></lbk-difficulty>
       </div>
     </div>
 
@@ -17,14 +18,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <ul>
         <!-- Started -->
         <li>
-          <strong> 3,085 </strong>
+          <strong>{{ challenge.startedCount }}</strong>
           <span> people have started this challenge </span>
         </li>
         <!-- end Started -->
 
         <!-- Completed -->
         <li>
-          <strong> 197 </strong>
+          <strong> {{ challenge.completedCount | number }} </strong>
           <span> people have completed this challenge </span>
         </li>
         <!-- end Completed -->
@@ -53,4 +54,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     `,
   ],
 })
-export class StatsComponent {}
+export class StatsComponent {
+  @Input() challenge!: Challenge;
+}

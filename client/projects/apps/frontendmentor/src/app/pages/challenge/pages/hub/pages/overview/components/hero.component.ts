@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Challenge } from '@lbk/fm/shared';
 
 @Component({
   selector: 'lbk-hero',
@@ -9,7 +10,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     >
       <img
         class="absolute w-full h-full object-cover  inset-0 z-[-1]"
-        src="https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/rlaxdjplmeul4qe1qvh6.jpg"
+        [src]="challenge.heroImage"
         alt=""
       />
 
@@ -17,11 +18,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         <div class="text-center">
           <h1 class="font-bold tracking-widest">CHALLENGE HUB</h1>
           <h2 class="text-4xl mx-auto max-w-[712px] mt-3 md:mt-6 lg:text-5xl">
-            Intro section with dropdown navigation
+            {{ challenge.title }}
           </h2>
         </div>
 
         <div class="flex justify-between items-center mt-10 md:mt-16 lg:mt-20">
+          <!-- Attemps -->
           <div class="flex gap-2 items-center md:gap-3">
             <span class="text-sm md:text-base"> Attemps: </span>
             <ul class="font-bold inline-flex gap-2 md:gap-3">
@@ -37,6 +39,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
               </li>
             </ul>
           </div>
+          <!-- end Attemps -->
 
           <!-- Follow -->
           <button
@@ -55,4 +58,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     </section>
   `,
 })
-export class HeroComponent {}
+export class HeroComponent {
+  @Input() challenge!: Challenge;
+}

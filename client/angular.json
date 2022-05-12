@@ -1318,6 +1318,37 @@
           }
         }
       }
+    },
+    "@libs/rxjs": {
+      "projectType": "library",
+      "root": "projects/libs/rxjs",
+      "sourceRoot": "projects/libs/rxjs/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/libs/rxjs/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/libs/rxjs/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/libs/rxjs/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/libs/rxjs/src/test.ts",
+            "tsConfig": "projects/libs/rxjs/tsconfig.spec.json",
+            "karmaConfig": "projects/libs/rxjs/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "designo"

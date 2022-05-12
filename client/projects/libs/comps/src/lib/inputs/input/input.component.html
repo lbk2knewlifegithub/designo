@@ -3,8 +3,13 @@
   <ng-container *ngIf="input.groupName; else noGroup">
     <div class="form-control" [formGroupName]="input.groupName">
       <label class="label" [for]="input.controlName">
-        {{ input.label | titlecase }}
+        {{ input.label }}
       </label>
+
+      <!-- Sub Header -->
+      <ng-content select=".sub-header"></ng-content>
+      <!-- end Sub Header -->
+
       <input
         class="input"
         [id]="input.controlName"

@@ -67,8 +67,14 @@ export interface Challenge {
   type: ChallengeType;
   gallery: Gallery;
   status?: ChallengeStatus;
+  staterURL: string;
+  startedCount: number;
+  completedCount: number;
   ideas: string;
   brief: string;
+  likes: number;
+  bookmarks: number;
+  comments: number;
 }
 
 /**

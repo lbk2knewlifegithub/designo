@@ -4,11 +4,11 @@ import { UserMinimal } from '@lbk/models';
  * - Solution
  */
 export interface Solution {
-  solution_id: number;
+  id: string;
   title: string;
   repoURL: string;
   liveSiteURL: string;
-  image: string;
+  screenshot: string;
   tags: string[];
   questions: string;
   createdAt: string;
@@ -25,7 +25,7 @@ export interface Solution {
 /**
  * - Identify Solution
  */
-export const identifySolution = (_: number, { solution_id }: Solution) =>
+export const identifySolution = (_: number, { id: solution_id }: Solution) =>
   solution_id;
 
 /**
@@ -33,9 +33,9 @@ export const identifySolution = (_: number, { solution_id }: Solution) =>
  */
 export type SolutionMinimal = Pick<
   Solution,
-  | 'solution_id'
+  | 'id'
   | 'title'
-  | 'image'
+  | 'screenshot'
   | 'tags'
   | 'createdAt'
   | 'likes'
@@ -49,5 +49,5 @@ export type SolutionMinimal = Pick<
  */
 export const identifySolutionMinimal = (
   _: number,
-  { solution_id }: SolutionMinimal
+  { id: solution_id }: SolutionMinimal
 ) => solution_id;

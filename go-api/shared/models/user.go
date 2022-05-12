@@ -22,6 +22,15 @@ type User struct {
 	Links         UserLinks     `json:"links,omitempty"`
 }
 
+type UserMini struct {
+	ID        string `json:"id"`
+	Name      string `json:"name"`
+	Username  string `json:"username"`
+	Avatar    string `json:"avatar"`
+	Points    string `json:"points"`
+	IsPremium string `json:"isPremium"`
+}
+
 type UserGithub struct {
 	Name      string `json:"name"`
 	Login     string `json:"login"`

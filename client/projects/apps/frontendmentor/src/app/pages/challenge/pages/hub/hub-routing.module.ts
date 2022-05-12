@@ -1,11 +1,13 @@
+import { HubGuard } from './guards';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HubPageComponent } from './containers/hub-page.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: HubPageComponent,
+    canActivate: [HubGuard],
     children: [
       {
         path: 'overview',

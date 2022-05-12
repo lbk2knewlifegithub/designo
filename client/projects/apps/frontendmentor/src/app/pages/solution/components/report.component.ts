@@ -38,7 +38,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
         <!-- View Report Button -->
         <div class="flex justify-center mt-4 sm:mt-8">
           <a
-            [routerLink]="['/report', solution.solution_id]"
+            [routerLink]="['/report', solution.id]"
             class="btn btn-white px-12 font-bold"
             >VIEW REPORT</a
           >

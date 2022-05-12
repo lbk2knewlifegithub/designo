@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { DialogService } from '@ngneat/dialog';
 import { AboutPrivateSolutionsComponent } from '../../about-private-solution.component';
 
@@ -22,7 +23,7 @@ import { AboutPrivateSolutionsComponent } from '../../about-private-solution.com
       <span>Public</span>
 
       <!-- Switch -->
-      <lbk-switch></lbk-switch>
+      <lbk-switch name="isPrivate" [parent]="parent"></lbk-switch>
       <!-- end Switch -->
 
       <div class="flex gap-2 items-center">
@@ -33,6 +34,7 @@ import { AboutPrivateSolutionsComponent } from '../../about-private-solution.com
   `,
 })
 export class PrivateSolutionInputComponent {
+  @Input() parent!: FormGroup;
   constructor(private readonly _dialogService: DialogService) {}
 
   /**

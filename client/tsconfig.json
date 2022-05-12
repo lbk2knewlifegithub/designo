@@ -202,6 +202,10 @@
         "dist/libs/pages/libs-pages",
         "dist/libs/pages"
       ],
+      "@libs/rxjs": [
+        "dist/libs/rxjs/libs-rxjs",
+        "dist/libs/rxjs"
+      ],
       "@libs/pipes": [
         "dist/libs/pipes/libs-pipes",
         "dist/libs/pipes"

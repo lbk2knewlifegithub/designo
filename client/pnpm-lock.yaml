@@ -15,6 +15,7 @@ specifiers:
   '@angular/platform-browser': ~13.2.0
   '@angular/platform-browser-dynamic': ~13.2.0
   '@angular/router': ~13.2.0
+  '@ng-select/ng-select': ^8.1.1
   '@ngneat/dialog': ^2.1.0
   '@ngrx/effects': ^13.2.0
   '@ngrx/entity': ^13.2.0
@@ -56,6 +57,7 @@ dependencies:
   '@angular/platform-browser': 13.2.7_b78ed31d39db3a0743cc65f22f72226f
   '@angular/platform-browser-dynamic': 13.2.7_aa82ce30927f2b99723e23d9f57bdb1c
   '@angular/router': 13.2.7_57d78c2fd33647bdfd4b41ba21f3d17d
+  '@ng-select/ng-select': 8.1.1_3b853ec277d5fecf4fceee8253881044
   '@ngneat/dialog': 2.1.0_@angular+core@13.2.7
   '@ngrx/effects': 13.2.0_4d1a9b3f6f6b03ba2f988fd5abe412d5
   '@ngrx/entity': 13.2.0_4d1a9b3f6f6b03ba2f988fd5abe412d5
@@ -1746,6 +1748,20 @@ packages:
       '@jridgewell/resolve-uri': 3.0.7
       '@jridgewell/sourcemap-codec': 1.4.13
     dev: true
+
+  /@ng-select/ng-select/8.1.1_3b853ec277d5fecf4fceee8253881044:
+    resolution: {integrity: sha512-CP9Pve3L1aGqej38T9utdd6Waobbybwe9QIEObwicBI5fiIMAXwKT6lFT3fDLTUK/79y5nebiGtwTBfMm71Psg==}
+    engines: {node: '>= 12.20.0', npm: '>= 6.0.0'}
+    peerDependencies:
+      '@angular/common': '>=13.0.0 <14.0.0'
+      '@angular/core': '>=13.0.0 <14.0.0'
+      '@angular/forms': '>=13.0.0 <14.0.0'
+    dependencies:
+      '@angular/common': 13.2.7_@angular+core@13.2.7+rxjs@7.5.5
+      '@angular/core': 13.2.7_rxjs@7.5.5+zone.js@0.11.5
+      '@angular/forms': 13.2.7_57d78c2fd33647bdfd4b41ba21f3d17d
+      tslib: 2.4.0
+    dev: false
 
   /@ngneat/dialog/2.1.0_@angular+core@13.2.7:
     resolution: {integrity: sha512-DKVu2q9k+MH2wCh8buKR+FqJRQdXm7pSi694B1NlzSrZIYNG01vFsGHVubbPSLOKkTr+qSMUrm9t0KGTQdWG8g==}

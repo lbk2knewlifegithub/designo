@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  NgModule,
+} from '@angular/core';
 import { DialogService } from '@ngneat/dialog';
 import { MarkdownGuideComponent } from './markdown-guide/markdown-guide.component';
 
@@ -19,7 +24,7 @@ import { MarkdownGuideComponent } from './markdown-guide/markdown-guide.componen
 
     <textarea class="w-full p-4 mt-2" rows="10"></textarea>
 
-    <div class="mt-2 flex justify-end">
+    <div *ngIf="shownSubmitButton" class="mt-2 flex justify-end">
       <button class="btn btn-error font-bold italic tracking-widest px-10">
         POST FEEDBACK
       </button>
@@ -34,6 +39,7 @@ import { MarkdownGuideComponent } from './markdown-guide/markdown-guide.componen
   ],
 })
 export class AddCommmentInputComponent {
+  @Input() shownSubmitButton!: boolean;
   constructor(private readonly _dialogService: DialogService) {}
 
   /**
