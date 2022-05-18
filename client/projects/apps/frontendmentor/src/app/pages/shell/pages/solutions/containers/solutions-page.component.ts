@@ -1,4 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Solution } from '@lbk/fm/shared';
+import { Observable } from 'rxjs';
+import { SolutionsFacade } from '@lbk/fm/state';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lbk-solutions-page',
@@ -12,4 +15,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     `,
   ],
 })
-export class SolutionsPageComponent {}
+export class SolutionsPageComponent implements OnInit {
+  solutions$!: Observable<Solution[]>;
+  constructor(private readonly _solutionsFacade: SolutionsFacade) {}
+
+  ngOnInit(): void {
+    this.solutions$ = this._solutionsFacade.allSolutions$;
+    this._solutionsFacade.loadSolutions();
+  }
+}

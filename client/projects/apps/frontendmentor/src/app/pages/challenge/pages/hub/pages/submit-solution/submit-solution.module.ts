@@ -1,7 +1,7 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { SwitchModule, InputModule } from '@lbk/comps';
+import { SwitchModule, InputModule, SpinnerModule } from '@lbk/comps';
 import { ScrollToModule } from '@lbk/directives';
 import {
   NewLetterModule,
@@ -25,6 +25,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ScrollToModule,
     // Shared Components From Libs
     InputModule,
+    SpinnerModule,
 
     // Shared Components From FrontendMentor
     QuestionListModule,

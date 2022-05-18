@@ -23,23 +23,11 @@ type User struct {
 }
 
 type UserMini struct {
-	ID        string `json:"id"`
-	Name      string `json:"name"`
-	Username  string `json:"username"`
-	Avatar    string `json:"avatar"`
-	Points    string `json:"points"`
-	IsPremium string `json:"isPremium"`
-}
-
-type UserGithub struct {
-	Name      string `json:"name"`
-	Login     string `json:"login"`
-	AvatarUrl string `json:"avatar_url"`
-	Email     string `json:"email"`
-	HTML_URL  string `json:"html_url"`
-}
-
-type UserToken struct {
-	ID    string `json:"id"`
-	Admin bool   `json:"admin"`
+	ID           string `json:"id"`
+	Name         string `json:"name"`
+	Username     string `json:"username"`
+	Avatar       string `json:"avatar"`
+	AvatarGithub string `json:"avatarGithub"`
+	Points       uint   `json:"points"`
+	IsPremium    bool   `json:"isPremium"`
 }

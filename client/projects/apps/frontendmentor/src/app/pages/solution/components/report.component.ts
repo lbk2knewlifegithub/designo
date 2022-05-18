@@ -1,5 +1,5 @@
-import { Solution } from '@lbk/fm/shared';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Solution } from '@lbk/fm/shared';
 
 @Component({
   selector: 'lbk-report',
@@ -14,6 +14,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
         </div>
 
         <ul class="mt-6 sm:flex sm:justify-center sm:text-cener sm:gap-32">
+          <!-- A11y -->
           <li
             class="flex items-center justify-between py-3 sm:flex-col sm:gap-2"
           >
@@ -21,9 +22,11 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
               ACCESSIBILITY <br />
               ISSUES
             </span>
-            <strong class="text-4xl"> 26 </strong>
+            <strong class="text-4xl"> {{ report.a11y || 0 | number }} </strong>
           </li>
+          <!-- end A11y -->
 
+          <!-- HtmlValidator -->
           <li
             class="flex items-center justify-between py-3 border-t sm:border-0 sm:flex-col sm:gap-2"
           >
@@ -31,8 +34,11 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
               HTML <br />
               ISSUES
             </span>
-            <strong class="text-4xl">26</strong>
+            <strong class="text-4xl">{{
+              report.htmlValidator || 0 | number
+            }}</strong>
           </li>
+          <!-- end HtmlValidator -->
         </ul>
 
         <!-- View Report Button -->
@@ -50,4 +56,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class ReportComponent {
   @Input() solution!: Solution;
+
+  get report() {
+    return this.solution.report;
+  }
 }

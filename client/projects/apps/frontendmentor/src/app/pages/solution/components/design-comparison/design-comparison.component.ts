@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Solution } from '@lbk/fm/shared';
 
 @Component({
   selector: 'lbk-design-comparison',
@@ -40,4 +41,6 @@ import { Component } from '@angular/core';
     </section>
   `,
 })
-export class DesignComparisonComponent {}
+export class DesignComparisonComponent {
+  @Input() solution!: Solution;
+}

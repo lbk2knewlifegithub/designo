@@ -31,9 +31,9 @@ import {
         }
       }
 
-      .upvoted {
+      /* .upvoted {
         @apply bg-primary-200 text-white;
-      }
+      } */
     `,
   ],
 })

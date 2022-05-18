@@ -1,7 +1,7 @@
+import { Solution } from '@lbk/fm/shared';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
-import { Solution } from '@lbk/fm/shared';
-import { HubAPIActions, HubActions } from '../actions';
+import { HubActions, HubAPIActions } from '../actions';
 
 export const hubFeatureKey = 'hub';
 
@@ -10,7 +10,7 @@ export interface State extends EntityState<Solution> {
   loadingSolutions: boolean;
   selectedSolutionID: string | null;
   updatingSolution: boolean;
-  creatingSolution: boolean;
+  submittingSolution: boolean;
 }
 
 export const adapter: EntityAdapter<Solution> = createEntityAdapter<Solution>({
@@ -24,7 +24,7 @@ export const initialState: State = adapter.getInitialState({
   loadingSolutions: false,
   startingChallenge: false,
   updatingSolution: false,
-  creatingSolution: false,
+  submittingSolution: false,
 });
 
 export const reducer = createReducer(
@@ -63,19 +63,19 @@ export const reducer = createReducer(
    */
   on(HubActions.createSolution, (state) => ({
     ...state,
-    creatingSolution: true,
+    submittingSolution: true,
   })),
 
   /**
    * - Create Solution Success
    */
-  // on(HubAPIActions.createSolutionSuccess, (state, {id, dto }) =>
-  //   adapter.addOne({...dto, id}, {
-  //     ...state,
-  //     error: null,
-  //     creatingSolution: false
-  //   })
-  // ),
+  on(HubAPIActions.createSolutionSuccess, (state, { solution }) => {
+    return adapter.addOne(solution, {
+      ...state,
+      error: null,
+      submittingSolution: false,
+    });
+  }),
 
   /**
    * - Create Solution Failure
@@ -83,7 +83,44 @@ export const reducer = createReducer(
   on(HubAPIActions.createSolutionFailure, (state, { error }) => ({
     ...state,
     error,
-    creatingSolution: false,
+    submittingSolution: false,
+  })),
+
+  /**
+   * - Update Solution
+   */
+  on(HubActions.updateSolution, (state) => ({
+    ...state,
+    updatingSolution: true,
+  })),
+
+  /**
+   * - Update Solution Success
+   */
+  on(HubAPIActions.updateSolutionSuccess, (state, { id, screenshot, dto }) =>
+    adapter.updateOne(
+      {
+        id,
+        changes: {
+          ...dto,
+          screenshot,
+        },
+      },
+      {
+        ...state,
+        error: null,
+        updatingSolution: false,
+      }
+    )
+  ),
+
+  /**
+   * - Update Solution Failure
+   */
+  on(HubAPIActions.updateSolutionFailure, (state, { error }) => ({
+    ...state,
+    error,
+    updatingSolution: false,
   })),
 
   /**
@@ -100,4 +137,4 @@ export const getId = (state: State) => state.selectedSolutionID;
 export const getLoadedSolutions = (state: State) => state.loadedSolutions;
 export const getLoadingSolutions = (state: State) => state.loadingSolutions;
 export const getUpdatingSolution = (state: State) => state.updatingSolution;
-export const getCreatingSolution = (state: State) => state.creatingSolution;
+export const getCreatingSolution = (state: State) => state.submittingSolution;

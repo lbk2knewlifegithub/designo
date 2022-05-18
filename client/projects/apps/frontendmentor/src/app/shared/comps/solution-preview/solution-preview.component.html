@@ -1,0 +1,89 @@
+<!-- Challenge Image -->
+<lbk-image
+  classImage="duration-300 w-full hover:scale-110"
+  [alt]="solution.title"
+  [singleImage]="solution | screenshot"
+></lbk-image>
+<!-- end Challenge Image -->
+
+<div class="p-6">
+  <!-- Title -->
+  <a
+    [routerLink]="['/solution', solution.id]"
+    class="text-2xl font-medium font-heading lg:text-2xl hover:underline"
+  >
+    {{ solution.title }}
+  </a>
+  <!-- end Title -->
+
+  <div class="flex justify-between items-end mt-1 sm:mt-2 lg:mt-4">
+    <!-- Languages -->
+    <lbk-language-list [languages]="solution.languages"></lbk-language-list>
+    <!-- end Languages -->
+
+    <ul class="inline-flex gap-4">
+      <!-- Number Of Comments -->
+      <lbk-number-of of="comment" [bold]="solution.isCommented">
+        {{ solution.comments }}
+      </lbk-number-of>
+      <!-- end Number of Comments -->
+
+      <!-- Number Of Likes -->
+      <lbk-number-of of="likes" [bold]="solution.isLiked">
+        {{ solution.likes }}
+      </lbk-number-of>
+      <!-- end Number of Likes -->
+
+      <!-- Number Of Bookmark -->
+      <lbk-number-of [bold]="solution.isBookmarked" of="bookmarks">
+        {{ solution.bookmarks }}
+      </lbk-number-of>
+      <!-- end Number of Bookmark -->
+    </ul>
+  </div>
+
+  <!-- User -->
+  <div class="flex items-center gap-3 py-3 border-t mt-2">
+    <!-- User Image -->
+    <img
+      class="w-12 h-12 rounded-full"
+      [src]="user | avatar"
+      [alt]="user.name"
+    />
+    <!-- end User Image -->
+
+    <div class="grid">
+      <div class="font-medium text-sm inline-flex items-center gap-2">
+        <!-- User Name -->
+        <a routerLink="/">{{ user.name }}</a>
+        <!-- end User Name -->
+
+        <span class="w-1 h-1 rounded-full bg-dark"></span>
+
+        <!-- Point -->
+        <span class="font-bold text-primary">{{ user.points }}</span>
+        <!-- end Point -->
+      </div>
+
+      <div class="text-xs text-secondary italic">
+        <!-- Github Username -->
+        <h4>@{{ user.username }}</h4>
+        <!-- end Github Username -->
+
+        <!-- Github Username -->
+        <span>Submitted about 1 hour ago</span>
+        <!-- end Github Username -->
+      </div>
+    </div>
+  </div>
+  <!-- end User -->
+
+  <!-- Questions -->
+  <p
+    *ngIf="shownQuestions"
+    class="text-sm text-secondary pt-3 border-t mt-3 lg:text-base lg:mt-5"
+  >
+    {{ solution.questions }}
+  </p>
+  <!-- end Questions -->
+</div>

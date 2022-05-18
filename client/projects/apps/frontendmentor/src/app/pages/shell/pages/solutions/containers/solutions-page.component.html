@@ -7,8 +7,9 @@
           [routerLinkActiveOptions]="{ exact: true }"
           routerLinkActive="active"
           routerLink="/shell/solutions"
-          >Feedback requested</a
         >
+          Feedback requested
+        </a>
       </li>
 
       <li>
@@ -16,8 +17,9 @@
           routerLinkActive="active"
           [queryParams]="{ tab: 'all' }"
           routerLink="/shell/solutions"
-          >All solutions</a
         >
+          All solutions
+        </a>
       </li>
     </ul>
   </section>
@@ -26,8 +28,8 @@
   <!-- Solution Preview List -->
   <section class="container-poll mt-8">
     <ul class="grid gap-6 justify-items-center md:grid-cols-2 lg:grid-cols-3">
-      <li *ngFor="let item of [1, 2, 3, 4, 5, 6]">
-        <lbk-solution-preview></lbk-solution-preview>
+      <li *ngFor="let solution of solutions$ | async">
+        <lbk-solution-preview [solution]="solution"></lbk-solution-preview>
       </li>
     </ul>
   </section>

@@ -1,5 +1,5 @@
 import { Inject, NgModule, Pipe, PipeTransform } from '@angular/core';
-import { API_URL, DEFAULT_AVATAR } from '@lbk/tokens';
+import { API_URL } from '@lbk/tokens';
 
 @Pipe({
   name: 'avatar',

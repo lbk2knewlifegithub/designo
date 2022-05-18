@@ -1,7 +1,5 @@
-import { ChallengeStatus } from './../../shared/models/challenge.model';
-import { selectStartingChallenge } from './../selectors/challenges.selectors';
-import { DialogService } from '@ngneat/dialog';
 import { Inject, Injectable } from '@angular/core';
+import { DialogService } from '@ngneat/dialog';
 import { Store } from '@ngrx/store';
 import {
   BehaviorSubject,
@@ -11,7 +9,6 @@ import {
   Observable,
   of,
   take,
-  tap,
 } from 'rxjs';
 import {
   Challenge,

@@ -104,4 +104,4 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
   exports: [TimeAgoPipe],
   declarations: [TimeAgoPipe],
 })
-export class TimeAgoModule {}
+export class TimeAgoPipeModule {}

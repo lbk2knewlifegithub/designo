@@ -1,7 +1,7 @@
 package models
 
 type UserLinks struct {
-	Github        string `json:"github,omitempty"`
+	Github        string `json:"oauth,omitempty"`
 	Twitter       string `json:"twitter,omitempty"`
 	DevTo         string `json:"devTo,omitempty"`
 	HashNode      string `json:"hashnode,omitempty"`

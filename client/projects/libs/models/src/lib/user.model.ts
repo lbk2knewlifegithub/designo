@@ -60,7 +60,13 @@ export interface User {
  */
 export type UserMinimal = Pick<
   User,
-  'name' | 'username' | 'avatar' | 'points' | 'isPremium'
+  | 'id'
+  | 'name'
+  | 'username'
+  | 'avatar'
+  | 'avatarGithub'
+  | 'points'
+  | 'isPremium'
 >;
 
 /**

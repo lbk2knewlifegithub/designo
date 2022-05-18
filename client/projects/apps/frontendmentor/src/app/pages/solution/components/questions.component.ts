@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Solution } from '@lbk/fm/shared';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'lbk-questions',
@@ -16,7 +17,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
           LE BINH KHANG'S QUESTIONS FOR COMMUNITY
         </h4>
 
-        <p class="mt-4">Any feedback is appreciated</p>
+        <!-- Questions Content-->
+        <p class="mt-4">{{ solution.questions }}</p>
+        <!-- end Questions Content-->
       </div>
 
       <div class="mt-16 max-w-[736px] mx-auto md:mt-20 ">
@@ -53,4 +56,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     </section>
   `,
 })
-export class QuestionsComponent {}
+export class QuestionsComponent {
+  @Input() solution!: Solution;
+}

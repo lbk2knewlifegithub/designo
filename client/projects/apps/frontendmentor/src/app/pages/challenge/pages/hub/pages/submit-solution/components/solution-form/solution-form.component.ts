@@ -1,9 +1,14 @@
-import { createAction } from '@ngrx/store';
-import { Solution, CreateSolutionDTO } from '@lbk/fm/shared';
-import { Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Solution, SolutionDTO, Tag } from '@lbk/fm/shared';
 import * as MyValidator from '@lbk/validators';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { DialogService } from '@ngneat/dialog';
 import { AboutPrivateSolutionsComponent } from '../about-private-solution.component';
 
@@ -14,7 +19,13 @@ import { AboutPrivateSolutionsComponent } from '../about-private-solution.compon
 })
 export class SubmitFormComponent implements OnInit {
   @Input() solution: Solution | null | undefined;
-  @Output() createSolution = new EventEmitter<CreateSolutionDTO>();
+  @Input() tags!: Tag[];
+  @Input() submitingSolution!: boolean;
+  @Input() updatingSolution!: boolean;
+
+  @Output() createSolution = new EventEmitter<SolutionDTO>();
+  @Output() updateSolution = new EventEmitter<SolutionDTO>();
+  @Output() deleteSolution = new EventEmitter<string>();
 
   form!: FormGroup;
 
@@ -29,14 +40,19 @@ export class SubmitFormComponent implements OnInit {
   }
 
   private _initForm() {
-    const { repoURL, liveSiteURL, tags, isPrivate, questions, title } =
-      this.solution || {};
+    const { repoURL, liveSiteURL, tags, isPrivate, questions, title } = this
+      .solution || {
+      title: 'Fullstack Challenge what the fuck',
+      repoURL: 'https://countries-sveltekit-lbk2knewlifegithub.vercel.app/',
+      liveSiteURL: 'https://countries-sveltekit-lbk2knewlifegithub.vercel.app/',
+      questions: "What's your question?",
+    };
 
     this.form = this._fb.group({
       title: [title, [Validators.maxLength(70), Validators.required]],
       repoURL: [repoURL, [MyValidator.URL, Validators.required]],
       liveSiteURL: [liveSiteURL, [MyValidator.URL, Validators.required]],
-      tags: [tags],
+      tags: [tags || []],
       questions: [questions, [Validators.maxLength(500)]],
       isPrivate: [isPrivate],
     });
@@ -54,19 +70,27 @@ export class SubmitFormComponent implements OnInit {
   /**
    * - Submit Solution
    */
-  onSubmit() {
+  submitOrUpdate() {
     this.form.markAllAsTouched();
-
     if (this.form.invalid) {
       return this._ds.error('Form is invalid');
     }
 
-    if (!this.solution) return this.createSolution.emit(this.form.value);
-    return;
+    // Submit Solution
+    if (!this.solution) {
+      return this.createSolution.emit(this.form.value);
+    }
+
+    // Update Solution
+    return this.updateSolution.emit(this.form.value);
   }
 
-  /**
-   * - Delete Solution
-   */
-  deleteSolution() {}
+  deleteButtonClick() {
+    if (!this.solution) {
+      this.form.reset({});
+      return;
+    }
+
+    this.deleteSolution.emit(this.solution.id);
+  }
 }

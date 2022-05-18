@@ -3,17 +3,14 @@ package models
 import "time"
 
 type Issue struct {
-	ID        string  `json:"id"`
-	ReportID  string  `json:"reportID"`
-	IssueType string  `json:"type"`
-	Title     string  `json:"title"`
-	Content   string  `json:"content"`
-	Help      *string `json:"help"`
+	Title   string  `json:"title"`
+	Context string  `json:"context"`
+	Level   string  `json:"level"`
+	Help    *string `json:"help,omitempty"`
 }
 
 type Report struct {
-	ID            string    `json:"id"`
-	A11y          string    `json:"a11y"`
-	HtmlValidator string    `json:"htmlValidator"`
 	CreatedAt     time.Time `json:"createdAt"`
+	A11y          []Issue   `json:"a11y,omitempty"`
+	HtmlValidator []Issue   `json:"htmlValidator"`
 }

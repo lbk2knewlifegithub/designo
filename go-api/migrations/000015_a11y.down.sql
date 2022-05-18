@@ -1,0 +1,4 @@
+ALTER TABLE
+    IF EXISTS "a11y" DROP CONSTRAINT IF EXISTS "a11y_reports_report_id_fk";
+
+DROP TABLE IF EXISTS "a11y";

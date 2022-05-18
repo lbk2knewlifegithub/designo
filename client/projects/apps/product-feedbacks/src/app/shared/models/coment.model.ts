@@ -3,10 +3,7 @@ import { User } from '@lbk/models';
 /**
  * - User comment
  */
-export type UserComment = Pick<
-  User,
-  'user_id' | 'avatar' | 'firstname' | 'lastname' | 'username'
->;
+export type UserComment = Pick<User, 'id' | 'avatar' | 'name' | 'username'>;
 
 /**
  * - Comment

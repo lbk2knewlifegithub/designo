@@ -12,7 +12,6 @@ export interface Issue {
 }
 
 export interface Report {
-  report_id: number;
   a11y: Issue[];
   htmlValidator: Issue[];
   createdAt: string;

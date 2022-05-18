@@ -8,9 +8,13 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
 import * as fromChallenges from './challenges.reducer';
+import * as fromTags from './tags.reducer';
+import * as fromSolutions from './solutions.reducer';
 
 export interface State {
   [fromChallenges.challengesFeatureKey]: fromChallenges.State;
+  [fromTags.tagsFeatureKey]: fromTags.State;
+  [fromSolutions.solutionsFeaturekey]: fromSolutions.State;
   router: fromRouter.RouterReducerState<any>;
 }
 
@@ -19,6 +23,8 @@ export const ROOT_REDUCERS = new InjectionToken<
 >('Root reducers token', {
   factory: () => ({
     [fromChallenges.challengesFeatureKey]: fromChallenges.reducer,
+    [fromTags.tagsFeatureKey]: fromTags.reducer,
+    [fromSolutions.solutionsFeaturekey]: fromSolutions.reducer,
     router: fromRouter.routerReducer,
   }),
 });

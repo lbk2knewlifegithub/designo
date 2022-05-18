@@ -1,3 +1,4 @@
+import { AvatarPipeModule, ScreenshotPipeModule } from '@lbk/pipes';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -11,6 +12,9 @@ import { SolutionPreviewComponent } from './solution-preview.component';
   imports: [
     CommonModule,
     RouterModule,
+    // Shared Pipes from Libs
+    AvatarPipeModule,
+    ScreenshotPipeModule,
     // Shared Components from FrontendMentor
     LanguageListModule,
     DifficultyModule,

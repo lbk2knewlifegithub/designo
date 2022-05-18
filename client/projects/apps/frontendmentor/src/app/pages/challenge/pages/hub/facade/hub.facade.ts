@@ -1,11 +1,11 @@
-import { DialogService } from '@ngneat/dialog';
-import { ChallengesFacade } from '@lbk/fm/state';
-import { CreateSolutionDTO, Solution } from '@lbk/fm/shared';
-import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
-import { Observable, combineLatest, take } from 'rxjs';
-import { fromHub } from '../selectors';
+import { Solution, SolutionDTO } from '@lbk/fm/shared';
+import { ChallengesFacade } from '@lbk/fm/state';
+import { DialogService } from '@ngneat/dialog';
+import { Store } from '@ngrx/store';
+import { combineLatest, Observable, take } from 'rxjs';
 import { HubActions } from '../actions';
+import { fromHub } from '../selectors';
 
 /**
  * - Hub Facade
@@ -14,9 +14,6 @@ import { HubActions } from '../actions';
 export class HubFacade {
   loadingSolutions$: Observable<boolean> = this._store.select(
     fromHub.selectLoadingSolutions
-  );
-  creatingChallenge$: Observable<boolean> = this._store.select(
-    fromHub.selectCreatingSolution
   );
   loadedSolutions$: Observable<boolean> = this._store.select(
     fromHub.selectLoadedSolutions
@@ -60,7 +57,7 @@ export class HubFacade {
    * @param dto
    * @returns
    */
-  createSolution(dto: CreateSolutionDTO) {
+  createSolution(dto: SolutionDTO) {
     this._cf.selectedChallenge$.subscribe((challenge) => {
       const { id } = challenge || {};
       if (!id)
@@ -71,5 +68,27 @@ export class HubFacade {
       this._store.dispatch(HubActions.createSolution({ challengeID: id, dto }));
     });
     return;
+  }
+
+  /**
+   * - Update Solution
+   * @param dto
+   * @returns
+   */
+  updateSolution(dto: SolutionDTO) {
+    this._cf.selectedChallenge$.subscribe((challenge) => {
+      const { id } = challenge || {};
+      if (!id)
+        return console.error(
+          'HubFacade Update solution - No challenge selected'
+        );
+
+      this._store.dispatch(HubActions.updateSolution({ solutionID: id, dto }));
+    });
+    return;
+  }
+
+  deleteSolution(solutionID: string) {
+    this._store.dispatch(HubActions.deleteSolution({ id: solutionID }));
   }
 }

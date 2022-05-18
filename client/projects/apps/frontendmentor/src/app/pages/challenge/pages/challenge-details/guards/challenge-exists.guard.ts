@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { Observable, of, switchMap, tap } from 'rxjs';
-import { ChallengesFacade } from '../../../../../state';
+import { ChallengesFacade } from '@lbk/fm/state';
 
 @Injectable({ providedIn: 'root' })
 export class ChallengeExistsGuard implements CanActivate {

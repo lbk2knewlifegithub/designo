@@ -36,7 +36,7 @@ export const DIFFICULTIES = {
 /**
  * - Language
  */
-export type Language = 'html' | 'css' | 'js' | 'api' | 'general';
+export type Language = 'html' | 'css' | 'js' | 'api' | 'general' | string;
 
 /**
  * - Challenge Type

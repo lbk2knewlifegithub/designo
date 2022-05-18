@@ -6,7 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { environment as env } from '../../../environments/environment';
 import { SubHeaderModule } from '../../shared';
-import { TimeAgoModule } from './../../../../../../libs/pipes/src/lib/time-ago.pipe';
+import { TimeAgoPipeModule } from './../../../../../../libs/pipes/src/lib/time-ago.pipe';
 import { COMPONENTS } from './components';
 import { NotificationsPageComponent } from './containers';
 import { NotificationsEffects } from './effects';
@@ -31,7 +31,7 @@ import { NOTIFICATIONS_SERVICE } from './tokens';
     ScrollToModule,
 
     // Shared Pipes From Libs
-    TimeAgoModule,
+    TimeAgoPipeModule,
     SpinnerModule,
 
     // Shared Components From FrontendMentor

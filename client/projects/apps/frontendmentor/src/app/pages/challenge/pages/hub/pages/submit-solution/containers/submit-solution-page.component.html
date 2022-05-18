@@ -1,7 +1,12 @@
 <main class="mb-20 container">
   <lbk-solution-form
     (createSolution)="createSolution($event)"
+    (updateSolution)="updateSolution($event)"
+    (deleteSolution)="deleteSolution($event)"
     [solution]="solution$ | async"
+    [tags]="(tags$ | async)!"
+    [submitingSolution]="(submitingSolution$ | async)!"
+    [updatingSolution]="(updatingSolution$ | async)!"
     class="mt-10 block max-w-[798px] mx-auto md:mt-14"
   ></lbk-solution-form>
 

@@ -1,28 +1,38 @@
 package utils
 
 import (
-	"log"
+	"fmt"
 
-	"github.com/go-playground/validator/v10"
+	v10 "github.com/go-playground/validator/v10"
 	"github.com/google/uuid"
 )
 
-var validate = validator.New()
+type Validator struct {
+	validate *v10.Validate
+}
 
-func init() {
+func NewValidator() Validator {
+	validate := v10.New()
+
 	// Custom validation for uuid.UUID fields.
-	_ = validate.RegisterValidation("uuid", func(fl validator.FieldLevel) bool {
+	err := validate.RegisterValidation("uuid", func(fl v10.FieldLevel) bool {
 		field := fl.Field().String()
 		if _, err := uuid.Parse(field); err != nil {
 			return false // if there is an error, validation should return false
 		}
 		return true // if no error, validation should return true
 	})
+	if err != nil {
+		panic(fmt.Sprintln("failed to register uuid validation:", err))
+	}
+
+	return Validator{
+		validate: validate,
+	}
 }
 
-func Validate(s interface{}) *map[string]string {
-	if err := validate.Struct(s); err != nil {
-		log.Println(err)
+func (v *Validator) Validate(s interface{}) *map[string]string {
+	if err := v.validate.Struct(s); err != nil {
 		msg := validatorErrors(err)
 		return &msg
 	}
@@ -35,7 +45,7 @@ func validatorErrors(err error) map[string]string {
 	fields := map[string]string{}
 
 	// Make error message for each invalid field.
-	for _, err := range err.(validator.ValidationErrors) {
+	for _, err := range err.(v10.ValidationErrors) {
 		fields[err.Field()] = err.Error()
 	}
 

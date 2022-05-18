@@ -1,6 +1,6 @@
 <form
   [formGroup]="form"
-  (ngSubmit)="onSubmit()"
+  (ngSubmit)="submitOrUpdate()"
   class="bg-white border p-6 rounded-xl grid gap-3 md:gap-6"
 >
   <!-- Title -->
@@ -16,7 +16,7 @@
   <!-- end Live site URL -->
 
   <!-- Tags Input-->
-  <lbk-tags-input [parent]="form"></lbk-tags-input>
+  <lbk-tags-input [tags]="tags" [parent]="form"></lbk-tags-input>
   <!-- end Tags Input-->
 
   <!-- Questions Input-->
@@ -33,7 +33,7 @@
   <div class="mt-2 flex justify-between items-center md:mt-3">
     <!-- Delete solution -->
     <button
-      (click)="deleteSolution()"
+      (click)="deleteButtonClick()"
       class="border-b-2 border-error text-xs md:text-sm"
       type="button"
     >
@@ -42,9 +42,22 @@
     <!-- end Delete solution -->
 
     <!-- Submit -->
-    <button class="btn btn-error font-bold italic px-8">
-      SUBMIT SOLUTION
-    </button>
+    <lbk-spinner
+      [radius]="40"
+      [loading]="submitingSolution || updatingSolution"
+    >
+      <button
+        (click)="submitOrUpdate()"
+        class="btn btn-error font-bold italic px-8"
+      >
+        <ng-container *ngIf="!!solution; else submitSolution">
+          UPDATE SOLUTION
+        </ng-container>
+        <ng-template #submitSolution>
+          SUBMIT SOLUTION
+        </ng-template>
+      </button>
+    </lbk-spinner>
     <!-- end Submit -->
   </div>
 </form>

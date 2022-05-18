@@ -1,17 +1,28 @@
+import { SolutionDTO } from '@lbk/fm/shared';
 import { createAction, props } from '@ngrx/store';
-import { CreateSolutionDTO } from '@lbk/fm/shared';
 
 /**
  * - Update Solution
  */
-export const updateSolution = createAction('[Hub] Update Solution');
+export const updateSolution = createAction(
+  '[Hub] Update Solution',
+  props<{ solutionID: string; dto: SolutionDTO }>()
+);
+
+/**
+ * - Delete Solution
+ */
+export const deleteSolution = createAction(
+  '[Hub] Delete Solution',
+  props<{ id: string }>()
+);
 
 /**
  * - Create Solution
  */
 export const createSolution = createAction(
   '[Hub] Create Solution',
-  props<{ challengeID: string; dto: CreateSolutionDTO }>()
+  props<{ challengeID: string; dto: SolutionDTO }>()
 );
 
 /**

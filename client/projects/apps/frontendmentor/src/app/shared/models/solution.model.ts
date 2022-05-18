@@ -1,25 +1,37 @@
+import { Difficulty } from './challenge.model';
 import { UserMinimal } from '@lbk/models';
 
+export interface SolutionReport {
+  a11y: number;
+  htmlValidator: number;
+}
 /**
  * - Solution
  */
 export interface Solution {
   id: string;
+  challengeID: string;
+
   title: string;
   repoURL: string;
   liveSiteURL: string;
   screenshot: string;
   tags: string[];
   questions: string;
+  languages: string[];
   createdAt: string;
-  likes: number;
-  comments: number;
-  bookmarks: number;
+  difficulty: Difficulty;
   user: UserMinimal;
   isPrivate?: boolean;
-  isBookmarked?: boolean;
+  likes: number;
   isLiked?: boolean;
+
+  bookmarks: number;
+  isBookmarked?: boolean;
+
+  comments: number;
   isCommented?: boolean;
+  report: SolutionReport;
 }
 
 /**

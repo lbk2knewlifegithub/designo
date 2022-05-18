@@ -8,4 +8,5 @@ export * from './pixel.pipe';
 export * from './slug.pipe';
 export * from './time-ago.pipe';
 export * from './upper.pipe';
+export * from './screenshot.pipe';
 export * from './white-space.pipe';

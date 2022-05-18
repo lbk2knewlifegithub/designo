@@ -1,4 +1,4 @@
-import { Solution, CreateSolutionDTO } from '@lbk/fm/shared';
+import { Solution, SolutionDTO, SolutionPreviewModule } from '@lbk/fm/shared';
 import { createAction, props } from '@ngrx/store';
 
 /**
@@ -22,7 +22,7 @@ export const loadSolutionsForChallangeFailure = createAction(
  */
 export const updateSolutionSuccess = createAction(
   '[Hub/API] Update Solution Success',
-  props<{ solution: Solution }>()
+  props<{ id: string; screenshot: string; dto: SolutionDTO }>()
 );
 
 /**
@@ -38,7 +38,7 @@ export const updateSolutionFailure = createAction(
  */
 export const createSolutionSuccess = createAction(
   '[Hub/API] Create Solution Success',
-  props<{ id: string; dto: CreateSolutionDTO }>()
+  props<{ solution: Solution }>()
 );
 
 /**
@@ -46,5 +46,21 @@ export const createSolutionSuccess = createAction(
  */
 export const createSolutionFailure = createAction(
   '[Hub/API] Create Solution Failure',
+  props<{ error: string }>()
+);
+
+/**
+ * - Delete Solution Success
+ */
+export const deleteSolutionSuccess = createAction(
+  '[Hub/API] Delete Solution Success',
+  props<{ id: string }>()
+);
+
+/**
+ * - Delete Solution Failure
+ */
+export const deleteSolutionFailure = createAction(
+  '[Hub/API] Delete Solution Failure',
   props<{ error: string }>()
 );

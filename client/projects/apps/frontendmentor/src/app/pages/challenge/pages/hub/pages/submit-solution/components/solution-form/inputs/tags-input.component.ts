@@ -5,6 +5,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Tag } from '@lbk/fm/shared';
 
 @Component({
   selector: 'lbk-tags-input',
@@ -26,8 +27,8 @@ import { FormGroup } from '@angular/forms';
           placeholder="Please select ..."
           formControlName="tags"
         >
-          <ng-option *ngFor="let tag of tags" [value]="tag">
-            {{ tag }}
+          <ng-option *ngFor="let tag of tags" [value]="tag.id">
+            {{ tag.name }}
           </ng-option>
         </ng-select>
       </label>
@@ -45,7 +46,6 @@ import { FormGroup } from '@angular/forms';
 })
 export class TagsComponent {
   @Input() parent!: FormGroup;
+  @Input() tags!: Tag[];
   selectedCar?: number;
-
-  tags = ['angular', 'vue', 'react', 'svelte'];
 }
