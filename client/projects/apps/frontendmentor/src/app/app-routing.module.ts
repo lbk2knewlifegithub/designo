@@ -140,6 +140,7 @@ const routes: Routes = [
       preloadingStrategy: PreloadAllModules,
       relativeLinkResolution: 'legacy',
       scrollPositionRestoration: 'top',
+      useHash: true,
     }),
   ],
   exports: [RouterModule],
