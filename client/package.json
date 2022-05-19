@@ -12,7 +12,7 @@
     "product-feedbacks:stage": "ng build @apps/product-feedbacks --configuration=staging",
     "product-feedbacks:sourceMap": "ng build @app/product-feedbacks --sourceMap",
     "portfolio:dev": "ng serve @apps/portfolio -- --port=4201 --proxy-config proxy.conf.json",
-    "portfolio:build": "ng build @apps/portfolio --base-href='https://lbk2knewlifegithub.github.io/lbk/'",
+    "portfolio:build": "ng build @apps/portfolio --base-href='https://lebinhkhang.com'",
     "portfolio:sourceMap": "ng build @apps/portfolio --sourceMap",
     "audiophile:dev": "ng serve @apps/audiophile -- --port=4202 --proxy-config proxy.conf.json",
     "audiophile:build": "ng build @apps/audiophile",
