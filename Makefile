@@ -126,8 +126,8 @@ forward-ysql-prod:
 	kubectl port-forward -n db-lbk2knewlifegithub svc/yb-tserver-service 5435:5433
 
 # Build Portfolio
-portfolio:
-	cd client && pnpm run portfolio:build 
+portfolio-cloudflare:
+	cd client && pnpm i &&  pnpm run portfolio:build 
 
 # Redis PRODUCTION
 upgrade-redis-prod:
