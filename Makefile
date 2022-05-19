@@ -125,7 +125,9 @@ forward-ysql-prod:
 	echo "Forwarding YugabyteDb PRODUCTION to port 5435"
 	kubectl port-forward -n db-lbk2knewlifegithub svc/yb-tserver-service 5435:5433
 
-
+# Build Portfolio
+portfolio:
+	cd client && pnpm run portfolio:build 
 
 # Redis PRODUCTION
 upgrade-redis-prod:

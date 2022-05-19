@@ -18,11 +18,9 @@ func (s *Server) takeScreenshot(ctx *fiber.Ctx) error {
 	if err != nil {
 		return ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": err})
 	}
-
 	if err := s.validator.Validate(screenshotDTO); err != nil {
 		return ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": err})
 	}
-
 	user := ctx.Locals("user").(*token_maker.Payload)
 	// Get Old Screenshot
 	screenshot, err := s.store.GetSolutionScreenshot(context.Background(), db.GetSolutionScreenshotParams{
@@ -41,7 +39,7 @@ func (s *Server) takeScreenshot(ctx *fiber.Ctx) error {
 	}
 
 	// Take Screenshot
-	newScreenshot := s.config.Upload.CreateSaveScreenshotPath()
+	newScreenshot := s.uploadConfig.Upload.CreateSaveScreenshotPath()
 	err = s.image.TakeScreenshot(newScreenshot, &screenshotDTO.URL)
 	if err != nil {
 		return ctx.Status(fiber.StatusBadRequest).JSON(fiber.Map{

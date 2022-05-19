@@ -28,11 +28,11 @@ func TestUploadConfig_NewConfigFromEnv_ShouldReturnUploadConfig(t *testing.T) {
 	require.NotEmpty(t, uploadConfig.StoragePath)
 
 	// Should create public folder
-	_, err = os.Stat(*uploadConfig.publicPath())
+	_, err = os.Stat(*uploadConfig.PublicPath())
 	require.NoError(t, err)
 
 	// Should create private folder
-	_, err = os.Stat(*uploadConfig.privatePath())
+	_, err = os.Stat(*uploadConfig.PrivatePath())
 	require.NoError(t, err)
 }
 
@@ -44,24 +44,24 @@ func TestUploadConfig_NewConfigFromEnv_ShouldReturnErrorWhenStoragePathEndWithSp
 
 func TestUploadConfig_publicPath(t *testing.T) {
 	u := newUploadConfigTest()
-	require.Equal(t, "/tmp/upload/public", *u.publicPath())
+	require.Equal(t, "/tmp/upload/public", *u.PublicPath())
 }
 
 func TestUploadConfig_privatePath(t *testing.T) {
 	u := newUploadConfigTest()
-	require.Equal(t, "/tmp/upload/private", *u.privatePath())
+	require.Equal(t, "/tmp/upload/private", *u.PrivatePath())
 }
 
 func TestUploadConfig_GetPublicPath(t *testing.T) {
 	u := newUploadConfigTest()
 	randomID := uuid.New().String()
-	require.Equal(t, fmt.Sprintf("%v/%v", *u.publicPath(), randomID), *u.GetPublicPath(&randomID))
+	require.Equal(t, fmt.Sprintf("%v/%v", *u.PublicPath(), randomID), *u.GetPublicPath(&randomID))
 }
 
 func TestUploadConfig_GetPrivatePath(t *testing.T) {
 	u := newUploadConfigTest()
 	randomID := uuid.New().String()
-	require.Equal(t, fmt.Sprintf("%v/%v", *u.privatePath(), randomID), *u.GetPrivatePath(&randomID))
+	require.Equal(t, fmt.Sprintf("%v/%v", *u.PrivatePath(), randomID), *u.GetPrivatePath(&randomID))
 }
 
 func TestUploadConfig_CreatePublicPath(t *testing.T) {
@@ -69,7 +69,7 @@ func TestUploadConfig_CreatePublicPath(t *testing.T) {
 	path := u.CreatePublicPath()
 
 	require.NotEmpty(t, path)
-	require.True(t, strings.HasPrefix(*path, *u.publicPath()))
+	require.True(t, strings.HasPrefix(*path, *u.PublicPath()))
 
 	lastSplash := strings.LastIndex(*path, "/")
 	_, err := uuid.Parse((*path)[lastSplash+1:])
@@ -81,7 +81,7 @@ func TestUploadConfig_CreatePrivatePath(t *testing.T) {
 	path := u.CreatePrivatePath()
 
 	require.NotEmpty(t, path)
-	require.True(t, strings.HasPrefix(*path, *u.privatePath()))
+	require.True(t, strings.HasPrefix(*path, *u.PrivatePath()))
 
 	lastSplash := strings.LastIndex(*path, "/")
 	_, err := uuid.Parse((*path)[lastSplash+1:])

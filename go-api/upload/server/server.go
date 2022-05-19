@@ -1,6 +1,9 @@
 package server
 
 import (
+	"github.com/goccy/go-json"
+	"github.com/gofiber/fiber/v2"
+	"go.uber.org/zap"
 	"log"
 	cache "shared/cache"
 	config "shared/config"
@@ -8,9 +11,6 @@ import (
 	token "shared/token_maker"
 	utils "shared/utils"
 	db "upload/db/sqlc"
-
-	"github.com/goccy/go-json"
-	"github.com/gofiber/fiber/v2"
 )
 
 // Server serves HTTP requests for our banking service.
@@ -21,6 +21,7 @@ type Server struct {
 	cache        cache.Cache
 	uploadConfig config.UploadConfig
 	validator    utils.Validator
+	logger       *zap.Logger
 }
 
 // NewServer creates a new HTTP server and set up routing.
@@ -30,11 +31,16 @@ func NewServer(
 	store db.Store,
 	cache cache.Cache,
 ) (server *Server) {
+	logger, err := zap.NewDevelopment()
+	if err != nil {
+		log.Fatal("Init Zap Error: ", err)
+	}
 	server = &Server{
 		tokenMaker: tokenMaker,
 		validator:  utils.NewValidator(),
 		store:      store,
 		cache:      cache,
+		logger:     logger,
 	}
 
 	server.setupRouter()
@@ -51,8 +57,8 @@ func (s *Server) setupRouter() {
 	)
 	// Register Handler
 	static := router.Group("/static")
-	static.Static("/public", *s.config.Upload.PublicPath())
-	static.Static("/private", *s.config.Upload.PrivatePath())
+	static.Static("/public", *s.uploadConfig.PublicPath())
+	static.Static("/private", *s.uploadConfig.PrivatePath())
 
 	// Screenshot route
 	router.Post("/screenshot", middleware.AuthMiddleware(s.tokenMaker), s.takeScreenshot)
@@ -63,5 +69,5 @@ func (s *Server) setupRouter() {
 
 // Start runs the HTTP server on a specific address.
 func (s *Server) Start() {
-	log.Fatal(s.router.Listen(s.config.Upload.Address))
+	log.Fatal(s.router.Listen(s.uploadConfig.Address))
 }

@@ -3,12 +3,11 @@ package server
 import (
 	"context"
 	"database/sql"
-	"fmt"
+	"go.uber.org/zap"
 	"log"
 	"os"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/google/uuid"
 	"shared/token_maker"
 	db "upload/db/sqlc"
 )
@@ -31,34 +30,34 @@ func (s *Server) uploadAvatar(ctx *fiber.Ctx) error {
 		})
 	}
 
+	file, err := avatar.Open()
+	if err != nil {
+		s.logger.Debug("Open Avatar As file Error:", zap.Error(err))
+		return ctx.SendStatus(fiber.StatusInternalServerError)
+	}
 	user := ctx.Locals("user").(*token_maker.Payload)
 
 	// Get Old Avatar
 	oldAvatar, err := s.store.GetUserAvatar(context.Background(), user.ID)
 	if err != nil {
-		return ctx.SendStatus(fiber.StatusInternalServerError)
-	}
+		if err != sql.ErrNoRows {
 
-	// Create new AvatarID
-	newAvatar := fmt.Sprintf("%v.jpeg", uuid.New().String())
-	tmpPath := fmt.Sprintf("/tmp/%v%v", newAvatar, avatar.Filename)
+		}
 
-	// Save file to /tmp
-	err = ctx.SaveFile(avatar, tmpPath)
-	if err != nil {
-		log.Println("Save file Error:", err)
+		s.logger.Debug("Get Old Avatar Error:", zap.Error(err))
 		return ctx.SendStatus(fiber.StatusInternalServerError)
 	}
 
 	// Resize avatar and Delete tmp avatar
-	if err := s.image.ResizeAvatarAndCleanUp(&tmpPath, &newAvatar, oldAvatar); err != nil {
+	newAvatar := s.uploadConfig.CreatePublicItem()
+	if err := s.ResizeAndSave(file, s.uploadConfig.Avatar, &newAvatar.AbsolutePath); err != nil {
 		return ctx.SendStatus(fiber.StatusInternalServerError)
 	}
 
 	// Update User Avatar in database
 	err = s.store.UpdateUserAvatar(context.Background(), db.UpdateUserAvatarParams{
 		Avatar: sql.NullString{
-			String: newAvatar,
+			String: newAvatar.ID.String(),
 			Valid:  true,
 		},
 		UserID: user.ID,
@@ -68,7 +67,7 @@ func (s *Server) uploadAvatar(ctx *fiber.Ctx) error {
 	}
 
 	return ctx.Status(fiber.StatusCreated).JSON(fiber.Map{
-		"avatar": newAvatar,
+		"avatar": newAvatar.ID,
 	})
 }
 

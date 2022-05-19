@@ -4,11 +4,27 @@ import (
 	"fmt"
 	"github.com/google/uuid"
 	"os"
+	"shared/models"
 )
 
 type UploadConfig struct {
 	Address     string
 	StoragePath string
+	Avatar      models.Rect
+	Screenshot  models.Rect
+}
+
+type UploadItem struct {
+	ID           uuid.UUID
+	AbsolutePath string
+}
+
+func NewUploadItem(folderPath *string) *UploadItem {
+	id := uuid.New()
+	return &UploadItem{
+		ID:           id,
+		AbsolutePath: fmt.Sprintf("%v/%v", *folderPath, id.String()),
+	}
 }
 
 func NewUploadConfigFromEnv() (*UploadConfig, error) {
@@ -25,13 +41,13 @@ func NewUploadConfigFromEnv() (*UploadConfig, error) {
 	}
 
 	// Create Screenshot folder
-	err := os.MkdirAll(*u.publicPath(), 0777)
+	err := os.MkdirAll(*u.PublicPath(), 0777)
 	if err != nil {
 		return nil, fmt.Errorf("cannot create avatar folder")
 	}
 
 	// Create Screenshot folder
-	err = os.MkdirAll(*u.privatePath(), 0777)
+	err = os.MkdirAll(*u.PrivatePath(), 0777)
 	if err != nil {
 		return nil, fmt.Errorf("cannot create private folder")
 	}
@@ -39,32 +55,20 @@ func NewUploadConfigFromEnv() (*UploadConfig, error) {
 	return u, nil
 }
 
-func (u *UploadConfig) publicPath() *string {
+func (u *UploadConfig) PublicPath() *string {
 	result := u.StoragePath + "/public"
 	return &result
 }
 
-func (u *UploadConfig) privatePath() *string {
+func (u *UploadConfig) PrivatePath() *string {
 	result := u.StoragePath + "/private"
 	return &result
 }
 
-func (u *UploadConfig) CreatePublicPath() *string {
-	result := fmt.Sprintf("%v/%v", *u.publicPath(), uuid.New().String())
-	return &result
+func (u *UploadConfig) CreatePublicItem() *UploadItem {
+	return NewUploadItem(u.PublicPath())
 }
 
-func (u *UploadConfig) CreatePrivatePath() *string {
-	result := fmt.Sprintf("%v/%v", *u.privatePath(), uuid.New().String())
-	return &result
-}
-
-func (u *UploadConfig) GetPublicPath(id *string) *string {
-	result := fmt.Sprintf("%v/%v", *u.publicPath(), *id)
-	return &result
-}
-
-func (u *UploadConfig) GetPrivatePath(id *string) *string {
-	result := fmt.Sprintf("%v/%v", *u.privatePath(), *id)
-	return &result
+func (u *UploadConfig) CreatePrivateItem() *UploadItem {
+	return NewUploadItem(u.PrivatePath())
 }
