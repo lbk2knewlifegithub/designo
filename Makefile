@@ -125,9 +125,6 @@ forward-ysql-prod:
 	echo "Forwarding YugabyteDb PRODUCTION to port 5435"
 	kubectl port-forward -n db-lbk2knewlifegithub svc/yb-tserver-service 5435:5433
 
-# Build Portfolio
-portfolio-cloudflare:
-	cd client && pnpm i &&  pnpm run portfolio:build 
 
 # Redis PRODUCTION
 upgrade-redis-prod:
@@ -140,3 +137,10 @@ forward-redis-prod:
 	echo "Forwarding REDIS PRODUCTION to port 6381"
 	kubectl port-forward --namespace banana-lbk2knewlifegithub svc/redis-master 6381:6379
 
+# Build Portfolio
+portfolio-cloudflare:
+	cd client && pnpm i &&  pnpm run portfolio:build 
+
+# Build Designo
+designo-cloudflare:
+	cd client && pnpm i &&  pnpm run designo:build 

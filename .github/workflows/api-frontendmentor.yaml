@@ -1,27 +1,27 @@
 # WORKFLOW PRODUCTION
-on:
-  push:
-    branches:
-      - frontendmentor
-  pull_request:
-    branches:
-      - frontendmentor
-name: api-frontendmentor
+# on:
+#   push:
+#     branches:
+#       - frontendmentor
+#   pull_request:
+#     branches:
+#       - frontendmentor
+# name: api-frontendmentor
 
-jobs:
-  api-frontendmentor:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@master
+# jobs:
+#   api-frontendmentor:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: checkout
+#         uses: actions/checkout@master
 
-      - name: context
-        uses: okteto/context@latest
-        with:
-          token: ${{ secrets.OKTETO_TOKEN }}
+#       - name: context
+#         uses: okteto/context@latest
+#         with:
+#           token: ${{ secrets.OKTETO_TOKEN }}
 
-      - name: "Trigger the pipeline"
-        uses: okteto/pipeline@latest
-        with:
-          name: api-frontendmentor
-          filename: .okteto/api-frontendmentor.yaml
+#       - name: "Trigger the pipeline"
+#         uses: okteto/pipeline@latest
+#         with:
+#           name: api-frontendmentor
+#           filename: .okteto/api-frontendmentor.yaml
